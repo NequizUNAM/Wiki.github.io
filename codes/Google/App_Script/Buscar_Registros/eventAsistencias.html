@@ -1,0 +1,179 @@
+<!-- template Login para acceso -->
+<template id="tpl_asistencia_alumnos">
+  <div class="container mt-2">
+    <div class="border-bottom" id="divHeaderAsistencia">
+      <div class="container d-flex flex-wrap justify-content-center">
+        <form class="col-12 col-lg-auto mb-lg-0 me-lg-3" role="search">
+          <input type="password" class="form-control form-control " id="input_login" placeholder="Contraseña" aria-label="input_login" spellcheck="false">
+        </form>
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-primary  me-2" id="fnLogin" onclick="fnValidarUsuarioPaseAsistencia()">Ingresar</button>
+        </div>
+      </div>
+    </div> <!-- end  divHeaderAsistencia -->
+    <div class="row d-flex justify-content-center mb-3" id="divTableAsistencias">
+        <div class="table-responsive">
+          <table class="table table-dark table-hover" id="tbl_datos" style="table-layout: auto;">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cuenta</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="asistenciasTableBody">
+              <!-- aqui se insertan filas -->
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div><!-- .container -->
+</template>
+
+<!-- Template header para tabla asistencias -->
+<template id="templateHeaderAsistencias">
+  <div class="card my-3">
+    <div class="card-body">
+        <div class="row">
+        <div class="col">
+            <div class="mb-3">
+            <label for="horario_clase" class="form-label">Horario</label>
+            <input type="time" class="form-control border border-dark" id="horario_clase" value="09:00"  min="09:00" max="14:00" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="codigo_clase" class="form-label">Código</label>
+            <input type="text" class="form-control border border-dark" id="codigo_clase" placeholder="" maxlength="5" value="12345" required>
+          </div>
+        </div>
+      </div><!-- row -->
+    </div><!-- end card -->
+  </div>
+</template>
+
+<!-- ======== -->
+<!-- JS -->
+<!-- ======== -->
+<script>
+/**
+* Funciones Validar acceso
+*/
+function fnValidarUsuarioPaseAsistencia() {
+  var contrasena = document.getElementById("input_login").value;
+
+  if (!contrasena) {
+    alert("Por favor, ingresa una contraseña.");
+    return;
+  }
+
+  var divTableAsistencias = document.querySelector("#asistenciasTableBody");
+  var template_loader = document.querySelector("#loadingTemplateData").content.cloneNode(true);
+  divTableAsistencias.innerHTML = '';
+  divTableAsistencias.appendChild(template_loader);
+
+  // Llamada al servidor para verificar la contraseña
+  google.script.run
+    .withSuccessHandler((response) => {
+      if (response.valid) {
+        // Si el usuario es válido, se realiza la búsqueda de registros
+        fnBuscarListaAlumnos();
+      } else {
+        // Si la contraseña es incorrecta
+        alert("Contraseña incorrecta. Intenta de nuevo.");
+        divTableAsistencias.innerHTML = '';
+      }
+    })
+    .withFailureHandler((error) => {
+      console.error("Error en la validación de usuario:", error);
+      alert("Ocurrió un error. Inténtalo de nuevo.");
+    })
+    .gsVerificarUsuario(contrasena);
+}
+
+/**
+ * 
+*/
+function fnBuscarListaAlumnos() {
+  // se limpia el nodo
+  var divHeaderAsistencia = document.querySelector("#divHeaderAsistencia");
+  divHeaderAsistencia.innerHTML = '';
+  var template = document.querySelector("#templateHeaderAsistencias").content.cloneNode(true);
+  divHeaderAsistencia.appendChild(template);
+
+  // Llamada al servidor
+  google.script.run
+    .withSuccessHandler((info) => {
+      var tableBody = document.getElementById("asistenciasTableBody");
+      tableBody.innerHTML = ""; // Limpiar la tabla antes de insertar nuevos datos
+
+      if (info && info.length > 0) {
+        info.forEach((fila) => {
+          var nuevaFila = `
+            <tr>
+              <td>${fila[0]}</td>
+              <td>${fila[1]}</td>
+              <td>${fila[2]}</td>
+              <td>
+                <button class="btn btn-success" onclick="fnGuardarAsistencia(event)" data-cuenta="${fila[2]}" data-tipoasistencia='Entrada'>
+                  Registro [E]
+                </button>
+              </td>
+            </tr>`;
+          tableBody.innerHTML += nuevaFila;
+        });
+      } else {
+        alert("No se encontraron registros para el número de cuenta ingresado.");
+      }
+    })
+    .withFailureHandler((error) => {
+      console.error("Error en la llamada al servidor:", error);
+      alert("Ocurrió un error al buscar los registros.");
+    })
+    .gsObtenerListaAlumnos(); // Llamada a la función en el servidor
+}
+
+/**
+ * Registrar asistencia al hacer clic en un botón.
+*/
+function fnGuardarAsistencia(event) {
+  const boton = event.target;
+  const codigoClase = document.getElementById("codigo_clase").value.toUpperCase();
+  const horarioClase = document.getElementById("horario_clase").value.toUpperCase();
+
+  if (!codigoClase) {
+    alert("El campo de código de clase no puede estar vacío.");
+    return;
+  }
+
+  // Deshabilitar el botón y cambiar su estilo temporalmente
+  boton.disabled = true;
+  boton.classList.remove("btn-success");
+  boton.classList.add("btn-secondary");
+  boton.textContent = "Procesando...";
+
+  // Obtener datos adicionales desde los atributos del botón
+  const cuenta = boton.dataset.cuenta;
+  const tipo = boton.dataset.tipoasistencia;
+
+  // Llamar al servidor para registrar asistencia
+  google.script.run
+    .withSuccessHandler(() => {
+      boton.classList.remove("btn-secondary");
+      boton.classList.add("btn-success");
+      boton.textContent = "Completado";
+    })
+    .withFailureHandler((error) => {
+      boton.classList.remove("btn-secondary");
+      boton.classList.add("btn-danger");
+      boton.textContent = "Error";
+      boton.disabled = false; // Rehabilitar el botón
+
+      console.error("Error al registrar la asistencia:", error);
+      alert("Ocurrió un error: " + error.message);
+    })
+    .gsGuardarAsistencia(cuenta, tipo, codigoClase, horarioClase);
+}
+
+</script>

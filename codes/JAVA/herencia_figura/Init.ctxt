@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Init
+comment1.params=longitud\ ancho
+comment1.target=Rectangulo(double,\ double)
+comment2.params=
+comment2.target=double\ calcularArea()
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4

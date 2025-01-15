@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/ -->
+<html lang="en" prefix="og: https://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style>
+
+<title>How to log data in JSON in Laravel | Better Stack Community</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<link href="https://cdnjs.betterstack.com/" rel="preconnect">
+<link href="https://cdnjs.betterstack.com/" rel="dns-prefetch">
+<link href="https://www.googletagmanager.com/" rel="preconnect">
+<link href="https://www.googletagmanager.com/" rel="dns-prefetch">
+<link href="https://plausible.io/" rel="preconnect">
+<link href="https://plausible.io/" rel="dns-prefetch">
+<link href="https://assets.calendly.com/" rel="preconnect">
+<link href="https://assets.calendly.com/" rel="dns-prefetch">
+<link href="https://forms.hsforms.com/" rel="preconnect">
+<link href="https://forms.hsforms.com/" rel="dns-prefetch">
+<link href="https://js.hsforms.net/" rel="preconnect">
+<link href="https://js.hsforms.net/" rel="dns-prefetch">
+<link href="https://connect.facebook.net/" rel="preconnect">
+<link href="https://connect.facebook.net/" rel="dns-prefetch">
+<link href="https://static.ads-twitter.com/" rel="preconnect">
+<link href="https://static.ads-twitter.com/" rel="dns-prefetch">
+<link href="https://bat.bing.com/" rel="preconnect">
+<link href="https://bat.bing.com/" rel="dns-prefetch">
+<link href="https://snap.licdn.com/" rel="preconnect">
+<link href="https://snap.licdn.com/" rel="dns-prefetch">
+<link href="https://googleads.g.doubleclick.net/" rel="preconnect">
+<link href="https://googleads.g.doubleclick.net/" rel="dns-prefetch">
+<link href="https://analytics.twitter.com/" rel="preconnect">
+<link href="https://analytics.twitter.com/" rel="dns-prefetch">
+<link href="https://betterstack.com/assets/favicon-ad4a170f31b6075c4d7ea5e23ce36677b3412bdd2fabc48d1b688bc535c8821c.png" rel="shortcut icon">
+<meta content="Better Stack lets you see inside any stack, debug any issue, and resolve any incident." name="description">
+<meta content="website" property="og:type">
+<meta content="How to log data in JSON in Laravel | Better Stack Community" property="og:title">
+<meta content="Better Stack lets you see inside any stack, debug any issue, and resolve any incident." property="og:description">
+<meta content="https://betterstack.com/og-image/how-to-log-data-in-json-in-laravel.png" property="og:image">
+<meta content="summary_large_image" property="twitter:card">
+<meta content="betterstackhq" property="twitter:site">
+<meta content="How to log data in JSON in Laravel | Better Stack Community" property="twitter:title">
+<meta content="Better Stack lets you see inside any stack, debug any issue, and resolve any incident." property="twitter:description">
+<meta content="https://betterstack.com/og-image/how-to-log-data-in-json-in-laravel.png" property="twitter:image">
+<meta content="no-cache" name="turbo-cache-control">
+<link href="https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/" rel="canonical">
+<meta content="https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/" property="og:url">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="iHcs7BaPwBmH0pcf-8CvP7iAeZvwVH0JQOaDVN50Si4Y_4B2VEDE_dAQ7SO_dqabmrgYCyeMpegSZbND0fvalw">
+
+
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Regular.woff2" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Regular.woff" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Medium.woff2" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Medium.woff" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-SemiBold.woff2" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-SemiBold.woff" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Bold.woff2" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Bold.woff" rel="preload">
+<style>
+  @font-face {
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+      url("/static/fonts/Roobert/Roobert-Regular.woff2") format("woff2"),
+      url("/static/fonts/Roobert/Roobert-Regular.woff") format("woff");
+  }
+  @font-face {
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src:
+      url("/static/fonts/Roobert/Roobert-Medium.woff2") format("woff2"),
+      url("/static/fonts/Roobert/Roobert-Medium.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src:
+      url("/static/fonts/Roobert/Roobert-SemiBold.woff2") format("woff2"),
+      url("/static/fonts/Roobert/Roobert-SemiBold.woff") format("woff");
+  }
+  @font-face {
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src:
+      url("/static/fonts/Roobert/Roobert-Bold.woff2") format("woff2"),
+      url("/static/fonts/Roobert/Roobert-Bold.woff") format("woff");
+  }
+</style>
+
+<link rel="preload" href="https://betterstack.com/static/fonts/Helvetica/HelveticaNowText-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://betterstack.com/static/fonts/Helvetica/HelveticaNowText-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://betterstack.com/static/fonts/Helvetica/HelveticaNowDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<style>
+  @font-face {
+    font-family: 'Helvetica Now Text';
+    src: local('Helvetica Now Text  Regular'),
+         local('HelveticaNowText-Regular'),
+         url('/static/fonts/Helvetica/HelveticaNowText-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Helvetica Now Text';
+    src: local('Helvetica Now Text  Medium'),
+      local('HelveticaNowText-Medium'),
+      url('/static/fonts/Helvetica/HelveticaNowText-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: local('Helvetica Now Display Bold'),
+      local('HelveticaNowDisplay-Bold'),
+      url('/static/fonts/Helvetica/HelveticaNowDisplay-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
+
+<script type="text/javascript" async="" src="./Cómo registrar datos en JSON en Laravel_files/js"></script><script type="text/javascript" async="" src="./Cómo registrar datos en JSON en Laravel_files/insight.min.js.descarga"></script><script src="./Cómo registrar datos en JSON en Laravel_files/bat.js.descarga" async=""></script><script async="" src="./Cómo registrar datos en JSON en Laravel_files/uwt.js.descarga"></script><script async="" src="./Cómo registrar datos en JSON en Laravel_files/fbevents.js.descarga"></script><script defer="" src="./Cómo registrar datos en JSON en Laravel_files/js(1)"></script>
+<script defer="">
+window.dataLayer = window.dataLayer || [];
+function gtag(){window.dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-9FLKD0MQYY', { linker: { domains: ["betterstack.com","betteruptime.com","uptime.betterstack.com","logtail.com","logs.betterstack.com"] }});
+gtag('config', 'AW-10805602682', { linker: { domains: ["betterstack.com","betteruptime.com","uptime.betterstack.com","logtail.com","logs.betterstack.com"] }});
+</script>
+<script defer="">
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1062799887416376');
+</script>
+<script defer="">
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+twq('config','o7hjd');
+</script>
+<script data-domain="betterstack.com" defer="" src="./Cómo registrar datos en JSON en Laravel_files/plausible.js.descarga"></script>
+<script defer="">
+(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"17516957"};
+o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,
+n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),
+n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})
+(window,document,"script","//bat.bing.com/bat.js","uetq");
+</script>
+<script defer="">
+_linkedin_partner_id = "3533474";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+(function(l) {if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<script defer="">
+document.addEventListener('turbo:load', function(event) {
+  if (typeof gtag === 'function') {
+    gtag('set', 'page_path', location.pathname);
+    fbq('track', 'PageView');
+    twq('track','PageView');
+    uetq.push('event', 'page_view', { 'page_path': location.pathname });
+    return gtag('event', 'page_view');
+  }
+});
+
+// remove noscript elements which break DOMParser
+document.addEventListener('turbo:before-render', function (event) {
+  event.detail.newBody.querySelectorAll('noscript').forEach((e) => e.remove());
+});
+</script>
+<script defer="">
+document.addEventListener('turbo:load', function() {
+  typeof ahoy !== 'undefined' && ahoy.track('GET request', {
+    url: window.location.href,
+    action: document.body.getAttribute('data-action'),
+    controller: document.body.getAttribute('data-controller'),
+  });
+});
+</script>
+
+
+
+<script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "admin_controllers/article_form_controller": "/assets/admin_controllers/article_form_controller-cb5564498875017d2957b392b9a95a52686af45157642182bdfa42df5bdf8856.js",
+    "admin_controllers/article_link_controller": "/assets/admin_controllers/article_link_controller-2eead8e2d12d9c845f7e84866c67f4b202759550bbf90a1c5a5322554cf5659f.js",
+    "admin_controllers/article_search_base_controller": "/assets/admin_controllers/article_search_base_controller-2919dd22b3a38de600ace359831e0ed1a7386d9478b22e82a84cd9aa6a657d67.js",
+    "admin_controllers/article_select_controller": "/assets/admin_controllers/article_select_controller-f79c136912421141434514c1f930de5bc785e58dbe85ca1ca9e44ed79ca2578e.js",
+    "admin_controllers/article_text_array_controller": "/assets/admin_controllers/article_text_array_controller-396a330cb035d6df62c5d7da4af2ce04b85bd0154a7ec67c872fba46bd6f590e.js",
+    "admin_controllers": "/assets/admin_controllers/index-099980ad279c1ed02bbe6602e5605f943bec7d78e0f952e3a91dcbb28c102b26.js",
+    "admin_controllers/side_nav_filter_controller": "/assets/admin_controllers/side_nav_filter_controller-628bc8404014759e1c2a7b16513d3418beb6250f213331709e732c25a85ef727.js",
+    "application_controllers/dropdown_controller": "/assets/application_controllers/dropdown_controller-34a73ef4ac644ad91ae50595d3c1c61874b14d53a5c917fefa8ad6ec595f26a6.js",
+    "application_controllers": "/assets/application_controllers/index-d952f8076abe75ad7d88676cb33541b065458f63957d8903d2777b2048a8793e.js",
+    "application_controllers/menu_controller": "/assets/application_controllers/menu_controller-d9a87fb5cb64ae4dd1ae0d159f75eca56f28f6aa9677daeeed9a37a9d11418c8.js",
+    "application_controllers/single_sign_on/okta_controller": "/assets/application_controllers/single_sign_on/okta_controller-301c6f5ef5ba086f7fe432ff24e4ac3c031c06102b7a0da6ba94d1453f0bacb8.js",
+    "articles_controllers/anchors_controller": "/assets/articles_controllers/anchors_controller-cbdd56499ad10d25b5a27c21766ff991d3ebd0970fd6bdac27622e0567fb3980.js",
+    "articles_controllers/clipboard_controller": "/assets/articles_controllers/clipboard_controller-c3fe3cf960ab3975ae45ae7534d18a183cd0b7aa0cb52c8cc3c6a9486e3e5f5c.js",
+    "articles_controllers/code_controller": "/assets/articles_controllers/code_controller-ba91cc6d90f367aabd0aea8d58fe3457a029e81dba595656792ba46d233345f0.js",
+    "articles_controllers/header_controller": "/assets/articles_controllers/header_controller-868fceadf6a86468d8c8d3575c1f6569ace92cf1f3f24439f3cf0108fd1e5860.js",
+    "articles_controllers": "/assets/articles_controllers/index-488f5b5b06e987a1c9f52637baedcdb8101207b991afbf6262d52d9eb5a46442.js",
+    "articles_controllers/lightbox_controller": "/assets/articles_controllers/lightbox_controller-47f223cbbc128ac82d59fe796e6b00ccd3d42cff086ab52631cfaf0c34b24a0c.js",
+    "articles_controllers/search_controller": "/assets/articles_controllers/search_controller-07955e8bb290bc57839dc870a17ec9b28259824814d331f4af7dc79d617a4a2b.js",
+    "articles_controllers/toc_controller": "/assets/articles_controllers/toc_controller-69dbb98baf4087e9d17b50e1f78986df86310512cde57a06d1d3d8c6f02bf581.js",
+    "articles_controllers/toggle_controller": "/assets/articles_controllers/toggle_controller-e7d2aef0234491a5b059688097a6f1d6d9557abc7fe579f2063ead389c57800b.js",
+    "betterstack_controllers": "/assets/betterstack_controllers/index-bc46607577a4954e133b96579bc98dc0a970f3f335cfb214ff6042976f5d3be8.js",
+    "betterstack_controllers/popup_cards_controller": "/assets/betterstack_controllers/popup_cards_controller-9200f9cd00009b0eaba60c20cffb67dfe683ce029f2262bae04e7c76b89590f6.js",
+    "betterstack_v2/carousel": "/assets/betterstack_v2/carousel-05024cefdac5d83dea490e1df67ba50fedb91d6a3e537540e2bb2c1b92e00694.js",
+    "betterstack_v2/collapse": "/assets/betterstack_v2/collapse-23e9c67ecf1e489c51b6c23bc55032d7f63ff445f79b5e41a8ff17b5882371da.js",
+    "betterstack_v2/menu": "/assets/betterstack_v2/menu-b1ec6baad54fa8b78965f501426b1d58ec12eb070d399ff582cae7078cfd260f.js",
+    "betterstack_v2/recaptcha": "/assets/betterstack_v2/recaptcha-a6232f4651b02a9469137bc916f35a2587593934fef51612fe328643dff5226b.js",
+    "betterstack_v2/search": "/assets/betterstack_v2/search-09cfb8e126e955ecaeaf2e90deb83fd79a6cda9ee26433f97a0e577e7f7c3a33.js",
+    "betterstack_v2/slide": "/assets/betterstack_v2/slide-c6d35378bfed6bea175bc7493e0d5a18b4700f2bd773959c4d869dd645a79adf.js",
+    "betterstack_v2/toggle": "/assets/betterstack_v2/toggle-65841dc64993ca0e98881ed758b2f7533eaded5a4b8b405b47d55d8dbe9fca45.js",
+    "channels/appearance_subscription": "/assets/channels/appearance_subscription-4e84574d1303e0ebacebf28c834aa28b4d11b01cf826c827dabdb3f5d5c2e6f7.js",
+    "channels/consumer": "/assets/channels/consumer-06c3bd2eb3f3882df2510d036d6b1804decd2cfcb47ecd9af91b3df367140d84.js",
+    "channels/create_follower_subscription": "/assets/channels/create_follower_subscription-2365866b47852f014130a9d919e0f93bdffdd79cca3c94a5006d9e5de717072e.js",
+    "channels/followee_subscription": "/assets/channels/followee_subscription-903677eddce739ff178535c1ae8f61639d916123907b285c48a98d06ffa06e5f.js",
+    "channels": "/assets/channels/index-a64e6c8f18dfa52cc66e25738ca22777f617ca0ff1d03b83ab641f16f26cd7b0.js",
+    "common/aos": "/assets/common/aos-29b009551c3e0013abc709dbbcac1bbfb9c81e67eddaf72eb9786e25b238c889.js",
+    "common/copy": "/assets/common/copy-a2dbcc05be8185f3343639a591a5a9cbc5c15ba57c0fe07713418b7b097a4534.js",
+    "common/data-disable-with-spinner": "/assets/common/data-disable-with-spinner-32eddf59bcd6368f16b59bb664620d45714274ea37bd06218b997f3154d34eea.js",
+    "common/lazy": "/assets/common/lazy-3eb764101958480a12b2c50eb92af3adde35463ada26d277a0982026c785195f.js",
+    "common/links": "/assets/common/links-09ddbfd3c3bb198b2b6cc37b95c788d284719599f065ca503cd6de55331c8e29.js",
+    "common/modals": "/assets/common/modals-062bd06528cbc437bf4707cd1101baca93e936e0b7a2d2f45f10d4d5f49c7ed6.js",
+    "common/posthog": "/assets/common/posthog-8b1f452704e4760f10ee4ffdac9f26024a09304f9f6e77dd4984bc0eed6a28ec.js",
+    "common/railsSetup": "/assets/common/railsSetup-bed614c5f43e402a7b1be3b01ef47a1f26f60a74937bf0fda558348d69a7076e.js",
+    "common/recaptchaSubmit": "/assets/common/recaptchaSubmit-00b44082803b95854afff50a43affb332ddebb2a0b83a68a26109aca6b46aab9.js",
+    "common/side-menu-scroll": "/assets/common/side-menu-scroll-fc4b544a7a2a372e1aa06e95d541537498e169ec2c4945ea3dcae9fba3ecd816.js",
+    "common_controllers/carousel_controller": "/assets/common_controllers/carousel_controller-43d33dedb0dd22ce4c1c834d14d156970914729b90cbd28a4dc7e535752dd466.js",
+    "common_controllers/collapse_controller": "/assets/common_controllers/collapse_controller-3dcbee04b1fc36d249c8c9276f073e999824690035244732f7fad43f4bfc4a84.js",
+    "common_controllers": "/assets/common_controllers/index-0b66eb6c0c51bb9f3f6c16e05df27459448ea0d96f8e5b0a4842f20a73cca931.js",
+    "common_controllers/recaptcha_controller": "/assets/common_controllers/recaptcha_controller-f1b161c8dbfe4aa1cd3bfcb10126cad19e59eaa8c6f2f89a614a01ec69d7e103.js",
+    "components/collaboration/Appearances": "/assets/components/collaboration/Appearances-cf72cd37b9c954b78f941acfb33cdff40792ab4a59abc16aed6e2eca3c05c7e3.js",
+    "components/collaboration/Follower": "/assets/components/collaboration/Follower-10062513d4cf813b9852fc2c71a6849c30b99a40fdd7a365c7387be334d23380.js",
+    "components/collaboration/followee_events": "/assets/components/collaboration/followee_events-f3f41fb99025de44a1b47886e171c10cc8e7a32bd079595bc7b460d20914ebe4.js",
+    "components/docs/Code": "/assets/components/docs/Code-a81944c5f65fd3f2af7ead72f6e364651c7ecc285edc7c0600a5e633bd2e7415.js",
+    "components/docs/CodeTab": "/assets/components/docs/CodeTab-8fd977e091f131cc6f53ad6f74ae5e629fa9c790cc993543d83f95a406e48061.js",
+    "components/docs/TokenLoader": "/assets/components/docs/TokenLoader-30eb2b03d8e7716ddca2f21849dbfb7129a1f512d3db7a9bacd6c78c8323fea3.js",
+    "components/docs/TokenNotice": "/assets/components/docs/TokenNotice-f98dcf3918a4d12660a7b87dce33d27c8293d4202ea65fd61c226d233b7a44e4.js",
+    "components/docs/TokenPicker": "/assets/components/docs/TokenPicker-c8a2f632bc944e5cc6bc1458b76413396964cf1423c3ed6bc215e61565fb6092.js",
+    "components/forms/ArticleSearchBar": "/assets/components/forms/ArticleSearchBar-cac3d4179511c00a4548dfd63dd5bfd8c9b1c3066921b94c9a735df76290e353.js",
+    "components/forms/BasicForm": "/assets/components/forms/BasicForm-bff88a108496d3790b2562c102340b466b2166cc3c2dcd65e1e5e6dd755408c1.js",
+    "components/forms/DotsDropdown": "/assets/components/forms/DotsDropdown-2010b8d2204d2f9142020aa27e156bf50f8389c9b72144505ca146addd431aad.js",
+    "components/forms/Select": "/assets/components/forms/Select-38e6107fd44fd6332b0eea3dea2a39c690c9420a6e5c5d0d2b00678b058bcedf.js",
+    "components/forms/SessionsForm": "/assets/components/forms/SessionsForm-284b6c64aa716e92ab1872d81f59cbc1dcf7e2b24aec417146f9e0c663479f17.js",
+    "components/forms/Spinner": "/assets/components/forms/Spinner-75db6d9f6d60b5eff5865ea90f129f6375b97e4c1127a6d9fd88942cc5d92259.js",
+    "components/forms/Toggle": "/assets/components/forms/Toggle-293bdecabc96ed8c531ceb7c209bef2712f2f912d25f297504c765d0ecff2581.js",
+    "components/forms/Tooltip": "/assets/components/forms/Tooltip-29313bc1038527954f90e50af4213f17faeb4a32de13c28c0bd851db3ededf62.js",
+    "components": "/assets/components/index-2ca03d5607047a718aba78bd354dfd1fdfc9a7b12b763c54d432f35fdb8f119c.js",
+    "components/notifications/Dropdown": "/assets/components/notifications/Dropdown-a3f014d8cf17b8db9c42bdf0d431ed7ad41418cf6abf4bd9b229e341769a0ea6.js",
+    "components/notifications/Item": "/assets/components/notifications/Item-6d270d5bc97c38a5e7b96e1f0fe9572d8fc3f512a7e6e6d7c4316b7d2435f158.js",
+    "components/stores/DocsStore": "/assets/components/stores/DocsStore-442c5e19c532e8a125dc6c308a712fd9a36c0383320f49a41606a406178eebcc.js",
+    "components/stores/FollowerStore": "/assets/components/stores/FollowerStore-8565d1ebd0070dcd0cfca8982d91a467fc34dfcafc619051f7255a4c2f5ae8dd.js",
+    "components/stores/MainStore": "/assets/components/stores/MainStore-b175f7d377fb10989059f912803634b92d91657f78e256be5ed000592bc6faa9.js",
+    "logtail_controllers": "/assets/logtail_controllers/index-1595afa1409ee5bf0188e35ef178b9ed9ec5a58fe15b68da82703e39dc78e194.js",
+    "logtail_controllers/plans_controller": "/assets/logtail_controllers/plans_controller-2298828336d87a4144945c24b87245feb7239d8429d28c4b98c2ad326c8499c9.js",
+    "packs/admin_articles": "/assets/packs/admin_articles-33e05ea74198c1755e1dac82e75f35077da3140092d5b7e1dfe453e02da93242.js",
+    "packs/application": "/assets/packs/application-87d4cfe028d173d92e87fd503bc7f0af7f330797e0b2f3d726923c3e8435be0d.js",
+    "packs/articles": "/assets/packs/articles-daff2951b80d2997e3234e5b5ac5846592db776590ae0cb4e560e11f16737c96.js",
+    "packs/auth": "/assets/packs/auth-b21743c7855b44e0948c8442799cf8efb053df2d1d1a9d80b30647b8bcb8bb57.js",
+    "packs/betterstack": "/assets/packs/betterstack-41edae1a69c2e6d6b677f6e622d9cf8addc9ef56c211693ba965aee80c84a476.js",
+    "packs/betterstack_v2": "/assets/packs/betterstack_v2-933d6cd4d08274c91abd4f040c7f9410b339e60a3af725ce159a10fa9342c15f.js",
+    "packs/logtail": "/assets/packs/logtail-cf37b8eff8e48667f7b5269775b9a2ee9995a5fa0ce83399a25e8c4f3fe154d7.js",
+    "packs/uptime": "/assets/packs/uptime-285c3309e1d6524573c8860c75cd3a103f2989779c207c43f28bc32346391448.js",
+    "routes": "/assets/routes-03db4da0d8b20b3eac06a04dcee8babefa014c990eaa200509c405ecc74145af.js",
+    "uptime_controllers": "/assets/uptime_controllers/index-091e32c85d8ac3660775e8d358b001c8af2051244524ba374e06da7419ee2007.js",
+    "uptime_controllers/plans_controller": "/assets/uptime_controllers/plans_controller-55b079ba80c9d6190ef5781adf43d0c918e4039b8b7d695fb4ecceda98264c82.js",
+    "uptime_controllers/typeit_controller": "/assets/uptime_controllers/typeit_controller-7ddf6f046b69f23a65d01b352b702d29fb62f40074ed078c5fe431be99222a71.js",
+    "utils/authToken": "/assets/utils/authToken-c7a1cd63fcf0ad9de31981d3f453c8076d16ca1255b6046017ed2272f3641a71.js",
+    "utils/externalRoutes": "/assets/utils/externalRoutes-f12dc0e094cefa244c0da2a2dc8a1a852c196d3ebfdafacd4f6994ce6225d5c8.js",
+    "utils/fetchJson": "/assets/utils/fetchJson-095ee0e777150fc0bca2edbdb028b95cd686f415ef948684bdbb01d25541cf3e.js",
+    "utils/platformIcons": "/assets/utils/platformIcons-abf4cd3ec30c25b3454b1e1134c6749c51f444acf84f674b76880a3f8eb13072.js",
+    "utils/serialization": "/assets/utils/serialization-5175592e2f93bae483a0d4460466a41c57a6e9e7bcc1535e80a3650cda056e65.js",
+    "utils/timeago": "/assets/utils/timeago-ab4fad3f7b91d8940d9cc2247f5a80e08f13d0ed89788086b514117c81ef0270.js",
+    "vendor/aos@2.3.4": "/assets/vendor/aos@2.3.4-685eb7c655b107524a998227037e3774b68de3aae7d7d9c4778ad93f28da0134.js",
+    "vendor/rails-ujs": "/assets/vendor/rails-ujs-1af66adb1e58b314942a9ad3d74a1b7f1beb82360fea758ee338d01da3967ce8.js",
+    "vendor/stimulus@2.0.0": "/assets/vendor/stimulus@2.0.0-5b5f813e2414d6e786a903c4ba38ba495cafe9705d1172a88e85eedf8f4bf25a.js",
+    "vue": "https://cdnjs.betterstack.com/vue@3/dist/vue.esm-browser.prod.js",
+    "@vue/devtools-api": "https://cdnjs.betterstack.com/@vue/devtools-api@6.4.5/lib/esm/index.js",
+    "vue-demi": "https://cdnjs.betterstack.com/vue-demi@0.13.11/lib/index.mjs",
+    "pinia": "https://cdnjs.betterstack.com/pinia@2.0.24/dist/pinia.esm-browser.js",
+    "vue-turbolinks": "https://cdnjs.betterstack.com/vue-turbolinks@2.2.2/index.js",
+    "@headlessui/vue": "https://cdnjs.betterstack.com/@headlessui/vue@1.7.4/dist/headlessui.esm.js",
+    "heroicons/solid/": "https://cdnjs.betterstack.com/@heroicons/vue@2.0.13/20/solid/esm/",
+    "vueform-multiselect": "https://cdnjs.betterstack.com/@vueform/multiselect@2.5.7/dist/multiselect.js",
+    "@hotwired/turbo-rails": "https://cdnjs.betterstack.com/@hotwired/turbo-rails@7.1.0/app/assets/javascripts/turbo.js",
+    "@rails/actioncable": "https://cdnjs.betterstack.com/@rails/actioncable@7.0.4/app/assets/javascripts/actioncable.esm.js",
+    "@rails/activestorage": "https://cdnjs.betterstack.com/@rails/activestorage@6.0.0/app/assets/javascripts/activestorage.js",
+    "js-cookie": "https://cdnjs.betterstack.com/js-cookie@3.0.1/dist/js.cookie.min.mjs",
+    "lazysizes": "https://cdnjs.betterstack.com/lazysizes@5.3.2/lazysizes.min.js",
+    "posthog-js": "https://cdnjs.betterstack.com/posthog-js@1.64.0/dist/es.js",
+    "el-transition": "https://cdnjs.betterstack.com/el-transition@0.0.7/index.js",
+    "dayjs": "https://cdnjs.betterstack.com/dayjs@1.10.4/dayjs.min.js",
+    "tom-select": "https://cdnjs.betterstack.com/tom-select@2.2.2/dist/esm/tom-select.complete.js",
+    "typeit": "https://cdnjs.betterstack.com/typeit@8.5.4/dist/index.es.js",
+    "underscore/": "https://cdnjs.betterstack.com/underscore@1.13.6/modules/",
+    "nanoevents": "https://cdnjs.betterstack.com/nanoevents@7.0.1/index.js",
+    "lodash/": "https://cdnjs.betterstack.com/lodash-es@4.17.21/",
+    "aos": "/assets/vendor/aos@2.3.4-685eb7c655b107524a998227037e3774b68de3aae7d7d9c4778ad93f28da0134.js",
+    "@rails/ujs": "/assets/vendor/rails-ujs-1af66adb1e58b314942a9ad3d74a1b7f1beb82360fea758ee338d01da3967ce8.js",
+    "stimulus": "/assets/vendor/stimulus@2.0.0-5b5f813e2414d6e786a903c4ba38ba495cafe9705d1172a88e85eedf8f4bf25a.js"
+  }
+}</script>
+<link rel="modulepreload" href="https://cdnjs.betterstack.com/vue@3/dist/vue.esm-browser.prod.js">
+<link rel="modulepreload" href="https://cdnjs.betterstack.com/@vue/devtools-api@6.4.5/lib/esm/index.js">
+<link rel="modulepreload" href="https://cdnjs.betterstack.com/vue-demi@0.13.11/lib/index.mjs">
+<link rel="modulepreload" href="https://cdnjs.betterstack.com/pinia@2.0.24/dist/pinia.esm-browser.js">
+<link rel="modulepreload" href="https://cdnjs.betterstack.com/vue-turbolinks@2.2.2/index.js">
+<script src="./Cómo registrar datos en JSON en Laravel_files/es-module-shims.min-d89e73202ec09dede55fb74115af9c5f9f2bb965433de1c2446e1faa6dac2470.js.descarga" async="async" data-turbo-track="reload"></script>
+<script type="module">import "packs/articles"</script>
+<script type="module">import "components"</script>
+<script type="module">import "channels"</script>
+<link rel="stylesheet" href="./Cómo registrar datos en JSON en Laravel_files/articles-2434636d79475d4e680abb790992c0f460f485c19f3b93521c0e9b856a0f5ec1.css" media="all" data-turbo-track="reload">
+<style>
+  @supports (-webkit-hyphens:none) {
+    .book, .book:hover {
+      filter: unset;
+    }
+  }
+</style>
+
+<script type="application/ld+json">[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to log data in JSON in Laravel",
+    "author": "",
+    "image": "/og-image/how-to-log-data-in-json-in-laravel.png",
+    "genre": "",
+    "keywords": "",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Better Stack",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://betterstack.com/assets/logo-e81f7f79f9298e052fa7d3111a4311cd18f731f3fdf99859cb63e70002365bb3.png"
+      }
+    },
+    "url": "https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://google.com/article"
+    },
+    "datePublished": "2023-02-17T09:14:19Z",
+    "dateCreated": "2023-02-17T09:14:19Z",
+    "dateModified": "2023-02-17T09:14:19Z",
+    "description": ""
+  }
+]
+</script>
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Regular.woff2" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Regular.woff" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Medium.woff2" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Medium.woff" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-SemiBold.woff2" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-SemiBold.woff" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Bold.woff2" rel="preload">
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Roobert/Roobert-Bold.woff" rel="preload">
+<style>
+  @font-face {
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+      url("/static/fonts/Roobert/Roobert-Regular.woff2") format("woff2"),
+      url("/static/fonts/Roobert/Roobert-Regular.woff") format("woff");
+  }
+  @font-face {
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src:
+      url("/static/fonts/Roobert/Roobert-Medium.woff2") format("woff2"),
+      url("/static/fonts/Roobert/Roobert-Medium.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src:
+      url("/static/fonts/Roobert/Roobert-SemiBold.woff2") format("woff2"),
+      url("/static/fonts/Roobert/Roobert-SemiBold.woff") format("woff");
+  }
+  @font-face {
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src:
+      url("/static/fonts/Roobert/Roobert-Bold.woff2") format("woff2"),
+      url("/static/fonts/Roobert/Roobert-Bold.woff") format("woff");
+  }
+</style>
+
+<link as="font" crossorigin="anonymous" href="https://betterstack.com/static/fonts/Inter/Inter-latin.woff2" rel="preload">
+<style>
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/static/fonts/Inter/Inter-latin.woff2") format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+</style>
+
+<link rel="preload" href="https://betterstack.com/static/fonts/Helvetica/HelveticaNowText-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://betterstack.com/static/fonts/Helvetica/HelveticaNowText-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://betterstack.com/static/fonts/Helvetica/HelveticaNowDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<style>
+  @font-face {
+    font-family: 'Helvetica Now Text';
+    src: local('Helvetica Now Text  Regular'),
+         local('HelveticaNowText-Regular'),
+         url('/static/fonts/Helvetica/HelveticaNowText-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Helvetica Now Text';
+    src: local('Helvetica Now Text  Medium'),
+      local('HelveticaNowText-Medium'),
+      url('/static/fonts/Helvetica/HelveticaNowText-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: local('Helvetica Now Display Bold'),
+      local('HelveticaNowDisplay-Bold'),
+      url('/static/fonts/Helvetica/HelveticaNowDisplay-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
+
+<script src="./Cómo registrar datos en JSON en Laravel_files/17516957.js.descarga" type="text/javascript" async="" data-ueto="ueto_75cae0c03d"></script><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+xK4jmZTgh1KBVry/UZKUE3h6Dr9HPPioFS4KNCzify+KEoOii7z/goKS2zgbAOwhpZ1GZllpdz7XviivJM9gcAAACFeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiQXR0cmlidXRpb25SZXBvcnRpbmdDcm9zc0FwcFdlYiIsImV4cGlyeSI6MTcwNzI2Mzk5OSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="./Cómo registrar datos en JSON en Laravel_files/f.txt"></script><script type="text/javascript" async="" src="./Cómo registrar datos en JSON en Laravel_files/f(1).txt"></script></head>
+<body>
+<script type="text/javascript" src="./Cómo registrar datos en JSON en Laravel_files/recorder.js.descarga"></script><script>
+  window.cfg = {"base_host":"betterstack.com","better_uptime_url":"https://uptime.betterstack.com","logtail_url":"https://logs.betterstack.com","posthog":{"api_host":"https://t.betterstack.com","api_key":"phc_Tbfg4EiRsr5iefFoth2Y1Hi3sttTeLQ5RV5TLg4hL1W","related_domains":["betteruptime.com","logtail.com"]}};
+</script>
+
+<div class="main articles">
+<header class="z-40 top-0 left-0 right-0 flex justify-center helvetica bg-neutral-900 before:absolute before:-z-10 before:inset-0 before:backdrop-blur-2xl" id="navbar">
+<nav class="grow flex justify-between border-b max-w-[1190px] ml-4 mr-3 md:mr-5 h-[52px] text-[13px] leading-[100%] text-[#C9D3EE] border-[#727DA1]/15">
+<div class="flex items-stretch gap-3">
+<a class="flex items-center py-3" href="https://betterstack.com/">
+<svg width="154" height="21" class="scale-[65%] -mx-6" alt="Better Stack" style="--currentColor: currentColor;"><use href="/assets/v2/better-stack-logo-0dd586683a61184ea953948d207470eeec73c76d81d57cd8af24bf56b36a90db.svg#root"></use></svg>
+</a>
+<div class="hidden md:flex items-stretch gap-4">
+<button aria-controls="platform-menu" aria-haspopup="menu" class="pl-3 py-3 pr-6 -mr-3 group relative flex items-center">
+<div class="transition group-hover:text-white">Platform</div>
+<span class="absolute right-2 text-[#656A7B]"><svg size="w-[11px] h-[11px]" class="group-hover:rotate-180 transition w-[11px] h-[11px] inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/outline/chevron-down-e81e95706af6887a41db38f40df68c886eec259fb1c19a80deaac99be8e62255.svg#root"></use></svg></span>
+<div class="hidden group-hover:block absolute z-40 top-full left-0 text-left" id="platform-menu" role="menu" tabindex="-1">
+<div class="rounded-lg border backdrop-blur-2xl flex w-[650px] p-[6px] bg-[#181926]/80 border-[#1F2433]/75">
+<div class="flex-1 md:px-2 py-3 flex flex-col gap-1 border-b md:border-b-0 md:border-r relative border-[#1F2433]/40">
+<div class="absolute -top-7 bottom-full left-0 right-0"></div>
+<a class="-my-1 p-1 flex items-center gap-3 group/uptime ml-[6px]" href="https://betterstack.com/uptime">
+<svg width="69" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/uptime-logo-fcc6a01850aa0409e3743c6b70051bfc042504854c76a833ef52512d92dccc16.svg#root"></use></svg>
+<div class="border-l relative top-[1px] h-[12px] border-[#727DA1]/30"></div>
+<div class="text-sm text-neutral-200 flex items-center">
+<span class="mr-1">Better Stack</span>
+<svg class="h-4 w-0 group-hover/uptime:w-4 transition-all  relative top-[1px] w-4 h-4 inline" alt="" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/mini/arrow-right-c07cd271c9c8d131084c513571295decfe8bf410e675cdde2686c1adf90b494b.svg#root"></use></svg>
+<svg class="h-4 w-4 group-hover/uptime:w-0 transition-all  relative top-[1px] w-4 h-4 inline" alt="" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/mini/chevron-right-ee58bdc22e1fb683dd9ffd95ba0c4df56d8a2a0904d7ddbe63b6e2b4ab82f090.svg#root"></use></svg>
+</div>
+</a>
+<hr class="mt-2 border-t border-[#1F2433]/40">
+<a class="block px-2 flex gap-2 transition py-[10px] hover:bg-[#727DA1]/15 rounded leading-[145%]" href="https://betterstack.com/incident-management"><span class="text-[#7C87F7]"><svg width="25" height="24" alt="" class="relative top-[-2px] scale-[90%]" style="--currentColor: currentColor;"><use href="/assets/v2/calendar-6357844552d3ab90ba30b8f0b220de1523ff3aeee8c314a7805eecc7c7393754.svg#root"></use></svg></span>
+<div>
+<div class="font-medium">Incident management &amp; on-call</div>
+<div class="mt-1 text-xs text-neutral-200">Get a call when your website goes down</div>
+</div>
+</a><a class="block px-2 flex gap-2 transition py-[10px] hover:bg-[#727DA1]/15 rounded leading-[145%]" href="https://betterstack.com/status-page"><span class="mr-1 text-[#7C87F7]"><svg width="20" height="20" alt="" class="relative top-[-2px] relative left-[2px]" style="--currentColor: currentColor;"><use href="/assets/v2/page-e138419398f9cc3e22fdf0693bc55a06d3cc6daec37069e878be827b24d07521.svg#root"></use></svg></span>
+<div>
+<div class="font-medium">Status page</div>
+<div class="mt-1 text-xs text-neutral-200">Communicate downtime &amp; build trust</div>
+</div>
+</a></div>
+<div class="flex-1 mt-2 md:mt-0 md:px-2 py-3 flex flex-col gap-1">
+<a class="ml-1 -my-1 p-1 flex items-center gap-3 group/logtail" href="https://betterstack.com/logs">
+<svg width="55" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/logs-logo-91f7e5eb03df31c2ae6fb7e32583a44066a1f9fe5e63e51babda1e03ac1296c8.svg#root"></use></svg>
+<div class="border-l relative top-[1px] h-[12px] border-[#727DA1]/30"></div>
+<div class="text-sm text-neutral-200 flex items-center">
+<span class="mr-1">Better Stack</span>
+<svg class="h-4 w-0 group-hover/logtail:w-4 transition-all relative top-[1px] w-4 h-4 inline" alt="" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/mini/arrow-right-c07cd271c9c8d131084c513571295decfe8bf410e675cdde2686c1adf90b494b.svg#root"></use></svg>
+<svg class="h-4 w-4 group-hover/logtail:w-0 transition-all relative top-[1px] w-4 h-4 inline" alt="" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/mini/chevron-right-ee58bdc22e1fb683dd9ffd95ba0c4df56d8a2a0904d7ddbe63b6e2b4ab82f090.svg#root"></use></svg>
+</div>
+</a>
+<hr class="mt-2 border-t border-[#1F2433]/40">
+<a class="block px-2 flex gap-2 transition py-[10px] hover:bg-[#727DA1]/15 rounded leading-[145%]" href="https://betterstack.com/logs"><span class="text-[#7C87F7]"><svg width="25" height="24" alt="" class="relative top-[-2px] scale-[90%]" style="--currentColor: currentColor;"><use href="/assets/v2/code-insert-b8f283aedd6b241eb85334d4566ca3fbe15a8fc15c4ecf8638bc97f7da00e854.svg#root"></use></svg></span>
+<div>
+<div class="font-medium">Log management</div>
+<div class="mt-1 text-xs text-neutral-200">Collect insights across your stack</div>
+</div>
+</a></div>
+
+</div>
+</div>
+</button>
+<a class="hidden lg:flex p-3 hover:text-white transition items-center" href="https://betterstack.com/docs/">
+<span>Documentation</span>
+</a>
+<a class="hidden lg:flex p-3 hover:text-white transition items-center" href="https://betterstack.com/uptime/pricing">
+<span>Pricing</span>
+</a>
+<button aria-controls="community-menu" aria-haspopup="menu" class="p-3 group relative flex items-center">
+<div class="transition group-hover:text-white">Community</div>
+<span class="absolute -right-1 text-[#656A7B]"><svg size="w-[11px] h-[11px]" class="group-hover:rotate-180 transition w-[11px] h-[11px] inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/outline/chevron-down-e81e95706af6887a41db38f40df68c886eec259fb1c19a80deaac99be8e62255.svg#root"></use></svg></span>
+<div class="hidden group-hover:block absolute z-40 top-full left-0 text-left" id="community-menu" role="menu" tabindex="-1">
+<div class="rounded-lg border backdrop-blur-2xl flex flex-col gap-1 w-[174px] p-[6px] bg-[#181926]/80 border-[#1F2433]/75">
+<a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/community/guides"><span class="text-neutral-200"><svg width="20" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/guides-3c7383ba1af5330b1c7df20232fb7c2df8ca63a0fad8de36a12930eefd4d23f5.svg#root"></use></svg></span>
+Guides
+</a><a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/community/questions"><span class="text-neutral-200"><svg width="20" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/questions-f8bf552415b1338196322c800af25f02649065803debc56e35284dc8817f4f62.svg#root"></use></svg></span>
+Questions
+</a><a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/community/comparisons"><span class="text-neutral-200"><svg width="20" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/comparisons-fb6863a2e083bb6469dc4f30df33fda11ca8ddb21e20b705fee14bbd01f921e1.svg#root"></use></svg></span>
+Comparisons
+</a>
+</div>
+</div>
+</button>
+<button aria-controls="company-menu" aria-haspopup="menu" class="p-3 group relative flex items-center">
+<div class="transition group-hover:text-white">Company</div>
+<span class="absolute -right-1 text-[#656A7B]"><svg size="w-[11px] h-[11px]" class="group-hover:rotate-180 transition w-[11px] h-[11px] inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/outline/chevron-down-e81e95706af6887a41db38f40df68c886eec259fb1c19a80deaac99be8e62255.svg#root"></use></svg></span>
+<div class="hidden group-hover:block absolute z-40 top-full left-0 text-left" id="company-menu" role="menu" tabindex="-1">
+<div class="rounded-lg border backdrop-blur-2xl flex flex-col gap-1 w-[190px] p-[6px] bg-[#181926]/80 border-[#1F2433]/75">
+<a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/careers"><span class="text-neutral-200"><svg width="20" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/ship-fac80f771cb6bf9b83f75566358b7f7f55096ead16224af4a5017c66d7c95d2d.svg#root"></use></svg></span>
+Work at Better Stack
+</a><a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/careers/engineering"><span class="text-neutral-200"><svg width="20" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/code-962cf453e652fb895c84780aeeef1b4b86dfe3746a37745c329574151171174e.svg#root"></use></svg></span>
+Engineering
+</a><a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/security"><span class="text-neutral-200"><svg width="20" height="20" alt="" class=" w-5 h-5 inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/solid/shield-check-3c099ada976d7267d4d10e6a1989b201b1a2bc19e24d8d856d2267b25b355423.svg#root"></use></svg></span>
+Security
+</a>
+</div>
+</div>
+</button>
+<a class="hidden lg:flex p-3 hover:text-white transition items-center" href="https://betterstack.com/enterprise">
+<span>Enterprise</span>
+</a>
+</div>
+</div>
+<div class="flex items-center sm:gap-2 whitespace-nowrap">
+<a class="p-2 transition hover:text-white" href="https://uptime.betterstack.com/users/sign-in">Sign in</a>
+<a class="px-2 h-[27px] flex items-center rounded bg-button-gradient text-white font-medium" href="https://uptime.betterstack.com/users/sign-up">Sign up</a>
+<button aria-label="Open menu" class="p-2 group relative md:hidden text-neutral-300" id="open-menu">
+<svg class=" w-5 h-5 inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/outline/bars-3-17450d627158d5a5a55489b825539e6a0b18f50fd24858aa2bcf26e4e57dd029.svg#root"></use></svg>
+</button>
+<button aria-label="Close menu" class="hidden p-2 group relative md:hidden text-neutral-300" id="close-menu">
+<svg class=" w-5 h-5 inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/outline/x-mark-450e983bb868b9a31f5bfc6b02f5e3e8a48ae29cf9d6ec41c921f287526722b6.svg#root"></use></svg>
+</button>
+</div>
+<div class="hidden md:hidden p-5 fixed z-40 left-0 right-0 backdrop-blur-2xl top-[52px] bg-[#181926]/80 text-[#C9D3EE]" id="mobile-menu">
+<div class="js-menu-section flex flex-col gap-1" data-section="root">
+<button class="p-3 group relative flex items-center" data-section="platform">
+Platform
+<span class="text-[#656A7B]"><svg size="w-[11px] h-[11px]" class="ml-[6px] w-[11px] h-[11px] inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/outline/chevron-right-68de1feb5676e74b9c31751b4617890b2e31b827a804e388894bbfece5301332.svg#root"></use></svg></span>
+</button>
+<a class="p-3" href="https://betterstack.com/docs/">Documentation</a>
+<a class="p-3" href="https://betterstack.com/uptime/pricing">Pricing</a>
+<button class="p-3 group relative flex items-center" data-section="community">
+Community
+<span class="text-[#656A7B]"><svg size="w-[11px] h-[11px]" class="ml-[6px] w-[11px] h-[11px] inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/outline/chevron-right-68de1feb5676e74b9c31751b4617890b2e31b827a804e388894bbfece5301332.svg#root"></use></svg></span>
+</button>
+<button class="p-3 group relative flex items-center" data-section="company">
+Company
+<span class="text-[#656A7B]"><svg size="w-[11px] h-[11px]" class="ml-[6px] w-[11px] h-[11px] inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/outline/chevron-right-68de1feb5676e74b9c31751b4617890b2e31b827a804e388894bbfece5301332.svg#root"></use></svg></span>
+</button>
+<a class="p-3" href="https://betterstack.com/enterprise">Enterprise</a>
+</div>
+<div class="js-menu-section hidden" data-section="platform">
+<button class="mb-2 p-3 group relative flex items-center" data-section="root">
+<svg size="w-[11px] h-[11px]" class="mr-[6px] w-[11px] h-[11px] inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/outline/chevron-left-ba32c23c32c3258c8ec4d2b33d013546c0d5cba7ea63af118623d4ec53785120.svg#root"></use></svg>
+Back
+</button>
+
+<div class="flex-1 md:px-2 py-3 flex flex-col gap-1 border-b md:border-b-0 md:border-r relative border-[#1F2433]/40">
+<div class="absolute -top-7 bottom-full left-0 right-0"></div>
+<a class="-my-1 p-1 flex items-center gap-3 group/uptime ml-[6px]" href="https://betterstack.com/uptime">
+<svg width="69" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/uptime-logo-fcc6a01850aa0409e3743c6b70051bfc042504854c76a833ef52512d92dccc16.svg#root"></use></svg>
+<div class="border-l relative top-[1px] h-[12px] border-[#727DA1]/30"></div>
+<div class="text-sm text-neutral-200 flex items-center">
+<span class="mr-1">Better Stack</span>
+<svg class="h-4 w-0 group-hover/uptime:w-4 transition-all  relative top-[1px] w-4 h-4 inline" alt="" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/mini/arrow-right-c07cd271c9c8d131084c513571295decfe8bf410e675cdde2686c1adf90b494b.svg#root"></use></svg>
+<svg class="h-4 w-4 group-hover/uptime:w-0 transition-all  relative top-[1px] w-4 h-4 inline" alt="" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/mini/chevron-right-ee58bdc22e1fb683dd9ffd95ba0c4df56d8a2a0904d7ddbe63b6e2b4ab82f090.svg#root"></use></svg>
+</div>
+</a>
+<hr class="mt-2 border-t border-[#1F2433]/40">
+<a class="block px-2 flex gap-2 transition py-[10px] hover:bg-[#727DA1]/15 rounded leading-[145%]" href="https://betterstack.com/incident-management"><span class="text-[#7C87F7]"><svg width="25" height="24" alt="" class="relative top-[-2px] scale-[90%]" style="--currentColor: currentColor;"><use href="/assets/v2/calendar-6357844552d3ab90ba30b8f0b220de1523ff3aeee8c314a7805eecc7c7393754.svg#root"></use></svg></span>
+<div>
+<div class="font-medium">Incident management &amp; on-call</div>
+<div class="mt-1 text-xs text-neutral-200">Get a call when your website goes down</div>
+</div>
+</a><a class="block px-2 flex gap-2 transition py-[10px] hover:bg-[#727DA1]/15 rounded leading-[145%]" href="https://betterstack.com/status-page"><span class="mr-1 text-[#7C87F7]"><svg width="20" height="20" alt="" class="relative top-[-2px] relative left-[2px]" style="--currentColor: currentColor;"><use href="/assets/v2/page-e138419398f9cc3e22fdf0693bc55a06d3cc6daec37069e878be827b24d07521.svg#root"></use></svg></span>
+<div>
+<div class="font-medium">Status page</div>
+<div class="mt-1 text-xs text-neutral-200">Communicate downtime &amp; build trust</div>
+</div>
+</a></div>
+<div class="flex-1 mt-2 md:mt-0 md:px-2 py-3 flex flex-col gap-1">
+<a class="ml-1 -my-1 p-1 flex items-center gap-3 group/logtail" href="https://betterstack.com/logs">
+<svg width="55" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/logs-logo-91f7e5eb03df31c2ae6fb7e32583a44066a1f9fe5e63e51babda1e03ac1296c8.svg#root"></use></svg>
+<div class="border-l relative top-[1px] h-[12px] border-[#727DA1]/30"></div>
+<div class="text-sm text-neutral-200 flex items-center">
+<span class="mr-1">Better Stack</span>
+<svg class="h-4 w-0 group-hover/logtail:w-4 transition-all relative top-[1px] w-4 h-4 inline" alt="" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/mini/arrow-right-c07cd271c9c8d131084c513571295decfe8bf410e675cdde2686c1adf90b494b.svg#root"></use></svg>
+<svg class="h-4 w-4 group-hover/logtail:w-0 transition-all relative top-[1px] w-4 h-4 inline" alt="" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/mini/chevron-right-ee58bdc22e1fb683dd9ffd95ba0c4df56d8a2a0904d7ddbe63b6e2b4ab82f090.svg#root"></use></svg>
+</div>
+</a>
+<hr class="mt-2 border-t border-[#1F2433]/40">
+<a class="block px-2 flex gap-2 transition py-[10px] hover:bg-[#727DA1]/15 rounded leading-[145%]" href="https://betterstack.com/logs"><span class="text-[#7C87F7]"><svg width="25" height="24" alt="" class="relative top-[-2px] scale-[90%]" style="--currentColor: currentColor;"><use href="/assets/v2/code-insert-b8f283aedd6b241eb85334d4566ca3fbe15a8fc15c4ecf8638bc97f7da00e854.svg#root"></use></svg></span>
+<div>
+<div class="font-medium">Log management</div>
+<div class="mt-1 text-xs text-neutral-200">Collect insights across your stack</div>
+</div>
+</a></div>
+
+</div>
+<div class="js-menu-section hidden flex flex-col gap-1" data-section="community">
+<button class="mb-2 p-3 group relative flex items-center" data-section="root">
+<svg size="w-[11px] h-[11px]" class="mr-[6px] w-[11px] h-[11px] inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/outline/chevron-left-ba32c23c32c3258c8ec4d2b33d013546c0d5cba7ea63af118623d4ec53785120.svg#root"></use></svg>
+Back
+</button>
+
+<a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/community/guides"><span class="text-neutral-200"><svg width="20" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/guides-3c7383ba1af5330b1c7df20232fb7c2df8ca63a0fad8de36a12930eefd4d23f5.svg#root"></use></svg></span>
+Guides
+</a><a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/community/questions"><span class="text-neutral-200"><svg width="20" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/questions-f8bf552415b1338196322c800af25f02649065803debc56e35284dc8817f4f62.svg#root"></use></svg></span>
+Questions
+</a><a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/community/comparisons"><span class="text-neutral-200"><svg width="20" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/comparisons-fb6863a2e083bb6469dc4f30df33fda11ca8ddb21e20b705fee14bbd01f921e1.svg#root"></use></svg></span>
+Comparisons
+</a>
+</div>
+<div class="js-menu-section hidden pb-5 flex flex-col gap-1" data-section="company">
+<button class="mb-2 p-3 group relative flex items-center" data-section="root">
+<svg size="w-[11px] h-[11px]" class="mr-[6px] w-[11px] h-[11px] inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/outline/chevron-left-ba32c23c32c3258c8ec4d2b33d013546c0d5cba7ea63af118623d4ec53785120.svg#root"></use></svg>
+Back
+</button>
+
+<a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/careers"><span class="text-neutral-200"><svg width="20" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/ship-fac80f771cb6bf9b83f75566358b7f7f55096ead16224af4a5017c66d7c95d2d.svg#root"></use></svg></span>
+Work at Better Stack
+</a><a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/careers/engineering"><span class="text-neutral-200"><svg width="20" height="20" alt="" style="--currentColor: currentColor;"><use href="/assets/v2/code-962cf453e652fb895c84780aeeef1b4b86dfe3746a37745c329574151171174e.svg#root"></use></svg></span>
+Engineering
+</a><a class="block px-2 flex items-center gap-2 transition py-[6px] hover:bg-[#727DA1]/15 rounded-[6px] leading-[145%]" href="https://betterstack.com/security"><span class="text-neutral-200"><svg width="20" height="20" alt="" class=" w-5 h-5 inline" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons_v2/solid/shield-check-3c099ada976d7267d4d10e6a1989b201b1a2bc19e24d8d856d2267b25b355423.svg#root"></use></svg></span>
+Security
+</a>
+</div>
+</div>
+</nav>
+</header>
+
+<header class="sticky top-0 z-30 w-full dark" data-controller="header">
+<div class="bg-neutral-900">
+<nav class="max-w-xl mx-auto px-5 flex text-sm">
+<a class="hidden md:block sm:mr-5 text-xl font-bold py-4 text-neutral-white mt-[-2px]" href="https://betterstack.com/community/?utm_content&amp;utm_medium=questions&amp;utm_source=community&amp;utm_term=how-to-log-data-in-json-in-laravel">Community</a>
+<button class="md:hidden sm:mr-5 text-xl font-bold py-4 text-neutral-white mt-[-2px]" data-action="click-&gt;header#toggle" data-header-target="toggle">
+Community
+<svg class="-mt-1 header-toggle-chevron fill-neutral-200 icon icon--heroicon" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons/solid/chevron-down-def30632eedb27cb7179c63edd97cc97ed5e3e5b702b09de94694ff3ffaece89.svg#root"></use></svg>
+</button>
+<div class="hidden md:flex items-center mr-5">
+<div class="border-r border-neutral-600 h-[18px]"></div>
+</div>
+<div class="flex flex-grow justify-end md:justify-between items-stretch">
+<ul class="hidden md:flex items-stretch space-x-4">
+<li class="flex relative dropdown-trigger hover:text-neutral-white">
+<a class="w-full p-4 mt-1 border-b-[3px] border-transparent" href="https://betterstack.com/community/guides/?utm_content&amp;utm_medium=questions&amp;utm_source=community&amp;utm_term=how-to-log-data-in-json-in-laravel">
+Guides
+</a>
+</li>
+
+<li class="flex relative dropdown-trigger hover:text-neutral-white">
+<a class="w-full p-4 mt-1 border-b-[3px] border-transparent text-neutral-white !border-secondary-royal-purple" href="https://betterstack.com/community/questions/?utm_content&amp;utm_medium=questions&amp;utm_source=community&amp;utm_term=how-to-log-data-in-json-in-laravel">
+Questions
+</a>
+</li>
+
+<li class="flex relative dropdown-trigger hover:text-neutral-white">
+<a class="w-full p-4 mt-1 border-b-[3px] border-transparent" href="https://betterstack.com/community/comparisons/?utm_content&amp;utm_medium=questions&amp;utm_source=community&amp;utm_term=how-to-log-data-in-json-in-laravel">
+Comparisons
+</a>
+</li>
+
+</ul>
+
+<div class="flex items-center space-x-5">
+<div class="flex space-x-4 sm:space-x-6 whitespace-nowrap text-xs items-center">
+<a class="hover:text-neutral-white" href="https://betterstack.com/docs">
+<img alt="" width="20" height="20" class="inline sm:mr-1 lazyloaded" data-src="/assets/articles/book-open-light-8d275ea1d112c665f6b6ef912565efda38d86eae98929d1e674ff4a65bb5b32a.png" src="./Cómo registrar datos en JSON en Laravel_files/book-open-light-8d275ea1d112c665f6b6ef912565efda38d86eae98929d1e674ff4a65bb5b32a.png">
+<span class="hidden md:inline lg:hidden">Docs</span>
+<span class="hidden sm:inline md:hidden lg:inline">Documentation</span>
+</a>
+<div class="vue-article-search-bar" id="search-bar-input" path="/search" placeholder="Search community" search_in="community-and-others" data-v-app=""><div class="vue-article-search-bar" placeholder="Search community" originaltemplate=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="md:hidden text-neutral-300 h-5 h-5 cursor-pointer"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"></path></svg><div class="hidden md:block absolute top-3 right-[1.25rem] md:relative md:top-auto md:right-auto"><div class="relative mx-auto w-full flex items-center justify-end box-border text-app-small border border-neutral-60 dark:border-neutral-500 rounded bg-white dark:bg-neutral-800 text-app-small leading-snug outline-none vue-article-search-bar h-8 w-[calc(100vw-2*1.25rem)] sm:w-60" originaltemplate=""><div class="multiselect-wrapper" tabindex="-1"><!-- Search --><input type="text" class="w-full h-full absolute inset-0 outline-none focus:ring-0 appearance-none box-border border-0 text-app-small font-sans bg-white dark:bg-neutral-800 rounded pl-8 rtl:pl-0 rtl:pr-4" aria-controls="multiselect-options" aria-placeholder="Search community" aria-expanded="false" aria-multiselectable="false" role="combobox" aria-labelledby="assist"><!-- Tags (with search) --><!--v-if--><!-- Single label --><!--v-if--><!-- Multiple label --><!--v-if--><!-- Placeholder --><div class="flex items-center h-full absolute left-0 top-0 pointer-events-none text-neutral-200 dark:text-neutral-300 leading-snug pl-8 rtl:left-auto rtl:right-0 rtl:pl-0 rtl:pr-4" aria-hidden="true">Search community</div><!-- Spinner --><!--v-if--><!-- Clear --><!--v-if--><!-- Caret --><!--v-if--></div><!-- Options --><div class="max-h-60 mt-2 absolute min-w-full max-w-[90vw] w-fit -right-px bottom-0 transform translate-y-[calc(100%+10px)] border border-neutral-60 dark:border-neutral-500 -mt-px overflow-y-auto z-50 bg-white dark:bg-neutral-800 flex flex-col rounded shadow-elevation-3-light dark:shadow-elevation-3-dark hidden" tabindex="-1"><ul class="flex flex-col p-1 list-none gap-1" id="multiselect-options" role="listbox"></ul><div class="pt-1 pb-3 px-3 text-gray-600 bg-white dark:bg-neutral-800 text-left pointer-events-none">No articles found</div><!--v-if--><!--v-if--></div><!-- Hacky input element to show HTML5 required warning --><!--v-if--><!-- Native input support --><!--v-if--><!-- Screen reader assistive text --><!--v-if--><!-- Create height for empty input --><div class="h-9 py-px box-content"></div></div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="absolute text-neutral-300 top-2 left-2 w-4 h-4 pointer-events-none"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"></path></svg><div class="absolute bg-neutral-600 rounded-md text-[75%] flex justify-center items-center pointer-events-none w-4 h-4 top-2 right-2">/</div></div></div></div>
+</div>
+
+</div>
+</div>
+</nav>
+</div>
+<div class="hidden md:hidden transition bottom-0 left-0 right-0 bg-neutral-white dark:bg-neutral-900 z-20 h-screen" data-header-target="overlay">
+<div class="dark:bg-neutral-800 pb-5">
+<div class="px-5 mx-auto dark:text-neutral-white sm:py-5 max-w-[358px]">
+<div>
+<div data-header-target="menu" data-menu="root">
+<a class="flex justify-between border-neutral-100 dark:border-neutral-600 cursor-pointer py-5 border-b" href="https://betterstack.com/community/guides/?utm_content&amp;utm_medium=questions&amp;utm_source=community&amp;utm_term=how-to-log-data-in-json-in-laravel">
+Guides
+<svg class="w-5 h-5 text-neutral-200 icon icon--heroicon" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons/solid/chevron-right-4e3c582734451b03c1682878bc0050d4744ff55023f05da7fd1140ad9c469707.svg#root"></use></svg>
+</a>
+</div>
+
+<div data-header-target="menu" data-menu="root">
+<a class="flex justify-between border-neutral-100 dark:border-neutral-600 cursor-pointer py-5 border-b" href="https://betterstack.com/community/questions/?utm_content&amp;utm_medium=questions&amp;utm_source=community&amp;utm_term=how-to-log-data-in-json-in-laravel">
+Questions
+<svg class="w-5 h-5 text-neutral-200 icon icon--heroicon" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons/solid/chevron-right-4e3c582734451b03c1682878bc0050d4744ff55023f05da7fd1140ad9c469707.svg#root"></use></svg>
+</a>
+</div>
+
+<div data-header-target="menu" data-menu="root">
+<a class="flex justify-between border-neutral-100 dark:border-neutral-600 cursor-pointer py-5 border-b" href="https://betterstack.com/community/comparisons/?utm_content&amp;utm_medium=questions&amp;utm_source=community&amp;utm_term=how-to-log-data-in-json-in-laravel">
+Comparisons
+<svg class="w-5 h-5 text-neutral-200 icon icon--heroicon" style="--currentColor: currentColor;"><use href="/assets/icons/heroicons/solid/chevron-right-4e3c582734451b03c1682878bc0050d4744ff55023f05da7fd1140ad9c469707.svg#root"></use></svg>
+</a>
+</div>
+
+</div>
+
+<div class="flex justify-center items-center space-x-5 mt-10">
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<main>
+<div class="container mx-auto py-6 sm:py-12 xl:py-16">
+<div class="lg:flex" data-controller="toc">
+<div class="grow xl:flex">
+<div class="hidden xl:block mr-12 shrink-0 w-[169px]" data-toc-target="toc">
+</div>
+<div class="grow prose xl:mt-0" data-controller="anchors" data-toc-target="content">
+<h1 class="heading-h4 overflow-hidden text-ellipsis">How to log data in JSON in Laravel</h1>
+<div class="-mt-4 flex flex-wrap text-sm">
+</div>
+<div class="mt-10 flex flex-col md:flex-row justify-between text-sm">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full shrink-0 flex justify-center items-center bg-neutral-700 text-white">
+<svg width="22" height="22" class="mb-[2px] ml-[2px]" style="--currentColor: currentColor;"><use href="/assets/application/better-stack-logo-mark-ec969f51dea10605ecea6aab9ccbdeaa025bf4a763c4894ec32c299ee03b731d.svg#root"></use></svg>
+</div>
+<div>
+<div class="font-semibold text-neutral-600">Better Stack Team</div>
+<div class="whitespace-nowrap text-neutral-300">Updated on February 17, 2023</div>
+</div>
+</div>
+</div>
+<p>Logging data in JSON format in Laravel can be done using the built-in <code class="prettyprint">Monolog</code> logging library that Laravel uses under the hood.</p><p>Here are the steps to configure Laravel to log data in JSON format:</p>
+<ol>
+<li>Open the <code class="prettyprint">config/logging.php</code> file in your Laravel project.</li>
+<li>In the <code class="prettyprint">channels</code> array, create a new channel for logging in JSON format:</li>
+</ol>
+<div class="relative mb-5 bg-neutral-40 border border-neutral-50 rounded-md text-[15px] shadow" data-controller="clipboard">
+  <div class="px-4 py-[6px] bg-white flex items-center rounded-t-md">
+    <div class="text-[15px] font-medium inline align-middle grow"><span class="text-app-small">&nbsp;</span></div>
+    
+    <div class="copy-button hidden sm:flex sm:items-center" data-clipboard-target="confirmation">
+  <button class="text-sm p-1" data-action="click-&gt;clipboard#copy">
+    <svg alt="copy code to clipboard" height="18" width="18" class="m-0" style="--currentColor: currentColor;"><use href="https://betterstack.com/assets/articles/clipboard-d6c07cf2face9fc42a34bcb0088c7164f06f39c14281e7e510185191e9a8188a.svg#root"></use></svg>
+  </button>
+  <span class="copy-confirmation text-sm p-0">Copied!</span>
+</div>
+
+  </div>
+  <div class="code-wrapper overflow-x-auto p-2 rounded php" data-clipboard-target="content" data-controller="code">
+  <pre class="highlight language-php" tabindex="0"><code class="language-php"><span class="token string single-quoted-string"><span class="token string single-quoted-string">'json'</span></span> <span class="token operator"><span class="token operator">=&gt;</span></span> <span class="token punctuation"><span class="token punctuation">[</span></span>
+    <span class="token string single-quoted-string"><span class="token string single-quoted-string">'driver'</span></span> <span class="token operator"><span class="token operator">=&gt;</span></span> <span class="token string single-quoted-string"><span class="token string single-quoted-string">'daily'</span></span><span class="token punctuation"><span class="token punctuation">,</span></span>
+    <span class="token string single-quoted-string"><span class="token string single-quoted-string">'path'</span></span> <span class="token operator"><span class="token operator">=&gt;</span></span> <span class="token function"><span class="token function">storage_path</span></span><span class="token punctuation"><span class="token punctuation">(</span></span><span class="token string single-quoted-string"><span class="token string single-quoted-string">'logs/laravel.json'</span></span><span class="token punctuation"><span class="token punctuation">)</span></span><span class="token punctuation"><span class="token punctuation">,</span></span>
+    <span class="token string single-quoted-string"><span class="token string single-quoted-string">'level'</span></span> <span class="token operator"><span class="token operator">=&gt;</span></span> <span class="token string single-quoted-string"><span class="token string single-quoted-string">'debug'</span></span><span class="token punctuation"><span class="token punctuation">,</span></span>
+    <span class="token string single-quoted-string"><span class="token string single-quoted-string">'days'</span></span> <span class="token operator"><span class="token operator">=&gt;</span></span> <span class="token number"><span class="token number">14</span></span><span class="token punctuation"><span class="token punctuation">,</span></span>
+<span class="token punctuation"><span class="token punctuation">]</span></span><span class="token punctuation"><span class="token punctuation">,</span></span>
+</code></pre>
+</div>
+</div>
+
+<p>This configuration sets up a new channel named <code class="prettyprint">json</code> that logs data in a daily rotating file located in the <code class="prettyprint">storage/logs</code> directory with a name <code class="prettyprint">laravel.json</code>. The logging level is set to <code class="prettyprint">debug</code> and logs will be retained for 14 days.</p>
+<ol>
+<li>Update the <code class="prettyprint">stack</code> channel to include the <code class="prettyprint">json</code> channel:</li>
+</ol>
+<div class="relative mb-5 bg-neutral-40 border border-neutral-50 rounded-md text-[15px] shadow" data-controller="clipboard">
+  <div class="px-4 py-[6px] bg-white flex items-center rounded-t-md">
+    <div class="text-[15px] font-medium inline align-middle grow"><span class="text-app-small">&nbsp;</span></div>
+    
+    <div class="copy-button hidden sm:flex sm:items-center" data-clipboard-target="confirmation">
+  <button class="text-sm p-1" data-action="click-&gt;clipboard#copy">
+    <svg alt="copy code to clipboard" height="18" width="18" class="m-0" style="--currentColor: currentColor;"><use href="https://betterstack.com/assets/articles/clipboard-d6c07cf2face9fc42a34bcb0088c7164f06f39c14281e7e510185191e9a8188a.svg#root"></use></svg>
+  </button>
+  <span class="copy-confirmation text-sm p-0">Copied!</span>
+</div>
+
+  </div>
+  <div class="code-wrapper overflow-x-auto p-2 rounded php" data-clipboard-target="content" data-controller="code">
+  <pre class="highlight language-php" tabindex="0"><code class="language-php"><span class="token string single-quoted-string"><span class="token string single-quoted-string">'stack'</span></span> <span class="token operator"><span class="token operator">=&gt;</span></span> <span class="token punctuation"><span class="token punctuation">[</span></span>
+    <span class="token string single-quoted-string"><span class="token string single-quoted-string">'driver'</span></span> <span class="token operator"><span class="token operator">=&gt;</span></span> <span class="token string single-quoted-string"><span class="token string single-quoted-string">'stack'</span></span><span class="token punctuation"><span class="token punctuation">,</span></span>
+    <span class="token string single-quoted-string"><span class="token string single-quoted-string">'channels'</span></span> <span class="token operator"><span class="token operator">=&gt;</span></span> <span class="token punctuation"><span class="token punctuation">[</span></span><span class="token string single-quoted-string"><span class="token string single-quoted-string">'single'</span></span><span class="token punctuation"><span class="token punctuation">,</span></span> <span class="token string single-quoted-string"><span class="token string single-quoted-string">'json'</span></span><span class="token punctuation"><span class="token punctuation">]</span></span><span class="token punctuation"><span class="token punctuation">,</span></span>
+<span class="token punctuation"><span class="token punctuation">]</span></span><span class="token punctuation"><span class="token punctuation">,</span></span>
+</code></pre>
+</div>
+</div>
+
+<p>This will ensure that logs are written to both the default <code class="prettyprint">single</code> channel (which logs in plain text) and the new <code class="prettyprint">json</code> channel.</p>
+<ol>
+<li>Use the <code class="prettyprint">Log</code> facade to log data in JSON format:</li>
+</ol>
+<div class="relative mb-5 bg-neutral-40 border border-neutral-50 rounded-md text-[15px] shadow" data-controller="clipboard">
+  <div class="px-4 py-[6px] bg-white flex items-center rounded-t-md">
+    <div class="text-[15px] font-medium inline align-middle grow"><span class="text-app-small">&nbsp;</span></div>
+    
+    <div class="copy-button hidden sm:flex sm:items-center" data-clipboard-target="confirmation">
+  <button class="text-sm p-1" data-action="click-&gt;clipboard#copy">
+    <svg alt="copy code to clipboard" height="18" width="18" class="m-0" style="--currentColor: currentColor;"><use href="https://betterstack.com/assets/articles/clipboard-d6c07cf2face9fc42a34bcb0088c7164f06f39c14281e7e510185191e9a8188a.svg#root"></use></svg>
+  </button>
+  <span class="copy-confirmation text-sm p-0">Copied!</span>
+</div>
+
+  </div>
+  <div class="code-wrapper overflow-x-auto p-2 rounded php" data-clipboard-target="content" data-controller="code">
+  <pre class="highlight language-php" tabindex="0"><code class="language-php"><span class="token class-name static-context"><span class="token class-name static-context">Log</span></span><span class="token operator"><span class="token operator">::</span></span><span class="token function"><span class="token function">channel</span></span><span class="token punctuation"><span class="token punctuation">(</span></span><span class="token string single-quoted-string"><span class="token string single-quoted-string">'json'</span></span><span class="token punctuation"><span class="token punctuation">)</span></span><span class="token operator"><span class="token operator">-&gt;</span></span><span class="token function"><span class="token function">debug</span></span><span class="token punctuation"><span class="token punctuation">(</span></span><span class="token function"><span class="token function">json_encode</span></span><span class="token punctuation"><span class="token punctuation">(</span></span><span class="token punctuation"><span class="token punctuation">[</span></span><span class="token string single-quoted-string"><span class="token string single-quoted-string">'key'</span></span> <span class="token operator"><span class="token operator">=&gt;</span></span> <span class="token string single-quoted-string"><span class="token string single-quoted-string">'value'</span></span><span class="token punctuation"><span class="token punctuation">]</span></span><span class="token punctuation"><span class="token punctuation">)</span></span><span class="token punctuation"><span class="token punctuation">)</span></span><span class="token punctuation"><span class="token punctuation">;</span></span>
+</code></pre>
+</div>
+</div>
+
+<p>This will log a JSON object in the <code class="prettyprint">json</code> channel.</p><p>With these steps, Laravel will now log data in JSON format in addition to the default plain text format.</p>
+<div class="mt-11 text-center">
+<div class="text-sm text-neutral-300 mt-6">
+Got an article suggestion?
+<a class="!underline !text-neutral-300" href="mailto:hello@betterstack.com?subject=Suggestion%20for%20How%20to%20log%20data%20in%20JSON%20in%20Laravel&amp;body=">Let us know</a>
+</div>
+<div class="flex justify-center items-center space-x-3 mt-4">
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw&amp;url=https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/&amp;text=How+to+log+data+in+JSON+in+Laravel+%7C+Better+Stack+Community&amp;via=betterstackhq" rel="nofollow noopener" target="_blank">
+<svg width="16" height="16" alt="Share on Twitter" class="!rounded-none m-0" style="--currentColor: currentColor;"><use href="/assets/articles/icons/twitter-0a71c82dff1d94a2c2cec482547d6393d7341e4f4be980ed508136a75b3d1527.svg#root"></use></svg>
+</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/" rel="nofollow noopener" target="_blank">
+<svg width="16" height="16" alt="Share on Facebook" class="!rounded-none m-0" style="--currentColor: currentColor;"><use href="/assets/articles/icons/facebook-6ffe06602047bc3abd84874b8b66c4f962ff5e90b8974b83782cbc1c37b32c44.svg#root"></use></svg>
+</a>
+<a href="mailto:?subject=How%20to%20log%20data%20in%20JSON%20in%20Laravel&amp;body=https%3A%2F%2Fbetterstack.com%2Fcommunity%2Fquestions%2Fhow-to-log-data-in-json-in-laravel%2F">
+<svg width="16" height="16" alt="Share via e-mail" class="!rounded-none m-0" style="--currentColor: currentColor;"><use href="/assets/articles/icons/mail-023765f22acbe30ad587791edbf15dc0ac019d9617046176376561282b997023.svg#root"></use></svg>
+</a>
+</div>
+</div>
+<div class="mt-20 text-center heading-h5">Explore more</div>
+<div class="mt-3 flex flex-wrap justify-center">
+<a class="!text-neutral-800 hover:!text-neutral-white !no-underline px-[10px] py-[2px] mr-2 mt-2 rounded-lg bg-neutral-50 whitespace-nowrap hover:bg-primary-700" href="https://betterstack.com/tag/php">PHP</a>
+<a class="!text-neutral-800 hover:!text-neutral-white !no-underline px-[10px] py-[2px] mr-2 mt-2 rounded-lg bg-neutral-50 whitespace-nowrap hover:bg-primary-700" href="https://betterstack.com/tag/laravel">Laravel</a>
+</div>
+<div class="mt-11 -mr-4 flex flex-col sm:flex-row sm:flex-wrap">
+<a class="mt-4 mr-4 bg-neutral-40 rounded-lg no-underline sm:w-[calc(50%-16px)] hover:!no-underline" href="https://betterstack.com/community/questions/how-to-get-the-query-executed-in-laravel/">
+<div class="p-5 grow h-full flex flex-col justify-between">
+<div>
+<div class="text-xl font-bold text-neutral-800 overflow-hidden text-ellipsis">How to Get the Query Executed in Laravel 5</div>
+</div>
+<div class="mt-3 flex items-center">
+<div class="w-6 h-6 mr-2 rounded-lg flex justify-center items-center bg-secondary-royal-purple/20">
+<img width="16" height="16" alt="" data-src="https://imagedelivery.net/xZXo0QFi-1_4Zimer-T0XQ/951fd279-1b4b-450d-4423-3a6625139600/public" class=" lazyload" src="https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/">
+</div>
+<div class="text-secondary-royal-purple text-sm font-normal">Questions</div>
+</div>
+</div>
+</a>
+<a class="mt-4 mr-4 bg-neutral-40 rounded-lg no-underline sm:w-[calc(50%-16px)] hover:!no-underline" href="https://betterstack.com/community/guides/testing/laravel-unit-testing/">
+<div class="p-5 grow h-full flex flex-col justify-between">
+<div>
+<div class="text-xl font-bold text-neutral-800 overflow-hidden text-ellipsis">Unit Testing in Laravel</div>
+</div>
+<div class="mt-3 flex items-center">
+<div class="w-6 h-6 mr-2 rounded-lg flex justify-center items-center bg-secondary-royal-purple/20">
+<img width="16" height="16" alt="" data-src="https://imagedelivery.net/xZXo0QFi-1_4Zimer-T0XQ/be0c8ec1-7925-4ba4-1840-9b74972bc200/public" class=" lazyload" src="https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/">
+</div>
+<div class="text-secondary-royal-purple text-sm font-normal">Guides</div>
+</div>
+</div>
+</a>
+<a class="mt-4 mr-4 bg-neutral-40 rounded-lg no-underline sm:w-[calc(50%-16px)] hover:!no-underline" href="https://betterstack.com/community/guides/scaling-php/laravel-task-scheduling/">
+<div class="p-5 grow h-full flex flex-col justify-between">
+<div>
+<div class="text-xl font-bold text-neutral-800 overflow-hidden text-ellipsis">Task scheduling in Laravel</div>
+<div class="mt-2 text-neutral-300 overflow-hidden text-ellipsis max-h-[106px]">Learn how to create and monitor scheduled tasks in a Laravel application</div>
+</div>
+<div class="mt-3 flex items-center">
+<div class="w-6 h-6 mr-2 rounded-lg flex justify-center items-center bg-secondary-royal-purple/20">
+<img width="16" height="16" alt="" data-src="https://imagedelivery.net/xZXo0QFi-1_4Zimer-T0XQ/be0c8ec1-7925-4ba4-1840-9b74972bc200/public" class=" lazyload" src="https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/">
+</div>
+<div class="text-secondary-royal-purple text-sm font-normal">Guides</div>
+</div>
+</div>
+</a>
+</div>
+
+<div class="mt-24 flex flex-col items-center">
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="nofollow noopener" target="_blank">
+<img alt="Licensed under CC-BY-NC-SA" class="m-0 lazyload" width="89" height="31" data-src="/assets/articles/cc-by-nc-sa-1fa5a2f7978211f24b8230a7e79097dd1f8a36be35e813693c49348cf1689f42.png" src="https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/">
+</a>
+<p class="mt-5 text-center text-neutral-300 max-w-[365px] !text-sm">This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</p>
+</div>
+
+</div>
+</div>
+<div class="hidden lg:block ml-12 w-[248px]">
+<div class="flex justify-center">
+<div class="border border-neutral-50 shadow-lg rounded-xl text-sm text-neutral-600 flex flex-col items-center">
+<div class="pt-4 flex justify-between flex-col">
+<div class="shrink-0">
+<a class="flex justify-center" href="https://betterstack.com/better-uptime">
+<svg width="171" height="45" class="-ml-2" style="--currentColor: currentColor;"><use href="/assets/articles/betterstack-logo-gray-0453aaf0145c32e61f37dcda2d61f538cb46823f7aacfb7cb5f590f87ee7bc5e.svg#root"></use></svg>
+</a>
+</div>
+<div class="p-4">
+<div class="flex items-center space-x-4">
+<div class="w-8 h-8 shrink-0 rounded-md flex justify-center items-center bg-primary-700/10">
+<svg width="20" height="20" style="--currentColor: currentColor;"><use href="/assets/articles/products/check-circle-04deb9ad7927dae8091f3672c48c1203d1ceef5a2c97abcf83f51b12e5f578ef.svg#root"></use></svg>
+</div>
+<div>Check Uptime, Ping, Ports, SSL and more.</div>
+</div>
+<div class="mt-4 flex items-center space-x-4">
+<div class="w-8 h-8 shrink-0 rounded-md flex justify-center items-center bg-primary-700/10">
+<svg width="20" height="20" style="--currentColor: currentColor;"><use href="/assets/articles/products/chat-alt-3376dfab7ec54735b517eeef577453775bc488c92ff1069d54d50ca6feb199de.svg#root"></use></svg>
+</div>
+<div>Get Slack, SMS and phone incident alerts.</div>
+</div>
+<div class="mt-4 flex items-center space-x-4">
+<div class="w-8 h-8 shrink-0 rounded-md flex justify-center items-center bg-primary-700/10">
+<svg width="20" height="20" style="--currentColor: currentColor;"><use href="/assets/articles/products/calendar-d2fa4261ea5a1c22978a9228201e8932b1b5ec0bee0efa6679eddc06f132e34c.svg#root"></use></svg>
+</div>
+<div>Easy on-call duty scheduling.</div>
+</div>
+<div class="mt-4 flex items-center space-x-4">
+<div class="w-8 h-8 shrink-0 rounded-md flex justify-center items-center bg-primary-700/10">
+<svg width="20" height="20" style="--currentColor: currentColor;"><use href="/assets/articles/products/status-online-966e9f118835844eb017ec4880f3d749db2330c885dab64b2e8a052fea0b43b6.svg#root"></use></svg>
+</div>
+<div>Create free status page on your domain.</div>
+</div>
+<div class="">
+<a class="mt-6 btn btn-betterstack-primary !text-neutral-white block text-center no-underline" href="https://betterstack.com/uptime?utm_content=uptime_ad&amp;utm_medium=questions&amp;utm_source=community&amp;utm_term=how-to-log-data-in-json-in-laravel">Start monitoring</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<ul class="mt-7 text-sm sticky top-[100px]">
+<li class="py-4 text-sm text-neutral-300 border-b border-neutral-50">
+<a class="block" href="https://betterstack.com/community/questions/how-to-get-the-query-executed-in-laravel/">
+<div class="text-neutral-500 font-medium overflow-hidden text-ellipsis max-h-[45px]">
+How to Get the Query Executed in Laravel 5
+<svg width="16" height="16" class="inline -mt-1 fill-neutral-200" style="--currentColor: currentColor;"><use href="/assets/tailwind_icons/chevron-right-2355f278d42e98f088f1c7fc71e8f92a1552e4afdadf2852ade45d0505f6eb3b.svg#root"></use></svg>
+</div>
+<p class="mt-2 overflow-hidden text-ellipsis h-[42px]">By default, the query log is
+disabled
+in Laravel 5:
+Don’t worry, you can enable the query log by running the following:
+// enable query log
+DB::enableQueryLog();
+Then you can display the log like t...</p>
+<div class="mt-3 flex items-center">
+<div class="w-6 h-6 mr-2 rounded-lg flex justify-center items-center bg-secondary-royal-purple/20">
+<img width="16" height="16" alt="" data-src="https://imagedelivery.net/xZXo0QFi-1_4Zimer-T0XQ/951fd279-1b4b-450d-4423-3a6625139600/public" class=" lazyloaded" src="./Cómo registrar datos en JSON en Laravel_files/public">
+</div>
+<div class="text-secondary-royal-purple">Questions</div>
+</div>
+</a>
+</li>
+<li class="py-4 text-sm text-neutral-300 border-b border-neutral-50">
+<a class="block" href="https://betterstack.com/community/guides/testing/laravel-unit-testing/">
+<div class="text-neutral-500 font-medium overflow-hidden text-ellipsis max-h-[45px]">
+Unit Testing in Laravel
+<svg width="16" height="16" class="inline -mt-1 fill-neutral-200" style="--currentColor: currentColor;"><use href="/assets/tailwind_icons/chevron-right-2355f278d42e98f088f1c7fc71e8f92a1552e4afdadf2852ade45d0505f6eb3b.svg#root"></use></svg>
+</div>
+<p class="mt-2 overflow-hidden text-ellipsis h-[42px]">Testing is an important phase in the software development life cycle. It ensures
+that the code you've written is working as designed before you move on to the
+next part of your project. Every time ...</p>
+<div class="mt-3 flex items-center">
+<div class="w-6 h-6 mr-2 rounded-lg flex justify-center items-center bg-secondary-royal-purple/20">
+<img width="16" height="16" alt="" data-src="https://imagedelivery.net/xZXo0QFi-1_4Zimer-T0XQ/be0c8ec1-7925-4ba4-1840-9b74972bc200/public" class=" lazyloaded" src="./Cómo registrar datos en JSON en Laravel_files/public(1)">
+</div>
+<div class="text-secondary-royal-purple">Guides</div>
+</div>
+</a>
+</li>
+<li class="py-4 text-sm text-neutral-300 border-b border-neutral-50">
+<a class="block" href="https://betterstack.com/community/guides/scaling-php/laravel-task-scheduling/">
+<div class="text-neutral-500 font-medium overflow-hidden text-ellipsis max-h-[45px]">
+Task scheduling in Laravel
+<svg width="16" height="16" class="inline -mt-1 fill-neutral-200" style="--currentColor: currentColor;"><use href="/assets/tailwind_icons/chevron-right-2355f278d42e98f088f1c7fc71e8f92a1552e4afdadf2852ade45d0505f6eb3b.svg#root"></use></svg>
+</div>
+<p class="mt-2 overflow-hidden text-ellipsis h-[42px]">Learn how to create and monitor scheduled tasks in a Laravel application</p>
+<div class="mt-3 flex items-center">
+<div class="w-6 h-6 mr-2 rounded-lg flex justify-center items-center bg-secondary-royal-purple/20">
+<img width="16" height="16" alt="" data-src="https://imagedelivery.net/xZXo0QFi-1_4Zimer-T0XQ/be0c8ec1-7925-4ba4-1840-9b74972bc200/public" class=" lazyloaded" src="./Cómo registrar datos en JSON en Laravel_files/public(1)">
+</div>
+<div class="text-secondary-royal-purple">Guides</div>
+</div>
+</a>
+</li>
+
+</ul>
+
+</div>
+</div>
+</div>
+<div class="mt-20 pt-1 bg-neutral-900 text-neutral-200">
+<section class="mt-16 md:mt-44 px-5 md:px-10 w-full flex flex-col items-center">
+<h4 class="heading-h3 text-neutral-white text-center">We are hiring.</h4>
+<p class="mt-3 text-center max-w-[418px]">
+Software is our way of making the world a tiny bit better. We build tools for the makers of tomorrow.
+</p>
+<div class="mt-12 w-full flex flex-col md:flex-row justify-center items-center md:space-x-8">
+<a class="flex-1 w-full max-w-[476px]" href="https://betterstack.com/careers">
+<div class="rounded-t-lg bg-neutral-700 p-8 flex items-center space-x-5">
+<div class="grow">
+<div class="heading-h5 text-neutral-white sm:whitespace-nowrap">Join the Better Stack team</div>
+<p class="mt-2 h-12">Help us in making the internet more reliable.</p>
+</div>
+<div class="hidden sm:flex w-10 h-10 shrink-0 bg-neutral-500 rounded-lg justify-center items-center">
+<svg width="20" height="20" style="--currentColor: currentColor;"><use href="/assets/articles/arrow-right-712b2451d30aaca6e5ea496d1af870a5ab447d6feff627f4b50c801215a83ef2.svg#root"></use></svg>
+</div>
+</div>
+<div class="rounded-b-lg bg-neutral-800 px-8 py-3">
+<img width="140" height="40" class="-ml-2 lazyload" alt="Better Stack logo" data-src="/assets/logo-256-4e3cd741c75eed0a0d57240a0d8991a8d53279ed6f4cd3c9c6e72f7d3df6980b.png" src="https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/">
+</div>
+</a>
+<a class="mt-6 md:mt-0 flex-1 w-full max-w-[476px]" href="https://betterstack.com/community/write-for-us/">
+<div class="rounded-t-lg bg-neutral-700 p-8 flex items-center space-x-5">
+<div class="grow">
+<div class="heading-h5 text-neutral-white sm:whitespace-nowrap">Become a contributor</div>
+<p class="mt-2 h-12">Help us with developer education and get paid.</p>
+</div>
+<div class="hidden sm:flex w-10 h-10 shrink-0 bg-neutral-500 rounded-lg justify-center items-center">
+<svg width="20" height="20" style="--currentColor: currentColor;"><use href="/assets/articles/arrow-right-712b2451d30aaca6e5ea496d1af870a5ab447d6feff627f4b50c801215a83ef2.svg#root"></use></svg>
+</div>
+</div>
+<div class="rounded-b-lg bg-neutral-800 px-8 py-3 flex justify-between items-center">
+<img width="140" height="40" class="-ml-2 lazyload" alt="Better Stack community logo" data-src="/assets/articles/betterstack-community-2fde52ddf0ff5241499fce39103c1ba716d71a1026a583a413bb4cdd3147d51d.png" src="https://betterstack.com/community/questions/how-to-log-data-in-json-in-laravel/">
+<div class="bg-primary-700 text-neutral-white rounded-full px-2 py-1 text-xs tracking-widest">NEW</div>
+</div>
+</a>
+</div>
+<a class="mt-14 text-secondary-royal-purple" href="https://betterstack.com/careers/open-positions">Explore all positions →</a>
+</section>
+
+</div>
+</main>
+
+<div class="dark">
+<nav class="bg-white text-sm border-t dark:bg-neutral-900 border-neutral-300/10 text-[#363D4E] dark:text-neutral-200">
+<div class="mx-auto px-5 md:px-10 pt-8 lg:pt-14 pb-10 md:pb-20 md:flex max-w-[1180px]">
+<div class="flex-2 lg:flex-none flex gap-5">
+<div class="flex-1 flex flex-col lg:flex-row">
+<div class="lg:mr-20 flex-1">
+<div class="mb-16 hidden md:block">
+<div class="font-medium text-black dark:text-white">Platform</div>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/enterprise">Enterprise</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/uptime">Uptime</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/logs">Logs</a>
+</div>
+<div class="mb-16">
+<div class="font-medium text-black dark:text-white">Solutions</div>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/logs">Log management</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/uptime">Uptime monitoring</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/incident-management">Incident management</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/status-page">Status page</a>
+</div>
+</div>
+<div class="flex-1">
+<div class="mb-16 hidden lg:block">
+<div class="font-medium text-black dark:text-white">Resources</div>
+<a class="inline-block -mx-1 px-1 mt-3 whitespace-nowrap" href="https://betterstack.com/help">Help &amp; Support</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/docs/uptime">Uptime docs</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/docs/logs">Logs docs</a>
+
+</div>
+<div class="mb-16 lg:hidden">
+<div class="font-medium text-black dark:text-white">Company</div>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/careers">Work at Better Stack</a>
+<br class="lg:hidden">
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/careers/engineering">Engineering</a>
+<br class="lg:hidden">
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/security">Security</a>
+
+</div>
+<div class="mb-16">
+<div class="font-medium text-black dark:text-white">Community</div>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/community/guides">Guides</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/community/questions">Questions</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/community/comparisons">Comparisons</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/community/write-for-us">Write for us</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/integrations">Integrations</a>
+</div>
+</div>
+</div>
+<div class="lg:ml-20 flex-1 flex flex-col">
+<div class="mb-16 hidden lg:flex flex-col items-start">
+<div class="font-medium text-black dark:text-white">Company</div>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/careers">Work at Better Stack</a>
+<br class="lg:hidden">
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/careers/engineering">Engineering</a>
+<br class="lg:hidden">
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/security">Security</a>
+
+</div>
+<div class="mb-16 lg:hidden">
+<div class="font-medium text-black dark:text-white">Resources</div>
+<a class="inline-block -mx-1 px-1 mt-3 whitespace-nowrap" href="https://betterstack.com/help">Help &amp; Support</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/docs/uptime">Uptime docs</a>
+<br>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/docs/logs">Logs docs</a>
+
+</div>
+<div class="flex flex-col items-start">
+<div class="font-medium text-black dark:text-white">Compare</div>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/pingdom-alternative">Pingdom</a>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/pagerduty-alternative">Pagerduty</a>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/statuspage-io-alternative">StatusPage.io</a>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/uptime-robot-alternative">Uptime Robot</a>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/statuscake-alternative">StatusCake</a>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/opsgenie-alternative">Opsgenie</a>
+<a class="inline-block -mx-1 px-1 mt-3" href="https://betterstack.com/victorops-alternative">VictorOps</a>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col items-start">
+<div class="font-medium text-black dark:text-white">From the community</div>
+<a class="inline-block -mx-1 px-1 mt-4" href="https://betterstack.com/community/guides/incident-management/what-is-incident-management/">What Is Incident Management? Beginner’s Guide</a>
+<a class="inline-block -mx-1 px-1 mt-4" href="https://betterstack.com/community/guides/incident-management/on-call-scheduling/">How to Create a Developer-Friendly On-Call Schedule in 7 steps</a>
+<a class="inline-block -mx-1 px-1 mt-4" href="https://betterstack.com/community/guides/incident-management/mttr-and-other-incident-metrics/">Explained: All Meanings of MTTR and Other Incident Metrics</a>
+<a class="inline-block -mx-1 px-1 mt-4" href="https://betterstack.com/community/comparisons/new-relic-vs-splunk/">New Relic vs. Splunk: a side-by-side comparison for 2023</a>
+<a class="inline-block -mx-1 px-1 mt-4" href="https://betterstack.com/community/comparisons/splunk-vs-elastic-stack-elk/">Splunk vs Elastic/ELK Stack: The Key Differences to Know</a>
+</div>
+</div>
+</nav>
+<footer class="bg-[#F3F4F7] dark:bg-neutral-900">
+<div class="mx-auto text-sm lg:px-5 max-w-[1180px] text-[#363D4E] dark:text-neutral-200">
+<div class="px-5 pt-9 flex flex-col lg:flex-row justify-between items-center lg:items-end border-t border-neutral-300/10">
+<div>
+<svg width="154" height="21" alt="" class="text-black dark:text-white scale-75 lg:scale-100" style="--currentColor: currentColor;"><use href="/assets/v2/better-stack-logo-0dd586683a61184ea953948d207470eeec73c76d81d57cd8af24bf56b36a90db.svg#root"></use></svg>
+<p class="mt-3 hidden lg:block max-w-[342px]">
+Better Stack
+lets you see inside any stack, debug any issue, and resolve any incident.
+</p>
+</div>
+<div class="flex items-center gap-6 whitespace-nowrap">
+<a class="hidden lg:block -mx-1 px-1" href="tel:+1 (201) 500-2007">+1 (201) 500-2007</a>
+<a class="hidden lg:block -mx-1 px-1" href="mailto:hello@betterstack.com">hello@betterstack.com</a>
+<div class="hidden lg:block h-4 border-l border-neutral-300/10"></div>
+<div class="hidden lg:flex"><div class="flex gap-4 text-neutral-300">
+<a aria-label="Better Stack on LinkedIn" href="https://www.linkedin.com/company/betterstack" rel="nofollow noopener" target="_blank"><svg width="16" height="17" style="--currentColor: currentColor;"><use href="/assets/v2/linkedin-4f511cfd40812cf617fa6ca9fbeff362681a975a1f4f911261bdbeaa2b1cbe19.svg#root"></use></svg></a>
+<a aria-label="Better Stack on Twitter" href="https://twitter.com/betterstackhq" rel="nofollow noopener" target="_blank"><svg width="16" height="16" style="--currentColor: currentColor;"><use href="/assets/v2/twitter-c4218c9e217942ebbf4db83a3dec654ce97a94806c3d0fe7ebe31d7d7d2aa9b9.svg#root"></use></svg></a>
+<a aria-label="Better Stack on Github" href="https://github.com/BetterStackHQ/" rel="nofollow noopener" target="_blank"><svg width="16" height="17" style="--currentColor: currentColor;"><use href="/assets/v2/github-e74d48ed6bd519eddfaac1a76a313eed359b3ab311dccab980003682a3d3a05e.svg#root"></use></svg></a>
+</div>
+</div>
+</div>
+</div>
+<div class="px-5 lg:px-2 lg:mx-3 mt-5 py-3 lg:border-t flex flex-col lg:flex-row justify-between items-center border-neutral-300/10 dark:border-[#1F2433]/70 text-[12px] leading-[18px]">
+<div class="flex items-center gap-6 whitespace-nowrap dark:text-neutral-300">
+<a class="-mx-1 px-1" href="https://betterstack.com/terms">Terms of Use</a>
+<a class="-mx-1 px-1" href="https://betterstack.com/privacy">Privacy Policy</a>
+<a class="-mx-1 px-1" href="https://betterstack.com/dpa">GDPR</a>
+<a class="hidden sm:block -mx-1 px-1" href="https://status.betterstack.com/" target="_blank">
+<svg width="14" height="15" alt="All services are up" class="mr-1 hidden lg:inline" style="--currentColor: currentColor;"><use href="/assets/v2/status-green-9b323a3710393221033993056c8b5de0999eaf3139262ab0625db787dee99f00.svg#root"></use></svg>
+System status
+</a>
+</div>
+<div class="mt-8 mb-2 flex lg:hidden"><div class="flex gap-4 text-neutral-300">
+<a aria-label="Better Stack on LinkedIn" href="https://www.linkedin.com/company/betterstack" rel="nofollow noopener" target="_blank"><svg width="16" height="17" style="--currentColor: currentColor;"><use href="/assets/v2/linkedin-4f511cfd40812cf617fa6ca9fbeff362681a975a1f4f911261bdbeaa2b1cbe19.svg#root"></use></svg></a>
+<a aria-label="Better Stack on Twitter" href="https://twitter.com/betterstackhq" rel="nofollow noopener" target="_blank"><svg width="16" height="16" style="--currentColor: currentColor;"><use href="/assets/v2/twitter-c4218c9e217942ebbf4db83a3dec654ce97a94806c3d0fe7ebe31d7d7d2aa9b9.svg#root"></use></svg></a>
+<a aria-label="Better Stack on Github" href="https://github.com/BetterStackHQ/" rel="nofollow noopener" target="_blank"><svg width="16" height="17" style="--currentColor: currentColor;"><use href="/assets/v2/github-e74d48ed6bd519eddfaac1a76a313eed359b3ab311dccab980003682a3d3a05e.svg#root"></use></svg></a>
+</div>
+</div>
+<div class="flex items-center text-neutral-300">
+© 2023 Better Stack, Inc.
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="root" fill="none" height="15" viewBox="0 0 14 15" width="14" class="ml-2 transition hover:-rotate-[15deg] hidden lg:inline"><mask id="a" fill="#000" height="14" maskUnits="userSpaceOnUse" width="14" x=".84082" y=".910156"><path d="m.84082.910156h14v14h-14z" fill="#fff"></path><path clip-rule="evenodd" d="m12.4541 1.91016h-4.37651v.54686h-.54823v.54771 1.85936 1.2038h-.54617v.54725h-.87535v.54642h-.87576v.54777h-.54616v.54551h-.0011-.54589-.54734v-.65488h-.54706v2.84474h.54616v.6549h.54824v.547h.54699v.4392.6557.5469.4376.0003h.65647v-.0003h.43765v-.4376h-.43765v-.5469h.43765v-.6557h.54706v-.5478h.65609v.5472h.43768v.1982h1.09412v-.4377h-.54709v-.8541h.54701v-.5472h.54712v-.87494h.54616v-1.86076h.65821v.43832h.547v-.54706h-.0011v-.43832h-1.20411v-1.2027h.65671v-1.09465h2.1892v-.0002h.5459v-2.40707h-.5459zm-9.41064 5.25148h-.54617v-1.20358h-.65647v3.50119h.54616v.43769h.65648zm7.22294-1.74985h1.6412v.54706h-1.6412zm-1.62526-2.63729h.00042v-.00005h.80045v.00013h.26677v1.06726h-.26682v-.00107h-.8004v-.26582h-.00042zm.26682.79945h.534v-.53268h-.534z" fill="#000" fill-rule="evenodd"></path></mask><path d="m8.07759 1.91016v-.952682h-.95268v.952682zm4.37651 0h.9527v-.952682h-.9527zm-4.37651.54686v.95268h.95268v-.95268zm-.54823 0v-.95268h-.95268v.95268zm0 3.61087v.95268h.95268v-.95268zm-.54617 0v-.95268h-.95267v.95268zm0 .54725v.95268h.95268v-.95268zm-.87535 0v-.95268h-.95267v.95268zm0 .54642v.95268h.95268v-.95268zm-.87576 0v-.95268h-.95268v.95268zm0 .54777v.95268h.95268v-.95268zm-.54616 0v-.95268h-.95268v.95268zm0 .54551v.95268h.95268v-.95268zm-1.09433 0h-.95268v.95268h.95268zm0-.65488h.95268v-.95268h-.95268zm-.54706 0v-.95268h-.95268v.95268zm0 2.84474h-.95268v.9527h.95268zm.54616 0h.95268v-.9527h-.95268zm0 .6549h-.95268v.9526h.95268zm.54824 0h.95268v-.9527h-.95268zm0 .547h-.95268v.9527h.95268zm.54699 0h.95268v-.9527h-.95268zm0 2.0797h-.95268v.9527h.95268zm.65647 0v.9527h.95268v-.9527zm0-.0003v-.9526h-.95268v.9526zm.43765 0v.9527h.95268v-.9527zm0-.4376h.95268v-.9527h-.95268zm-.43765 0h-.95268v.9527h.95268zm0-.5469v-.9527h-.95268v.9527zm.43765 0v.9527h.95268v-.9527zm0-.6557v-.9527h-.95268v.9527zm.54706 0v.9527h.95268v-.9527zm0-.5478v-.9526h-.95268v.9526zm.65609 0h.95268v-.9526h-.95268zm0 .5472h-.95267v.9527h.95267zm.43768 0h.95268v-.9527h-.95268zm0 .1982h-.95268v.9526h.95268zm1.09412 0v.9526h.95268v-.9526zm0-.4377h.95268v-.9527h-.95268zm-.54709 0h-.95267v.9527h.95267zm0-.8541v-.9527h-.95267v.9527zm.54701 0v.9527h.95268v-.9527zm0-.5472v-.9527h-.95268v.9527zm.54712 0v.9527h.95267v-.9527zm0-.87494v-.95267h-.95268v.95267zm.54616 0v.95264h.95271v-.95264zm0-1.86076v-.95268h-.95268v.95268zm.65821 0h.9527v-.95268h-.9527zm0 .43832h-.9527v.95268h.9527zm.547 0v.95268h.9527v-.95268zm0-.54706h.9527v-.95268h-.9527zm-.0011 0h-.95264v.95268h.95264zm0-.43832h.9527v-.95268h-.9527zm-1.20411 0h-.95268v.95268h.95268zm0-1.2027v-.95268h-.95268v.95268zm.65671 0v.95268h.9527v-.95268zm0-1.09465v-.95268h-.95267v.95268zm2.1892 0v.95267h.9527v-.95267zm0-.0002v-.95268h-.9527v.95268zm.5459 0v.95267h.9526v-.95267zm0-2.40707h.9526v-.95268h-.9526zm-.5459 0h-.9527v.95268h.9527zm-9.95681 4.70462h-.95268v.95268h.95268zm.54617 0h.95267v-.95268h-.95267zm-.54617-1.20358h.95268v-.95268h-.95268zm-.65647 0v-.95268h-.952678v.95268zm0 3.50119h-.952678v.95265h.952678zm.54616 0h.95268v-.95268h-.95268zm0 .43769h-.95268v.95266h.95268zm.65648 0v.95266h.95267v-.95266zm8.86414-4.48515h.9526v-.95268h-.9526zm-1.6412 0v-.95268h-.9527v.95268zm1.6412.54706v.95268h.9526v-.95268zm-1.6412 0h-.9527v.95268h.9527zm-1.62484-3.18435v.95268h.95268v-.95268zm-.00042 0v-.95268h-.95267v.95268zm.00042-.00005v-.95268h-.95268v.95268zm.80045 0h.95269v-.95268h-.95269zm0 .00013h-.95268v.95268h.95268zm.26677 0h.95272v-.95268h-.95272zm0 1.06726v.95268h.95272v-.95268zm-.26682 0h-.95268v.95268h.95268zm0-.00107h.95264v-.95268h-.95264zm-.8004 0h-.95268v.95267h.95268zm0-.26582h.95268v-.95268h-.95268zm-.00042 0h-.95267v.95268h.95267zm.26682-.001h-.95268v.95268h.95268zm.534 0v.95268h.95264v-.95268zm0-.53268h.95264v-.95268h-.95264zm-.534 0v-.95268h-.95268v.95268zm-.83037-.17844h4.37651v-1.905352h-4.37651zm.95268-.40581v-.54686h-1.90536v.54686zm-1.50091.95268h.54823v-1.90536h-.54823zm.95268-.40497v-.54771h-1.90536v.54771zm0 1.85936v-1.85936h-1.90536v1.85936zm0 1.2038v-1.2038h-1.90536v1.2038zm-1.49885.95268h.54617v-1.90536h-.54617zm.95268-.40543v-.54725h-1.90535v.54725zm-1.82803.95268h.87535v-1.90536h-.87535zm.95268-.40626v-.54642h-1.90535v.54642zm-1.82844.95268h.87576v-1.90536h-.87576zm.95268-.40491v-.54777h-1.90536v.54777zm-1.49884.95268h.54616v-1.90536h-.54616zm.95268-.40717v-.54551h-1.90536v.54551zm-.95378.95268h.0011v-1.90535h-.0011zm-.54589 0h.54589v-1.90535h-.54589zm-.54734 0h.54734v-1.90535h-.54734zm-.95268-1.60756v.65488h1.90536v-.65488zm.40562.95268h.54706v-1.90536h-.54706zm.95268 1.89206v-2.84474h-1.90536v2.84474zm-.40652-.9527h-.54616v1.9054h.54616zm.95268 1.6076v-.6549h-1.90536v.6549zm-.40444-.9527h-.54824v1.9053h.54824zm.95268 1.4997v-.547h-1.90536v.547zm-.40569-.9527h-.54699v1.9054h.54699zm.95268 1.3919v-.4392h-1.90536v.4392zm0 .6557v-.6557h-1.90536v.6557zm0 .5469v-.5469h-1.90536v.5469zm0 .4376v-.4376h-1.90536v.4376zm0 .0003v-.0003h-1.90536v.0003zm-.29621-.9526h-.65647v1.9053h.65647zm-.95268.9523v.0003h1.90536v-.0003zm1.39033-.9526h-.43765v1.9053h.43765zm-.95268.515v.4376h1.90536v-.4376zm.51503.9527h.43765v-1.9054h-.43765zm-.95268-1.4996v.5469h1.90536v-.5469zm1.39033-.9527h-.43765v1.9054h.43765zm-.95268.297v.6557h1.90536v-.6557zm1.49974-.9527h-.54706v1.9054h.54706zm-.95268.4049v.5478h1.90536v-.5478zm1.60877-.9526h-.65609v1.9053h.65609zm.95268 1.4998v-.5472h-1.90535v.5472zm-.515-.9527h-.43768v1.9054h.43768zm.95268 1.1509v-.1982h-1.90536v.1982zm.14144-.9527h-1.09412v1.9053h1.09412zm-.95268.515v.4377h1.90536v-.4377zm.40559.9527h.54709v-1.9054h-.54709zm-.95267-1.8068v.8541h1.90535v-.8541zm1.49968-.9527h-.54701v1.9054h.54701zm-.95268.4055v.5472h1.90536v-.5472zm1.4998-.9527h-.54712v1.9054h.54712zm-.95268.07776v.87494h1.90535v-.87494zm1.49884-.95267h-.54616v1.90531h.54616zm-.95268-.90809v1.86076h1.90539v-1.86076zm1.61089-.95268h-.65821v1.90536h.65821zm.9527 1.391v-.43832h-1.9054v.43832zm-.4057-.95268h-.547v1.90536h.547zm-.95264.40562v.54706h1.90534v-.54706zm.95154.95268h.0011v-1.90536h-.0011zm-.95264-1.391v.43832h1.90534v-.43832zm-.25147.95268h1.20411v-1.90536h-1.20411zm-.95268-2.15538v1.2027h1.90539v-1.2027zm1.60939-.95268h-.65671v1.90536h.65671zm-.95267-.14197v1.09465h1.90537v-1.09465zm3.14187-.95268h-2.1892v1.90535h2.1892zm-.9527.95248v.0002h1.9054v-.0002zm1.4986-.95268h-.5459v1.90535h.5459zm-.9527-1.45439v2.40707h1.9053v-2.40707zm.4068.95268h.5459v-1.90536h-.5459zm-.9527-1.49954v.54686h1.9054v-.54686zm-9.00411 6.20416h.54617v-1.90536h-.54617zm-.95268-2.15626v1.20358h1.90536v-1.20358zm.29621.95268h.65647v-1.90536h-.65647zm.95268 2.54851v-3.50119h-1.905358v3.50119zm-.40652-.95268h-.54616v1.90533h.54616zm.95268 1.39037v-.43769h-1.90536v.43769zm-.2962-.95268h-.65648v1.90534h.65648zm-.95268-1.78262v2.7353h1.90535v-2.7353zm9.81682-2.70253h-1.6412v1.90536h1.6412zm.9526 1.49974v-.54706h-1.9053v.54706zm-2.5938.95268h1.6412v-1.90536h-1.6412zm-.9527-1.49974v.54706h1.9054v-.54706zm-.67214-3.58997h-.00042v1.90536h.00042zm-.95268.95263v.00005h1.90536v-.00005zm1.75313-.95268h-.80045v1.90536h.80045zm.95269.95281v-.00013h-1.90537v.00013zm-.68592-.95268h-.26677v1.90536h.26677zm.95272 2.01994v-1.06726h-1.9054v1.06726zm-1.21954.95268h.26682v-1.90536h-.26682zm-.95268-.95375v.00107h1.90532v-.00107zm.95268-.95268h-.8004v1.90535h.8004zm.15228.95268v-.26582h-1.90536v.26582zm-.9531.68686h.00042v-1.90536h-.00042zm-.95267-1.75313v.80045h1.90535v-.80045zm1.21949 1.75213h.534v-1.90536h-.534zm-.41868-1.48536v.53268h1.90532v-.53268zm.41868.95268h.534v-1.90536h-.534zm.95268-.42v-.53268h-1.90536v.53268z" fill="#646e87" mask="url(#a)"></path></svg>
+
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+</div>
+<script src="./Cómo registrar datos en JSON en Laravel_files/prism-core.min.js.descarga"></script>
+<script src="./Cómo registrar datos en JSON en Laravel_files/prism-autoloader.min.js.descarga"></script>
+<script src="./Cómo registrar datos en JSON en Laravel_files/prism-keep-markup.min.js.descarga"></script>
+
+
+<div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon310949826077"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon370993997781" width="0" height="0" alt="" src="./Cómo registrar datos en JSON en Laravel_files/0"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon141874007775" width="0" height="0" alt="" src="./Cómo registrar datos en JSON en Laravel_files/0(1)"></div></body></html>

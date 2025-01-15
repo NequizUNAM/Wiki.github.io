@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://blog.desdelinux.net/usando-vim-tutorial-basico/ -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/loader.js.descarga"></script><script type="text/javascript" async="" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/recaptcha__es_419.js.descarga" crossorigin="anonymous" integrity="sha384-jnYAUH49e6PoTqsjYEPNuTDbhhnTD8D54bhR8nu0ozdyxjznw1RI04YkYgMdynnl"></script><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0">
+	<meta name="theme-color" content="#000000">
+
+	<title>Usando VIM: Tutorial Básico. | Desde Linux</title>
+
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://blog.desdelinux.net/xmlrpc.php">
+
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="uri-translation" content="on"><link rel="alternate" hreflang="es" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="af" href="https://blog.desdelinux.net/af/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="sq" href="https://blog.desdelinux.net/sq/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="am" href="https://blog.desdelinux.net/am/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ar" href="https://blog.desdelinux.net/ar/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="hy" href="https://blog.desdelinux.net/hy/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="az" href="https://blog.desdelinux.net/az/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="eu" href="https://blog.desdelinux.net/eu/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="be" href="https://blog.desdelinux.net/be/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="bn" href="https://blog.desdelinux.net/bn/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="bs" href="https://blog.desdelinux.net/bs/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="bg" href="https://blog.desdelinux.net/bg/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ca" href="https://blog.desdelinux.net/ca/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ceb" href="https://blog.desdelinux.net/ceb/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ny" href="https://blog.desdelinux.net/ny/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="zh-CN" href="https://blog.desdelinux.net/zh-CN/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="zh-TW" href="https://blog.desdelinux.net/zh-TW/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="co" href="https://blog.desdelinux.net/co/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="hr" href="https://blog.desdelinux.net/hr/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="cs" href="https://blog.desdelinux.net/cs/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="da" href="https://blog.desdelinux.net/da/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="nl" href="https://blog.desdelinux.net/nl/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="en" href="https://blog.desdelinux.net/en/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="eo" href="https://blog.desdelinux.net/eo/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="et" href="https://blog.desdelinux.net/et/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="tl" href="https://blog.desdelinux.net/tl/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="fi" href="https://blog.desdelinux.net/fi/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="fr" href="https://blog.desdelinux.net/fr/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="fy" href="https://blog.desdelinux.net/fy/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="gl" href="https://blog.desdelinux.net/gl/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ka" href="https://blog.desdelinux.net/ka/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="de" href="https://blog.desdelinux.net/de/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="el" href="https://blog.desdelinux.net/el/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="gu" href="https://blog.desdelinux.net/gu/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ht" href="https://blog.desdelinux.net/ht/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ha" href="https://blog.desdelinux.net/ha/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="haw" href="https://blog.desdelinux.net/haw/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="he" href="https://blog.desdelinux.net/iw/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="hi" href="https://blog.desdelinux.net/hi/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="hmn" href="https://blog.desdelinux.net/hmn/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="hu" href="https://blog.desdelinux.net/hu/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="is" href="https://blog.desdelinux.net/is/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ig" href="https://blog.desdelinux.net/ig/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="id" href="https://blog.desdelinux.net/id/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ga" href="https://blog.desdelinux.net/ga/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="it" href="https://blog.desdelinux.net/it/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ja" href="https://blog.desdelinux.net/ja/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="jv" href="https://blog.desdelinux.net/jw/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="kn" href="https://blog.desdelinux.net/kn/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="kk" href="https://blog.desdelinux.net/kk/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="km" href="https://blog.desdelinux.net/km/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ko" href="https://blog.desdelinux.net/ko/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ku" href="https://blog.desdelinux.net/ku/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ky" href="https://blog.desdelinux.net/ky/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="lo" href="https://blog.desdelinux.net/lo/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="la" href="https://blog.desdelinux.net/la/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="lv" href="https://blog.desdelinux.net/lv/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="lt" href="https://blog.desdelinux.net/lt/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="lb" href="https://blog.desdelinux.net/lb/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="mk" href="https://blog.desdelinux.net/mk/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="mg" href="https://blog.desdelinux.net/mg/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ms" href="https://blog.desdelinux.net/ms/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ml" href="https://blog.desdelinux.net/ml/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="mt" href="https://blog.desdelinux.net/mt/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="mi" href="https://blog.desdelinux.net/mi/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="mr" href="https://blog.desdelinux.net/mr/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="mn" href="https://blog.desdelinux.net/mn/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="my" href="https://blog.desdelinux.net/my/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ne" href="https://blog.desdelinux.net/ne/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="no" href="https://blog.desdelinux.net/no/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ps" href="https://blog.desdelinux.net/ps/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="fa" href="https://blog.desdelinux.net/fa/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="pl" href="https://blog.desdelinux.net/pl/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="pt" href="https://blog.desdelinux.net/pt/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="pa" href="https://blog.desdelinux.net/pa/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ro" href="https://blog.desdelinux.net/ro/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ru" href="https://blog.desdelinux.net/ru/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="sm" href="https://blog.desdelinux.net/sm/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="gd" href="https://blog.desdelinux.net/gd/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="sr" href="https://blog.desdelinux.net/sr/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="st" href="https://blog.desdelinux.net/st/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="sn" href="https://blog.desdelinux.net/sn/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="sd" href="https://blog.desdelinux.net/sd/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="si" href="https://blog.desdelinux.net/si/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="sk" href="https://blog.desdelinux.net/sk/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="sl" href="https://blog.desdelinux.net/sl/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="so" href="https://blog.desdelinux.net/so/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="su" href="https://blog.desdelinux.net/su/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="sw" href="https://blog.desdelinux.net/sw/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="sv" href="https://blog.desdelinux.net/sv/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="tg" href="https://blog.desdelinux.net/tg/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ta" href="https://blog.desdelinux.net/ta/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="te" href="https://blog.desdelinux.net/te/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="th" href="https://blog.desdelinux.net/th/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="tr" href="https://blog.desdelinux.net/tr/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="uk" href="https://blog.desdelinux.net/uk/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="ur" href="https://blog.desdelinux.net/ur/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="uz" href="https://blog.desdelinux.net/uz/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="vi" href="https://blog.desdelinux.net/vi/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="cy" href="https://blog.desdelinux.net/cy/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="xh" href="https://blog.desdelinux.net/xh/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="yi" href="https://blog.desdelinux.net/yi/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="yo" href="https://blog.desdelinux.net/yo/usando-vim-tutorial-basico/">
+<link rel="alternate" hreflang="zu" href="https://blog.desdelinux.net/zu/usando-vim-tutorial-basico/">
+
+	<!-- This site is optimized with the Yoast SEO plugin v18.9 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="Nunca pensé que fuese a decir esto, pero increíblemente le estoy cogiendo el gusto al mejor editor que existe para el terminal en GNU/Linux: VIM. Citando">
+	<link rel="canonical" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/">
+	<meta property="og:locale" content="es_ES">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Usando VIM: Tutorial Básico.">
+	<meta property="og:description" content="Nunca pensé que fuese a decir esto, pero increíblemente le estoy cogiendo el gusto al mejor editor que existe para el terminal en GNU/Linux: VIM. Citando">
+	<meta property="og:url" content="https://blog.desdelinux.net/usando-vim-tutorial-basico/">
+	<meta property="og:site_name" content="Desde Linux">
+	<meta property="article:publisher" content="https://www.facebook.com/DesdeLinux/">
+	<meta property="article:published_time" content="2012-06-05T14:23:12+00:00">
+	<meta property="og:image" content="https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM.png">
+	<meta property="og:image:width" content="1024">
+	<meta property="og:image:height" content="577">
+	<meta property="og:image:type" content="image/png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:creator" content="@desdelinux">
+	<meta name="twitter:site" content="@desdelinux">
+	<meta name="twitter:label1" content="Escrito por">
+	<meta name="twitter:data1" content="Alejandro (a.k.a KZKG^Gaara)">
+	<meta name="twitter:label2" content="Tiempo de lectura">
+	<meta name="twitter:data2" content="4 minutos">
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="amphtml" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/amp/"><meta name="generator" content="AMP for WP 1.0.77.44"><link rel="dns-prefetch" href="https://www.google.com/">
+<link rel="dns-prefetch" href="https://cdn.ampproject.org%2C/">
+<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com%2C/">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net%2C/">
+<link rel="dns-prefetch" href="https://google.com%2C/">
+<link rel="dns-prefetch" href="https://google.es%2C/">
+<link rel="dns-prefetch" href="https://tpc.googlesyndication.com%2C/">
+<link rel="dns-prefetch" href="https://stats.g.doubleclick.net%2C/">
+<link rel="dns-prefetch" href="https://cm.g.doubleclick.net/">
+
+<link rel="alternate" type="application/rss+xml" title="Desde Linux » Feed" href="https://blog.desdelinux.net/feed/">
+<link rel="alternate" type="application/rss+xml" title="Desde Linux » Feed de los comentarios" href="https://blog.desdelinux.net/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Desde Linux » Comentario Usando VIM: Tutorial Básico. del feed" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/feed/">
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link data-minify="1" rel="stylesheet" id="gtranslate-style-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/gtranslate-style24.css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><noscript><link data-minify="1" rel='stylesheet' id='gtranslate-style-css'  href='https://blog.desdelinux.net/wp-content/cache/min/1/wp-content/plugins/gtranslate/gtranslate-style24.css?ver=1654164978' type='text/css' media='all' />
+</noscript><link rel="stylesheet" id="wp-block-library-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/style.min.css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><noscript><link rel='stylesheet' id='wp-block-library-css'  href='https://blog.desdelinux.net/wp-includes/css/dist/block-library/style.min.css?ver=6.0' type='text/css' media='all' />
+</noscript><style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel="stylesheet" id="toc-screen-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/screen.min.css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><noscript><link rel='stylesheet' id='toc-screen-css'  href='https://blog.desdelinux.net/wp-content/plugins/AB-table-of-contents-plus/screen.min.css?ver=1509' type='text/css' media='all' />
+</noscript><link data-minify="1" rel="stylesheet" id="dashicons-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/dashicons.min.css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><noscript><link data-minify="1" rel='stylesheet' id='dashicons-css'  href='https://blog.desdelinux.net/wp-content/cache/min/1/wp-includes/css/dashicons.min.css?ver=1654164978' type='text/css' media='all' />
+</noscript><link data-minify="1" rel="stylesheet" id="simple-alert-boxes-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/simple-alert-boxes.css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><noscript><link data-minify="1" rel='stylesheet' id='simple-alert-boxes-css'  href='https://blog.desdelinux.net/wp-content/cache/min/1/wp-content/plugins/abn-simple-alert-boxes/css/simple-alert-boxes.css?ver=1654164978' type='text/css' media='all' />
+</noscript><link data-minify="1" rel="stylesheet" id="contact-form-7-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/styles.css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><noscript><link data-minify="1" rel='stylesheet' id='contact-form-7-css'  href='https://blog.desdelinux.net/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=1654164978' type='text/css' media='all' />
+</noscript><link data-minify="1" rel="stylesheet" id="responsive-lightbox-nivo_lightbox-css-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/nivo-lightbox.css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><noscript><link data-minify="1" rel='stylesheet' id='responsive-lightbox-nivo_lightbox-css-css'  href='https://blog.desdelinux.net/wp-content/cache/min/1/wp-content/plugins/responsive-lightbox-pro/assets/nivo-lightbox/nivo-lightbox.css?ver=1654164978' type='text/css' media='all' />
+</noscript><link data-minify="1" rel="stylesheet" id="responsive-lightbox-nivo_lightbox-css-d-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/default.css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><noscript><link data-minify="1" rel='stylesheet' id='responsive-lightbox-nivo_lightbox-css-d-css'  href='https://blog.desdelinux.net/wp-content/cache/min/1/wp-content/plugins/responsive-lightbox-pro/assets/nivo-lightbox/themes/default/default.css?ver=1654164978' type='text/css' media='all' />
+</noscript><link rel="stylesheet" id="abn-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/stylesheet.min.css" type="text/css" media="screen">
+<link data-minify="1" rel="stylesheet" id="font-awesome-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/fontawesome-all.min.css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><noscript><link data-minify="1" rel='stylesheet' id='font-awesome-css'  href='https://blog.desdelinux.net/wp-content/cache/min/1/wp-content/themes/abn/css/fontawesome-all.min.css?ver=1654164978' type='text/css' media='screen' />
+</noscript><link data-minify="1" rel="stylesheet" id="newsletter-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/style.css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><noscript><link data-minify="1" rel='stylesheet' id='newsletter-css'  href='https://blog.desdelinux.net/wp-content/cache/min/1/wp-content/plugins/newsletter/style.css?ver=1654164978' type='text/css' media='all' />
+</noscript><style id="rocket-lazyload-inline-css" type="text/css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://blog.desdelinux.net/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/jquery.min.js.descarga" id="jquery-core-js" defer=""></script>
+<script type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/jquery-migrate.min.js.descarga" id="jquery-migrate-js" defer=""></script>
+<script type="text/javascript" id="abn-shares-js-extra">
+/* <![CDATA[ */
+var ABNshares = {"ajaxURL":"https:\/\/blog.desdelinux.net\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/abn-shares-public.js.descarga" id="abn-shares-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://blog.desdelinux.net/wp-json/"><link rel="alternate" type="application/json" href="https://blog.desdelinux.net/wp-json/wp/v2/posts/11908"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blog.desdelinux.net/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blog.desdelinux.net/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 6.0">
+<link rel="shortlink" href="https://blog.desdelinux.net/?p=11908">
+<link rel="alternate" type="application/json+oembed" href="https://blog.desdelinux.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.desdelinux.net%2Fusando-vim-tutorial-basico%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://blog.desdelinux.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.desdelinux.net%2Fusando-vim-tutorial-basico%2F&amp;format=xml">
+<style type="text/css">div#toc_container {width: 100%;}</style><script>var gt_request_uri = '/usando-vim-tutorial-basico/';</script><style>.nivo-lightbox-theme-default.nivo-lightbox-overlay { background: none repeat scroll 0 0 rgba(0,0,0,0.6)!important;}</style><style>.nivo-lightbox-theme-default .nivo-lightbox-image img{ cursor:pointer; cursor: hand;}</style><style>.nivo-lightbox-theme-default .nivo-lightbox-title { background:#000!important;}</style><style></style><style>.nivo-lightbox-theme-default .nivo-lightbox-nav:hover { background-color:rgba(0,0,0,.5)!important;}</style>
+<link rel="preload" as="font" href="https://blog.desdelinux.net/wp-content/themes/abn/fonts/fa-brands-400.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://blog.desdelinux.net/wp-content/themes/abn/fonts/fa-solid-900.woff2" crossorigin="">
+<link rel="preload" as="font" href="https://blog.desdelinux.net/wp-content/themes/abn/fonts/fa-regular-400.woff2" crossorigin="">	<style>
+		:root {
+			--main-color:          #000000;
+			--alt-color:           #000000;
+			--soft-gray:           #F2F2F2;
+			--softest-gray:        #F8F8F8;
+			--dark-gray:           #545454;
+
+			--wrapper-width:       1250px;
+
+			--font-primary:        -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+			--font-secondary:      -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+			--font-awesome:        'Font Awesome 5 Free';
+			--font-awesome-brands: 'Font Awesome 5 Brands';
+
+			--smallest-font:       .625rem;        /* 10px */
+			--smaller-font:        .75rem;         /* 12px */
+			--small-font:          1rem;           /* 16px */
+			--normal-font:         1.125rem;       /* 18px */
+			--big-font:            1.75rem;        /* 28px */
+			--bigger-font:         2.375rem;       /* 38px */
+			--biggest-font:        2.875rem;       /* 46px */
+
+			--text-normal:         300;            /* normal Text */
+			--text-bold:           500;            /* Bold Text */
+
+			--enlightment-color: #fff		}
+
+		*,:after,:before{box-sizing:border-box}a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}body{margin:0;font-family:var(--font-primary);font-weight:400;font-size:var(--normal-font);padding-top:38px;transition:all .3s}img,picture{display:block;max-width:100%;height:auto}ol,p:not(.miniby):not(.post-meta-comments):not(:empty),ul{font-size:var(--normal-font);line-height:1.7rem;margin:1rem 0}ol,ul{padding-left:2rem}b,strong{font-weight:700}em{font-style:italic}@media screen and (max-width:64em){.main-navigation{display:none}}@media screen and (min-width:64em){.burger-toggle{display:none}}.page h1,.page h2,.page h3:not(.sitename-description),.page h4,.page h5,.page h6,.page-header h1,.page-header h2,.page-header h3,.page-header h4,.page-header h5,.page-header h6,.post h1:not(.post-title),.post h2,.post h3,.post h4,.post h5,.post h6,.single h1:not(.post-title),.single h2,.single h3,.single h4,.single h5,.single h6{font-family:var(--font-primary);font-weight:400;margin-top:3rem;margin-bottom:2rem}.page h1,.page-header h1,.post h1,.single h1{color:var(--main-color);line-height:var(--bigger-font);font-size:var(--big-font)}.page h2,.page-header h2,.post h2,.single h2{font-size:var(--big-font)}.page h3,.page-header h3,.post h3,.single h3{font-size:24px}.page h4,.page-header h4,.post h4,.single h4{font-size:22px}.page h5,.page-header h5,.post h5,.single h5{font-size:var(--normal-font)}.miniby,.post-meta-comments{font-size:var(--smaller-font)}.miniby a,.post-meta-comments a{text-decoration:none;color:var(--main-color)}.post-readmore{font-size:var(--smaller-font)}.site-header{width:100%;position:absolute;top:0;left:0;background-color:var(--main-color)}.site-header .wrapper{padding:.2rem .5rem;min-height:36px;max-height:54px;box-sizing:border-box;justify-content:center}.logo-content{position:relative;z-index:10;display:flex;justify-content:flex-start;align-items:center;height:100%}.site-logo{width:auto;height:100%;margin-right:.3rem;display:flex;align-items:center}.site-logo img,.site-logo svg{width:100%;max-height:24px;max-width:35px;margin:0 auto}.sitename-description{margin:0!important;position:relative}.sitename-description a,.sitename-description--link{text-decoration:none;font-weight:lighter;font-size:var(--normal-font);line-height:var(--big-font);color:#fff;display:flex}.sitename-description .sitename-word:nth-child(2){font-weight:700}div[data-menu-button]{display:none}.burger-toggle{background:0 0;border:none;color:#fff;padding:0;width:24px;height:36px;position:absolute;top:0;left:.3rem;z-index:10;margin:auto}.burger-icon{width:24px}.burger-icon div,.burger-icon:after,.burger-icon:before{background-color:#fff;border-radius:3px;content:'';display:block;height:2px;margin:4px 0;transition:all .2s ease-in-out}.burger-icon:before{margin-top:0}.burger-toggle[aria-expanded=true] .burger-icon:before{transform:translateY(6px) rotate(135deg)}.burger-toggle[aria-expanded=true] .burger-icon:after{transform:translateY(-6px) rotate(-135deg)}.burger-toggle[aria-expanded=true] .burger-icon div{transform:scale(0)}.sidebar{flex:0 0 100%;padding:2rem 1rem}@media screen and (min-width:64em){body{padding-top:80px}.sidebar{display:block}}	</style>
+
+			<link href="https://blog.desdelinux.net/usando-vim-tutorial-basico/feed/" title="Desde Linux" type="application/rss+xml" rel="alternate">
+		<link rel="shortcut icon" type="image/x-icon" href="https://blog.desdelinux.net/wp-content/uploads/2018/04/cropped-desdelinux.png"><meta name="author" content="Alejandro (a.k.a KZKG^Gaara)">      <meta name="onesignal" content="wordpress-plugin">
+            <script>
+	// Delay welcome prompt
+	setTimeout(function(){
+  		console.log("about to initialize OneSignal"); 
+  		window.OneSignal = window.OneSignal || [];
+  		window.OneSignal.push(function() {
+    	window.OneSignal.init(window._oneSignalInitOptions);
+    	OneSignal.showSlidedownPrompt();
+  		});
+	}, 20000);
+      window.OneSignal = window.OneSignal || [];
+
+      OneSignal.push( function() {
+        OneSignal.SERVICE_WORKER_UPDATER_PATH = "OneSignalSDKUpdaterWorker.js.php";
+                      OneSignal.SERVICE_WORKER_PATH = "OneSignalSDKWorker.js.php";
+                      OneSignal.SERVICE_WORKER_PARAM = { scope: "/" };
+        OneSignal.setDefaultNotificationUrl("https://blog.desdelinux.net");
+        var oneSignal_options = {};
+        window._oneSignalInitOptions = oneSignal_options;
+
+        oneSignal_options['wordpress'] = true;
+oneSignal_options['appId'] = '7900c2d0-cfd5-4844-8f4b-1568ae328295';
+oneSignal_options['allowLocalhostAsSecureOrigin'] = true;
+oneSignal_options['welcomeNotification'] = { };
+oneSignal_options['welcomeNotification']['disable'] = true;
+oneSignal_options['path'] = "https://blog.desdelinux.net/wp-content/plugins/ABN-onesignal/sdk_files/";
+oneSignal_options['safari_web_id'] = "web.onesignal.auto.0b3c1e09-f01e-4f75-a6ff-3f857f927766";
+oneSignal_options['promptOptions'] = { };
+oneSignal_options['promptOptions']['actionMessage'] = "¿Desea recibir las últimas noticias de blog.desdelinux.net?";
+oneSignal_options['promptOptions']['exampleNotificationTitleDesktop'] = "Esta es una notificación de ejemplo";
+oneSignal_options['promptOptions']['exampleNotificationMessageDesktop'] = "Las notificaciones le aparecerán en su escritorio";
+oneSignal_options['promptOptions']['exampleNotificationTitleMobile'] = "Notificación de ejemplo";
+oneSignal_options['promptOptions']['exampleNotificationMessageMobile'] = "Las notificaciones aparecerán en su dispositivo";
+oneSignal_options['promptOptions']['exampleNotificationCaption'] = "Puede anular su suscripción en cualquier momento.";
+oneSignal_options['promptOptions']['acceptButtonText'] = "CONTINUAR";
+oneSignal_options['promptOptions']['cancelButtonText'] = "NO GRACIAS";
+oneSignal_options['promptOptions']['siteName'] = "https://blog.desdelinux.net";
+oneSignal_options['promptOptions']['autoAcceptTitle'] = "Aceptar";
+          /* OneSignal: Using custom SDK initialization. */
+                });
+
+      function documentInitOneSignal() {
+        var oneSignal_elements = document.getElementsByClassName("OneSignal-prompt");
+
+        var oneSignalLinkClickHandler = function(event) { OneSignal.push(['registerForPushNotifications']); event.preventDefault(); };        for(var i = 0; i < oneSignal_elements.length; i++)
+          oneSignal_elements[i].addEventListener('click', oneSignalLinkClickHandler, false);
+      }
+
+      if (document.readyState === 'complete') {
+           documentInitOneSignal();
+      }
+      else {
+           window.addEventListener("load", function(event){
+               documentInitOneSignal();
+          });
+      }
+    </script>
+<link rel="icon" href="https://blog.desdelinux.net/wp-content/uploads/2018/04/cropped-desdelinux-32x32.png" sizes="32x32">
+<link rel="icon" href="https://blog.desdelinux.net/wp-content/uploads/2018/04/cropped-desdelinux-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://blog.desdelinux.net/wp-content/uploads/2018/04/cropped-desdelinux-180x180.png">
+<meta name="msapplication-TileImage" content="https://blog.desdelinux.net/wp-content/uploads/2018/04/cropped-desdelinux-270x270.png">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-75904577-1');
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/js(1)"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3VG50L7R0Y');
+</script>
+<!-- google adsense -->
+<script async="" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/f.txt" crossorigin="anonymous"></script>
+<!-- google adsense -->
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>
+	<!--[if lt IE 9]>
+	<meta http-equiv="X-UA-Compatible" content="IE=7, IE=9">
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="stylesheet" href="https://blog.desdelinux.net/wp-content/themes/abn/css/ie.css" />
+	<![endif]-->
+<link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/front.min.js.descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/wp-polyfill.min.js.descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/api.js.descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/jquery.min.js.descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/jquery-migrate.min.js.descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/abn-shares-public.js.descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/regenerator-runtime.min.js.descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/index.js.descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/nivo-lightbox.min.js.descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/jquery.touchSwipe.min.js.descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/script.js.descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/index.js(1).descarga" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/js" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/js(1)" rel="preload" as="script"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/f.txt" rel="preload" as="script" crossorigin="anonymous"><link href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/OneSignalSDK.js.descarga" rel="preload" as="script"><link href="https://www.googletagmanager.com/" rel="preconnect"><link href="https://pagead2.googlesyndication.com/" rel="preconnect" crossorigin="anonymous"><link href="https://www.google.com/" rel="preconnect"><link rel="stylesheet" id="machete-cookies-theme-css" href="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/new_light.css" media="all"><script src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/OneSignalPageSDKES6.js.descarga" async=""></script></head>
+
+<body id="top" class="post-template-default single single-post postid-11908 single-format-standard ">
+
+<!-- Div para la campaña de publicidad -->
+<div style="max-width: 100%; margin:auto">
+<!-- /Div para la campaña de publicidad -->
+
+
+<header class="site-header " role="banner">
+	<div class="wrapper">
+					<div class="logo-content">
+									<a href="https://blog.desdelinux.net/" class="site-logo" title="Desde Linux" rel="home">
+						<svg class="site-logo-icon" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 292 292" xmlns="http://www.w3.org/2000/svg"><path d="m5290.27 1461.52h-187.97c-28.49 0-51.62-23.13-51.62-51.63v-187.96c0-28.49 23.13-51.62 51.62-51.62h187.97c28.49 0 51.62 23.13 51.62 51.62v187.96c0 28.5-23.13 51.63-51.62 51.63zm0-268.52h-187.97c-15.96 0-28.93 12.96-28.93 28.93v187.96c0 15.97 12.97 28.93 28.93 28.93h187.97c15.96 0 28.93-12.96 28.93-28.93v-187.96c0-15.97-12.97-28.93-28.93-28.93zm-62.84 24.73 9.88 34.14s-119.16 71.13-132.61 80.04c52.5 13.05 119.58 58.42 135.85 81l13.76-11.58c-39.38-49.39-104.36-72.74-104.36-72.74l107.44-69.77-16.12-42.31zm32.36 68.29c11.77 4 18.98 14.14 16.09 22.62-2.88 8.49-14.78 12.14-26.54 8.14s-18.97-14.14-16.09-22.62c2.89-8.49 14.78-12.13 26.54-8.14zm-5.06-69.51h12.08l18.54 42.13-20.47.18z" fill="#fff" transform="translate(-5050.68 -1170.31)"></path></svg>					</a>
+					<h3 class="sitename-description"><a href="https://blog.desdelinux.net/" class="sitename-description--link"><span class="sitename-word">Desde
+Linux</span></a></h3>			</div>
+				<button aria-label="Menu" aria-expanded="false" aria-controls="menu" class="burger-toggle">
+			<div class="burger-icon"><div></div></div>
+		</button>
+	<div id="shortcutIcons" class="shortcut-icons" hidden="">
+					<a href="https://blog.desdelinux.net/wp-login.php?redirect_to=https%3A%2F%2Fblog.desdelinux.net%2Fusando-vim-tutorial-basico%2F" class="user-toggle">
+				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M10 0C13.4518 0 16.25 2.7982 16.25 6.25C16.25 9.7018 13.4518 12.5 10 12.5C6.5482 12.5 3.75 9.7018 3.75 6.25C3.75 2.7982 6.5482 0 10 0ZM17.1595 13.0399L14.3738 12.3435C11.4471 14.4486 7.89969 13.9788 5.62617 12.3435L2.84051 13.0399C1.17113 13.4572 0 14.9571 0 16.6779V18.125C0 19.1605 0.839453 20 1.875 20H18.125C19.1605 20 20 19.1605 20 18.125V16.6779C20 14.9571 18.8289 13.4572 17.1595 13.0399V13.0399Z" fill="white"></path>
+				</svg>
+			</a>
+					<a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#" id="searchToggle" class="search-toggle">
+			<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M19.728 17.2942L15.8332 13.3994C15.6574 13.2236 15.4191 13.126 15.1691 13.126H14.5323C15.6105 11.747 16.2512 10.0125 16.2512 8.12559C16.2512 3.63698 12.6142 0 8.12559 0C3.63698 0 0 3.63698 0 8.12559C0 12.6142 3.63698 16.2512 8.12559 16.2512C10.0125 16.2512 11.747 15.6105 13.126 14.5323V15.1691C13.126 15.4191 13.2236 15.6574 13.3994 15.8332L17.2942 19.728C17.6614 20.0952 18.2552 20.0952 18.6185 19.728L19.7241 18.6225C20.0913 18.2552 20.0913 17.6614 19.728 17.2942ZM8.12559 13.126C5.36367 13.126 3.12523 10.8914 3.12523 8.12559C3.12523 5.36367 5.35977 3.12523 8.12559 3.12523C10.8875 3.12523 13.126 5.35977 13.126 8.12559C13.126 10.8875 10.8914 13.126 8.12559 13.126Z" fill="white"></path>
+			</svg>
+		</a>
+	</div></div>
+</header><!-- #site-header -->
+
+		<div id="mainNavigation" class="main-navigation" hidden="">
+			<nav role="navigation">
+				<ul id="navigation-top" class="menu"><li id="menu-item-78943" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-78943"><a href="https://blog.desdelinux.net/linux/">GNU/Linux</a></li>
+<li id="menu-item-78945" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-78945"><a href="https://blog.desdelinux.net/aplicaciones/">Aplicaciones</a></li>
+<li id="menu-item-78947" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-78947"><a href="https://blog.desdelinux.net/apariencia-personalizacion/">Apariencia</a></li>
+<li id="menu-item-78948" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-78948"><a href="https://blog.desdelinux.net/distros/">Distribuciones</a></li>
+<li id="menu-item-78946" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-78946"><a href="https://blog.desdelinux.net/noticias/">Noticias</a></li>
+<li id="menu-item-78944" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-78944"><a href="https://blog.desdelinux.net/tutoriales/">Tutoriales</a></li>
+<li id="menu-item-79112" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-79112"><a href="https://blog.desdelinux.net/wp-login.php?action=register">Login / Registro</a>
+<ul class="sub-menu">
+	<li id="menu-item-79114" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79114"><a href="https://blog.desdelinux.net/wp-login.php">Login</a></li>
+	<li id="menu-item-79113" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79113"><a href="https://blog.desdelinux.net/wp-login.php?action=register">Registro</a></li>
+</ul>
+</li>
+</ul>			</nav>
+				
+			</div>
+		
+
+
+<div id="main" class="wrapper main">
+<!-- * single.php * -->
+<div id="content" class="content" role="main">
+<!-- * content-single.php * -->
+<article id="post-11908" class="post-11908 post type-post status-publish format-standard has-post-thumbnail category-aplicaciones category-linux category-tutoriales">
+	<header class="post-header">
+				<h1 class="post-title">Usando VIM: Tutorial Básico.</h1>
+		<div class="post-meta">
+			<p class="miniby"><span><a href="https://blog.desdelinux.net/author/usemoslinux/" title="Ver todos los artículos de Alejandro (a.k.a KZKG^Gaara)"><span>Alejandro (a.k.a KZKG^Gaara)</span></a> | <span><time class="entry-date" datetime=""></time></span> |  <a href="https://blog.desdelinux.net/aplicaciones/" rel="category tag">Aplicaciones</a></span>, <span><a href="https://blog.desdelinux.net/linux/" rel="category tag">GNU/Linux</a></span>, <span><a href="https://blog.desdelinux.net/tutoriales/" rel="category tag">Tutoriales/Manuales/Tips</a></span></p>				<p class="post-meta-comments">
+					<a id="commentsHeaderToggle" title="21 Comentarios" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comments">
+						21 Comentarios					</a>
+				</p>
+						</div>
+		<aside id="abn_singlestealer" class="publi below-title  movil-no "><!-- desdelinux-responsive-debajotitulo -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2740134681475878" data-ad-slot="6154128703" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></aside><!-- #singlestealer.publi.below-title [ responsive debajo titulo @ below-title ] -->	</header><!-- .post-header -->
+
+	<div class="post-content">
+		
+<div id="abn-shares-buttons" style="position: relative; top: 0px;" class=""><div class="fixed-inner"><a id="facebookwindow" class="abns-button abns-button--facebook external" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.desdelinux.net%2Fusando-vim-tutorial-basico%2F&amp;t=Usando%20VIM:%20Tutorial%20B%C3%A1sico.&amp;i=https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-600x338.png" title="Share on Facebook" target="_blank" rel="nofollow" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ABNshares&#39;, &#39;event_label&#39;: &#39;Facebook&#39;});">
+<div class="abns-button-inner">
+<i class="fa fa-facebook"></i>
+<span class="abns-share-text">Comparte</span>
+</div>
+</a>
+<a class="abns-button abns-button--twitter external" href="http://twitter.com/intent/tweet?text=Usando%20VIM:%20Tutorial%20B%C3%A1sico.%20https%3A%2F%2Fblog.desdelinux.net%2Fusando-vim-tutorial-basico%2F%20v%C3%ADa%20%40" onclick="window.open(this.href, &#39;twitterwindow&#39;,&#39;left=20,top=20,width=600,height=300,toolbar=0,resizable=1&#39;); gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ABNshares&#39;, &#39;event_label&#39;: &#39;Twitter&#39;}); return false;" title="Tweet" target="_blank" rel="nofollow">
+<div class="abns-button-inner">
+<i class="fa fa-twitter"></i>
+<span class="abns-share-text">Twitea</span>
+</div>
+</a>
+<a class="abns-button abns-button--whats" href="whatsapp://send?text=Usando%20VIM:%20Tutorial%20B%C3%A1sico.%20Nunca%20pens%C3%A9%20que%20fuese%20a%20decir%20esto,%20pero%20incre%C3%ADblemente%20le%20estoy%20cogiendo%20el%20gusto%20al%20mejor%20editor%20que%20existe%20para%20el%20terminal%20en%20GNU/Linux:%20VIM.%0D%0A%0D%0ACitando%20a%20Wikipedia:%0D%0AVim%20(del%20ingl%C3%A9s%20Vi%20IMproved)%20es%20una%20versi%C3%B3n%20mejorada%20...%20%C2%BB%20https://blog.desdelinux.net/usando-vim-tutorial-basico/" title="Whatsapp" rel="nofollow" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ABNshares&#39;, &#39;event_label&#39;: &#39;WhatsApp&#39;});">
+<div class="abns-button-inner">
+<i class="fa fa-whatsapp"></i>
+<span class="abns-share-text">Envía</span>
+</div>
+</a>
+<a class="abns-button abns-button--pinterest" href="http://pinterest.com/pin/create/bookmarklet/?url=https%3A%2F%2Fblog.desdelinux.net%2Fusando-vim-tutorial-basico%2F&amp;is_video=false&amp;description=Usando%20VIM:%20Tutorial%20B%C3%A1sico.%20%23%20Nunca%20pens%C3%A9%20que%20fuese%20a%20decir%20esto,%20pero%20incre%C3%ADblemente%20le%20estoy%20cogiendo%20el%20gusto%20al%20mejor%20editor%20que%20existe%20para%20el%20terminal%20en%20GNU/Linux:%20VIM.%0D%0A%0D%0ACitando%20a%20Wikipedia:%0D%0AVim%20(del%20ingl%C3%A9s%20Vi%20IMproved)%20es%20una%20versi%C3%B3n%20mejorada%20...%20%C2%BB&amp;media=https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-600x338.png" title="Pin" target="_blank" rel="nofollow" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ABNshares&#39;, &#39;event_label&#39;: &#39;Pinterest&#39;});">
+<div class="abns-button-inner">
+<i class="fa fa-pinterest"></i>
+<span class="abns-share-text">Pinea</span>
+</div>
+</a>
+<a class="abns-button abns-button--email external" href="mailto:?subject=Usando%20VIM:%20Tutorial%20B%C3%A1sico.&amp;body=Nunca%20pens%C3%A9%20que%20fuese%20a%20decir%20esto,%20pero%20incre%C3%ADblemente%20le%20estoy%20cogiendo%20el%20gusto%20al%20mejor%20editor%20que%20existe%20para%20el%20terminal%20en%20GNU/Linux:%20VIM.%0D%0A%0D%0ACitando%20a%20Wikipedia:%0D%0AVim%20(del%20ingl%C3%A9s%20Vi%20IMproved)%20es%20una%20versi%C3%B3n%20mejorada%20...%20%C2%BB%20https://blog.desdelinux.net/usando-vim-tutorial-basico/" title="Email" rel="nofollow" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ABNshares&#39;, &#39;event_label&#39;: &#39;Email&#39;});">
+<div class="abns-button-inner">
+<i class="fa fa-envelope"></i>
+<span class="abns-share-text">Email</span>
+</div>
+</a>
+<a class="abns-button abns-button--print external" href="http://www.printfriendly.com/print/?url=https%3A%2F%2Fblog.desdelinux.net%2Fusando-vim-tutorial-basico%2F" target="_blank" rel="nofollow" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ABNshares&#39;, &#39;event_label&#39;: &#39;Imprimir&#39;});">
+<div class="abns-button-inner">
+<i class="fa fa-print"></i>
+<span class="abns-share-text mini">Print</span>
+</div>
+</a>
+</div></div><p>Nunca pensé que fuese a decir esto, pero increíblemente le estoy cogiendo el gusto al mejor editor que existe para el terminal en <strong>GNU/Linux</strong>: <strong>VIM</strong>.</p><p></p><aside id="abn_singlestealer" class="publi content-first-paragraph   tablet-no"><!-- desdelinux-1parrafo-movil -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2740134681475878" data-ad-slot="6825328184" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></aside><!-- #singlestealer.publi.content-first-paragraph [ 1 Parrafo movil @ content-first-paragraph ] --><p></p><p></p>
+<p>Citando a <strong>Wikipedia</strong>:</p>
+<blockquote><p><em><strong>Vim</strong> (del <a title="Idioma inglés" href="https://es.wikipedia.org/wiki/Idioma_ingl%C3%A9s" class="external" rel="nofollow">inglés</a> Vi IMproved) es una versión mejorada del <a title="Editor de texto" href="https://es.wikipedia.org/wiki/Editor_de_texto" class="external" rel="nofollow">editor de texto</a> <a title="Vi" href="https://es.wikipedia.org/wiki/Vi" class="external" rel="nofollow">vi</a>, presente en todos los sistemas <a title="UNIX" href="https://es.wikipedia.org/wiki/UNIX" class="external" rel="nofollow">UNIX</a>.</em></p>
+<p><em>Su autor, <a title="Bram Moolenaar" href="https://es.wikipedia.org/wiki/Bram_Moolenaar" class="external" rel="nofollow">Bram Moolenaar</a>, presentó la primera versión en <a title="1991" href="https://es.wikipedia.org/wiki/1991" class="external" rel="nofollow">1991</a>, fecha desde la que ha experimentado muchas mejoras. La principal característica tanto de Vim como de Vi consiste en que disponen de diferentes modos entre los que se alterna para realizar ciertas operaciones, lo que los diferencia de la mayoría de editores comunes, que tienen un sólo modo en el que se introducen los órdenes mediante combinaciones de teclas o <a title="Interfaz gráfica" href="https://es.wikipedia.org/wiki/Interfaz_gr%C3%A1fica" class="external" rel="nofollow">interfaces gráficas</a>.</em></p></blockquote>
+<p>Soy de los que pensaba que este era un editor para «pulpos» o personas con más de 10 dedos, pues el simple hecho de tener tantos atajos de teclado, me hacía pensar que <strong>VIM</strong> era el «monstruo» de los editores en consola. La verdad es que desde ayer estoy aprendiendo a usarlo <em>(aún con cosas muy básicas</em>) pero me estoy acostumbrando, y lo peor <em>(o mejor de todo)</em> es que me está gustando demasiado.</p><p></p><aside id="abn_singlestealer" class="publi inside-content   "><!-- desdelinux-responsive -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2740134681475878" data-ad-slot="4913119131" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></aside><!-- #singlestealer.publi.inside-content [ Responsive-entreposts @ inside-content ] --><p></p><p></p>
+<p>Siempre me he sentido cómodo con el funcionamiento de <strong>nano</strong>, pero es cierto que este editor es demasiado básico. Cuando tenemos entorno gráfico se pueden hacer uso del cursor para copiar/pegar, pero cuando estamos en un TTY la cosa cambia. Esa es la primera ventaja que le encuentro a V<strong>IM</strong>. Otras de las características que me gustan son:</p>
+<ul>
+<li>Selección de texto en columnas.</li>
+<li>Resaltado de sintáxis.</li>
+<li>Resaltado de paréntisis, corchetes y llaves (por lo que se hace ideal para programar).</li>
+<li>Extremadamente potente, incluso cuando se interrumpe el fichero que estamos editando, nos permite recuperarlo posteriormente.</li>
+<li><a title="Funcionalidades de VIM" href="https://es.wikipedia.org/wiki/Vim#Principales_funcionalidades" target="_blank" class="external" rel="nofollow">Acá</a> pueden ver muchas más…</li>
+</ul>
+<p>El único editor de texto en consola <em>(de los que conozco)</em> que «se le acerca» a <strong>VIM</strong> es <strong>MCEdit,</strong> el editor de texto de MC. Pero nótese las comillas en la oración anterior. VIM incluso tiene un editor en GTK. Pero la idea de este post no es venderle o incitarles a que usen <strong>VIM</strong>, simplemente es una forma de decirles que es más fácil de usar de lo que realmente aparenta.</p>
+<h2>Tutorial básico de uso de VIM</h2>
+<p>Pensaba dejarle una serie de atajos de teclado, pero creo que se sería mucho más práctico si les mostrara como funciona mediante un ejemplo. Lo primero que haremos es instalar <strong>VIM</strong> si no lo hemos hecho ya, o si no viene por defecto en nuestra distribución favorita. Una vez instalado, abrimos un terminal y ponemos:</p><p></p><aside id="abn_singlestealer" class="publi video-intext   "><!-- desdelinux-responsive-video -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2740134681475878" data-ad-slot="6860687512" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></aside><!-- #singlestealer.publi.video-intext [ responsive-intext-posts @ video-intext ] --><p></p><p></p>
+<p><code>$ vim prueba.txt</code></p>
+<p>Veremos algo como esto:</p>
+<p><a href="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim.png"><picture class="aligncenter size-large wp-image-11912" title="vim">
+<source type="image/webp" data-lazy-srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim.png.webp 1024w" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim.png.webp 1024w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" sizes="(max-width: 600px) 100vw, 600px">
+<img src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/vim-600x338.png" alt="" width="600" height="338" data-lazy-srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim.png 1024w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" data-lazy-src="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-600x338.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 600px) 100vw, 600px" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim.png 1024w">
+</picture>
+<noscript><picture class="aligncenter size-large wp-image-11912" title="vim">
+<source type="image/webp" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim.png.webp 1024w" sizes="(max-width: 600px) 100vw, 600px"/>
+<img src="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-600x338.png" alt="" width="600" height="338" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim.png 1024w" sizes="(max-width: 600px) 100vw, 600px"/>
+</picture>
+</noscript></a></p>
+<p>Ahora oprimimos la tecla <strong>I</strong> o la tecla <strong>Insert</strong> para pasar del modo comando al modo edición y comenzar a escribir. Escribimos cualquier cosa, si es posible, que tenga más de dos líneas. Yo por ejemplo puse:</p>
+<p><a href="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2.png"><picture class="aligncenter size-large wp-image-11913" title="vim2">
+<source type="image/webp" data-lazy-srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2.png.webp 1024w" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2.png.webp 1024w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" sizes="(max-width: 600px) 100vw, 600px">
+<img src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/vim2-600x338.png" alt="" width="600" height="338" data-lazy-srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2.png 1024w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" data-lazy-src="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-600x338.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 600px) 100vw, 600px" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2.png 1024w">
+</picture>
+<noscript><picture class="aligncenter size-large wp-image-11913" title="vim2">
+<source type="image/webp" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2.png.webp 1024w" sizes="(max-width: 600px) 100vw, 600px"/>
+<img src="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-600x338.png" alt="" width="600" height="338" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim2.png 1024w" sizes="(max-width: 600px) 100vw, 600px"/>
+</picture>
+</noscript></a></p>
+<p>Ahora bien, oprimimos la tecla <strong>ESC</strong> para salir del modo edición, nos movemos al principio del documento con las flechas del teclado y oprimimos la tecla <strong>V.</strong> Se fijarán que abajo dice ahora <strong>VISUAL</strong>. Con la flecha de abajo vamos marcando todo el texto que escribimos. Cuando lo tengamos todo seleccionado, oprimimos la tecla <strong>Y</strong>. Una vez hecho esto, verán que abajo nos indica la cantidad de líneas copiadas.</p><p></p><aside id="abn_singlestealer" class="publi more-inside-content   "><!-- desdelinux-responsive-entreposts-2 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2740134681475878" data-ad-slot="1922087031" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></aside><!-- #singlestealer.publi.more-inside-content [ responsive-entreposts-2 @ more-inside-content ] --><p></p><p></p>
+<p>Ahora nos movemos un poco más abajo y oprimimos la tecla <strong>P</strong>. Cada vez que la oprimamos, se pegará el mismo texto. Si en vez de la tecla <strong>Y</strong> oprimimos la tecla <strong>X</strong>, el texto que seleccionamos se cortará. Lo podemos volver a pegar con la tecla <strong>P</strong>.</p>
+<p>Ahora vamos a guardar el documento de prueba. Oprimimos <strong>ESC</strong> si estamos en modo de edición y escribimos <strong>:w</strong>, o sea, dos puntos y una <strong>W.</strong> Esto lo que hace es escribir o guardar lo que estamos haciendo. Si posteriormente escribimos <strong>:q</strong> saldremos del editor. Si lo que queremos es guardar y cerrar, escribimos <strong>😡</strong>.</p>
+<p>Ahora un último truco. Supongamos que sin querer se nos cierra el terminal y perdemos el documento. Lo que tenemos que hacer es volver a escribir:</p>
+<p><code>$ vim prueba.txt</code></p>
+<p>y nos saldrá algo como esto:</p>
+<p><a href="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore.png"><picture class="aligncenter size-large wp-image-11914" title="vim_restore">
+<source type="image/webp" data-lazy-srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore.png.webp 1024w" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore.png.webp 1024w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" sizes="(max-width: 600px) 100vw, 600px">
+<img src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/vim_restore-600x338.png" alt="" width="600" height="338" data-lazy-srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore.png 1024w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" data-lazy-src="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-600x338.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 600px) 100vw, 600px" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore.png 1024w">
+</picture>
+<noscript><picture class="aligncenter size-large wp-image-11914" title="vim_restore">
+<source type="image/webp" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore.png.webp 1024w" sizes="(max-width: 600px) 100vw, 600px"/>
+<img src="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-600x338.png" alt="" width="600" height="338" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore.png 1024w" sizes="(max-width: 600px) 100vw, 600px"/>
+</picture>
+</noscript></a></p>
+<p>Si se fijan al final tenemos una serie de opciones. En este caso oprimimos la tecla <strong>R</strong> para recuperar el documento anterior, luego nos pedirá que oprimamos <strong>ENTER</strong> y listo, podemos seguir donde nos quedamos. Ahora, si por casualidad le damos a la tecla <strong>E</strong> <em>(editar de todas formas)</em> también podemos recuperar el documento escribiendo <strong>:recover,</strong> y nos saldrá algo como esto:</p>
+<p><a href="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2.png"><picture class="aligncenter size-large wp-image-11915" title="vim_restore2">
+<source type="image/webp" data-lazy-srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2.png.webp 1024w" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2.png.webp 1024w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" sizes="(max-width: 600px) 100vw, 600px">
+<img src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/vim_restore2-600x338.png" alt="" width="600" height="338" data-lazy-srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2.png 1024w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" data-lazy-src="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-600x338.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 600px) 100vw, 600px" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2.png 1024w">
+</picture>
+<noscript><picture class="aligncenter size-large wp-image-11915" title="vim_restore2">
+<source type="image/webp" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2.png.webp 1024w" sizes="(max-width: 600px) 100vw, 600px"/>
+<img src="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-600x338.png" alt="" width="600" height="338" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2-195x110.png 195w, https://blog.desdelinux.net/wp-content/uploads/2012/06/vim_restore2.png 1024w" sizes="(max-width: 600px) 100vw, 600px"/>
+</picture>
+</noscript></a></p>
+<p>En este caso mi opción es escribir el número 1 y listo, queda recuperado nuevamente nuestro trabajo.</p>
+<p>Si quieres usar <strong>VIM</strong> de forma más fácil, entonces podrías instalar <strong>GVIM</strong>, que es lo mismo usando librerías Gtk para el uso de Menús y otras opciones que le facilitan el trabajo al usuario.</p>
+<p><a href="https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM.png"><picture class="aligncenter size-large wp-image-11911" title="GVIM">
+<source type="image/webp" data-lazy-srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM.png.webp 1024w" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM.png.webp 1024w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" sizes="(max-width: 600px) 100vw, 600px">
+<img src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/GVIM-600x338.png" alt="" width="600" height="338" data-lazy-srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM.png 1024w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" data-lazy-src="https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-600x338.png" data-ll-status="loaded" class="entered lazyloaded" sizes="(max-width: 600px) 100vw, 600px" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM.png 1024w">
+</picture>
+<noscript><picture class="aligncenter size-large wp-image-11911" title="GVIM">
+<source type="image/webp" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-600x338.png.webp 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-300x169.png.webp 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM.png.webp 1024w" sizes="(max-width: 600px) 100vw, 600px"/>
+<img src="https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-600x338.png" alt="" width="600" height="338" srcset="https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-600x338.png 600w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM-300x169.png 300w, https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM.png 1024w" sizes="(max-width: 600px) 100vw, 600px"/>
+</picture>
+</noscript></a></p>
+<p>Incluso, hay una extensión para <strong>Firefox</strong> llamada <a title="Vimperator" href="http://www.vimperator.org/vimperator" target="_blank" class="external" rel="nofollow"><strong>Vimperator,</strong></a> que nos permite manejar el navegador como si de <strong>VIM</strong> se tratara 😀</p>
+<p>Y hasta aquí este <strong>HowTo</strong>, cualquier sugerencia o dato es bienvenido para que todos aprendamos más cosas útiles sobre <strong>VIM</strong>.</p>
+
+		<br>
+			</div><!-- .post-content -->
+</article><!-- .post -->
+
+
+	<div class="abn-trust">
+		<p>El contenido del artículo se adhiere a nuestros principios de <a href="https://blog.desdelinux.net/etica-editorial/" rel="nofollow">ética editorial</a>. Para notificar un error pincha <a href="https://blog.desdelinux.net/contacto/" rel="nofollow">aquí</a>.</p>	</div>
+	<p id="breadcrumbs">Ruta completa hacia el artículo: <span><span><a href="https://blog.desdelinux.net/">Desde Linux</a> » <span><a href="https://blog.desdelinux.net/aplicaciones/">Aplicaciones</a> » <strong class="breadcrumb_last" aria-current="page">Usando VIM: Tutorial Básico.</strong></span></span></span></p><aside id="text-23" class="widget widget_text"><h3 class="widget-title">Te puede interesar</h3>			<div class="textwidget"><p><ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-2740134681475878" data-ad-slot="7330998756"></ins><br>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+		</aside>
+<div class="post-comments">
+	<div id="comments" class="comments-area">
+			<h3 id="commentsToggle" class="comments-title" data-script-url="https://blog.desdelinux.net/wp-includes/js/comment-reply.min.js?ver=6.0">
+			<span>
+			21 comentarios, deja el tuyo			</span>
+		</h3>
+			<div id="commentsContainer">
+					<div id="commentsRespond">
+					<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Deja tu comentario <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#respond" style="display:none;">Cancelar la respuesta</a></small></h3><form action="https://blog.desdelinux.net/wp-comments-post.php" method="post" id="commentform" class="comment-form"><p class="comment-notes"><span id="email-notes">Tu dirección de correo electrónico no será publicada.</span> <span class="required-field-message" aria-hidden="true">Los campos obligatorios están marcados con <span class="required" aria-hidden="true">*</span></span></p><p class="comment-form-comment"><label for="comment">Comentario <span class="required" aria-hidden="true">*</span></label> <textarea autocomplete="new-password" id="comment" name="e9ea978039" cols="45" rows="8" maxlength="65525" required="required"></textarea><textarea id="a807196f0ef41397348c3d45cdcda836" aria-label="hp-comment" aria-hidden="true" name="comment" autocomplete="new-password" style="padding:0 !important;clip:rect(1px, 1px, 1px, 1px) !important;position:absolute !important;white-space:nowrap !important;height:1px !important;width:1px !important;overflow:hidden !important;" tabindex="-1"></textarea><script data-noptimize="" type="text/javascript">document.getElementById("comment").setAttribute( "id", "a807196f0ef41397348c3d45cdcda836" );document.getElementById("e9ea978039").setAttribute( "id", "comment" );</script></p><p class="comment-form-author"><label for="author">Nombre</label><span class="required">*</span><input id="author" name="author" type="text" value="" size="30" tabindex="1" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Correo electrónico</label><span class="required">*</span><input id="email" name="email" type="text" value="" size="30" tabindex="2" aria-required="true"></p>
+
+        <p class="comment-form-privacy"><input id="privacy" name="privacy" type="checkbox" aria-required="true">
+            <label>Acepto los <a id="toggleDatos">términos de privacidad</a></label><span class="required">*</span>
+        </p><div id="contentDatos"><p>
+		</p><ol>
+			<li>Responsable de los datos: Miguel Ángel Gatón</li>
+			<li>Finalidad de los datos: Controlar el SPAM, gestión de comentarios.</li>
+                        <li>Legitimación: Tu consentimiento</li>
+                        <li>Comunicación de los datos: No se comunicarán los datos a terceros salvo por obligación legal.</li>
+			<li>Almacenamiento de los datos: Base de datos alojada en Occentus Networks (UE)</li>
+			<li>Derechos: En cualquier momento puedes limitar, recuperar y borrar tu información.</li>
+		</ol>
+<p></p></div>
+        <p></p>
+
+
+<div class="tnp-comments"><label for="tnp-comments-checkbox"><input type="checkbox" value="1" name="newsletter" id="tnp-comments-checkbox">&nbsp;Quiero recibir la newsletter</label></div>
+
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Publicar el comentario"> <input type="hidden" name="comment_post_ID" value="11908" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p></form>	</div><!-- #respond -->
+				</div>
+						<ol class="comment-list ">
+						<li class="comment byuser comment-author-nano even thread-even depth-1 parent" id="comment-21169">
+					<div id="div-comment-21169" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/a3f93e138885c3b4e77ec235c58cdd02?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/a3f93e138885c3b4e77ec235c58cdd02?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/a3f93e138885c3b4e77ec235c58cdd02?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/a3f93e138885c3b4e77ec235c58cdd02?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">nano</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21169" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Yo usaría Gvim, aunque no vi el resaltado de sintaxis y hubiese sido bueno que pusieras imágenes de algún texto en HTML a ver como es todo eso. Me voy a poner a trabajar con Vim y luego hago uno de esos análisis a fondo como hice con Gedit… dame una semana y lo tengo.</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21169" data-commentid="21169" data-postid="11908" data-belowelement="div-comment-21169" data-respondelement="respond" data-replyto="Responder a nano a nano" aria-label="Responder a nano a nano">Responder a nano</a>			<br><small></small>
+		</div>
+
+					</div>
+			<ol class="children">
+		<li class="comment odd alt depth-2" id="comment-21216">
+					<div id="div-comment-21216" class="comment-body">
+			
+		<div class="comment-author">
+			<span class="triangle up">&nbsp;</span><img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/26530437e1a69980fbde3e459f2811d9?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/26530437e1a69980fbde3e459f2811d9?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/26530437e1a69980fbde3e459f2811d9?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/26530437e1a69980fbde3e459f2811d9?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">abel</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21216" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Si quieres ver como funciona el resaltado de sintaxis pues te dejo un par de ejemplos.<br>
+ompldr.org/vZTRlYg<br>
+ompldr.org/vZDd3cw</p>
+<p>Y en un link de mas abajo un monton de esquemas para dejarlo mas agradable visualmente. xP</p>
+<p>Saludos.</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21216" data-commentid="21216" data-postid="11908" data-belowelement="div-comment-21216" data-respondelement="respond" data-replyto="Responder a abel a abel" aria-label="Responder a abel a abel">Responder a abel</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-21172">
+					<div id="div-comment-21172" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/f4007f9f46386a0b4544ff553f3bb91f?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/f4007f9f46386a0b4544ff553f3bb91f?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/f4007f9f46386a0b4544ff553f3bb91f?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/f4007f9f46386a0b4544ff553f3bb91f?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">Slayer</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21172" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Muy bueno el tutorial de vim, ojala que mas adelante se haga uno, un poco mas avanzado o algunos trucos mas, que se puede hacer con esta herramienta ;),<br>
+por el momento a meterme ahora en este mundo de vim</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21172" data-commentid="21172" data-postid="11908" data-belowelement="div-comment-21172" data-respondelement="respond" data-replyto="Responder a Slayer a Slayer" aria-label="Responder a Slayer a Slayer">Responder a Slayer</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1 parent" id="comment-21192">
+					<div id="div-comment-21192" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/fbf692a709939f9f2f5b7e6699b5da2e?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/fbf692a709939f9f2f5b7e6699b5da2e?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/fbf692a709939f9f2f5b7e6699b5da2e?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/fbf692a709939f9f2f5b7e6699b5da2e?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">ren434</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21192" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>De momento me quedo con emacs, que últimamente me tiene cada vez mas atrapado, por otro lado vim se me hace muy difícil moverme entre el texto.</p>
+<p>PD: ¡Felicitaciones! están de primeras en el Ranking.</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21192" data-commentid="21192" data-postid="11908" data-belowelement="div-comment-21192" data-respondelement="respond" data-replyto="Responder a ren434 a ren434" aria-label="Responder a ren434 a ren434">Responder a ren434</a>			<br><small></small>
+		</div>
+
+					</div>
+			<ol class="children">
+		<li class="comment even depth-2 parent" id="comment-21214">
+					<div id="div-comment-21214" class="comment-body">
+			
+		<div class="comment-author">
+			<span class="triangle up">&nbsp;</span><img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/0d5a8b4a9a1b371b795bf5d30b9d839b?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/0d5a8b4a9a1b371b795bf5d30b9d839b?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/0d5a8b4a9a1b371b795bf5d30b9d839b?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/0d5a8b4a9a1b371b795bf5d30b9d839b?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">msx</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21214" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>+1</p>
+<p>Los hombres usamos Emacs, sabelo!<br>
+Cuando empecé a leer «Nunca pensé que fuese a decir esto, pero increíblemente le estoy cogiendo el gusto al mejor editor que existe para el terminal en GNU/Linux…» pensé: excelente, descubrió Emacs!<br>
+En cambio resulta que el tipo sale con mariconadas 😛 las cosas que uno se encuentra por la net!</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21214" data-commentid="21214" data-postid="11908" data-belowelement="div-comment-21214" data-respondelement="respond" data-replyto="Responder a msx a msx" aria-label="Responder a msx a msx">Responder a msx</a>			<br><small></small>
+		</div>
+
+					</div>
+			<ol class="children">
+		<li class="comment odd alt depth-3 parent" id="comment-21260">
+					<div id="div-comment-21260" class="comment-body">
+			
+		<div class="comment-author">
+			<span class="triangle up">&nbsp;</span><img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">elav &lt;° Linux</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21260" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Ohh que machote. Supongo entonces que usas <strong>LFS</strong>, porque usar una distro con todo masticado supongo que también es una mariconada ¿no?</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21260" data-commentid="21260" data-postid="11908" data-belowelement="div-comment-21260" data-respondelement="respond" data-replyto="Responder a elav &lt;° Linux a elav &lt;° Linux" aria-label="Responder a elav &lt;° Linux a elav &lt;° Linux">Responder a elav &lt;° Linux</a>			<br><small></small>
+		</div>
+
+					</div>
+			<ol class="children">
+		<li class="comment even depth-4" id="comment-21296">
+					<div id="div-comment-21296" class="comment-body">
+			
+		<div class="comment-author">
+			<span class="triangle up">&nbsp;</span><img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/9e1ea74113f06de1dff4e01315248dbf?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/9e1ea74113f06de1dff4e01315248dbf?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/9e1ea74113f06de1dff4e01315248dbf?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/9e1ea74113f06de1dff4e01315248dbf?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">pandev92</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21296" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Hombre emacs me parece bastante más fácil que vim pero para gustos colores.</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21296" data-commentid="21296" data-postid="11908" data-belowelement="div-comment-21296" data-respondelement="respond" data-replyto="Responder a pandev92 a pandev92" aria-label="Responder a pandev92 a pandev92">Responder a pandev92</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-21195">
+					<div id="div-comment-21195" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/78e9d1db77e8894ea3a269b459a8512a?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/78e9d1db77e8894ea3a269b459a8512a?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/78e9d1db77e8894ea3a269b459a8512a?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/78e9d1db77e8894ea3a269b459a8512a?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">Dav</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21195" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>vimtutor es un tutorial interactivo muy bueno, está diseñado para ser completado en 25-30 minutos. muy recomendable!<br>
+<code>apt-get install vimtutor</code><br>
+<code>vimtutor</code></p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21195" data-commentid="21195" data-postid="11908" data-belowelement="div-comment-21195" data-respondelement="respond" data-replyto="Responder a Dav a Dav" aria-label="Responder a Dav a Dav">Responder a Dav</a>			<br><small></small>
+		</div>
+
+					</div>
+			<ol class="children">
+		<li class="comment byuser comment-author-nano even depth-2" id="comment-21201">
+					<div id="div-comment-21201" class="comment-body">
+			
+		<div class="comment-author">
+			<span class="triangle up">&nbsp;</span><img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/a3f93e138885c3b4e77ec235c58cdd02?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/a3f93e138885c3b4e77ec235c58cdd02?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/a3f93e138885c3b4e77ec235c58cdd02?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/a3f93e138885c3b4e77ec235c58cdd02?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">nano</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21201" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Eso seguro me sirve, tengo que trabajar en eso</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21201" data-commentid="21201" data-postid="11908" data-belowelement="div-comment-21201" data-respondelement="respond" data-replyto="Responder a nano a nano" aria-label="Responder a nano a nano">Responder a nano</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+		<li class="comment odd alt depth-2" id="comment-21261">
+					<div id="div-comment-21261" class="comment-body">
+			
+		<div class="comment-author">
+			<span class="triangle up">&nbsp;</span><img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">elav &lt;° Linux</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21261" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Si, de hecho Vimtutor está genial…</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21261" data-commentid="21261" data-postid="11908" data-belowelement="div-comment-21261" data-respondelement="respond" data-replyto="Responder a elav &lt;° Linux a elav &lt;° Linux" aria-label="Responder a elav &lt;° Linux a elav &lt;° Linux">Responder a elav &lt;° Linux</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-21204">
+					<div id="div-comment-21204" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/4487295f9af4d7c88fb244acc919fc89?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/4487295f9af4d7c88fb244acc919fc89?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/4487295f9af4d7c88fb244acc919fc89?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/4487295f9af4d7c88fb244acc919fc89?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">wheezy</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21204" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Juga a este juego y entonces es cuando no dejarás de usar vim y aprenderás a usarlo tontamente, de verdad, vas a practicar mucho con este juego las cosas mas basicas de vim como el saber moverse bastante rapido.</p>
+<p><a href="http://vim-adventures.com/" rel="nofollow ugc" class="external">http://vim-adventures.com/</a></p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21204" data-commentid="21204" data-postid="11908" data-belowelement="div-comment-21204" data-respondelement="respond" data-replyto="Responder a wheezy a wheezy" aria-label="Responder a wheezy a wheezy">Responder a wheezy</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-mauricio odd alt thread-odd thread-alt depth-1" id="comment-21215">
+					<div id="div-comment-21215" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/6c6de2b30871512999c4bf8463c865f9?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/6c6de2b30871512999c4bf8463c865f9?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/6c6de2b30871512999c4bf8463c865f9?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/6c6de2b30871512999c4bf8463c865f9?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">mauricio</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21215" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>No soy desarrollador, así que para lo que necesito: editar algun .conf o meter de vez en cuando las manos en algun pkbuild, con NANO me basta y me sobra. Una vez por probar abrí un archivo en VIM y no supe ni salir de allí.</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21215" data-commentid="21215" data-postid="11908" data-belowelement="div-comment-21215" data-respondelement="respond" data-replyto="Responder a mauricio a mauricio" aria-label="Responder a mauricio a mauricio">Responder a mauricio</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-21217">
+					<div id="div-comment-21217" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/26530437e1a69980fbde3e459f2811d9?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/26530437e1a69980fbde3e459f2811d9?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/26530437e1a69980fbde3e459f2811d9?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/26530437e1a69980fbde3e459f2811d9?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">abel</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21217" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Bastante basico para los que empiezan con vim, incluso yo pensaba que era un monstruo pero como todo, es solo cuestion de costumbre. xP</p>
+<p>Dejo un monton de esquemas para los que quieran probar.<br>
+<a href="http://code.google.com/p/vimcolorschemetest/" rel="nofollow ugc" class="external">http://code.google.com/p/vimcolorschemetest/</a></p>
+<p>Saludos.</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21217" data-commentid="21217" data-postid="11908" data-belowelement="div-comment-21217" data-respondelement="respond" data-replyto="Responder a abel a abel" aria-label="Responder a abel a abel">Responder a abel</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-21227">
+					<div id="div-comment-21227" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/ffd849add1188aafe6e41f32891be1f6?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/ffd849add1188aafe6e41f32891be1f6?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/ffd849add1188aafe6e41f32891be1f6?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/ffd849add1188aafe6e41f32891be1f6?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">proper</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21227" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>@elav, te dejo mi vimrc para que uses alguna config que te sirva 😉<br>
+<a href="http://paste.desdelinux.net/4465" rel="nofollow ugc">http://paste.desdelinux.net/4465</a></p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21227" data-commentid="21227" data-postid="11908" data-belowelement="div-comment-21227" data-respondelement="respond" data-replyto="Responder a proper a proper" aria-label="Responder a proper a proper">Responder a proper</a>			<br><small></small>
+		</div>
+
+					</div>
+			<ol class="children">
+		<li class="comment even depth-2" id="comment-21259">
+					<div id="div-comment-21259" class="comment-body">
+			
+		<div class="comment-author">
+			<span class="triangle up">&nbsp;</span><img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/753a74300f48f4d5b29377a07ca876f0?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">elav &lt;° Linux</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21259" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Gracias 😀</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21259" data-commentid="21259" data-postid="11908" data-belowelement="div-comment-21259" data-respondelement="respond" data-replyto="Responder a elav &lt;° Linux a elav &lt;° Linux" aria-label="Responder a elav &lt;° Linux a elav &lt;° Linux">Responder a elav &lt;° Linux</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-21293">
+					<div id="div-comment-21293" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/b9a04a4ad9590f72780883d14663d634?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/b9a04a4ad9590f72780883d14663d634?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/b9a04a4ad9590f72780883d14663d634?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/b9a04a4ad9590f72780883d14663d634?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">Annubis</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21293" rel="nofollow">10 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<blockquote><p>le estoy cogiendo el gusto al mejor editor que existe para el terminal en GNU/Linux</p></blockquote>
+<p>Te gusta provocar flames, ¿eh? Éste es probablemente el flame más antiguo 😛</p>
+<p>PD: VI Rocks!</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-21293" data-commentid="21293" data-postid="11908" data-belowelement="div-comment-21293" data-respondelement="respond" data-replyto="Responder a Annubis a Annubis" aria-label="Responder a Annubis a Annubis">Responder a Annubis</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-123643">
+					<div id="div-comment-123643" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/442a976c4528dd52740f7708d48d69d2?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/442a976c4528dd52740f7708d48d69d2?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/442a976c4528dd52740f7708d48d69d2?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/442a976c4528dd52740f7708d48d69d2?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">Charly</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-123643" rel="nofollow">8 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Excelente tutorial ! muchas gracias 😀</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-123643" data-commentid="123643" data-postid="11908" data-belowelement="div-comment-123643" data-respondelement="respond" data-replyto="Responder a Charly a Charly" aria-label="Responder a Charly a Charly">Responder a Charly</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-131864">
+					<div id="div-comment-131864" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/0de5789d50c68cdb7fe054df373fca6d?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/0de5789d50c68cdb7fe054df373fca6d?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/0de5789d50c68cdb7fe054df373fca6d?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/0de5789d50c68cdb7fe054df373fca6d?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">esme</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-131864" rel="nofollow">7 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>muy interesante :3</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-131864" data-commentid="131864" data-postid="11908" data-belowelement="div-comment-131864" data-respondelement="respond" data-replyto="Responder a esme a esme" aria-label="Responder a esme a esme">Responder a esme</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-138779">
+					<div id="div-comment-138779" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/affcbd3cb4474d7ab70aad9752ea8dd4?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/affcbd3cb4474d7ab70aad9752ea8dd4?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/affcbd3cb4474d7ab70aad9752ea8dd4?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/affcbd3cb4474d7ab70aad9752ea8dd4?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">JSequeiros</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-138779" rel="nofollow">6 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Siempre es bueno algo básico.</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-138779" data-commentid="138779" data-postid="11908" data-belowelement="div-comment-138779" data-respondelement="respond" data-replyto="Responder a JSequeiros a JSequeiros" aria-label="Responder a JSequeiros a JSequeiros">Responder a JSequeiros</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-138973">
+					<div id="div-comment-138973" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/d980439de20c4e21573bde971a24a2b8?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/d980439de20c4e21573bde971a24a2b8?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/d980439de20c4e21573bde971a24a2b8?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/d980439de20c4e21573bde971a24a2b8?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">Rene, desde Mexico,pue.</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-138973" rel="nofollow">6 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Es bueno saber de todo un poco, por si algún día lo necesitas, El sabio siempre valorará el sacrificio de su semejante.</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-138973" data-commentid="138973" data-postid="11908" data-belowelement="div-comment-138973" data-respondelement="respond" data-replyto="Responder a Rene, desde Mexico,pue. a Rene, desde Mexico,pue." aria-label="Responder a Rene, desde Mexico,pue. a Rene, desde Mexico,pue.">Responder a Rene, desde Mexico,pue.</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-188779">
+					<div id="div-comment-188779" class="comment-body">
+			
+		<div class="comment-author">
+			<img alt="" src="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%2060%2060&#39;%3E%3C/svg%3E" data-lazy-srcset="https://secure.gravatar.com/avatar/bc5a7140689773b8aa8b5dcb4409ea9f?s=120&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" data-lazy-src="https://secure.gravatar.com/avatar/bc5a7140689773b8aa8b5dcb4409ea9f?s=60&amp;d=wavatar&amp;r=g"><noscript><img alt='' src='https://secure.gravatar.com/avatar/bc5a7140689773b8aa8b5dcb4409ea9f?s=60&#038;d=wavatar&#038;r=g' srcset='https://secure.gravatar.com/avatar/bc5a7140689773b8aa8b5dcb4409ea9f?s=120&#038;d=wavatar&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript><span class="triangle">&nbsp;</span>			<cite class="fn">guillermo</cite> <small class="says">dijo</small>
+			<div class="comment-meta commentmetadata">
+				<small>hace <a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-188779" rel="nofollow">5 años</a></small>
+			</div>
+		</div>
+
+				<div class="comment-content">
+			<p>Exelente tutorial pero sou nuevo en esto y no se como agregar al gvim el editor de brigthscript <a href="https://github.com/chooh/brightscript.vim.git" rel="nofollow ugc" class="external">https://github.com/chooh/brightscript.vim.git</a> podrian ayudarme</p>
+		</div>
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#comment-188779" data-commentid="188779" data-postid="11908" data-belowelement="div-comment-188779" data-respondelement="respond" data-replyto="Responder a guillermo a guillermo" aria-label="Responder a guillermo a guillermo">Responder a guillermo</a>			<br><small></small>
+		</div>
+
+					</div>
+			</li><!-- #comment-## -->
+			</ol><!-- .comment-list -->
+
+				</div>
+</div><!-- #comments -->
+</div><!-- .post-comments -->
+
+		<nav id="single-nav">
+			<div class="nav-next alignleft"><a href="https://blog.desdelinux.net/que-hacer-despues-de-instalar-fedora-17-beefy-miracle/" rel="nofollow">Qué hacer después de instalar Fedora 17 Beefy Miracle</a></div>
+			<div class="nav-previous alignright"><a href="https://blog.desdelinux.net/como-instalar-el-ultimo-driver-radeon-en-ubuntumint/" rel="nofollow">Como instalar el último driver Radeon en Ubuntu/Mint</a></div>
+		</nav><!-- #single-nav -->
+		</div><!-- #content.fl -->
+
+
+<!-- * sidebar.php * -->
+<div id="sidebar" class="sidebar widget-area" role="complementary">
+	<aside id="newsletterwidget-2" class="widget widget_newsletterwidget"><h3 class="widget-title">Noticias en tu email</h3>Recibe las últimas noticias sobre Linux en tu correo electrónico<div class="tnp tnp-widget"><form method="post" action="https://blog.desdelinux.net/?na=s">
+
+<input type="hidden" name="nr" value="widget"><input type="hidden" name="nlang" value=""><div class="tnp-field tnp-field-firstname"><label for="tnp-1">Nombre</label>
+<input class="tnp-name" type="text" name="nn" id="tnp-1" value=""></div>
+<div class="tnp-field tnp-field-email"><label for="tnp-2">Email</label>
+<input class="tnp-email" type="email" name="ne" id="tnp-2" value="" required=""></div>
+<div class="tnp-field tnp-field-checkbox tnp-field-list"><label for="nl4"><input type="checkbox" id="nl4" name="nl[]" value="1">&nbsp;Newsletter diaria</label></div>
+<div class="tnp-field tnp-field-checkbox tnp-field-list"><label for="nl5"><input type="checkbox" id="nl5" name="nl[]" value="2" checked="">&nbsp;Newsletter semanal</label></div>
+<div class="tnp-field tnp-privacy-field"><label><input type="checkbox" name="ny" required="" class="tnp-privacy">&nbsp;<a target="_blank" href="https://blog.desdelinux.net/aviso-legal/">Acepto las condiciones legales</a></label></div><div class="tnp-field tnp-field-button"><input class="tnp-submit" type="submit" value="Suscribir">
+</div>
+</form>
+</div></aside><aside id="abn_admanager_sidestealer-3" class="sticky widget widget_abn_admanager_sidestealer"><div class="publi"><!-- 300x600-desdelinux -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2740134681475878" data-ad-slot="4497587094" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><!-- .publi [ Roba1 @  +  ] --></aside></div><!-- #sidebar.fr -->	</div><!-- #main -->
+	
+<!-- Div para la campaña de publicidad -->
+</div>
+<!-- Div para la campaña de publicidad -->
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="wrapper">
+	<a id="toplink" class="go-top" href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#top" title="Volver arriba">↑</a>
+					<nav id="social" class="widget">
+				<ul id="social-sidebar" class="menu">
+					<li id="menu-item-78956" class="fa fa-facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-78956"><a rel="nofollow" href="https://www.facebook.com/DesdeLinux/">Facebook</a></li>
+<li id="menu-item-78957" class="fa fa-twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-78957"><a rel="nofollow" href="https://twitter.com/desdelinux">Twitter</a></li>
+<li id="menu-item-83227" class="fa fa-pinterest menu-item menu-item-type-custom menu-item-object-custom menu-item-83227"><a rel="nofollow" href="https://www.pinterest.es/desdelinuxweb/">Pinterest</a></li>
+<li id="menu-item-83129" class="fa fa-paper-plane menu-item menu-item-type-custom menu-item-object-custom menu-item-83129"><a rel="nofollow" href="https://telegram.me/desdelinuxweb">Telegram</a></li>
+<li id="menu-item-79032" class="fa fa-envelope menu-item menu-item-type-custom menu-item-object-custom menu-item-79032"><a rel="nofollow" href="https://blog.desdelinux.net/newsletter/">Email</a></li>
+<li id="menu-item-78958" class="fa fa-rss menu-item menu-item-type-custom menu-item-object-custom menu-item-78958"><a rel="nofollow" href="http://feeds.feedburner.com/desdelinuxweb">RSS</a></li>
+				</ul>
+			</nav><!-- #social -->
+						<nav id="network" class="widget">
+				<ul id="network-foot" class="menu">
+					<li id="menu-item-82169" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82169"><a href="https://www.actualidadiphone.com/">Actualidad iPhone</a></li>
+<li id="menu-item-82170" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82170"><a href="https://www.soydemac.com/">Soy de Mac</a></li>
+<li id="menu-item-90101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90101"><a href="https://appleguias.com/">Apple Guías</a></li>
+<li id="menu-item-88823" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-88823"><a href="https://androidayuda.com/">Android Ayuda</a></li>
+<li id="menu-item-82171" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82171"><a href="https://www.androidsis.com/">Androidsis</a></li>
+<li id="menu-item-83341" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-83341"><a href="https://androidguias.com/">Android Guías</a></li>
+<li id="menu-item-90100" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90100"><a href="https://www.todoandroid.es/">Todo Android</a></li>
+<li id="menu-item-82350" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82350"><a href="https://www.actualidadgadget.com/">Actualidad Gadget</a></li>
+<li id="menu-item-85106" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-85106"><a href="https://movilforum.com/">Móvil Forum</a></li>
+<li id="menu-item-88824" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-88824"><a href="https://tabletzona.es/">Tablet Zona</a></li>
+<li id="menu-item-82172" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82172"><a href="https://www.windowsnoticias.com/">Windows Noticias</a></li>
+<li id="menu-item-90102" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90102"><a href="https://vidabytes.com/">Vida Bytes</a></li>
+<li id="menu-item-82173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82173"><a href="https://www.creativosonline.org/">Creativos Online</a></li>
+<li id="menu-item-82174" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82174"><a href="https://www.todoereaders.com/">Todo eReaders</a></li>
+<li id="menu-item-82175" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82175"><a href="https://www.hwlibre.com/">Hardware Libre</a></li>
+<li id="menu-item-82176" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82176"><a href="https://www.linuxadictos.com/">Linux Adictos</a></li>
+<li id="menu-item-82177" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82177"><a href="https://ubunlog.com/">Ubunlog</a></li>
+<li id="menu-item-82351" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82351"><a href="https://www.guiaswow.com/">Guías WoW</a></li>
+<li id="menu-item-82352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82352"><a href="https://trucosdescargas.com/">Trucos Descargas</a></li>
+<li id="menu-item-82674" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82674"><a href="https://www.actualidadmotor.com/">Actualidad Motor</a></li>
+<li id="menu-item-82675" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-82675"><a href="https://www.bezzia.com/">Bezzia</a></li>
+				</ul>
+			</nav><!-- #social -->
+						<div class="footer-column-full">
+				<aside id="gtranslate-2" class="widget widget_gtranslate"><!-- GTranslate: https://gtranslate.io/ -->
+<style>
+.switcher {font-family:Arial;font-size:12pt;text-align:left;cursor:pointer;overflow:hidden;width:173px;line-height:17px;}
+.switcher a {text-decoration:none;display:block;font-size:12pt;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;}
+.switcher a img {vertical-align:middle;display:inline;border:0;padding:0;margin:0;opacity:0.8;}
+.switcher a:hover img {opacity:1;}
+.switcher .selected {background:#fff linear-gradient(180deg, #efefef 0%, #fff 70%);position:relative;z-index:9999;}
+.switcher .selected a {border:1px solid #ccc;color:#666;padding:3px 5px;width:161px;}
+.switcher .selected a:after {height:24px;display:inline-block;position:absolute;right:10px;width:15px;background-position:50%;background-size:11px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 285 285'><path d='M282 76.5l-14.2-14.3a9 9 0 0 0-13.1 0L142.5 174.4 30.3 62.2a9 9 0 0 0-13.2 0L3 76.5a9 9 0 0 0 0 13.1l133 133a9 9 0 0 0 13.1 0l133-133a9 9 0 0 0 0-13z' style='fill:%23666'/></svg>");background-repeat:no-repeat;content:""!important;transition:all .2s;}
+.switcher .selected a.open:after {-webkit-transform: rotate(-180deg);transform:rotate(-180deg);}
+.switcher .selected a:hover {background:#fff}
+.switcher .option {position:relative;z-index:9998;border-left:1px solid #ccc;border-right:1px solid #ccc;border-bottom:1px solid #ccc;background-color:#eee;display:none;width:171px;max-height:198px;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;overflow-y:auto;overflow-x:hidden;}
+.switcher .option a {color:#000;padding:3px 5px;}
+.switcher .option a:hover {background:#fff;}
+.switcher .option a.selected {background:#fff;}
+#selected_lang_name {float: none;}
+.l_name {float: none !important;margin: 0;}
+.switcher .option::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 3px rgba(0,0,0,0.3);border-radius:5px;background-color:#f5f5f5;}
+.switcher .option::-webkit-scrollbar {width:5px;}
+.switcher .option::-webkit-scrollbar-thumb {border-radius:5px;-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,.3);background-color:#888;}
+</style>
+<div class="switcher notranslate">
+<div class="selected">
+<a href="https://blog.desdelinux.net/usando-vim-tutorial-basico/#" onclick="return false;"><img src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/es.png" height="24" width="24" alt="es"> Spanish</a>
+</div>
+<div class="option">
+<a href="https://blog.desdelinux.net/af/" onclick="doGTranslate(&#39;es|af&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Afrikaans" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/af.png" height="24" width="24" alt="af"> Afrikaans</a><a href="https://blog.desdelinux.net/sq/" onclick="doGTranslate(&#39;es|sq&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Albanian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/sq.png" height="24" width="24" alt="sq"> Albanian</a><a href="https://blog.desdelinux.net/am/" onclick="doGTranslate(&#39;es|am&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Amharic" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/am.png" height="24" width="24" alt="am"> Amharic</a><a href="https://blog.desdelinux.net/ar/" onclick="doGTranslate(&#39;es|ar&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Arabic" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ar.png" height="24" width="24" alt="ar"> Arabic</a><a href="https://blog.desdelinux.net/hy/" onclick="doGTranslate(&#39;es|hy&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Armenian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/hy.png" height="24" width="24" alt="hy"> Armenian</a><a href="https://blog.desdelinux.net/az/" onclick="doGTranslate(&#39;es|az&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Azerbaijani" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/az.png" height="24" width="24" alt="az"> Azerbaijani</a><a href="https://blog.desdelinux.net/eu/" onclick="doGTranslate(&#39;es|eu&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Basque" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/eu.png" height="24" width="24" alt="eu"> Basque</a><a href="https://blog.desdelinux.net/be/" onclick="doGTranslate(&#39;es|be&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Belarusian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/be.png" height="24" width="24" alt="be"> Belarusian</a><a href="https://blog.desdelinux.net/bn/" onclick="doGTranslate(&#39;es|bn&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Bengali" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/bn.png" height="24" width="24" alt="bn"> Bengali</a><a href="https://blog.desdelinux.net/bs/" onclick="doGTranslate(&#39;es|bs&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Bosnian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/bs.png" height="24" width="24" alt="bs"> Bosnian</a><a href="https://blog.desdelinux.net/bg/" onclick="doGTranslate(&#39;es|bg&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Bulgarian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/bg.png" height="24" width="24" alt="bg"> Bulgarian</a><a href="https://blog.desdelinux.net/ca/" onclick="doGTranslate(&#39;es|ca&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Catalan" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ca.png" height="24" width="24" alt="ca"> Catalan</a><a href="https://blog.desdelinux.net/ceb/" onclick="doGTranslate(&#39;es|ceb&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Cebuano" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ceb.png" height="24" width="24" alt="ceb"> Cebuano</a><a href="https://blog.desdelinux.net/ny/" onclick="doGTranslate(&#39;es|ny&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Chichewa" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ny.png" height="24" width="24" alt="ny"> Chichewa</a><a href="https://blog.desdelinux.net/zh-CN/" onclick="doGTranslate(&#39;es|zh-CN&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Chinese (Simplified)" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/zh-CN.png" height="24" width="24" alt="zh-CN"> Chinese (Simplified)</a><a href="https://blog.desdelinux.net/zh-TW/" onclick="doGTranslate(&#39;es|zh-TW&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Chinese (Traditional)" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/zh-TW.png" height="24" width="24" alt="zh-TW"> Chinese (Traditional)</a><a href="https://blog.desdelinux.net/co/" onclick="doGTranslate(&#39;es|co&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Corsican" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/co.png" height="24" width="24" alt="co"> Corsican</a><a href="https://blog.desdelinux.net/hr/" onclick="doGTranslate(&#39;es|hr&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Croatian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/hr.png" height="24" width="24" alt="hr"> Croatian</a><a href="https://blog.desdelinux.net/cs/" onclick="doGTranslate(&#39;es|cs&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Czech" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/cs.png" height="24" width="24" alt="cs"> Czech</a><a href="https://blog.desdelinux.net/da/" onclick="doGTranslate(&#39;es|da&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Danish" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/da.png" height="24" width="24" alt="da"> Danish</a><a href="https://blog.desdelinux.net/nl/" onclick="doGTranslate(&#39;es|nl&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Dutch" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/nl.png" height="24" width="24" alt="nl"> Dutch</a><a href="https://blog.desdelinux.net/en/" onclick="doGTranslate(&#39;es|en&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="English" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/en.png" height="24" width="24" alt="en"> English</a><a href="https://blog.desdelinux.net/eo/" onclick="doGTranslate(&#39;es|eo&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Esperanto" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/eo.png" height="24" width="24" alt="eo"> Esperanto</a><a href="https://blog.desdelinux.net/et/" onclick="doGTranslate(&#39;es|et&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Estonian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/et.png" height="24" width="24" alt="et"> Estonian</a><a href="https://blog.desdelinux.net/tl/" onclick="doGTranslate(&#39;es|tl&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Filipino" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/tl.png" height="24" width="24" alt="tl"> Filipino</a><a href="https://blog.desdelinux.net/fi/" onclick="doGTranslate(&#39;es|fi&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Finnish" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/fi.png" height="24" width="24" alt="fi"> Finnish</a><a href="https://blog.desdelinux.net/fr/" onclick="doGTranslate(&#39;es|fr&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="French" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/fr.png" height="24" width="24" alt="fr"> French</a><a href="https://blog.desdelinux.net/fy/" onclick="doGTranslate(&#39;es|fy&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Frisian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/fy.png" height="24" width="24" alt="fy"> Frisian</a><a href="https://blog.desdelinux.net/gl/" onclick="doGTranslate(&#39;es|gl&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Galician" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/gl.png" height="24" width="24" alt="gl"> Galician</a><a href="https://blog.desdelinux.net/ka/" onclick="doGTranslate(&#39;es|ka&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Georgian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ka.png" height="24" width="24" alt="ka"> Georgian</a><a href="https://blog.desdelinux.net/de/" onclick="doGTranslate(&#39;es|de&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="German" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/de.png" height="24" width="24" alt="de"> German</a><a href="https://blog.desdelinux.net/el/" onclick="doGTranslate(&#39;es|el&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Greek" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/el.png" height="24" width="24" alt="el"> Greek</a><a href="https://blog.desdelinux.net/gu/" onclick="doGTranslate(&#39;es|gu&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Gujarati" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/gu.png" height="24" width="24" alt="gu"> Gujarati</a><a href="https://blog.desdelinux.net/ht/" onclick="doGTranslate(&#39;es|ht&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Haitian Creole" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ht.png" height="24" width="24" alt="ht"> Haitian Creole</a><a href="https://blog.desdelinux.net/ha/" onclick="doGTranslate(&#39;es|ha&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Hausa" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ha.png" height="24" width="24" alt="ha"> Hausa</a><a href="https://blog.desdelinux.net/haw/" onclick="doGTranslate(&#39;es|haw&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Hawaiian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/haw.png" height="24" width="24" alt="haw"> Hawaiian</a><a href="https://blog.desdelinux.net/iw/" onclick="doGTranslate(&#39;es|iw&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Hebrew" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/iw.png" height="24" width="24" alt="iw"> Hebrew</a><a href="https://blog.desdelinux.net/hi/" onclick="doGTranslate(&#39;es|hi&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Hindi" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/hi.png" height="24" width="24" alt="hi"> Hindi</a><a href="https://blog.desdelinux.net/hmn/" onclick="doGTranslate(&#39;es|hmn&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Hmong" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/hmn.png" height="24" width="24" alt="hmn"> Hmong</a><a href="https://blog.desdelinux.net/hu/" onclick="doGTranslate(&#39;es|hu&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Hungarian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/hu.png" height="24" width="24" alt="hu"> Hungarian</a><a href="https://blog.desdelinux.net/is/" onclick="doGTranslate(&#39;es|is&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Icelandic" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/is.png" height="24" width="24" alt="is"> Icelandic</a><a href="https://blog.desdelinux.net/ig/" onclick="doGTranslate(&#39;es|ig&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Igbo" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ig.png" height="24" width="24" alt="ig"> Igbo</a><a href="https://blog.desdelinux.net/id/" onclick="doGTranslate(&#39;es|id&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Indonesian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/id.png" height="24" width="24" alt="id"> Indonesian</a><a href="https://blog.desdelinux.net/ga/" onclick="doGTranslate(&#39;es|ga&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Irish" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ga.png" height="24" width="24" alt="ga"> Irish</a><a href="https://blog.desdelinux.net/it/" onclick="doGTranslate(&#39;es|it&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Italian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/it.png" height="24" width="24" alt="it"> Italian</a><a href="https://blog.desdelinux.net/ja/" onclick="doGTranslate(&#39;es|ja&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Japanese" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ja.png" height="24" width="24" alt="ja"> Japanese</a><a href="https://blog.desdelinux.net/jw/" onclick="doGTranslate(&#39;es|jw&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Javanese" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/jw.png" height="24" width="24" alt="jw"> Javanese</a><a href="https://blog.desdelinux.net/kn/" onclick="doGTranslate(&#39;es|kn&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Kannada" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/kn.png" height="24" width="24" alt="kn"> Kannada</a><a href="https://blog.desdelinux.net/kk/" onclick="doGTranslate(&#39;es|kk&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Kazakh" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/kk.png" height="24" width="24" alt="kk"> Kazakh</a><a href="https://blog.desdelinux.net/km/" onclick="doGTranslate(&#39;es|km&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Khmer" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/km.png" height="24" width="24" alt="km"> Khmer</a><a href="https://blog.desdelinux.net/ko/" onclick="doGTranslate(&#39;es|ko&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Korean" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ko.png" height="24" width="24" alt="ko"> Korean</a><a href="https://blog.desdelinux.net/ku/" onclick="doGTranslate(&#39;es|ku&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Kurdish (Kurmanji)" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ku.png" height="24" width="24" alt="ku"> Kurdish (Kurmanji)</a><a href="https://blog.desdelinux.net/ky/" onclick="doGTranslate(&#39;es|ky&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Kyrgyz" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ky.png" height="24" width="24" alt="ky"> Kyrgyz</a><a href="https://blog.desdelinux.net/lo/" onclick="doGTranslate(&#39;es|lo&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Lao" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/lo.png" height="24" width="24" alt="lo"> Lao</a><a href="https://blog.desdelinux.net/la/" onclick="doGTranslate(&#39;es|la&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Latin" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/la.png" height="24" width="24" alt="la"> Latin</a><a href="https://blog.desdelinux.net/lv/" onclick="doGTranslate(&#39;es|lv&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Latvian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/lv.png" height="24" width="24" alt="lv"> Latvian</a><a href="https://blog.desdelinux.net/lt/" onclick="doGTranslate(&#39;es|lt&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Lithuanian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/lt.png" height="24" width="24" alt="lt"> Lithuanian</a><a href="https://blog.desdelinux.net/lb/" onclick="doGTranslate(&#39;es|lb&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Luxembourgish" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/lb.png" height="24" width="24" alt="lb"> Luxembourgish</a><a href="https://blog.desdelinux.net/mk/" onclick="doGTranslate(&#39;es|mk&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Macedonian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/mk.png" height="24" width="24" alt="mk"> Macedonian</a><a href="https://blog.desdelinux.net/mg/" onclick="doGTranslate(&#39;es|mg&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Malagasy" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/mg.png" height="24" width="24" alt="mg"> Malagasy</a><a href="https://blog.desdelinux.net/ms/" onclick="doGTranslate(&#39;es|ms&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Malay" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ms.png" height="24" width="24" alt="ms"> Malay</a><a href="https://blog.desdelinux.net/ml/" onclick="doGTranslate(&#39;es|ml&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Malayalam" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ml.png" height="24" width="24" alt="ml"> Malayalam</a><a href="https://blog.desdelinux.net/mt/" onclick="doGTranslate(&#39;es|mt&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Maltese" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/mt.png" height="24" width="24" alt="mt"> Maltese</a><a href="https://blog.desdelinux.net/mi/" onclick="doGTranslate(&#39;es|mi&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Maori" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/mi.png" height="24" width="24" alt="mi"> Maori</a><a href="https://blog.desdelinux.net/mr/" onclick="doGTranslate(&#39;es|mr&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Marathi" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/mr.png" height="24" width="24" alt="mr"> Marathi</a><a href="https://blog.desdelinux.net/mn/" onclick="doGTranslate(&#39;es|mn&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Mongolian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/mn.png" height="24" width="24" alt="mn"> Mongolian</a><a href="https://blog.desdelinux.net/my/" onclick="doGTranslate(&#39;es|my&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Myanmar (Burmese)" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/my.png" height="24" width="24" alt="my"> Myanmar (Burmese)</a><a href="https://blog.desdelinux.net/ne/" onclick="doGTranslate(&#39;es|ne&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Nepali" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ne.png" height="24" width="24" alt="ne"> Nepali</a><a href="https://blog.desdelinux.net/no/" onclick="doGTranslate(&#39;es|no&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Norwegian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/no.png" height="24" width="24" alt="no"> Norwegian</a><a href="https://blog.desdelinux.net/ps/" onclick="doGTranslate(&#39;es|ps&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Pashto" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ps.png" height="24" width="24" alt="ps"> Pashto</a><a href="https://blog.desdelinux.net/fa/" onclick="doGTranslate(&#39;es|fa&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Persian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/fa.png" height="24" width="24" alt="fa"> Persian</a><a href="https://blog.desdelinux.net/pl/" onclick="doGTranslate(&#39;es|pl&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Polish" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/pl.png" height="24" width="24" alt="pl"> Polish</a><a href="https://blog.desdelinux.net/pt/" onclick="doGTranslate(&#39;es|pt&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Portuguese" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/pt.png" height="24" width="24" alt="pt"> Portuguese</a><a href="https://blog.desdelinux.net/pa/" onclick="doGTranslate(&#39;es|pa&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Punjabi" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/pa.png" height="24" width="24" alt="pa"> Punjabi</a><a href="https://blog.desdelinux.net/ro/" onclick="doGTranslate(&#39;es|ro&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Romanian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ro.png" height="24" width="24" alt="ro"> Romanian</a><a href="https://blog.desdelinux.net/ru/" onclick="doGTranslate(&#39;es|ru&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Russian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ru.png" height="24" width="24" alt="ru"> Russian</a><a href="https://blog.desdelinux.net/sm/" onclick="doGTranslate(&#39;es|sm&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Samoan" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/sm.png" height="24" width="24" alt="sm"> Samoan</a><a href="https://blog.desdelinux.net/gd/" onclick="doGTranslate(&#39;es|gd&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Scottish Gaelic" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/gd.png" height="24" width="24" alt="gd"> Scottish Gaelic</a><a href="https://blog.desdelinux.net/sr/" onclick="doGTranslate(&#39;es|sr&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Serbian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/sr.png" height="24" width="24" alt="sr"> Serbian</a><a href="https://blog.desdelinux.net/st/" onclick="doGTranslate(&#39;es|st&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Sesotho" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/st.png" height="24" width="24" alt="st"> Sesotho</a><a href="https://blog.desdelinux.net/sn/" onclick="doGTranslate(&#39;es|sn&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Shona" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/sn.png" height="24" width="24" alt="sn"> Shona</a><a href="https://blog.desdelinux.net/sd/" onclick="doGTranslate(&#39;es|sd&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Sindhi" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/sd.png" height="24" width="24" alt="sd"> Sindhi</a><a href="https://blog.desdelinux.net/si/" onclick="doGTranslate(&#39;es|si&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Sinhala" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/si.png" height="24" width="24" alt="si"> Sinhala</a><a href="https://blog.desdelinux.net/sk/" onclick="doGTranslate(&#39;es|sk&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Slovak" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/sk.png" height="24" width="24" alt="sk"> Slovak</a><a href="https://blog.desdelinux.net/sl/" onclick="doGTranslate(&#39;es|sl&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Slovenian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/sl.png" height="24" width="24" alt="sl"> Slovenian</a><a href="https://blog.desdelinux.net/so/" onclick="doGTranslate(&#39;es|so&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Somali" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/so.png" height="24" width="24" alt="so"> Somali</a><a href="https://blog.desdelinux.net/" onclick="doGTranslate(&#39;es|es&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Spanish" class="nturl selected"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/es.png" height="24" width="24" alt="es"> Spanish</a><a href="https://blog.desdelinux.net/su/" onclick="doGTranslate(&#39;es|su&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Sudanese" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/su.png" height="24" width="24" alt="su"> Sudanese</a><a href="https://blog.desdelinux.net/sw/" onclick="doGTranslate(&#39;es|sw&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Swahili" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/sw.png" height="24" width="24" alt="sw"> Swahili</a><a href="https://blog.desdelinux.net/sv/" onclick="doGTranslate(&#39;es|sv&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Swedish" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/sv.png" height="24" width="24" alt="sv"> Swedish</a><a href="https://blog.desdelinux.net/tg/" onclick="doGTranslate(&#39;es|tg&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Tajik" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/tg.png" height="24" width="24" alt="tg"> Tajik</a><a href="https://blog.desdelinux.net/ta/" onclick="doGTranslate(&#39;es|ta&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Tamil" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ta.png" height="24" width="24" alt="ta"> Tamil</a><a href="https://blog.desdelinux.net/te/" onclick="doGTranslate(&#39;es|te&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Telugu" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/te.png" height="24" width="24" alt="te"> Telugu</a><a href="https://blog.desdelinux.net/th/" onclick="doGTranslate(&#39;es|th&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Thai" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/th.png" height="24" width="24" alt="th"> Thai</a><a href="https://blog.desdelinux.net/tr/" onclick="doGTranslate(&#39;es|tr&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Turkish" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/tr.png" height="24" width="24" alt="tr"> Turkish</a><a href="https://blog.desdelinux.net/uk/" onclick="doGTranslate(&#39;es|uk&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Ukrainian" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/uk.png" height="24" width="24" alt="uk"> Ukrainian</a><a href="https://blog.desdelinux.net/ur/" onclick="doGTranslate(&#39;es|ur&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Urdu" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/ur.png" height="24" width="24" alt="ur"> Urdu</a><a href="https://blog.desdelinux.net/uz/" onclick="doGTranslate(&#39;es|uz&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Uzbek" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/uz.png" height="24" width="24" alt="uz"> Uzbek</a><a href="https://blog.desdelinux.net/vi/" onclick="doGTranslate(&#39;es|vi&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Vietnamese" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/vi.png" height="24" width="24" alt="vi"> Vietnamese</a><a href="https://blog.desdelinux.net/cy/" onclick="doGTranslate(&#39;es|cy&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Welsh" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/cy.png" height="24" width="24" alt="cy"> Welsh</a><a href="https://blog.desdelinux.net/xh/" onclick="doGTranslate(&#39;es|xh&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Xhosa" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/xh.png" height="24" width="24" alt="xh"> Xhosa</a><a href="https://blog.desdelinux.net/yi/" onclick="doGTranslate(&#39;es|yi&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Yiddish" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/yi.png" height="24" width="24" alt="yi"> Yiddish</a><a href="https://blog.desdelinux.net/yo/" onclick="doGTranslate(&#39;es|yo&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Yoruba" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/yo.png" height="24" width="24" alt="yo"> Yoruba</a><a href="https://blog.desdelinux.net/zu/" onclick="doGTranslate(&#39;es|zu&#39;);jQuery(&#39;div.switcher div.selected a&#39;).html(jQuery(this).html());return false;" title="Zulu" class="nturl"><img data-gt-lazy-src="//blog.desdelinux.net/wp-content/plugins/gtranslate/flags/24/zu.png" height="24" width="24" alt="zu"> Zulu</a></div>
+</div>
+<script>window.addEventListener('DOMContentLoaded', function() {
+jQuery('.switcher .selected').click(function() {jQuery('.switcher .option a img').each(function() {if(!jQuery(this)[0].hasAttribute('src'))jQuery(this).attr('src', jQuery(this).attr('data-gt-lazy-src'))});if(!(jQuery('.switcher .option').is(':visible'))) {jQuery('.switcher .option').stop(true,true).delay(100).slideDown(500);jQuery('.switcher .selected a').toggleClass('open')}});
+jQuery('.switcher .option').bind('mousewheel', function(e) {var options = jQuery('.switcher .option');if(options.is(':visible'))options.scrollTop(options.scrollTop() - e.originalEvent.wheelDelta);return false;});
+jQuery('body').not('.switcher').click(function(e) {if(jQuery('.switcher .option').is(':visible') && e.target != jQuery('.switcher .option').get(0)) {jQuery('.switcher .option').stop(true,true).delay(100).slideUp(500);jQuery('.switcher .selected a').toggleClass('open')}});
+});</script>
+
+
+<script>
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.pathname.split('/')[1];if(plang.length !=2 && plang != 'zh-CN' && plang != 'zh-TW' && plang != 'hmn' && plang != 'haw' && plang != 'ceb')plang='es';if(lang == 'es')location.href=location.protocol+'//'+location.host+gt_request_uri;else location.href=location.protocol+'//'+location.host+'/'+lang+gt_request_uri;}
+</script>
+<script>window.addEventListener('DOMContentLoaded', function() {jQuery(document).ready(function() {var lang_html = jQuery(".switcher div.option a[onclick*='|"+jQuery('html').attr('lang')+"']").html();if(typeof lang_html != "undefined")jQuery('.switcher div.selected a').html(lang_html.replace("data-gt-lazy-", ""))});});</script></aside>			</div><!-- col-full -->
+			
+		<div id="foot-menu">
+		<ul id="navigation-foot" class="menu"><li id="menu-item-80720" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80720"><a href="https://blog.desdelinux.net/secciones/">Secciones</a></li>
+<li id="menu-item-78954" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78954"><a href="https://blog.desdelinux.net/programas/">Aplicaciones</a></li>
+<li id="menu-item-78953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78953"><a href="https://blog.desdelinux.net/distribuciones/">Distribuciones</a></li>
+<li id="menu-item-78952" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78952"><a href="https://blog.desdelinux.net/comunidades/">Comunidades</a></li>
+<li id="menu-item-78955" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78955"><a href="https://blog.desdelinux.net/repositorio-de-tips/">Repositorio de tips</a></li>
+<li id="menu-item-79000" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-79000"><a href="https://blog.desdelinux.net/nosotros/">Equipo editorial</a></li>
+<li id="menu-item-86228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-86228"><a rel="nofollow" href="https://blog.desdelinux.net/etica-editorial/">Ética editorial</a></li>
+<li id="menu-item-81876" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-81876"><a rel="nofollow" href="https://docs.google.com/a/abinternet.es/spreadsheet/viewform?formkey=dG8yNWhxdVFvd2dfV2lOZVNMQ1VBZ0E6MA#gid=0">Hazte redactor</a></li>
+<li id="menu-item-79543" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-79543"><a rel="nofollow" href="https://blog.desdelinux.net/newsletter/">Suscribir newsletter</a></li>
+<li id="menu-item-78950" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-78950"><a rel="nofollow" href="https://blog.desdelinux.net/aviso-legal/">Aviso Legal</a></li>
+<li id="menu-item-78949" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78949"><a rel="nofollow" href="https://blog.desdelinux.net/contacto/">Contacto</a></li>
+</ul>		</div><!-- #foot-menu -->
+	</div><!-- .wrap -->
+</footer><!-- #colophon -->
+<div id="searchBar" class="search-bar">
+	
+<!-- * searchform.php * -->
+<form method="get" id="searchform" action="https://blog.desdelinux.net/">
+	<input type="text" id="searchFormInput" class="field" name="s" placeholder="Buscar...">
+	<input type="submit" id="searchFormSubmit" class="submit" name="submit" value="Buscar">
+	<span class="close-button">Cerrar</span>
+</form></div>
+
+<script id="abnSchemaJsonWebsite" type="application/ld+json">{"@context": "https://schema.org","@type": "WebSite","name": "Desde Linux","url": "https://blog.desdelinux.net"}</script>
+<script id="abnSchemaJsonOrganization" type="application/ld+json">{"@context": "https://schema.org","@type": "Organization","name": "Desde Linux","url": "https://blog.desdelinux.net","logo": "https://blog.desdelinux.net/wp-content/uploads/2019/04/desdelinux_amp2.png","address": {"@type": "PostalAddress","addressLocality": "Grijota - Palencia","postalCode": "34192","streetAddress": "Urbanizacion El Palomar, 20"}}</script>
+<script id="abnSchemaJsonNewsArticle" type="application/ld+json">{"@context": "https://schema.org","@type": "NewsArticle","headline": "Usando VIM: Tutorial Básico.","description": "","datePublished": "2012-06-05 09:23:12","dateModified": "2012-06-05 09:23:12","commentCount": "22","wordCount": "879","copyrightYear": "2012","articleSection": "Aplicaciones","mainEntityOfPage": {"@type": "WebPage","id": "https://blog.desdelinux.net/usando-vim-tutorial-basico/","name": "Usando VIM: Tutorial Básico.","url": "https://blog.desdelinux.net/usando-vim-tutorial-basico/","inLanguage": "es","datePublished": "2012-06-05 09:23:12","dateModified": "2012-06-05 09:23:12","description": "","speakable": {"@type":"SpeakableSpecification","xpath":["/html/head/title","/html/head/meta[@name='description']/@content"]}},"author": {"@type": "Person","name": "Alejandro (a.k.a KZKG^Gaara)","url": "https://blog.desdelinux.net/author/usemoslinux/"},"publisher": {"@type": "Organization","name": "Desde Linux","url": "https://blog.desdelinux.net","logo": {"@type": "ImageObject","url": "https://blog.desdelinux.net/wp-content/uploads/2019/04/desdelinux_amp2.png","width": "601","height": "61"}},"publishingPrinciples": {"@type": "CreativeWork","url": "https://blog.desdelinux.net/etica-editorial"},"copyrightHolder": {"@type": "Organization","name": "Desde Linux","url": "https://blog.desdelinux.net","logo": {"@type": "ImageObject","url": "https://blog.desdelinux.net/wp-content/uploads/2019/04/desdelinux_amp2.png","width": "601","height": "61"}},"image": {"@type": "ImageObject","url": "https://blog.desdelinux.net/wp-content/uploads/2012/06/GVIM.png","width": "1024","height": "577"}}</script>
+<script id="abnSchemaJsonBreadcrumb" type="application/ld+json">{"@context": "https://schema.org","@type": "BreadcrumbList",
+"itemListElement": [{"type": "ListItem","position": "1","name": "Desde Linux","item": {"@type": "Thing","id": "https://blog.desdelinux.net"}},
+{"type": "ListItem","position": "2","name": "Aplicaciones","item": {"@type": "Thing","id": "https://blog.desdelinux.net/aplicaciones/"}},
+{"type": "ListItem","position": "3","name": "GNU/Linux","item": {"@type": "Thing","id": "https://blog.desdelinux.net/linux/"}},
+{"type": "ListItem","position": "4","name": "Tutoriales/Manuales/Tips","item": {"@type": "Thing","id": "https://blog.desdelinux.net/tutoriales/"}}]}</script>
+<script>
+		
+var machete_cookies_bar_html = '<span id="machete_cookie_warning_text" class="machete_cookie_warning_text">Las cookies de este sitio web se usan para personalizar el contenido y los anuncios, ofrecer funciones de redes sociales y analizar el tráfico. <a style="color: #007FFF" href="https://blog.desdelinux.net/aviso-legal/" rel="nofollow">+info</a></span> <button id="machete_accept_cookie_btn_partial" class="machete_accept_cookie_btn partial">Aceptar las obligatorias</button> <button id="machete_accept_cookie_btn" class="machete_accept_cookie_btn">Aceptar cookies</button>';
+var machete_cookies_configbar_html = '<div id="machete_cookie_config_btn\" class=\"machete_cookie_config_btn\">Cookies</div>';
+var machete_cookies_bar_stylesheet = 'https://blog.desdelinux.net/wp-content/plugins/machete/inc/cookies/css/new_light.css';
+
+(function(){
+	if ( typeof machete_cookies_bar_stylesheet === 'undefined') return;
+	var s = document.createElement('script'); s.type = 'text/javascript';
+	s.defer = true; s.src = 'https://blog.desdelinux.net/wp-content/plugins/machete/inc/cookies/js/cookies_bar_js.min.js';
+	var body = document.getElementsByTagName('body')[0];
+	body.appendChild(s);
+})();
+</script>
+		<script type="text/javascript" id="toc-front-js-extra">
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"Mostrar","visibility_hide":"Ocultar","width":"100%"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/front.min.js.descarga" id="toc-front-js"></script>
+<script type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/regenerator-runtime.min.js.descarga" id="regenerator-runtime-js" defer=""></script>
+<script type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/wp-polyfill.min.js.descarga" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/blog.desdelinux.net\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/index.js.descarga" id="contact-form-7-js" defer=""></script>
+<script type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/nivo-lightbox.min.js.descarga" id="responsive-lightbox-nivo_lightbox-js" defer=""></script>
+<script type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/jquery.touchSwipe.min.js.descarga" id="wa_rlp_touch_script-js" defer=""></script>
+<script type="text/javascript" id="responsive-lightbox-pro-script-js-extra">
+/* <![CDATA[ */
+var rlpArgs = {"script":"nivo_lightbox","selector":"lightbox","custom_events":"","theme":"default","effect":"fade","clickOverlayToClose":"1","touch_swipe":"1","autoplay_video":"0","keyboardNav":"0","errorMessage":"Error al cargar la imagen, recarga la p\u00e1gina para probar de nuevo."};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/script.js.descarga" id="responsive-lightbox-pro-script-js" defer=""></script>
+<script type="text/javascript" id="abn-scripts-js-extra">
+/* <![CDATA[ */
+var ABN = {"gfont":"none","home-featured-posts":"on","captcha_public":"6LcVLiQUAAAAALRi-h0YV7TAYy8zSbvH_JyqU_PI","captcha_private":"6LcVLiQUAAAAAAcaw9zExOkuICzfwukGZRRBHL8D","main-color":"#000000","alt-color":"#000000","enlightment":"on","feedburner-rss":"http:\/\/feeds.feedburner.com\/desdelinuxweb","brands-footer":"on","scrapper_blog_url":"linuxadictos.com","scrapper_blog_name":"Linux Adictos","scrapper_post_url":"graboid-un-gusano-cryptojacking-que-se-propaga-a-traves-de-contenedores-de-docker.html","scrapper_expiration_date":"2019-11-01","gravatars":"on","category_ban":"","section-wpo-preconnect":"","section-wpo-styles-exclusion":"","trendy_menu":""};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/scripts.js.descarga" id="abn-scripts-js" defer=""></script>
+<script type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/api.js.descarga" id="google-recaptcha-js"></script>
+<script type="text/javascript" id="wpcf7-recaptcha-js-extra">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6LepWYAUAAAAAEDg1PD45JIzPSAfef2xy0GHpJSq","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script data-minify="1" type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/index.js(1).descarga" id="wpcf7-recaptcha-js" defer=""></script>
+<script data-minify="1" type="text/javascript" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/OneSignalSDK.js.descarga" async="async" id="remote_sdk-js"></script>
+<!-- seedtag -->
+<script type="text/javascript">
+    window._seedtagq = window._seedtagq || [];
+    window._seedtagq.push(['_setId', '4472-6286-01']);
+    (function () {
+      var st = document.createElement('script');
+      st.type = 'text/javascript';
+      st.async = true;
+      st.src = ('https:' == document.location.protocol
+        ? 'https'
+        : 'http') + '://config.seedtag.com/loader.js?v=' + Math.random();
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(st, s);
+    })();
+    </script>
+<!-- seedtag --><script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/lazyload.min.js.descarga"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script>
+
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me --><script type="text/javascript" defer="" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/cookies_bar_js.min.js.descarga"></script><div id="machete_cookie_container" class="machete_cookie_container" style="position: fixed; z-index: 99999; bottom: 0px; width: 100%; transform: translateY(110vh);"><div id="machete_cookie_bar" class="machete_cookie_bar"><span id="machete_cookie_warning_text" class="machete_cookie_warning_text">Las cookies de este sitio web se usan para personalizar el contenido y los anuncios, ofrecer funciones de redes sociales y analizar el tráfico. <a style="color: #007FFF" href="https://blog.desdelinux.net/aviso-legal/" rel="nofollow">+info</a></span> <button id="machete_accept_cookie_btn_partial" class="machete_accept_cookie_btn partial">Aceptar las obligatorias</button> <button id="machete_accept_cookie_btn" class="machete_accept_cookie_btn">Aceptar cookies</button></div></div><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; position: fixed; visibility: hidden; display: block; transition: right 0.3s ease 0s; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/anchor.html" width="256" height="60" role="presentation" name="a-b6un9r853jej" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./Usando VIM_ Tutorial Básico. _ Desde Linux_files/saved_resource.html"></iframe></div></body></html>

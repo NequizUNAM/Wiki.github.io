@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=SuperHeroe
+comment1.params=
+comment1.target=SuperHeroe()
+comment2.params=nombre
+comment2.target=void\ datosSuperHeroe(java.lang.String)
+comment3.params=
+comment3.target=void\ prueba()
+numComments=4

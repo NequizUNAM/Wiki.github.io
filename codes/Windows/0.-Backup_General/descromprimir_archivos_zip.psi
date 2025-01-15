@@ -1,0 +1,22 @@
+#Ejecutar solo con power shell
+
+# Obtiene la ruta del directorio actual
+$directorioActual = Get-Location
+
+# Recorre todos los archivos .zip en los subdirectorios del directorio actual
+Get-ChildItem -Path $directorioActual -Recurse -Filter *.zip | ForEach-Object {
+    # Obtiene la ruta completa del archivo zip
+    $archivoZip = $_.FullName
+    
+    # Obtiene el nombre del archivo sin extensión
+    $nombreArchivo = $_.BaseName
+
+    # Obtiene la ruta del directorio donde se encuentra el archivo zip
+    $directorioDestino = $_.DirectoryName
+
+    # Crea un subdirectorio con el nombre del archivo sin extensión
+    $directorioDestinoArchivo = Join-Path -Path $directorioDestino -ChildPath $nombreArchivo
+
+    # Descomprime el archivo zip en el subdirectorio recién creado
+    Expand-Archive -Path $archivoZip -DestinationPath $directorioDestinoArchivo -Force
+}

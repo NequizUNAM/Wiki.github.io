@@ -1,0 +1,28 @@
+
+
+dialog[]{
+
+}
+
+dialog {
+	transition: scale .3s ease;
+}
+
+
+dialog { /* PASO 2: AL CERRARLO */ 
+	transition: scale .3s ease, 
+	display .3s ease allow-discrete; 
+	scale: 0;
+
+	&[open]{
+		scale: 1;
+		transition: scale .3s ease-in-out,
+		opacity .3s ease, translate 1s ease; 
+		translate: Opx Opx;
+
+		@starting-style { /* PASO 0. ESTADO INICIAL */ 
+			scale: 0;
+			translate: Opx 100px;
+		}
+	}
+}

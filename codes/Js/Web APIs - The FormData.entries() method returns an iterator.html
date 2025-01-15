@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://runebook.dev/en/docs/dom/formdata/entries -->
+<html lang="en" data-bs-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- 2023-08-05 05:45:42 -->
+    <!-- 5004 -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Web APIs - The FormData.entries() method returns an iterator allowing go through key/value pairs contained this object.</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./Web APIs - The FormData.entries() method returns an iterator_files/js"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-3G5BZ1QEDP');
+</script><script async="" src="./Web APIs - The FormData.entries() method returns an iterator_files/f.txt" crossorigin="anonymous"></script>    <link rel="stylesheet" href="./Web APIs - The FormData.entries() method returns an iterator_files/bootstrap.min.css" integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./Web APIs - The FormData.entries() method returns an iterator_files/bootstrap-icons.min.css" integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./Web APIs - The FormData.entries() method returns an iterator_files/github-dark.min.css" integrity="sha512-rO+olRTkcf304DQBxSWxln8JXCzTHlKnIdnMUwYvQa9/Jd4cQaNkItIUj6Z4nvW1dqK0SKXLbn9h4KwZTNtAyw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link href="./Web APIs - The FormData.entries() method returns an iterator_files/runebook.css" rel="stylesheet" type="text/css">
+    <meta name="x-github" content="https://github.com/runebookdev/runebook">
+            <meta name="x-i18n-doc" content="dom">
+        <script>
+        function i18n(element) {
+            // NOP
+        }
+    </script>
+    <script src="./Web APIs - The FormData.entries() method returns an iterator_files/js.cookie.min.js.descarga" integrity="sha512-wT7uPE7tOP6w4o28u1DN775jYjHQApdBnib5Pho4RB0Pgd9y7eSkAV1BTqQydupYDB9GBhTcQQzyNMPMV3cAew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./Web APIs - The FormData.entries() method returns an iterator_files/theme.js.descarga"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="https://runebook.dev/">
+                    <img alt="Runebook.dev" class="d-inline-block align-top mr-1" src="./Web APIs - The FormData.entries() method returns an iterator_files/runebook_logo.webp" width="24" height="24">
+                    Runebook.dev
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://runebook.dev/#documentation">Documentation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://runebook.dev/contributors">Contributors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://runebook.dev/history">History</a>
+                        </li>
+                    </ul>
+                                            <form class="d-flex" action="https://runebook.dev/en/docs/dom/-index-">
+                            <input class="form-control me-2" type="search" name="q" placeholder="Search...">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </form>
+                                                                <div class="form-check form-switch ms-3">
+                        <label class="text-light">
+                            <input class="form-check-input" type="checkbox" role="switch" id="theme-switch" checked="checked">
+                            <i class="bi bi-moon-stars-fill"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <!--sse-->
+            
+<div class="container">
+    <div class="row">
+        <div class="col">
+                <nav aria-label="breadcrumb">
+        <ol class="breadcrumb py-2">
+            <li class="breadcrumb-item">
+                <a href="https://runebook.dev/en/docs/dom/-index-">
+                    <strong>Web APIs</strong>
+                                        [English]
+                </a>
+            </li>
+                            <li class="breadcrumb-item">
+                    <a href="https://runebook.dev/en/docs/dom/-index-#XMLHTTPRequest">
+                        XMLHTTPRequest                    </a>
+                </li>
+                                    <li class="breadcrumb-item text-truncate breadcrumb-base-title">
+                        <a href="https://runebook.dev/en/docs/dom/formdata/entries?">
+                            FormData.entries()                        </a>
+                    </li>
+                                                                </ol>
+    </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+                        <br>
+                    <div id="faq1" class="accordion">
+                    <div class="accordion-item">
+                <h2 class="accordion-header m-0 p-0">
+                    <button class="accordion-button fw-bold " type="button" data-bs-toggle="collapse" data-bs-target="#faq1-0" aria-expanded="true">
+                        How do I use FormData entries?                    </button>
+                </h2>
+                <div id="faq1-0" class="accordion-collapse collapse show" data-bs-parent="#faq1">
+                    <div class="accordion-body">
+                        entries() method returns an iterator which iterates through all key/value pairs contained in the FormData . The key of each pair is a string object, and the value is either a string or a Blob . Note: This method is available in Web Workers.                    </div>
+                </div>
+            </div>
+                    <div class="accordion-item">
+                <h2 class="accordion-header m-0 p-0">
+                    <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1-1" aria-expanded="true">
+                        How do I access FormData values?                    </button>
+                </h2>
+                <div id="faq1-1" class="accordion-collapse collapse " data-bs-parent="#faq1">
+                    <div class="accordion-body">
+                        get() The get() method of the FormData interface returns the first value associated with a given key from within a FormData object. If you expect multiple values and want all of them, use the getAll() method instead. Note: This method is available in Web Workers.                    </div>
+                </div>
+            </div>
+                    <div class="accordion-item">
+                <h2 class="accordion-header m-0 p-0">
+                    <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1-2" aria-expanded="true">
+                        How do I access FormData from an event?                    </button>
+                </h2>
+                <div id="faq1-2" class="accordion-collapse collapse " data-bs-parent="#faq1">
+                    <div class="accordion-body">
+                        Grabbing data from a FormData object If you want to snitch into a FormData object visit the example HTML form in a browser and place a breakpoint on console. log(event. formData) . Fill and submit the form with the browser's console opened and save the object as a global variable.                    </div>
+                </div>
+            </div>
+            </div>
+    <br>
+    <div class="sidebar-ad">
+        <script async="" src="./Web APIs - The FormData.entries() method returns an iterator_files/f.txt" crossorigin="anonymous"></script>
+   <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-6424571640879890" data-ad-slot="7867651344"></ins>
+   <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+        <div id="faq2" class="accordion my-4">
+                            <div class="accordion-item">
+                    <h2 class="accordion-header m-0 p-0">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-0" aria-expanded="true">
+                            How do you set FormData value?                        </button>
+                    </h2>
+                    <div id="faq2-0" class="accordion-collapse collapse" data-bs-parent="#faq2">
+                        <div class="accordion-body">
+                            set() The set() method of the FormData interface sets a new value for an existing key inside a FormData object, or adds the key/value if it does not already exist.                        </div>
+                    </div>
+                </div>
+                            <div class="accordion-item">
+                    <h2 class="accordion-header m-0 p-0">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-1" aria-expanded="true">
+                            What is FormData entry?                        </button>
+                    </h2>
+                    <div id="faq2-1" class="accordion-collapse collapse" data-bs-parent="#faq2">
+                        <div class="accordion-body">
+                            A data form provides a convenient means to enter or display one complete row of information in a range or table without scrolling horizontally. You may find that using a data form can make data entry easier than moving from column to column when you have more columns of data than can be viewed on the screen.                        </div>
+                    </div>
+                </div>
+                            <div class="accordion-item">
+                    <h2 class="accordion-header m-0 p-0">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-2" aria-expanded="true">
+                            Can we send FormData in JSON?                        </button>
+                    </h2>
+                    <div id="faq2-2" class="accordion-collapse collapse" data-bs-parent="#faq2">
+                        <div class="accordion-body">
+                            Formating data to JSON and making a POST request fromEntries() method. Using the JSON. stringify() method then format the plain form data as JSON. Specify the HTTP request method as POST and using the header field of the Fetch API specify that you are sending a JSON body request and accepting JSON responses back.                        </div>
+                    </div>
+                </div>
+                            <div class="accordion-item">
+                    <h2 class="accordion-header m-0 p-0">
+                        <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-3" aria-expanded="true">
+                            Where can I find FormData?                        </button>
+                    </h2>
+                    <div id="faq2-3" class="accordion-collapse collapse" data-bs-parent="#faq2">
+                        <div class="accordion-body">
+                            If you've ever needed to inspect the form data after submitting a form on a web page, you should take a look a closer look at the Network panel in Chrome developer tools. You can click on an HTTP request, which for a POST request is typically the first one in the list after a form submission.                        </div>
+                    </div>
+                </div>
+                    </div>
+    </div>
+        </div>
+        <div class="col-md-9 order-first">
+            <h1>FormData.entries()</h1>                        
+<div>
+<p>The <code>FormData.entries()</code> method returns an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols"><code>iterator</code></a> allowing to go through all key/value pairs contained in this object. The key of each pair is a string object; the value either a string, or a <a href="https://runebook.dev/en/docs/dom/blob"><code>Blob</code></a>.</p> <div id="sect1"> <p><strong>Note:</strong> This method is available in <a href="https://runebook.dev/en/docs/dom/web_workers_api">Web Workers</a>.</p> </div>
+</div>
+<h2 id="syntax">Syntax</h2>
+<div><div><pre class="hljs language-scss"><span class="hljs-built_in">entries</span>()
+</pre></div></div>
+<h3 id="return_value">Return value</h3>
+<div><p>Returns an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols"><code>iterator</code></a>.</p></div>
+<h2 id="examples">Examples</h2>
+<div>
+<div><pre class="hljs language-go"><span class="hljs-comment">// Create a test FormData object</span>
+<span class="hljs-keyword">var</span> formData = <span class="hljs-built_in">new</span> FormData();
+formData.<span class="hljs-built_in">append</span>(<span class="hljs-string">'key1'</span>, <span class="hljs-string">'value1'</span>);
+formData.<span class="hljs-built_in">append</span>(<span class="hljs-string">'key2'</span>, <span class="hljs-string">'value2'</span>);
+
+<span class="hljs-comment">// Display the key/value pairs</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> pair of formData.entries()) {
+   console.log(pair[<span class="hljs-number">0</span>]+ <span class="hljs-string">', '</span>+ pair[<span class="hljs-number">1</span>]);
+}
+</pre></div> <p>The result is:</p> <pre class="hljs language-undefined">key1, value1
+key2, value2
+</pre>
+</div>
+<h2 id="specifications">Specifications</h2>
+<div>
+<strong>No specification found</strong><p>No specification data found for <code>api.FormData.entries</code>.<br><a href="https://runebook.dev/en/docs/dom/formdata/entries#on-github">Check for problems with this page</a> or contribute a missing <code>spec_url</code> to <a href="https://github.com/mdn/browser-compat-data">mdn/browser-compat-data</a>. Also make sure the specification is included in <a href="https://github.com/w3c/browser-specs">w3c/browser-specs</a>.</p>
+</div>
+<h2 id="browser_compatibility">Browser compatibility</h2>
+<div class="table-responsive"><table class="table">
+<thead>
+<tr id="bct-browser-type">
+<th></th>
+<th>Desktop</th>
+<th>Mobile</th>
+</tr>
+<tr id="bct-browsers">
+<th></th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Firefox</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+<th>WebView Android</th>
+<th>Chrome Android</th>
+<th>Firefox for Android</th>
+<th>Opera Android</th>
+<th>Safari on IOS</th>
+<th>Samsung Internet</th>
+</tr>
+</thead>
+<tbody><tr>
+<th><code>entries</code></th>
+<td><div>50</div></td>
+<td><div>18</div></td>
+<td><div>44</div></td>
+<td><div>No</div></td>
+<td><div>37</div></td>
+<td><div>11.1</div></td>
+<td><div>50</div></td>
+<td><div>50</div></td>
+<td><div>44</div></td>
+<td><div>37</div></td>
+<td><div>11.3</div></td>
+<td><div>5.0</div></td>
+</tr></tbody>
+</table></div>
+<h2 id="see_also">See also</h2>
+<div><ul> <li><a href="https://runebook.dev/en/docs/dom/xmlhttprequest"><code>XMLHTTPRequest</code></a></li> <li><a href="https://runebook.dev/en/docs/dom/xmlhttprequest/using_xmlhttprequest">Using XMLHttpRequest</a></li> <li><a href="https://runebook.dev/en/docs/dom/formdata/using_formdata_objects">Using FormData objects</a></li> <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a></li> </ul></div>
+<aside><div>
+<div id="on-github">
+<h3>Found a problem with this page?</h3>
+<ul>
+<li><a href="https://github.com/mdn/content/edit/main/files/en-us/web/api/formdata/entries/index.md">Edit on <b>GitHub</b></a></li>
+<li><a href="https://github.com/mdn/content/blob/main/files/en-us/web/api/formdata/entries/index.md?plain=1">Source on <b>GitHub</b></a></li>
+<li><a href="https://github.com/mdn/content/issues/new?template=page-report.yml&amp;mdn-url=https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FAPI%2FFormData%2Fentries&amp;metadata=%3C%21--+Do+not+make+changes+below+this+line+--%3E%0A%3Cdetails%3E%0A%3Csummary%3EPage+report+details%3C%2Fsummary%3E%0A%0A*+Folder%3A+%60en-us%2Fweb%2Fapi%2Fformdata%2Fentries%60%0A*+MDN+URL%3A+https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FAPI%2FFormData%2Fentries%0A*+GitHub+URL%3A+https%3A%2F%2Fgithub.com%2Fmdn%2Fcontent%2Fblob%2Fmain%2Ffiles%2Fen-us%2Fweb%2Fapi%2Fformdata%2Fentries%2Findex.md%0A*+Last+commit%3A+https%3A%2F%2Fgithub.com%2Fmdn%2Fcontent%2Fcommit%2F939eb24b8892049e5a77dc49c6030e0bbe75520b%0A*+Document+last+modified%3A+2022-04-18T05%3A24%3A45.000Z%0A%0A%3C%2Fdetails%3E">Report a problem with this content on <b>GitHub</b></a></li>
+<li>Want to fix the problem yourself? See <a href="https://github.com/mdn/content/blob/main/README.md">our Contribution guide</a>.</li>
+</ul>
+</div>
+<p><b>Last modified:</b> <time>Apr 18, 2022</time>, <a href="https://runebook.dev/en/docs/dom/formdata/entries/contributors.txt">by MDN contributors</a></p>
+</div></aside>            <br>
+            <hr>
+            <script async="" src="./Web APIs - The FormData.entries() method returns an iterator_files/f.txt" crossorigin="anonymous"></script>
+   <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fn-1k-g-nz+17a" data-ad-client="ca-pub-6424571640879890" data-ad-slot="2363370770"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>            <br>
+                <h5 class="m-0 p-0">
+        <a class="d-inline-block p-3 border-top border-start border-end rounded-top" href="https://runebook.dev/en/docs/dom/-index-">
+            <strong>Web APIs</strong>
+            <span class="fw-normal">
+                            </span>
+        </a>
+    </h5>
+
+    <ul class="list-group list-group-flush border">
+                                <li class="list-group-item">
+                <a href="https://runebook.dev/en/docs/dom/formdata/append">
+                                            <div class="text-primary-emphasis fw-bold">
+                            FormData.append()                        </div>
+                                                                <div class="text-muted fw-normal">
+                            The append() method of FormData interface appends new value onto an existing key inside object, adds if it does not already The difference between FormData.set                        </div>
+                                    </a>
+            </li>
+                                <li class="list-group-item">
+                <a href="https://runebook.dev/en/docs/dom/formdata/delete">
+                                            <div class="text-primary-emphasis fw-bold">
+                            FormData.delete()                        </div>
+                                                                <div class="text-muted fw-normal">
+                            The delete() method of FormData interface deletes key and its value(s) from object.                        </div>
+                                    </a>
+            </li>
+                                            <li class="list-group-item">
+                <a href="https://runebook.dev/en/docs/dom/formdata/formdata">
+                                            <div class="text-primary-emphasis fw-bold">
+                            FormData()                        </div>
+                                                                <div class="text-muted fw-normal">
+                            The FormData() constructor creates new object.                        </div>
+                                    </a>
+            </li>
+                                <li class="list-group-item">
+                <a href="https://runebook.dev/en/docs/dom/formdata/get">
+                                            <div class="text-primary-emphasis fw-bold">
+                            FormData.get()                        </div>
+                                                                <div class="text-muted fw-normal">
+                            The get() method of FormData interface returns first value associated with given key from within object.                        </div>
+                                    </a>
+            </li>
+            </ul>
+            <br>
+                <br>
+    <ul class="pagination justify-content-center">
+                    <li class="page-item d-none d-sm-block">
+                <a class="page-link text-nowrap" href="https://runebook.dev/en/docs/dom/">
+                    1                </a>
+            </li>
+            <li class="ms-1 me-2 text-secondary d-none d-sm-block">
+                …
+            </li>
+                            <li class="page-item d-none d-sm-block ">
+                <a class="page-link" href="https://runebook.dev/en/docs/dom/formdata/append">
+                    1764                </a>
+            </li>
+                    <li class="page-item d-none d-sm-block ">
+                <a class="page-link" href="https://runebook.dev/en/docs/dom/formdata/delete">
+                    1765                </a>
+            </li>
+                    <li class="page-item d-none d-sm-block active">
+                <a class="page-link" href="https://runebook.dev/en/docs/dom/formdata/entries">
+                    1766                </a>
+            </li>
+                    <li class="page-item d-none d-sm-block ">
+                <a class="page-link" href="https://runebook.dev/en/docs/dom/formdata/formdata">
+                    1767                </a>
+            </li>
+                    <li class="page-item d-none d-sm-block ">
+                <a class="page-link" href="https://runebook.dev/en/docs/dom/formdata/get">
+                    1768                </a>
+            </li>
+                            <li class="ms-1 me-2 text-secondary d-none d-sm-block">
+                …
+            </li>
+            <li class="page-item d-none d-sm-block">
+                <a class="page-link text-nowrap" href="https://runebook.dev/en/docs/dom/xsltprocessor">
+                    6050                </a>
+            </li>
+                            <li class="page-item d-none d-sm-block">
+                <a class="page-link" href="https://runebook.dev/en/docs/dom/formdata/formdata">
+                    Next
+                    <i class="bi bi-caret-right-fill"></i>
+                </a>
+            </li>
+            </ul>
+    <br>
+            <br>
+            <script async="" src="./Web APIs - The FormData.entries() method returns an iterator_files/f.txt" crossorigin="anonymous"></script>
+   <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-6424571640879890" data-ad-slot="3777011170"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <hr>
+            <div class="d-flex justify-content-center">
+    <form class="row g-2" action="https://runebook.dev/en/docs/dom/-index-">
+        <div class="col-auto">
+            <input class="form-control" type="search" name="q" placeholder="Search...">
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-outline-secondary" type="submit" name="sa" value="Search" aria-label="Search">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </form>
+</div>
+        </div>
+    </div>
+</div>            <!--/sse-->
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link ps-0" href="https://runebook.dev/">Help us Improve Translation</a>
+                        </li>
+                                            </ul>
+                </div>
+                <div class="col-md text-end">
+                    <a href="https://runebook.dev/en/docs/dom/formdata/entries#" class="fs-5" aria-label="Page top">
+                        <i class="bi bi-arrow-up-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <br>
+    <br>
+
+    <script src="./Web APIs - The FormData.entries() method returns an iterator_files/jquery.min.js.descarga" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="./Web APIs - The FormData.entries() method returns an iterator_files/bootstrap.bundle.min.js.descarga" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./Web APIs - The FormData.entries() method returns an iterator_files/rxjs.umd.min.js.descarga" integrity="sha512-yUlloKtrX4U41iKbaafsHrrwII0n1uAX9+3KzuaTjkfgLicBplGfr0vv7FtfwC5kgead1Dmr7sjunFFp0a+s9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./Web APIs - The FormData.entries() method returns an iterator_files/jquery.mark.min.js.descarga" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+    <script src="./Web APIs - The FormData.entries() method returns an iterator_files/runebook.js.descarga"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon="{&quot;rayId&quot;:&quot;7f1aa8ba4f5b476f&quot;,&quot;version&quot;:&quot;2023.7.0&quot;,&quot;r&quot;:1,&quot;b&quot;:1,&quot;token&quot;:&quot;20b7a3a119894c74b2492fb13d25aa4d&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+
+
+</body></html>

@@ -1,0 +1,215 @@
+'use strict';
+
+
+$(function () {
+    var isDark = Cookies.get('theme') !== 'light';
+    var $switch = $('#theme-switch');
+    $switch.attr('checked', isDark)
+    $switch.on('click', function () {
+        toggleTheme();
+    })
+});
+
+function toggleTheme() {
+    var $html = $('html');
+    var theme = $html.attr('data-bs-theme').includes('dark') ? 'light' : 'dark';
+    $html.attr('data-bs-theme', theme);
+    Cookies.set('theme', theme, { path: '/', expires: 365 * 10 });
+}
+
+var popoverSubject = new rxjs.Subject();
+var popover;
+var isEnablePopup = JSON.parse(Cookies.get('isEnablePopup') ?? 'true');
+setEnablePopup(isEnablePopup);
+
+$(function () {
+    $('#showPopupButton').on('click', function () {
+        setEnablePopup(!isEnablePopup);
+        Cookies.set('isEnablePopup', JSON.stringify(isEnablePopup), { path: '/', expires: 365 });
+    });
+
+    var searchInput = document.getElementById('q');
+
+    if (searchInput) {
+        var url = new URL(location.href);
+        var q = url.searchParams.get('q');
+
+        if (q) {
+            $(searchInput).val(q);
+            executeSearch();
+        }
+    }
+
+    if ($('html').attr('lang') !== 'en') {
+        popoverSubject.pipe(
+            rxjs.operators.distinctUntilChanged(),
+            rxjs.operators.filter(function (element) {
+                return element !== null;
+            }),
+            rxjs.operators.debounceTime(1500),
+            rxjs.operators.filter(function () {
+                return isEnablePopup;
+            })
+        ).subscribe(function (element) {
+            if (element) {
+                showPopover(element);
+            } else {
+                hidePopover();
+            }
+        });
+    }
+
+    $('body').on('click', function () {
+        hidePopover();
+    })
+});
+
+function setEnablePopup(value) {
+    if (value) {
+        enablePopup();
+    } else {
+        disablePopup();
+    }
+}
+
+function enablePopup() {
+    isEnablePopup = true;
+    $('#showPopupButton')
+        .removeClass('btn-danger')
+        .addClass('btn-primary');
+}
+
+function disablePopup() {
+    isEnablePopup = false;
+    $('#showPopupButton')
+        .removeClass('btn-primary')
+        .addClass('btn-danger');
+}
+
+function i18n(element) {
+    popoverSubject.next(element);
+}
+
+function showPopover(target) {
+    hidePopover();
+    var language = $('html').attr('lang');
+    var doc = $('head meta[name="x-i18n-doc"]').attr('content');
+    var $target = $(target);
+    var tuId = $target.attr('data-i18n');
+    var sourceText = getSourceText(target);
+    var targetText = getTargetText(target);
+    var githubUrl = $('head meta[name="x-github"]').attr('content');
+
+    var feedbackUrl = githubUrl + '/issues/new?' + $.param({
+        'template': 'translate.md',
+        'title': language + '/' + doc + '/' + tuId,
+        'body': '> ' + sourceText + '\r\r' + targetText,
+        'labels': ['translate'].join(',')
+    });
+
+    var feedbackButton = 'Feedback';
+
+    switch (language) {
+        case 'ja':
+            feedbackButton = '翻訳を改善';
+            break;
+    }
+
+    $target.on('shown.bs.popover', function () {
+        $target.addClass('bg-success text-white');
+    }).on('hidden.bs.popover', function () {
+        $target.removeClass('bg-success text-white');
+    });
+
+    popover = new bootstrap.Popover($target, {
+        // 'offset': 200,
+        // 'container': container,
+        placement: 'auto',
+        html: true,
+        sanitize: false,
+        trigger: 'focus',
+        title: 'English',
+        content: sourceText + '<br><br><div class="d-flex justify-content-between"><a class="btn btn-primary me-2" target="_blank" href="' + feedbackUrl + '">' + feedbackButton + '</a><a class="btn btn-secondary" href="javascript:void(0);" onclick="disablePopup()">Hide</a></div>',
+        template: '<div class="popover shadow-lg" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+    });
+
+    popover.show();
+}
+
+function hidePopover() {
+    if (popover) {
+        popover.hide();
+        popover = undefined;
+        // popoverSubject.next(null);
+    }
+
+    // $('.popover').each(function () {
+    //     $(this).popover('hide');
+    // });
+}
+
+function getSourceText(target) {
+    var markup = $(target).data('source');
+    return markup.trim();
+}
+
+function getTargetText(target) {
+    var markup = $(target).html();
+    return markup.trim();
+}
+
+function executeSearch() {
+    var keywords = $('#q').val()
+        .toLowerCase()
+        .trim()
+        .split(/\s+/)
+        .map(function (s) {
+            return s.trim();
+        })
+        .filter(function (s) {
+            return s.length > 0;
+        });
+
+    var $entryGroupList = $('#entries div.entry-group');
+    $entryGroupList.unmark();
+
+    if (keywords.length === 0) {
+        $entryGroupList.find('li').show();
+        $entryGroupList.show();
+        return;
+    }
+
+    $entryGroupList.each(function (index, entryGroupElement) {
+        var $entryGroup = $(entryGroupElement);
+        var $items = $entryGroup.find('li');
+        var isEntryGroupShow = false;
+
+        $items.each(function (itemIndex, itemElement) {
+            var $item = $(itemElement);
+            var $title = $item.find('a[title]');
+            var target = ($item.text().trim() + ' ' + ($title.attr('title') || '').trim()).toLowerCase().trim();
+            var hits = 0;
+
+            for (var keywordIndex = 0; keywordIndex < keywords.length; keywordIndex++) {
+                var keyword = keywords[keywordIndex];
+                if (target.indexOf(keyword) !== -1) {
+                    hits++;
+                    $item.mark(keyword);
+                }
+            }
+
+            if (hits >= keywords.length) {
+                $item.show();
+                isEntryGroupShow = true;
+            } else {
+                $item.hide();
+            }
+        })
+
+        if (isEntryGroupShow) {
+            $entryGroup.show();
+        } else {
+            $entryGroup.hide();
+        }
+    });
+}

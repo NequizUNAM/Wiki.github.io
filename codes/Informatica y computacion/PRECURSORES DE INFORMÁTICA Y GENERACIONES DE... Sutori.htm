@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html class="js typedarrays websockets mutationobserver filereader xhr2 audio canvas csspointerevents cssremunit video csscalc supports no-touchevents requestanimationframe raf objectfit object-fit matchmedia no-cssgridlegacy cssgrid cssfilters flexbox csstransforms" lang="es"><head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile# website: http://ogp.me/ns/website#">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    
+<meta name="frontend/config/environment" content="%7B%22modulePrefix%22%3A%22frontend%22%2C%22environment%22%3A%22production%22%2C%22changeset-validations%22%3A%7B%22rawOutput%22%3Atrue%7D%2C%22rootURL%22%3A%22%2F%22%2C%22locationType%22%3A%22auto%22%2C%22historySupportMiddleware%22%3Atrue%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%2C%22_APPLICATION_TEMPLATE_WRAPPER%22%3Afalse%2C%22_JQUERY_INTEGRATION%22%3Atrue%2C%22_TEMPLATE_ONLY_GLIMMER_COMPONENTS%22%3Atrue%7D%2C%22APP%22%3A%7B%22HOST%22%3A%22www.sutori.com%22%2C%22AWS_BUCKET%22%3A%22assets.sutori.com%22%2C%22CDN_HOST%22%3A%22assets.sutori.com%22%2C%22GOOGLE_API_KEY%22%3A%22AIzaSyC6YMBq5_pxSoqqMXukdiYzAOx55zOIOrY%22%2C%22GOOGLE_CLIENT_ID%22%3A%22928013618825-a578uet65juqsuccmjl5tcsu0i1k16pd.apps.googleusercontent.com%22%2C%22GOOGLE_APP_ID%22%3A%22928013618825%22%2C%22AMPLITUDE_API_KEY%22%3A%22849cf4119663a548d25b6d86042559e3%22%2C%22CRISP_WEBSITE_ID%22%3A%228871323e-06fa-4499-9e2e-fc953d1c2fd9%22%2C%22ACTION_CABLE_ORIGIN%22%3A%22wss%3A%2F%2Fwww.sutori.com%22%2C%22AZURE_CLIENT_ID%22%3A%22b8325cbc-d8b5-4415-97d8-b40b8ce0a227%22%2C%22AZURE_REDIRECT_URI%22%3A%22https%3A%2F%2Fwww.sutori.com%22%2C%22CLOUDFLARE_SITE_KEY%22%3A%220x4AAAAAAAEGUAzKmuGCNjTa%22%2C%22name%22%3A%22frontend%22%2C%22version%22%3A%221.0.0%2B0f39ff74%22%7D%2C%22torii%22%3A%7B%22disableRedirectInitializer%22%3Afalse%2C%22providers%22%3A%7B%22edmodo-connect%22%3A%7B%22apiKey%22%3A%2273d8ed4d40a67f8d98fca2145ea15b811250c6f8ca3b9086490b073e11dcd0bb%22%2C%22redirectUri%22%3A%22https%3A%2F%2Fwww.sutori.com%2Fedmodo%2Fcallback%22%2C%22scope%22%3A%22basic%20read_user_email%22%7D%2C%22facebook-oauth2%22%3A%7B%22clientId%22%3A%221828148220763598%22%2C%22redirectUri%22%3A%22https%3A%2F%2Fwww.sutori.com%2Ftorii%2Fredirect.html%22%2C%22scope%22%3A%22public_profile%2Cemail%22%2C%22apiVersion%22%3A%22v17.0%22%7D%2C%22clever%22%3A%7B%22clientId%22%3A%22a8a7920fc002b536f525%22%2C%22redirectUri%22%3A%22https%3A%2F%2Fwww.sutori.com%2Ftorii%2Fredirect.html%22%7D%7D%7D%2C%22factoryGuy%22%3A%7B%22enabled%22%3Afalse%2C%22useScenarios%22%3Afalse%7D%2C%22contentSecurityPolicy%22%3A%7B%22default-src%22%3A%22'self'%20www.youtube.com%20*.stripe.com%20*.addthis.com%22%2C%22script-src%22%3A%22'self'%20assets.sutori.com%20*.twitter.com%20*.twimg.com%20'unsafe-inline'%20*.stripe.com%20apis.google.com%20'unsafe-eval'%20maps.googleapis.com%20*.crisp.chat%20*.crisp.im%20www.youtube.com%20*.ytimg.com%20*.addthis.com%20*.addthisedge.com%20data%3A%20z.moatads.com%20*.pinterest.com%20*.iubenda.com%20cdn.thinglink.me%20http%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F1.11.3%2Fjquery.min.js%20https%3A%2F%2Fwww.thinglink.com%20*.instagram.com%20connect.facebook.net%20*.imgur.com%20*.flickr.com%20blob%3A%20cdn.headwayapp.co%20risk.clearbit.com%20teams.microsoft.com%20https%3A%2F%2Fcdnjs.cloudflare.com%2Fajax%2Flibs%2Flamejs%2F1.2.0%2Flame.min.js%22%2C%22script-src-elem%22%3A%22assets.sutori.com%20*.twitter.com%20*.twimg.com%20'unsafe-inline'%20*.googletagmanager.com%20*.stripe.com%20https%3A%2F%2Fapis.google.com%2F%20accounts.google.com%20'unsafe-eval'%20maps.googleapis.com%20*.crisp.chat%20*.crisp.im%20www.youtube.com%20*.ytimg.com%20*.addthis.com%20*.addthisedge.com%20data%3A%20z.moatads.com%20*.pinterest.com%20*.iubenda.com%20cdn.thinglink.me%20http%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F1.11.3%2Fjquery.min.js%20https%3A%2F%2Fwww.thinglink.com%20*.instagram.com%20connect.facebook.net%20*.imgur.com%20*.flickr.com%20blob%3A%20cdn.headwayapp.co%20risk.clearbit.com%20teams.microsoft.com%20play.vidyard.com%20challenges.cloudflare.com%22%2C%22worker-src%22%3A%22blob%3A%22%2C%22font-src%22%3A%22'self'%20data%3A%20assets.sutori.com%20fonts.gstatic.com%20https%3A%2F%2Fclient.crisp.chat%22%2C%22connect-src%22%3A%22'self'%20https%3A%2F%2Fwww.googleapis.com%20wss%3A%2F%2Fwww.sutori.com%20assets.sutori.com%20s3.amazonaws.com%2Fassets.sutori.com%20*.google-analytics.com%20*.stripe.com%20accounts.google.com%20maps.googleapis.com%20api.amplitude.com%20wss%3A%2F%2F*.crisp.chat%20https%3A%2F%2F*.crisp.chat%20*.addthis.com%20https%3A%2F%2Fsyndication.twitter.com%2Fsettings%20https%3A%2F%2F*.wikipedia.org%20geo.query.yahoo.com%20*.flickr.com%20api.unsplash.com%20risk.clearbit.com%20login.microsoftonline.com%20blob%3A%22%2C%22img-src%22%3A%22'self'%20data%3A%20*%20maps.googleapis.com%20https%3A%2F%2Fmaps.gstatic.com%2Fmapfiles%2Fapi-3%2Fimages%2F%20https%3A%2F%2Fcsi.gstatic.com%2F%20https%3A%2F%2Fi.ytimg.com%20*.addthis.com%20*.pinterest.com%20*.iubenda.com%22%2C%22style-src%22%3A%22'self'%20assets.sutori.com%20platform.twitter.com%20'unsafe-inline'%20accounts.google.com%20*.googleapis.com%20https%3A%2F%2Fclient.crisp.chat%20*.iubenda.com%20cdn.thinglink.me%20https%3A%2F%2Fton.twimg.com%20cdn.headwayapp.co%22%2C%22media-src%22%3A%22'self'%20assets.sutori.com%20https%3A%2F%2Fclient.crisp.chat%20blob%3A%22%2C%22child-src%22%3A%22'self'%20*%20https%3A%2F%2Fwww.sutori.com%20*.stripe.com%20https%3A%2F%2Fwww.google.com%2F%20https%3A%2F%2Fwww.youtube-nocookie.com%2Fembed%2F%20https%3A%2F%2Fwww.youtube.com%2Fembed%2F%20*.addthis.com%20*.pinterest.com%20blob%3A%22%2C%22manifest-src%22%3A%22assets.sutori.com%22%7D%2C%22contentSecurityPolicyHeader%22%3A%22Content-Security-Policy-Report-Only%22%2C%22noScript%22%3A%7B%22content%22%3A%22%3Cdiv%20class%3D%5C%22page-noscript%5C%22%3E%3Cp%3EIn%20order%20to%20use%20Sutori%2C%20you%20must%20enable%20Javascript%20in%20your%20browser.%20You%20can%20find%20instructions%20on%20how%20to%20do%20this%20%3Ca%20href%3D'https%3A%2F%2Fwww.enable-javascript.com%2F'%20target%3D'_blank'%3Ehere%3C%2Fa%3E.%3C%2Fp%3E%3C%2Fdiv%3E%22%7D%2C%22exportApplicationGlobal%22%3Afalse%2C%22ember-faker%22%3A%7B%7D%7D">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="apple-touch-icon" href="https://assets.sutori.com/frontend-assets/images/icons/android/android-chrome-192x192-b7570704df0de6843586c7b233521674.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://assets.sutori.com/frontend-assets/images/icons/android/android-chrome-512x512-fe778bd8c5ddeca7260e767276e106ab.png" sizes="512x512">
+<link rel="apple-touch-icon" href="https://assets.sutori.com/frontend-assets/images/icons/apple-touch-icon-c8636170c1f55e56958847ddc053cd33.png" sizes="180x180">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Sutori">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" href="https://assets.sutori.com/frontend-assets/images/icons/favicon-16x16-c9530f8db4346fcf99e2a7329ff0fde5.png" sizes="16x16" type="image/png">
+<link rel="icon" href="https://assets.sutori.com/frontend-assets/images/icons/favicon-32x32-625b35fccef91baaa723e7b83ffb43f3.png" sizes="32x32" type="image/png">
+<noscript><div class="page-noscript"><p>In order to use Sutori, you must enable Javascript in your browser. You can find instructions on how to do this <a href='https://www.enable-javascript.com/' target='_blank'>here</a>.</p></div></noscript>
+
+    <link rel="stylesheet" href="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/vendor-ad1a8b94a5088d4f00c0e4f329068487.css">
+    <link rel="stylesheet" href="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/frontend-b45e625271f5b20aa9005b5ff6bd8d8f.css">
+
+    <!-- Generated through https://realfavicongenerator.net -->
+    <!-- These are tags that are not yet supported by ember-web-app -->
+    <meta name="application-name" content="Sutori">
+    <link rel="mask-icon" href="https://assets.sutori.com/frontend-assets/images/icons/safari-pinned-tab-2cd1f94d7fbcefd98a2693de6fcc766f.svg" color="#5bbad5">
+
+    <!-- Meta tags -->
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="theme-color" content="#2dacfe">
+
+    <!-- Pinterest verification tag -->
+    <meta name="p:domain_verify" content="4949cbcb5ee325d93fc2bb4c284e5dd1">
+
+    <!-- Large image search results (see https://developers.google.com/search/case-studies/large-images-case-study) -->
+    <meta name="robots" content="max-image-preview:large">
+
+    
+  <style id="googleidentityservice_button_styles">.qJTHM{-moz-user-select:none;color:#202124;direction:ltr;font-family:"Roboto-Regular",arial,sans-serif;font-weight:400;margin:0;overflow:hidden}.ynRLnc{left:-9999px;position:absolute;top:-9999px}.L6cTce{display:none}.bltWBb{word-break:break-all}.hSRGPd{color:#1a73e8;cursor:pointer;font-weight:500;text-decoration:none}.Bz112c-W3lGp{height:16px;width:16px}.Bz112c-E3DyYd{height:20px;width:20px}.Bz112c-r9oPif{height:24px;width:24px}.Bz112c-uaxL4e{-moz-border-radius:10px;border-radius:10px}.LgbsSe-Bz112c{display:block}.S9gUrf-YoZ4jf,.S9gUrf-YoZ4jf *{border:none;margin:0;padding:0}.fFW7wc-ibnC6b>.aZ2wEe>div{border-color:#4285f4}.P1ekSe-ZMv3u>div:nth-child(1){background-color:#1a73e8!important}.P1ekSe-ZMv3u>div:nth-child(2),.P1ekSe-ZMv3u>div:nth-child(3){background-image:linear-gradient(to right,rgba(255,255,255,.7),rgba(255,255,255,.7)),linear-gradient(to right,#1a73e8,#1a73e8)!important}.haAclf{display:inline-block}.nsm7Bb-HzV7m-LgbsSe{border-radius:4px;box-sizing:border-box;transition:background-color .218s,border-color .218s;-moz-user-select:none;background-color:#fff;background-image:none;border:1px solid #dadce0;color:#3c4043;cursor:pointer;font-family:"Google Sans",arial,sans-serif;font-size:14px;height:40px;letter-spacing:0.25px;outline:none;overflow:hidden;padding:0 12px;position:relative;text-align:center;vertical-align:middle;white-space:nowrap;width:auto}@media screen and (-ms-high-contrast:active){.nsm7Bb-HzV7m-LgbsSe{border:2px solid windowText;color:windowText}}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe{font-size:14px;height:32px;letter-spacing:0.25px;padding:0 10px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe{font-size:11px;height:20px;letter-spacing:0.3px;padding:0 8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe{padding:0;width:40px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe{width:32px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe{width:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK{border-radius:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.pSzOP-SxQuSe{border-radius:16px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.purZT-SxQuSe{border-radius:10px}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc{border:none;color:#fff}.nsm7Bb-HzV7m-LgbsSe.MFS4be-v3pZbf-Ia7Qfc{background-color:#1a73e8}.nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc{background-color:#202124;color:#e8eaed}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:18px;margin-right:8px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:14px;min-width:14px;width:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:10px;min-width:10px;width:10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin-left:8px;margin-right:-4px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:10px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:4px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-left-radius:3px;border-bottom-left-radius:3px;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;justify-content:center;align-items:center;background-color:#fff;height:36px;margin-left:-10px;margin-right:12px;min-width:36px;width:36px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c,.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:28px;margin-left:-8px;margin-right:10px;min-width:28px;width:28px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:16px;margin-left:-6px;margin-right:8px;min-width:16px;width:16px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:3px;margin-left:2px;margin-right:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:8px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;align-items:center;flex-direction:row;justify-content:space-between;flex-wrap:nowrap;height:100%;position:relative;width:100%}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX{justify-content:center}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{flex-grow:1;font-family:"Google Sans",arial,sans-serif;font-weight:500;overflow:hidden;text-overflow:ellipsis;vertical-align:top}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-weight:300}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX .nsm7Bb-HzV7m-LgbsSe-BPrWId{flex-grow:0}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe{transition:background-color .218s;bottom:0;left:0;position:absolute;right:0;top:0}.nsm7Bb-HzV7m-LgbsSe:hover,.nsm7Bb-HzV7m-LgbsSe:focus{box-shadow:none;border-color:#d2e3fc;outline:none}.nsm7Bb-HzV7m-LgbsSe:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.04)}.nsm7Bb-HzV7m-LgbsSe:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.1)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.24)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.32)}.nsm7Bb-HzV7m-LgbsSe .n1UuX-DkfjY{border-radius:50%;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;height:20px;margin-left:-4px;margin-right:8px;min-width:20px;width:20px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-family:"Roboto";font-size:12px;text-align:left}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .ssJRIf,.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .fmcmS{overflow:hidden;text-overflow:ellipsis}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;align-items:center;color:#5f6368;fill:#5f6368;font-size:11px;font-weight:400}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{color:#e8eaed;fill:#e8eaed}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .Bz112c{height:18px;margin:-3px -3px -3px 2px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:3px;border-bottom-right-radius:3px;margin-left:12px;margin-right:-10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.L5Fo6c-sM5MNb{border:0;display:block;left:0;position:relative;top:0}.L5Fo6c-bF1uUb{-moz-border-radius:4px;border-radius:4px;bottom:0;cursor:pointer;left:0;position:absolute;right:0;top:0}.L5Fo6c-bF1uUb:focus{border:none;outline:none}sentinel{}</style>  <meta name="ember-cli-head-start" content=""><title>PRECURSORES DE INFORMÁTICA Y GENERACIONES DE... | Sutori</title>
+
+  <link rel="alternate" hreflang="en" href="https://www.sutori.com/en/story/precursores-de-informatica-y-generaciones-de-computadoras--Pn2N2sym7uS6H9qkG1kGAzWn">
+  <link rel="alternate" hreflang="es" href="https://www.sutori.com/es/historia/precursores-de-informatica-y-generaciones-de-computadoras--Pn2N2sym7uS6H9qkG1kGAzWn">
+
+  <script type="text/javascript" id="www-widgetapi-script" src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/www-widgetapi.js" async=""></script><script id="ember112" class="ember-view" type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","url":"https://www.sutori.com","logo":"https://assets.sutori.com/frontend-assets/images/logo-sutori-184x60-5d42ca9d81e961d6ab42f909e4f3aa12.png","contactPoint":[{"@type":"ContactPoint","telephone":"+18572390855","contactType":"customer support"},{"@type":"ContactPoint","telephone":"+18572390855","contactType":"technical support"},{"@type":"ContactPoint","telephone":"+18572390855","contactType":"billing support"},{"@type":"ContactPoint","telephone":"+18572390855","contactType":"bill payment"},{"@type":"ContactPoint","telephone":"+18572390855","contactType":"sales"},{"@type":"ContactPoint","telephone":"+18572390855","contactType":"credit card support"}],"sameAs":["https://www.facebook.com/sutori","https://twitter.com/sutori","https://www.pinterest.com/sutoriapp","https://www.linkedin.com/company/sutori","https://www.youtube.com/channel/UCxAPMenmhxLFuKG44C1CaBA"]}
+</script>
+  <script id="ember113" class="ember-view" type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","name":"Sutori","url":"https://www.sutori.com"}
+</script>
+  <link id="ember114" rel="canonical" href="https://www.sutori.com/story/precursores-de-informatica-y-generaciones-de-computadoras--Pn2N2sym7uS6H9qkG1kGAzWn" class="ember-view">
+
+  <meta id="ember115" name="description" content="BLAISE PASCAL Nació el 19 de junio de 1623 Pascal inventó la primera calculadora digital (1642) para ayudar a su padre. El aparato, llamado la Pascalina, parecía una calculadora mecánica de los cuarentas. Esto, casi ciertamente, convierte a Pascal en el segundo inventor de una calculadora mecánica,…" class="ember-view">
+
+  <meta id="ember116" property="og:type" content="article" class="ember-view">
+
+  <meta id="ember117" property="og:title" content="PRECURSORES DE INFORMÁTICA Y GENERACIONES DE COMPUTADORAS." class="ember-view">
+
+  <meta id="ember118" property="og:description" content="BLAISE PASCAL Nació el 19 de junio de 1623 Pascal inventó la primera calculadora digital (1642) para ayudar a su padre. El aparato, llamado la Pascalina, parecía una calculadora mecánica de los cuarentas. Esto, casi ciertamente, convierte a Pascal en el segundo inventor de una calculadora mecánica, pues Schickard ya había fabricado una en 1624. Pascal ayudo a crear dos grandes áreas de investigación, escribió tratados sobre geometría proyectiva y más tarde cruzó correspondencia con Pierre de Fermat sobre teoría de la probabilidad. Siguiendo con el trabajo de Galileo y Torricelli, en 1646 refutó las teorías aristotélicas que insistían en que la naturaleza aborrece el vacío. En 1970, el profesor suizo Niklaus Wirth publicó un lenguaje de programación al que llamó Pascal, en honor a Blaise Pascal. Este lenguaje tiene una serie de características que lo hacen único, por ejemplo, la asignación se realiza mediante el símbolo “:=” en vez de “=” que es más común. Además, los programas constan de 2 partes: declarativa y ejecutiva. Todo lo que se vaya a utilizar en la parte ejecutiva debe encontrarse en la parte declarativa. Otra característica importante de este lenguaje es que no se permite la asignación a variables de valores de tipo incompatible." class="ember-view">
+
+  <meta id="ember119" property="og:image" content="https://assets.sutori.com/user-uploads/image/edbbf1b2-26e0-43a3-a556-48696bca90e6/f0b2fb252fd85f17a5446eb84982fada.jpeg" class="ember-view">
+
+  <meta id="ember120" property="og:image:width" content="1429" class="ember-view">
+
+  <meta id="ember121" property="og:image:height" content="300" class="ember-view">
+
+  <meta id="ember122" property="og:image:alt" class="ember-view">
+
+  <meta id="ember123" property="og:url" content="https://www.sutori.com/es/historia/precursores-de-informatica-y-generaciones-de-computadoras--Pn2N2sym7uS6H9qkG1kGAzWn" class="ember-view">
+
+  <meta id="ember124" property="og:site_name" content="Sutori" class="ember-view">
+
+  <meta id="ember125" name="twitter:card" content="summary_large_image" class="ember-view">
+
+  <meta id="ember126" name="twitter:site" content="@Sutori" class="ember-view">
+
+  <meta id="ember127" name="twitter:title" content="PRECURSORES DE INFORMÁTICA Y GENERACIONES DE COMPUTADORAS." class="ember-view">
+
+  <meta id="ember128" name="twitter:description" content="BLAISE PASCAL Nació el 19 de junio de 1623 Pascal inventó la primera calculadora digital (1642) para ayudar a su padre. El aparato, llamado la Pascalina, parecía una calculadora mecánica de los cuarentas. Esto, casi ciertamente, convierte a Pascal en el segundo inventor de una calculadora mecánica, pues Schickard ya había fabricado una en 1624. Pascal ayudo a crear dos grandes áreas de investigación, escribió tratados sobre geometría proyectiva y más tarde cruzó correspondencia con Pierre de Fermat sobre teoría de la probabilidad. Siguiendo con el trabajo de Galileo y Torricelli, en 1646 refutó las teorías aristotélicas que insistían en que la naturaleza aborrece el vacío. En 1970, el profesor suizo Niklaus Wirth publicó un lenguaje de programación al que llamó Pascal, en honor a Blaise Pascal. Este lenguaje tiene una serie de características que lo hacen único, por ejemplo, la asignación se realiza mediante el símbolo “:=” en vez de “=” que es más común. Además, los programas constan de 2 partes: declarativa y ejecutiva. Todo lo que se vaya a utilizar en la parte ejecutiva debe encontrarse en la parte declarativa. Otra característica importante de este lenguaje es que no se permite la asignación a variables de valores de tipo incompatible." class="ember-view">
+
+  <meta id="ember129" name="twitter:image" content="https://assets.sutori.com/user-uploads/image/edbbf1b2-26e0-43a3-a556-48696bca90e6/f0b2fb252fd85f17a5446eb84982fada.jpeg" class="ember-view">
+
+  <meta id="ember130" name="twitter:image:alt" content="" class="ember-view">
+
+  <meta id="ember131" property="og:author" content="Karina Vargas Hernández" class="ember-view">
+
+  <meta id="ember132" property="article:published_time" content="2018-08-14T23:11:42.792Z" class="ember-view">
+
+  <meta id="ember133" property="article:modified_time" content="2018-11-29T17:37:46.733Z" class="ember-view">
+
+  <script id="ember134" class="ember-view" type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.sutori.com/es/historia/precursores-de-informatica-y-generaciones-de-computadoras--Pn2N2sym7uS6H9qkG1kGAzWn"},"headline":"PRECURSORES DE INFORMÁTICA Y GENERACIONES DE COMPUTADORAS.","image":{"@type":"ImageObject","url":"https://assets.sutori.com/user-uploads/image/edbbf1b2-26e0-43a3-a556-48696bca90e6/f0b2fb252fd85f17a5446eb84982fada.jpeg","width":1429,"height":300},"datePublished":"2018-08-14T23:11:42.792Z","dateModified":"2018-11-29T17:37:46.733Z","author":{"@type":"Person","name":"Karina Vargas Hernández"},"publisher":{"@type":"Organization","name":"Sutori","logo":{"@type":"ImageObject","url":"https://assets.sutori.com/frontend-assets/images/logo-sutori-184x60-5d42ca9d81e961d6ab42f909e4f3aa12.png","width":184,"height":60}},"description":"BLAISE PASCAL Nació el 19 de junio de 1623 Pascal inventó la primera calculadora digital (1642) para ayudar a su padre. El aparato, llamado la Pascalina, parecía una calculadora mecánica de los cuarentas. Esto, casi ciertamente, convierte a Pascal en el segundo inventor de una calculadora mecánica, pues Schickard ya había fabricado una en 1624. Pascal ayudo a crear dos grandes áreas de investigación, escribió tratados sobre geometría proyectiva y más tarde cruzó correspondencia con Pierre de Fermat sobre teoría de la probabilidad. Siguiendo con el trabajo de Galileo y Torricelli, en 1646 refutó las teorías aristotélicas que insistían en que la naturaleza aborrece el vacío. En 1970, el profesor suizo Niklaus Wirth publicó un lenguaje de programación al que llamó Pascal, en honor a Blaise Pascal. Este lenguaje tiene una serie de características que lo hacen único, por ejemplo, la asignación se realiza mediante el símbolo “:=” en vez de “=” que es más común. Además, los programas constan de 2 partes: declarativa y ejecutiva. Todo lo que se vaya a utilizar en la parte ejecutiva debe encontrarse en la parte declarativa. Otra característica importante de este lenguaje es que no se permite la asignación a variables de valores de tipo incompatible."}
+</script>
+  <link id="ember135" rel="alternate" href="https://www.sutori.com/api/oembed?url=https%3A%2F%2Fwww.sutori.com%2Fstory%2Fprecursores-de-informatica-y-generaciones-de-computadoras--Pn2N2sym7uS6H9qkG1kGAzWn" class="ember-view" type="application/json+oembed">
+
+
+<meta name="ember-cli-head-end" content="">
+</head>
+  <body class="ember-application">
+    
+
+    <script async="" src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/risk.js"></script><script src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/vendor-33842dc8c9c923d3befde56bcd94c9b1.js"></script>
+<script src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/chunk.886.86ba277d00aeee97aff9.js"></script>
+<script src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/chunk.143.811a0ec69b923159a769.js"></script>
+    <script src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/frontend-4b701cb6c6f88dde7cc78e8867b9081e.js"></script>
+
+    <!-- Google Analytics -->
+    <script async="" src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Y9GLEGR5Z1');
+    </script>
+
+    <!-- Stripe -->
+    <script src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/Sin%20t%C3%ADtulo"></script>
+
+    <!-- Share with Google Classroom button -->
+    <script>
+      // This says that we have to explicitly render the "Share with Google
+      // Classroom" buttons with Javascript. This has better performance.
+      window.___gcfg = {
+        parsetags: 'explicit'
+      };
+    </script>
+
+    <!-- Google API -->
+    <script src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/platform.js" async="" defer="defer" gapi_processed="true"></script>
+    <script src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/api.js" gapi_processed="true"></script>
+    <script src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/client"></script>
+
+    <!-- Cloudflare Turnstile -->
+    <script src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/api_002.js"></script>
+
+    
+  
+
+<script type="text/javascript" src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/iframeResizer.contentWindow-6cfdfbcce99d193cc20ea7247c4e1b3d.js" async=""></script><!---->
+
+  <!-- <div class="button-help"> -->
+    
+      <!-- <button class="sutori-popover-trigger button-help-trigger" type="button">
+  
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 348 348"><path d="M153.45 278.967v-16.5h33v33h-33v-16.5zm4-50.912c0-18.199 4.442-32.121 14.478-45.387 2.62-3.464 12.209-12.9 21.307-20.968 24.021-21.304 29.054-29.274 27.978-44.31-1.557-21.767-22.635-39.966-46.222-39.908-24.177.059-40.735 14.39-47.068 40.735-.959 3.987-2.02 7.24-2.358 7.227-.338-.013-6.464-.902-13.614-1.977-7.15-1.075-13.388-1.965-13.862-1.977-.473-.013-.561-1.71-.195-3.773 4.957-27.917 16.64-45.828 36.7-56.264 19.244-10.012 46.728-11.753 69.833-4.424 32.843 10.418 52.23 43.852 44.027 75.927-3.849 15.047-12.763 27.056-34.848 46.947-14.56 13.114-20.017 19.569-23.038 27.252-2.067 5.258-4.117 18.223-4.117 26.036v4.276h-29v-9.412z"></path></svg>
+      
+</button> -->
+
+
+      <!---->
+    
+
+<!---->
+  <!-- </div> -->
+
+<div id="fullscreen-overlay"></div>
+<div id="ember-popper-js"></div>
+
+<div class="page ">
+    <div id="ember5" class="success-notification ember-view"><p class="message"></p>
+</div>
+
+    <!---->
+
+    <header class="application-header">
+  
+  </header>
+
+
+  <main class="main    route-story-index">
+    <article class="story show-title">
+<!---->
+<!---->
+<!---->
+  <!---->
+
+  <!---->
+
+    <p class="have-to-print-with-button-message">
+      Para imprimir la historia, hágalo a través del enlace en la barra de herramientas de la historia.
+    </p>
+
+<!---->
+    <section class="story-banner">
+    <div class="collaboration-lock-wrapper">
+  
+      <div role="button" id="ember136" class="clickable-area ember-view">
+        <div class="story-banner-editable-image">
+    <div role="button" id="ember138" class="clickable-area ember-view">
+      <div class="story-banner-render-image-file">
+      <div class="render-image-file-custom render-image-file">
+    <div class="render-image cover">
+    <img src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/60839753b9db6e424ee1d33956337bcf.jpeg" class="render-image-img cover" loading="lazy">
+
+</div>
+</div>
+
+</div>
+
+<!---->
+<!---->    
+</div>
+</div>
+      
+</div>
+    
+
+<!----></div>
+  </section>
+
+
+      
+  
+
+
+
+
+  <section class="story-body">
+      <div class="story-display-title ">
+    <div class="collaboration-lock-wrapper">
+  
+      <h1 class="story-title">
+        <div class="editable-text">
+          PRECURSORES DE INFORMÁTICA Y GENERACIONES DE COMPUTADORAS.
+
+</div>
+      </h1>
+    
+
+<!----></div>
+</div>
+
+        
+  
+  <div class="story-introduction  ">
+    <div class="collaboration-lock-wrapper">
+  
+      <div role="button" id="ember169" class="clickable-area ember-view">
+        <div class="editable-text introduction">
+<!----></div>
+      
+</div>
+    
+
+<!----></div>
+  </div>
+
+
+
+
+      
+  
+      <div id="ember171" class="story-items ember-view">  <!---->
+
+    <div class="clear-float"></div>
+
+
+  <article class="item-wrapper chapter-title  is-first-chapter-title is-ready-to-be-shown is-full-width">
+<!---->
+  <div class="story-item-body chapter-title" style="">
+      <!---->
+  <div class="story-item-content">
+  
+  <h2>
+      <div class="editable-text heading">
+          PRECURSORES
+
+</div>
+  </h2>
+
+</div>
+
+
+<!---->
+<!---->
+
+<!----></div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper embed left is-first-item-in-block is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body embed has-media has-embed" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-embed">
+  <div class="embed-viewer" data-url="https://www.youtube.com/watch?v=iybEqlQSk_E">
+    <div class="youtube-embed">
+  <iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title="Blaise Pascal" width="426" height="225" src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/iybEqlQSk_E.htm" id="widget2"></iframe>
+</div>
+</div>
+
+<!----></div>
+
+
+
+
+<!---->
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow right">
+  <div class="story-item-arrow-outer" style="border-left-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-left-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper image right is-second-item-in-block is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body image has-media has-body-text has-image" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-image">
+    <div class="render-image-file-custom render-image-file">
+    <div class="render-image contain">
+    <img src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/7d80ba46398c218f562a76a49e34bd59.jpeg" alt="Blaise Pascal" role="button" class="render-image-img contain is-clickable" loading="lazy">
+
+
+    <!---->
+</div>
+</div>
+
+
+<!---->
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>BLAISE PASCAL</strong></p><p>Nació el 19 de junio de <strong>1623 </strong></p><p>Pascal
+ inventó la primera calculadora digital (1642) para ayudar a su padre. 
+El &nbsp;aparato, llamado la Pascalina, parecía una calculadora mecánica
+ de los cuarentas. Esto, casi ciertamente, convierte a Pascal en el 
+segundo inventor de una calculadora mecánica, pues Schickard ya había 
+fabricado una en 1624.</p><p>Pascal ayudo a crear dos grandes áreas de 
+investigación, escribió tratados sobre geometría proyectiva y más tarde 
+cruzó correspondencia con <em><em>Pierre de </em></em>Fermat<em><em> </em></em>sobre teoría de la probabilidad. Siguiendo con el trabajo de Galileo y<em><em> Torricelli</em></em>, en 1646 refutó las teorías aristotélicas que insistían en que la naturaleza aborrece el vacío.</p><p>En
+ 1970, el profesor suizo Niklaus Wirth publicó un lenguaje de 
+programación al que llamó Pascal, en honor a Blaise Pascal. Este 
+lenguaje tiene una serie de características que lo hacen único, por 
+ejemplo, la asignación se realiza mediante el símbolo “:=” en vez de “=”
+ que es más común. Además, los programas constan de 2 partes: 
+declarativa y ejecutiva. Todo lo que se vaya a utilizar en la parte 
+ejecutiva debe encontrarse en la parte declarativa. Otra característica 
+importante de este lenguaje es que no se permite la asignación a 
+variables de valores de tipo incompatible.</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow left">
+  <div class="story-item-arrow-outer" style="border-right-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-right-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper image left is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body image image-is-portrait has-media has-body-text has-image" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-image">
+    <div class="render-image-file-custom render-image-file">
+    <div class="render-image contain">
+    <img src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/0efaef89e48103525d114754f7d5a85f.jpeg" alt="Gottfried Wilhelm Leibniz" role="button" class="render-image-img contain is-clickable" loading="lazy">
+
+
+    <!---->
+</div>
+</div>
+
+
+<!---->
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>GOTTFRIED WILHELM LEIBNIZ</strong></p><p>Nació el 1 de julio de <strong>1646.</strong></p><p>En
+ 1667 emprendió una activa vida política, al servicio del arzobispo de 
+Maguncia, marcada por lo que fue la característica dominante de su 
+pensamiento: un afán por reducirlo todo a unidades consecuentes. Su 
+lógica es uno de los eslabones más importantes en el proceso de 
+mecanización del pensamiento según modelo matemático.</p><p>Demostró las
+ ventajas de utilizar el sistema binario en lugar del decimal en las 
+computadoras mecánicas y construyó una máquina aritmética que realizaba 
+las cuatro operaciones básicas y calculaba raíces cuadradas.<strong><strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </strong></strong></p><ul><li><strong><strong>Sistema binario</strong></strong>:</li><li>El
+ sistema binario, como otros grandes inventos que usamos en la 
+actualidad, no es obra de una sola persona. Podemos decir que el 
+proyecto empezó por el año 1679 cuando Gottfried Wilhelm mostró su 
+“numeración diádica” con la cual todo número tenía la posibilidad de ser
+ expresado mediante una serie formada por ceros y unos. Luego, varios 
+aportes le dieron su aplicación práctica que hoy es imprescindible.</li><li>En
+ el año 1847 el matemático inglés George Boole lo utilizó en ecuaciones 
+algebraicas, estableciendo los fundamentos de lo que sería la lógica de 
+las computadoras.</li><li>En el año 1941 Zuse creó el “el autómata 
+digital de cálculo” Z3. Esta fue la primera computadora del mundo que 
+tenía la capacidad de funcionar de acuerdo a un programa específico, la 
+cual trabajaba en forma óptima.</li></ul>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow right">
+  <div class="story-item-arrow-outer" style="border-left-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-left-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper image right is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body image image-is-portrait has-media has-body-text has-image" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-image">
+    <div class="render-image-file-custom render-image-file">
+    <div class="render-image contain">
+    <img src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/2ffd10286aeeeaf897e934639648b515.jpeg" alt="Charles Babbage" role="button" class="render-image-img contain is-clickable" loading="lazy">
+
+
+    <!---->
+</div>
+</div>
+
+
+<!---->
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>CHARLES BABBAGE</strong></p><p>Nació el 26 de diciembre de<strong> 1791</strong>.</p><p>Especialista
+ en el área de la matemática y la computación, fue conocido por el 
+diseño y creación de la máquina diferencial y el diseño de la máquina 
+analítica para generar programas de computación que representan las 
+bases para la creación de las computadoras. Para muchos Charles Babbage 
+es conocido como el padre de la computación. La máquina analítica se 
+considera como la primera computadora de la historia.</p><p>La máquina 
+analítica, la diseñó entre los años 1833 y 1842. Este artefacto podía 
+podría programar cualquier tipo de cálculos. Su trabajo estuvo inspirado
+ en el telar de Joseph Marie Jacquard, el cual funcionaba con el uso de 
+tarjetas perforadas para elaborar diseños en el tejido. Charles Baggage 
+diseñó la máquina analítica con dispositivos en los cuales entraban tres
+ tipos de tarjetas perforadas, un procesador aritmético para el cálculo 
+numérico, una unidad de control, y una memoria que almacenaba números 
+hasta ser procesados.</p><p><br></p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow left">
+  <div class="story-item-arrow-outer" style="border-right-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-right-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper embed left is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body embed has-media has-body-text has-embed" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-embed">
+  <div class="embed-viewer" data-url="https://www.youtube.com/watch?v=r3rT05_U0h0">
+    <div class="youtube-embed">
+  <iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title="Charles Babbage: El Abuelo de la Informática" width="426" height="225" src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/r3rT05_U0h0.htm" id="widget4"></iframe>
+</div>
+</div>
+
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p>CHARLES BABBAGE</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow right">
+  <div class="story-item-arrow-outer" style="border-left-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-left-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper image left is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body image image-is-portrait has-media has-body-text has-image" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-image">
+    <div class="render-image-file-custom render-image-file">
+    <div class="render-image contain">
+    <img src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/d64589119e7f4c8569ee162accee50df.jpeg" alt="George Boole" role="button" class="render-image-img contain is-clickable" loading="lazy">
+
+
+    <!---->
+</div>
+</div>
+
+
+<!---->
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>GEORGE BOOLE</strong></p><p>Nació el 2 de noviembre de <strong>1815</strong>.</p><p>Se
+ erigió como uno de los matemáticos más influyentes del siglo XIX 
+gracias a la elaboración de un sistema de reglas que traduce 
+pensamientos complejos en ecuaciones simples.</p><p>Su legado fue la 
+lógica de Boole, una teoría de las matemáticas que simplificó los 
+enunciados que tenían por respuesta Sí o No usando la artimética 
+binaria. Gracias a este sistema todas las variables son o "verdadero" o 
+"falso"</p><p>El álgebra de Boole, o álgebra booleana, es una estructura
+ algebraica que esquematiza las operaciones lógicas, y está presente en 
+toda la programática actual: desde el código de las aplicaciones del 
+móvil hasta los videojuegos con los que jugamos. </p><p>Esta teoría ha 
+posibilitado el nacimiento de la revolución digital, después de que el 
+estadounidense Claude Shannon aplicara la lógica de Boole para construir
+ los circuitos eléctricos en 1930 que llevó a la construcción de los 
+ordenadores modernos.</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow right">
+  <div class="story-item-arrow-outer" style="border-left-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-left-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper image right is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body image image-is-portrait has-media has-body-text has-image" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-image">
+    <div class="render-image-file-custom render-image-file">
+    <div class="render-image contain">
+    <img src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/e04c25d6ae6b3a68c39ed93643912a64.jpeg" alt="Ada Byron" role="button" class="render-image-img contain is-clickable" loading="lazy">
+
+
+    <!---->
+</div>
+</div>
+
+
+<!---->
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>ADA BYRON</strong></p><p>Nació un 18 de diciembre de <strong>1815.</strong></p><p>En
+ 1833 fue presentada en sociedad y se produce su primer contacto con las
+ máquinas (con tan solo 17 años de edad) gracias a Charles Babbage, 
+matemático inglés y científico protoinformático al que se le otorga la 
+primera idea de concepción de un ordenador, ya que su Máquina 
+Analíticafunciona con el mismo principio que los ordenadores actuales.</p><p>A
+ Lady Lovelace se le otorga el desarrollo de las primeras instrucciones 
+para hacer cálculos en una versión temprana del ordenador (Máquina 
+Analítica de Babbage). Llegó a escribir para Babbage un programa que 
+permitía calcular los valores de los números de Bernoulli</p><p>A Lady Lovelace se le atribuye la creación del <strong><strong>bucle o subrutina </strong></strong>y el primer lenguaje de programación. Por todo esto se le reconoce como la primera programadora de la historia.</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow left">
+  <div class="story-item-arrow-outer" style="border-right-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-right-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper image right is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body image image-is-portrait has-media has-body-text has-image" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-image">
+    <div class="render-image-file-custom render-image-file">
+    <div class="render-image contain">
+    <img src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/e00a25dcd0fbea10ca161545dd1c967d.jpeg" alt="John von Neumann" role="button" class="render-image-img contain is-clickable" loading="lazy">
+
+
+    <!---->
+</div>
+</div>
+
+
+<!---->
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>JOHN VON NEUMANN</strong></p><p>Nació el 28 de diciembre de <strong>1903</strong></p><p>Su
+ contribución al desarrollo de la matemática cuántica, la teoría del 
+juego, etc., se complementó con sus significativas aportaciones en el 
+desarrollo de la lógica de la computación, ‘logical theory of automata’,
+ directamente relacionada con la teoría matemática de la información, 
+que incluye la necesidad de atomizar los sistemas complejos en unidades 
+de tratamiento y memorias los flujos informativos.</p><p>Participó 
+también en la construcción de las primeras computadoras de acuerdo con 
+la que se conoció como la 'arquitectura von Neumann', que distingue, por
+ ejemplo, las unidades de tratamiento de información con las de memoria.
+ Neumann participço activamente en el desarrollo de los proyectos ENIAC y
+ EDVAC, base de las modernas computadoras.</p><p><br></p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow left">
+  <div class="story-item-arrow-outer" style="border-right-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-right-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper embed left is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body embed has-media has-body-text has-embed" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-embed">
+  <div class="embed-viewer" data-url="https://www.youtube.com/watch?v=mZJOnn9weCA">
+    <div class="youtube-embed">
+  <iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title="Quien es John Von Neumann?" width="426" height="225" src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/mZJOnn9weCA.htm" id="widget6"></iframe>
+</div>
+</div>
+
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p>JOHN VON NEUMANN</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow right">
+  <div class="story-item-arrow-outer" style="border-left-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-left-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper image left is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body image image-is-portrait has-media has-body-text has-image" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-image">
+    <div class="render-image-file-custom render-image-file">
+    <div class="render-image contain">
+    <img src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/858e6d3b70be582156da33e08f2bd2f7.jpeg" alt="John W. Mauchly" role="button" class="render-image-img contain is-clickable" loading="lazy">
+
+
+    <!---->
+</div>
+</div>
+
+
+<!---->
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>JOHN W. MAUCHL</strong></p><p>Nació el 30 de agosto de <strong>1907</strong></p><p>La
+ investigación de Mauchly se centró en la meteorología, que le había 
+requerido cálculos muy complejos en los últimos años y quería encontrar 
+maneras más rápidas de realizarlos. Mauchly decidió crear un aparato 
+electrónico para lograr este objetivo, y pensó que podría hacerlo tal 
+vez con los tubos de vacío. Como no sabía mucho sobre el tema, Mauchly 
+decidió aprender tanto como fuera posible.</p><p>En 1940, Mauchly 
+construyó una pequeña máquina analógica, una especie de ordenador para 
+hacer análisis de los datos meteorológicos. Pero Mauchly quería crear un
+ dispositivo computacional mejor.</p><p>Mauchly y Eckert completan en 
+1946, el equipo al que llamaron ENIAC (Electrical Integrador Numérico y 
+Computación), la primera computadora de propósito general y la primera 
+con la capacidad de modificar un programa almacenado. El ENIAC fue un 
+ordenador electrónico digital con fines generales a gran escala. Fue en 
+su época la máquina más grande del mundo, compuesto de unas 17468 tubos 
+de vacío, esto producía un problema ya que la vida media de un tubo era 
+de unas 3000 horas por lo que aproximadamente cada 10 minutos se 
+estropeaba un tubo y no era nada sencillo buscar un tubo entre 18000, 
+consumiéndose gran cantidad de tiempo en ello. Tenía dos innovaciones 
+técnicas, la primera es que combina diversos componentes técnicos e 
+ideas de diseño en un único sistema que era capaz de realizar 5000 sumas
+ y 300 multiplicaciones por segundo. La segunda era la fiabilidad de la 
+máquina, para resolver el problema de los tubos de vacío se aplicaron 
+unos estrictos controles de calidad de los componentes utilizados. </p><p>La
+ ENIAC tenía muchos inconvenientes, además de su tamaño. Fue costoso, 
+debido en parte a sus necesidades de energía enorme. No había memoria y 
+las tarjetas perforadas fueron el medio de entrada y salida. La ENIAC 
+sólo podía almacenar 20 números de diez dígitos.</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow right">
+  <div class="story-item-arrow-outer" style="border-left-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-left-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper image right is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body image image-is-portrait has-media has-body-text has-image" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-image">
+    <div class="render-image-file-custom render-image-file">
+    <div class="render-image contain">
+    <img src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/0698e729ccc02eb143138008d5b62d2e.jpeg" alt="Konrad Zuse" role="button" class="render-image-img contain is-clickable" loading="lazy">
+
+
+    <!---->
+</div>
+</div>
+
+
+<!---->
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong> KONRAD ZUSE</strong></p><p>Nació el 22 de Junio de <strong>1910</strong></p><p>En
+ 1935 empezó trabajar para la fábrica de aviones de Henschel en 
+Berlin-Schönefeld como estático. Porque – según él mismo – él estaba 
+“demasiado perezoso para hacer computaciones”, a él le surgió la idea de
+ construir una maquina capaz de encargarse de este trabajo. Renunció a 
+su trabajo y empezó a construir una máquina programable – la Z1 – en el 
+departamento de sus padres.</p><p>Del principio, a Konrad Zuse el 
+sistema binario y el Álgebra de Boole le parecía mas útil que el sistema
+ decimal para una computadora. Basado en el sistema binario, en 1938 
+construyó la Z1, una máquina mecánica operando con electricidad y con la
+ posibilidad de poder programarla, aunque de forma limitada. Debido a la
+ falta de perfeccionamiento en sus elementos mecánicos, la Z1 nunca 
+llegó a funcionar de forma correcta.</p><p>El próximo modelo – la Z2 
+(1940) – también tenía una memoria mecánica, pero la unidad aritmética 
+funcionaba con electricidad, y estaba formado por 800 relés. Después de 
+asegurarse de que la Z2 funcionaba correctamente, fundó la primera 
+empresa especializado en construir ordenadores del mundo: La empresa 
+“Zuse Apparatebau”. De nuevo en el apartamento de sus padres, construyó 
+con la ayuda de sus amigos la Z3 – una maquina pesando 1 tonelada 
+construido de 2000 relés. La Z3 fue incapaz de ejecutar saltas 
+condicionadas, ramificaciones o ciclos, pero era la primera máquina 
+programable del mundo, y para el trabajo de los ingenieros de este 
+tiempo bastante útil.</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow left">
+  <div class="story-item-arrow-outer" style="border-right-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-right-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper embed left is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body embed has-media has-body-text has-embed" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-embed">
+  <div class="embed-viewer" data-url="https://www.youtube.com/watch?v=eWmwaPQRAOU">
+    <div class="youtube-embed">
+  <iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title="YouTube video player" width="426" height="225" src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/eWmwaPQRAOU.htm" id="widget8"></iframe>
+</div>
+</div>
+
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p>ALAN TURING</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow right">
+  <div class="story-item-arrow-outer" style="border-left-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-left-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper image right is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body image has-media has-body-text has-image" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-image">
+    <div class="render-image-file-custom render-image-file">
+    <div class="render-image contain">
+    <img src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/dfa88902e6558d528b80c490241e09e4.jpeg" alt="Alan Turing" role="button" class="render-image-img contain is-clickable" loading="lazy">
+
+
+    <!---->
+</div>
+</div>
+
+
+<!---->
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>ALAN TURING</strong></p><p>Nació el 23 de junio de <strong>1912.</strong></p><p>Turing es mundialmente conocido por cuatro hechos:</p><ul><li>Formalizó los conceptos de algoritmo y computación con su máquina de Turing</li><li>Es considerado el padre de la inteligencia artificial</li><li>Su participación en el equipo de criptoanálisis de la máquina de criptografía alemana Enigma fue clave</li><li>Fue una víctima más de la mentalidad reaccionaria puritana del mundo anglosajon</li></ul><p>Una
+ máquina de Turing (descrita en 1936), es un dispositivo teórico que 
+manipula símbolos sobre una cinta de acuerdo con una tabla de reglas 
+definida. Este modelo computacional puede ser adaptado para simular la 
+lógica de cualquier algoritmo y es particularmente útil en la labor de 
+explicar el funcionamiento de una CPU.</p><p>La Enigma fue una máquina 
+electro mecánica con rotor usada para enviar mensajes cifrados por la 
+Alemania nazi durante la Segunda Guerra Mundial. Alan Turing participó 
+activamente en el desarrollo de dispositivos de análisis criptográfico 
+así como aportando muchas de las ideas que llevaron al posterior éxito 
+en la ruptura del algoritmo de cifrado que utilizaba la máquina y que 
+supuso un gran avance en la victoria de los aliados en la contienda.</p><p>En
+ 1950, Turing abordó el problema de la inteligencia artificial y propuso
+ el experimento que hoy se conoce como el test de Turing cuya intención 
+era intentar definir un estándar por el cual se pudiera conocer si una 
+máquina podía ser llamada “<em><em>inteligente</em></em>“.</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow left">
+  <div class="story-item-arrow-outer" style="border-right-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-right-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper image left is-last-item-in-block is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body image image-is-portrait has-media has-body-text has-image" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-image">
+    <div class="render-image-file-custom render-image-file">
+    <div class="render-image contain">
+    <img src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/804fcc7614bae5629da56c2651c27fc8.jpeg" alt="J. Presper Eckert" role="button" class="render-image-img contain is-clickable" loading="lazy">
+
+
+    <!---->
+</div>
+</div>
+
+
+<!---->
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>J. PRESPER ECKERT</strong></p><p>Nació el 9 de abril de <strong>1919</strong></p><p>En
+ 1948 se firmó un contrato por el cual la compañía de Mauchly y Eckert 
+construiría un computador para la Northrop Aircraft Company, que estaba 
+desarrollando un misil secreto de largo alcance llamado Snark. La 
+máquina en cuestión se entregó en 1949 bajo el nombre de BINAC (Binary 
+Automatic Computer). Una de las características de la BINAC era que 
+estaba formada por dos procesadores y podía realizar 3.500 sumas o 
+restas por segundo, y 1.000 multiplicaciones o divisiones por segundo. 
+Otro detalle importante es que fue la primera computadora en utilizar 
+cintas magnéticas como memoria secundaria.</p><p>En 1946, en la 
+Universidad de Pennsylvania, se dio por concluido el proyecto, 
+resultando así &nbsp;el computador electrónico de propósito general, 
+ENIAC. ENIAC fue el primero de los computadores que crearon Eckert y 
+Mauchly. Estaba formado por más de 10.000 condensadores, 70.000 
+resistencias y 500.000 conexiones soldadas. Con 24 metros de largo, 2,4 
+metros de alto y un metro de profundidad, la ENIAC ocupaba un total de 
+167 metros cuadrados y pesaba 30 toneladas. A pesar de ser enorme, 
+devorar energía, y ser lenta en comparación con un equipo actual, su 
+velocidad se estimaba en 1.000 veces mayor de lo que se había construido
+ nunca.La UNIVAC I fue la primera computadora comercial fabricada en los
+ EEUU. Diseñada por Eckert y Mauchly, comenzó siendo construida por la 
+Eckert &amp; Mauchly Computer Corp. pero se completó una vez que la 
+empresa había sido adquirida por Remington Rand. &nbsp;La primera UNIVAC
+ fue entregada a la United States Census Bureau en marzo de 1951</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow right">
+  <div class="story-item-arrow-outer" style="border-left-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-left-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper quote  is-last-item-in-block is-ready-to-be-shown is-full-width">
+<!---->
+  <div class="story-item-body quote has-body-text" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+  <!---->
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>	 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+GENERACIONES EN LAS COMPUTADORAS</strong></p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+<!----></div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper embed  is-ready-to-be-shown is-full-width">
+<!---->
+  <div class="story-item-body embed has-media has-body-text has-embed" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+      <div class="editable-embed">
+  <div class="embed-viewer" data-url="https://www.youtube.com/watch?v=a8Q2xpI7hbs">
+    <div class="youtube-embed">
+  <iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title="Historia de la computadora (generaciones)" width="894" height="670.5" src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/a8Q2xpI7hbs.htm" id="widget10"></iframe>
+</div>
+</div>
+
+<!----></div>
+
+
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p>HISTORIA DE LA COMPUTADORA</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+<!----></div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper quote left is-first-item-in-block is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body quote has-body-text" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+  <!---->
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>PRIMERA GENERACIÓN (1951-1958)</strong></p><p>En esta 
+generación había una gran desconocimiento de las capacidades de las 
+computadoras, puesto que se realizó un estudio en esta época que 
+determinó que con veinte computadoras se saturaría el mercado de los 
+Estados Unidos en el campo de procesamiento de datos. Esta generación 
+abarco la década de los cincuenta. Y se conoce como la primera 
+generación. Estas máquinas tenían las siguientes características:</p><p><br></p><p>Usaban tubos al vacío para procesar información.</p><p>Usaban tarjetas perforadas para entrar los datos y los programas.</p><p>Usaban cilindros magnéticos para almacenar información e instrucciones internas.</p><p>Eran sumamente grandes, utilizaban gran cantidad de electricidad, generaban gran cantidad de calor y eran sumamente lentas.</p><p>Se comenzó a utilizar el sistema binario para representar los datos.</p><p>En esta generación las máquinas son grandes y costosas (de un costo aproximado de 10,000 dólares).</p><p><br></p><p>La
+ computadora más exitosa de la primera generación fue la IBM 650, de la 
+cual se produjeron varios cientos. Esta computadora que usaba un esquema
+ de memoria secundaria llamado tambor magnético, que es el antecesor de 
+los discos actuales. </p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow right">
+  <div class="story-item-arrow-outer" style="border-left-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-left-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper quote right is-second-item-in-block is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body quote has-body-text" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+  <!---->
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>SEGUNDA GENERACIÓN (1958-1964)</strong></p><p>En esta 
+generación las computadoras se reducen de tamaño y son de menor costo. 
+Aparecen muchas compañías y las computadoras eran bastante avanzadas 
+para su época como la serie 5000 de Burroughs y la ATLAS de la 
+Universidad de Manchester. Algunas computadoras se programaban con cinta
+ perforadas y otras por medio de cableado en un tablero.</p><p><br></p><p>Características de está generación:</p><p>Usaban transistores para procesar información.</p><p>Los transistores eran más rápidos, pequeños y más confiables que los tubos al vacío.</p><p>200 transistores podían acomodarse en la misma cantidad de espacio que un tubo al vacío.</p><p>Usaban pequeños anillos magnéticos para almacenar información e instrucciones. cantidad de calor y eran sumamente lentas.</p><p>Se mejoraron los programas de computadoras que fueron desarrollados durante la primera generación.</p><p>Se desarrollaron nuevos lenguajes de programación como COBOL y FORTRAN, los cuales eran comercialmente accsesibles.</p><p>Se
+ usaban en aplicaciones de sistemas de reservaciones de líneas aéreas, 
+control del tráfico aéreo y simulaciones de propósito general.</p><p>La marina de los Estados Unidos desarrolla el primer simulador de vuelo, "Whirlwind I".</p><p>Surgieron las minicomputadoras y los terminales a distancia.</p><p>Se comenzó a disminuir el tamaño de las computadoras.</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow left">
+  <div class="story-item-arrow-outer" style="border-right-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-right-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper quote left is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body quote has-body-text" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+  <!---->
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>TERCERA GENERACIÓN (1964-1971)</strong></p><p>La tercera 
+generación de computadoras emergió con el desarrollo de circuitos 
+integrados (pastillas de silicio) en las que se colocan miles de 
+componentes electrónicos en una integración en miniatura. Las 
+computadoras nuevamente se hicieron más pequeñas, más rápidas, 
+desprendían menos calor y eran energéticamente más eficientes. El 
+ordenador IBM-360 dominó las ventas de la tercera generación de 
+ordenadores desde su presentación en 1965. El PDP-8 de la Digital 
+Equipment Corporation fue el primer miniordenador.</p><p><br></p><p>Características de está generación:</p><p>Se desarrollaron circuitos integrados para procesar información.</p><p>Se
+ desarrollaron los "chips" para almacenar y procesar la información. Un 
+"chip" es una pieza de silicio que contiene los componentes electrónicos
+ en miniatura llamados semiconductores.</p><p>Los circuitos integrados recuerdan los datos, ya que almacenan la información como cargas eléctricas.</p><p>Surge la multiprogramación.</p><p>Las computadoras pueden llevar a cabo ambas tareas de procesamiento o análisis matemáticos.</p><p>Emerge la industria del "software".</p><p>Se desarrollan las minicomputadoras IBM 360 y DEC PDP-1.</p><p>Otra vez las computadoras se tornan más pequeñas, más ligeras y más eficientes.</p><p>Consumían menos electricidad, por lo tanto, generaban menos calor.</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow right">
+  <div class="story-item-arrow-outer" style="border-left-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-left-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper quote right is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body quote has-body-text" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+  <!---->
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>CUARTA GENERACIÓN (1971-1988)</strong></p><p>Aparecen los 
+microprocesadores que es un gran adelanto de la microelectrónica, son 
+circuitos integrados de alta densidad y con una velocidad impresionante.
+ Las microcomputadoras con base en estos circuitos son extremadamente 
+pequeñas y baratas, por lo que su uso se extiende al mercado industrial.
+ Aquí nacen las computadoras personales que han adquirido proporciones 
+enormes y que han influido en la sociedad en general sobre la llamada 
+"revolución informática".</p><p><br></p><p>Características de está generación:</p><p>Se desarrolló el microprocesador.</p><p>Se colocan más circuitos dentro de un "chip".</p><p>"LSI - Large Scale Integration circuit".</p><p>"VLSI - Very Large Scale Integration circuit".</p><p>Cada "chip" puede hacer diferentes tareas.</p><p>Un
+ "chip" sencillo actualmente contiene la unidad de control y la unidad 
+de aritmética/lógica. El tercer componente, la memoria primaria, es 
+operado por otros "chips".</p><p>Se reemplaza la memoria de anillos magnéticos por la memoria de "chips" de silicio.</p><p>Se desarrollan las microcomputadoras, o sea, computadoras personales o PC.</p><p>Se desarrollan las supercomputadoras.</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow left">
+  <div class="story-item-arrow-outer" style="border-right-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-right-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+<!---->
+  <article class="item-wrapper quote left is-last-item-in-block is-ready-to-be-shown">
+    <div class="story-item-bullet">
+  <div class="story-item-bullet-inner" style="background-color: #6C6C6C;"></div>
+</div>
+
+  <div class="story-item-body quote has-body-text" style="background-color: #FFFFFF; color: #6C6C6C; border-color: #D7DADC;">
+      <!---->
+  <div class="story-item-content">
+  
+  <!---->
+
+
+    <div class="editable-text story-item-augmented-text story-item-body-text">
+          <div class="render-mobiledoc">
+  <p><strong>QUINTA GENERACIÓN (1988-ACTUALIDAD)</strong></p><p>En vista
+ de la acelerada marcha de la microelectrónica, la sociedad industrial 
+se ha dado a la tarea de poner también a esa altura el desarrollo del 
+software y los sistemas con que se manejan las computadoras. Surge la 
+competencia internacional por el dominio del mercado de la computación, 
+en la que se perfilan dos líderes que, sin embargo, no han podido 
+alcanzar el nivel que se desea: la capacidad de comunicarse con la 
+computadora en un lenguaje más cotidiano y no a través de códigos o 
+lenguajes de control especializados.</p><p><br></p><p>Japón lanzó en 
+1983 el llamado "programa de la quinta generación de computadoras", con 
+los objetivos explícitos de producir máquinas con innovaciones reales en
+ los criterios mencionados. Y en los Estados Unidos ya está en actividad
+ un programa en desarrollo que persigue objetivos semejantes, que pueden
+ resumirse de la siguiente manera:</p><p><br></p><p>Se desarrollan las microcomputadoras, o sea, computadoras personales o PC.</p><p>Se desarrollan las supercomputadoras.</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+  <footer class="story-item-footer" dir="ltr">
+    
+  <button class="sutori-popover-trigger button-share-on-social-media" type="button">
+  
+    Compartir
+  
+</button>
+
+
+  <!---->
+
+
+<!---->
+
+<!----></footer>
+
+<!---->
+
+    <div class="story-item-arrow right">
+  <div class="story-item-arrow-outer" style="border-left-color: #D7DADC; top: 27.292893218813454px; border-width: 11px; margin-top: -11px;"></div>
+  <div class="story-item-arrow-inner" style="border-left-color: #FFFFFF; top: 27.292893218813454px; border-width: 10px; margin-top: -10px;"></div>
+</div>
+</div>
+
+<!----></article>
+
+<!---->
+<!----></div>
+    
+
+
+  </section>
+
+      <!-- <aside class="footing-display story-display-footer-cta">
+  <div class="footing-display-container">
+    <p class="footing-display__title">
+      
+    Cree su propia presentación con Sutori
+  
+    </p>
+
+    <div class="call-to-action-sign-up">
+    <a href="https://www.sutori.com/es/inscribirse" id="ember146" class="ember-view">
+      
+      Apúntate, es gratis
+    
+    </a>
+</div>
+  </div>
+</aside> -->
+
+
+
+<!----></article>
+
+<!---->
+
+  </main>
+
+<footer class="application-footer">
+
+</footer>
+
+</div>
+
+<div id="ember32" class="ember-view"><!----></div>
+<iframe name="__privateStripeMetricsController9940" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/m-outer-27c67c0d52761104439bb051c7856ab1.htm" aria-hidden="true" tabindex="-1" style="border: medium !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe><script type="text/javascript" src="PRECURSORES%20DE%20INFORM%C3%81TICA%20Y%20GENERACIONES%20DE...%20Sutori_files/iframe_api" async=""></script></body></html>

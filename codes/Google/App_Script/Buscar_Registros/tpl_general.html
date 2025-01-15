@@ -1,0 +1,36 @@
+<!-- ================= -->
+<!-- Templates -->
+<!-- ================= -->
+<template id="loadingTemplate">
+  <div class="card-body">
+    <h5 class="card-title placeholder-glow">
+      <span class="placeholder col-6"></span>
+    </h5>
+    <p class="card-text placeholder-glow">
+      <span class="placeholder col-7"></span>
+      <span class="placeholder col-4"></span>
+      <span class="placeholder col-4"></span>
+      <span class="placeholder col-6"></span>
+      <span class="placeholder col-8"></span>
+    </p>
+    <a class="btn btn-primary disabled placeholder col-2" aria-disabled="true"></a>
+  </div>
+</template>
+
+<template id="loadingTemplateData">
+  <tr>
+    <td colspan="100%" class="text-center">Cargando resultados, por favor espere...</td>
+  </tr>
+</template>
+
+<template id="noDataTemplate">
+  <tr>
+    <td colspan="100%" class="text-center">No se encontraron registros para el número de cuenta ingresado.</td>
+  </tr>
+</template>
+
+<template id="errorTemplate">
+  <tr>
+    <td colspan="100%" class="text-center text-danger">Ocurrió un error al buscar los registros. Inténtelo nuevamente.</td>
+  </tr>
+</template>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <base target="_top">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?!= include('CSS'); ?>
+  </head>
+  <body>
+    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white"> <h2>ADMINISTRADOR</h2> </a>
+       <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="">
+        <button class="btn btn-info" type="submit" >Ingresar</button>
+      </form>
+    </header>
+    
+     <div class="container mt-2">
+      <div class="row">
+          <!-- Comienza tabla -->
+          <div class="col-8">
+
+            <div class="card my-3">
+              <div class="card-body">
+                 <div class="row">
+                  <div class="col">
+                     <div class="mb-3">
+                      <label for="horario_clase" class="form-label">Horario</label>
+                      <input type="time" class="form-control border border-dark" id="horario_clase" value="09:00"  min="09:00" max="14:00" required>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="codigo_clase" class="form-label">Código</label>
+                      <input type="text" class="form-control border border-dark" id="codigo_clase" placeholder="" maxlength="5" required>
+                    </div>
+                  </div>
+                </div><!-- row -->
+              </div><!-- end card -->
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-dark table-hover" id="tbl_datos" style="table-layout: auto;">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cuenta</th>
+                    <th scope="col">Opciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <? data.forEach( row => {  ?>
+                      <tr>
+                        <th scope="row"><?!= row[0] ?></th>
+                        <td><?!= row[1] ?></td>
+                        <td><?!= row[2] ?></td>
+                        <td>
+                            <button class="btn btn-success" onclick="obtenerDatos(event)" data-cuenta="<?!= row[2] ?>" data-tipoasistencia='Entrada'>
+                              Registro [E]
+                            </button>
+                        </td>
+                      </tr>
+                  <? }); ?>
+                </tbody>
+              </table>
+            </div><!-- .table-responsive -->
+          </div><!-- .col-8 -->
+      </div><!-- .row -->
+    </div><!-- .container -->
+
+    <?!= include('JS'); ?>
+  </body>
+</html>

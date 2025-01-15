@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html class="" lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>? Aprende a configurar tus VirtualHosts (en 2 pasos)</title>
+    <meta name="description" content="Configura fácilmente tus VirtualHosts en Windows (válido para Xampp y WampServer).">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta name="csrf-token" content="SHrABEOONQ9ZiGdKQndniwbPyDvxUzfsmfpRe7um">
+
+    <meta property="og:url" content="https://programacionymas.com/blog/archivo-hosts-y-virtual-hosts-apache-windows">
+    <meta property="og:type" content="article">
+    <meta property="article:publisher" content="https://www.facebook.com/programacionymas">
+    <meta property="og:title" content="? Aprende a configurar tus VirtualHosts (en 2 pasos)">
+    <meta property="og:description" content="Configura fácilmente tus VirtualHosts en Windows (válido para Xampp y WampServer).">
+    <meta property="og:image" content="/images/posts/2017/laravel/virtual-hosts.png">
+
+    <meta name="author" content="Juan Ramos">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="twitter:site" content="@programacionym">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="? Aprende a configurar tus VirtualHosts (en 2 pasos)">
+    <meta name="twitter:description" content="Configura fácilmente tus VirtualHosts en Windows (válido para Xampp y WampServer).">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://programacionymas.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://programacionymas.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://programacionymas.com/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://programacionymas.com/favicon-16x16.png">
+    <link rel="manifest" href="https://programacionymas.com/site.webmanifest">
+    <link rel="mask-icon" href="https://programacionymas.com/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#5c5b60">
+
+    <link rel="stylesheet" href="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"></noscript>
+    <link href="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/app.css" rel="stylesheet">
+
+            <link rel="stylesheet" href="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/modal-exit.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://programacionymas.com/src/css/layout/modal-exit.css"></noscript>    
+    <script>
+    !function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+        <link rel="stylesheet" href="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/show.css">
+            <link rel="stylesheet" href="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/prism.min.css">
+    
+    <script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "Organization",
+    "name" : "Programación y más",
+    "url" : "https://programacionymas.com",
+    "sameAs" : [
+        "https://facebook.com/programacionymas",
+        "https://twitter.com/programacionym"
+    ]
+}
+</script><style type="text/css">#bio_ep_bg {display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.3; z-index: 10001;}#bio_ep {display: none; position: fixed; font-family: 'Titillium Web', sans-serif; font-size: 16px; left: 50%; top: 50%; transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); background-color: #fff; box-shadow: 0px 1px 4px 0 rgba(0,0,0,0.5); z-index: 10002;}#bio_ep_close {position: absolute; left: 100%; margin: -8px 0 0 -12px; width: 20px; height: 20px; color: #fff; font-size: 12px; font-weight: bold; text-align: center; border-radius: 50%; background-color: #5c5c5c; cursor: pointer;}</style><link id="googleidentityservice" type="text/css" media="all" rel="stylesheet" href="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/style.css"><style id="googleidentityservice_button_styles">.qJTHM{-moz-user-select:none;color:#202124;direction:ltr;font-family:"Roboto-Regular",arial,sans-serif;font-weight:400;margin:0;overflow:hidden}.ynRLnc{left:-9999px;position:absolute;top:-9999px}.L6cTce{display:none}.bltWBb{word-break:break-all}.hSRGPd{color:#1a73e8;cursor:pointer;font-weight:500;text-decoration:none}.Bz112c-W3lGp{height:16px;width:16px}.Bz112c-E3DyYd{height:20px;width:20px}.Bz112c-r9oPif{height:24px;width:24px}.Bz112c-uaxL4e{-moz-border-radius:10px;border-radius:10px}.LgbsSe-Bz112c{display:block}.S9gUrf-YoZ4jf,.S9gUrf-YoZ4jf *{border:none;margin:0;padding:0}.fFW7wc-ibnC6b>.aZ2wEe>div{border-color:#4285f4}.P1ekSe-ZMv3u>div:nth-child(1){background-color:#1a73e8!important}.P1ekSe-ZMv3u>div:nth-child(2),.P1ekSe-ZMv3u>div:nth-child(3){background-image:linear-gradient(to right,rgba(255,255,255,.7),rgba(255,255,255,.7)),linear-gradient(to right,#1a73e8,#1a73e8)!important}.haAclf{display:inline-block}.nsm7Bb-HzV7m-LgbsSe{border-radius:4px;box-sizing:border-box;transition:background-color .218s,border-color .218s;-moz-user-select:none;background-color:#fff;background-image:none;border:1px solid #dadce0;color:#3c4043;cursor:pointer;font-family:"Google Sans",arial,sans-serif;font-size:14px;height:40px;letter-spacing:0.25px;outline:none;overflow:hidden;padding:0 12px;position:relative;text-align:center;vertical-align:middle;white-space:nowrap;width:auto}@media screen and (-ms-high-contrast:active){.nsm7Bb-HzV7m-LgbsSe{border:2px solid windowText;color:windowText}}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe{font-size:14px;height:32px;letter-spacing:0.25px;padding:0 10px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe{font-size:11px;height:20px;letter-spacing:0.3px;padding:0 8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe{padding:0;width:40px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe{width:32px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe{width:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK{border-radius:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.pSzOP-SxQuSe{border-radius:16px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.purZT-SxQuSe{border-radius:10px}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc{border:none;color:#fff}.nsm7Bb-HzV7m-LgbsSe.MFS4be-v3pZbf-Ia7Qfc{background-color:#1a73e8}.nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc{background-color:#202124;color:#e8eaed}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:18px;margin-right:8px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:14px;min-width:14px;width:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:10px;min-width:10px;width:10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin-left:8px;margin-right:-4px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:10px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:4px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-left-radius:3px;border-bottom-left-radius:3px;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;justify-content:center;align-items:center;background-color:#fff;height:36px;margin-left:-10px;margin-right:12px;min-width:36px;width:36px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c,.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:28px;margin-left:-8px;margin-right:10px;min-width:28px;width:28px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:16px;margin-left:-6px;margin-right:8px;min-width:16px;width:16px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:3px;margin-left:2px;margin-right:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:8px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;align-items:center;flex-direction:row;justify-content:space-between;flex-wrap:nowrap;height:100%;position:relative;width:100%}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX{justify-content:center}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{flex-grow:1;font-family:"Google Sans",arial,sans-serif;font-weight:500;overflow:hidden;text-overflow:ellipsis;vertical-align:top}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-weight:300}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX .nsm7Bb-HzV7m-LgbsSe-BPrWId{flex-grow:0}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe{transition:background-color .218s;bottom:0;left:0;position:absolute;right:0;top:0}.nsm7Bb-HzV7m-LgbsSe:hover,.nsm7Bb-HzV7m-LgbsSe:focus{box-shadow:none;border-color:#d2e3fc;outline:none}.nsm7Bb-HzV7m-LgbsSe:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.04)}.nsm7Bb-HzV7m-LgbsSe:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.1)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.24)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.32)}.nsm7Bb-HzV7m-LgbsSe .n1UuX-DkfjY{border-radius:50%;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;height:20px;margin-left:-4px;margin-right:8px;min-width:20px;width:20px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-family:"Roboto";font-size:12px;text-align:left}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .ssJRIf,.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .fmcmS{overflow:hidden;text-overflow:ellipsis}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;align-items:center;color:#5f6368;fill:#5f6368;font-size:11px;font-weight:400}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{color:#e8eaed;fill:#e8eaed}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .Bz112c{height:18px;margin:-3px -3px -3px 2px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:3px;border-bottom-right-radius:3px;margin-left:12px;margin-right:-10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.L5Fo6c-sM5MNb{border:0;display:block;left:0;position:relative;top:0}.L5Fo6c-bF1uUb{-moz-border-radius:4px;border-radius:4px;bottom:0;cursor:pointer;left:0;position:absolute;right:0;top:0}.L5Fo6c-bF1uUb:focus{border:none;outline:none}sentinel{}</style><script src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/sharethis.js" async=""></script></head>
+
+<body class="">
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark elegant-color">
+    <a class="p-0 mr-3" href="https://programacionymas.com/">
+        <img src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/pym_white_svg.webp" title="Programación y más" alt="Logo de Programación y más" height="24">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="fas fa-bars"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+       <ul class="navbar-nav mr-auto">
+           <li class="nav-item mr-0 mr-sm-1">
+               <a class="nav-link waves-effect waves-light" href="https://programacionymas.com/series">
+                   <i class="fas fa-play-circle mr-1"></i>
+                   Cursos
+               </a>
+           </li>
+           <li class="nav-item mr-0 mr-sm-1">
+               <a class="nav-link waves-effect waves-light" href="https://programacionymas.com/blog">
+                   <i class="fas fa-book mr-1"></i>
+                   Blog
+               </a>
+           </li>
+           <li class="nav-item mr-0 mr-sm-1">
+               <a class="nav-link waves-effect waves-light" href="https://programacionymas.com/planes">
+                   <i class="fas fa-rocket mr-1"></i>
+                   Planes
+               </a>
+           </li>
+           <li class="nav-item mr-0 mr-sm-1">
+               <a class="nav-link waves-effect waves-light" href="https://programacionymas.com/portafolio">
+                   <i class="fas fa-shopping-cart mr-1"></i>
+                   Tienda
+               </a>
+           </li>
+           
+       </ul>
+       <ul class="navbar-nav ml-auto">
+                          <li class="nav-item">
+                   <a class="nav-link waves-effect waves-light" data-toggle="modal" data-target="#modalLRForm">
+                       <i class="fas fa-sign-in-alt"></i>
+                       Ingresar
+                   </a>
+               </li>
+                       </ul>
+        </div>
+</nav>
+        
+    </header>
+
+<main>
+        <ol class="breadcrumb elegant-color-dark mb-0 mb-sm-3 mb-md-4">
+        <li class="breadcrumb-item"><a href="https://programacionymas.com/">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="https://programacionymas.com/blog">Blog</a></li>
+        <li class="breadcrumb-item active"><a href="https://programacionymas.com/categorias/desarrollo-web">Desarrollo web</a></li>
+    </ol>
+
+    <div class="container-fluid">
+            <div class="row">
+        <div class="col-md-9 section-blog-fw">
+            <div class="excerpt pt-3 pb-3">
+                <h1 class="h1-responsive mb-2">Cómo configurar VirtualHosts con Apache en Windows (en 2 pasos)</h1>
+                <h2>Introducción</h2>
+<p>Cuando trabajamos con Apache en Windows, lo más usual es usar WampServer o Xampp.</p>
+<p>Éstos "paquetes" nos permiten instalar de una sola pasada Apache, MySQL y PHP.</p>
+<p>Y el resultado es el siguiente:</p>
+<ul>
+<li>Nuestros proyecto se van a guardar en una carpeta determinada (generalmente <code>C:\wamp\www</code> en Wamp y <code>C:\xampp\htdocs</code> en el caso de Xamp)</li>
+<li>Podemos acceder a nuestros proyectos visitando <code>http://localhost/nombre-del-proyecto</code></li>
+</ul>
+<p>Lo que vamos a configurar ahora nos permitirá acceder a nuestros proyectos desde distintas direcciones.</p>
+<p>Esto es muy útil para proyectos Laravel, porque nos permite acceder a nuestros proyectos usando <code>mi-proyecto.localhost</code> en vez de <code>localhost/mi-proyecto/public</code> (de esta forma podemos evitar el uso de <code>php artisan serv</code> y usar Apache como servidor).</p>
+<h2>Configuración en 2 pasos</h2>
+<p>La configuración que vamos a realizar consta de 2 pasos.</p>
+<ol>
+<li>
+<p>Primero le vamos a decir a nuestro sistema operativo que cuando se busque la dirección <code>mi-proyecto.localhost</code>,
+ resuelva esta petición a través de nuestro servidor local (y no busque 
+esta página públicamente en Internet, como normalmente ocurre).</p>
+</li>
+<li>Luego le diremos a Apache cómo resolver una petición entrante para <code>mi-proyecto.localhost</code> (ya que normalmente Apache no sabe cómo reaccionar ante ello).</li>
+</ol>
+<h2>Archivo hosts y Virtual hosts</h2>
+<p>Sé que estás impaciente por hacer la configuración ahora.</p>
+<p>Como dice el título del artículo, son simplemente 2 pasos.</p>
+<p>Si estás apurado, puedes saltarte esta sección. Sin embargo, te recomiendo continuar la lectura.</p>
+<p><strong>Archivo hosts</strong></p>
+<ul>
+<li>Todo sistema operativo presenta un <strong>archivo hosts</strong>, para guardar la correspondencia entre dominios de Internet y direcciones IP.</li>
+<li>La <a href="https://es.wikipedia.org/wiki/Archivo_hosts#Ubicaci%C3%B3n_del_fichero_hosts" target="_blank">ubicación de este archivo</a> depende del sistema operativo.</li>
+<li>Nosotros vamos a modificar este archivo en el paso 1.</li>
+</ul>
+<p><strong>Virtual hosts</strong></p>
+<ul>
+<li>La creación de hosts virtuales (o VirtualHosts) permite a un mismo ordenador resolver múltiples nombres de dominio.</li>
+<li>En nuestro caso vamos a decirle a Apache que resuelva ciertas direcciones a través de nuestra IP local.</li>
+<li>Esto lo haremos en el paso 2.</li>
+</ul>
+<p>Los VirtualHosts son útiles en distintos escenarios.</p>
+<p>En este caso, los usaremos para configurar nuestro entorno de desarrollo local.</p>
+<p>Bueno, empecemos.</p>
+<h2>Paso 1</h2>
+<p>En Windows, el archivo hosts se ubica en <code>C:\Windows\System32\drivers\etc\hosts</code>.</p>
+<p>Este archivo nos permite mapear <code>host names</code> con direcciones IP.</p>
+<p>Un archivo hosts por defecto suele incluir solo la siguiente definición:</p>
+<pre class=" language-bash"><code class=" language-bash">127.0.0.1           localhost</code></pre>
+<p>Aquí puedes añadir tantas direcciones como necesites. Por ahora te daré un ejemplo.</p>
+<p>Actualmente estoy desarrollando una aplicación que muy probablemente estará disponible desde <code>tawa.com.pe</code>.</p>
+<p>De forma local puedo usar <code>tawa.localhost</code>, <code>tawa.localhost.pe</code>, <code>tawa.local.pe</code>, o como mejor me parezca.</p>
+<p>Lo importante es usar un nombre de dominio que no exista (ni pueda existir en el futuro) a fin de evitar colisiones.</p>
+<p>En mi caso usaré <code>tawa.dev.pe</code>. Entonces añadiré la siguiente línea a mi archivo hosts:</p>
+<pre class=" language-bash"><code class=" language-bash">127.0.0.1           tawa.dev.pe</code></pre>
+<h2>Paso 2</h2>
+<p>Si hasta aquí accedo a <code>tawa.dev.pe</code> desde el navegador, Apache resolverá esto como si de <code>localhost</code> se tratara.</p>
+<img src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/tawa-dev-pe.webp" alt="Localhost Apache" title="Localhost Apache" width="837">
+<p>Esto ocurre porque todavía no hemos creado un VirtualHost para atender a esta dirección. Vamos con ello.</p>
+<p>Apache tiene un archivo de configuración. Debes abrir este archivo.</p>
+<ul>
+<li>En el caso de Wamp se ubica en: <code>C:\wamp\bin\apache\apache2.4.23\conf\httpd.conf</code> (si estás viendo este artículo desde el futuro, la versión podría cambiar)</li>
+<li>Y en el caso de Xampp: <code>C:\xampp\apache\conf\httpd.conf</code></li>
+</ul>
+<p>Podemos crear los <code>Virtual hosts</code> directamente sobre este 
+archivo. Pero no. Apache suele incluir otros archivos de configuración 
+sobre este archivo principal para mantener un orden.</p>
+<p>Dentro de este archivo encontramos las siguientes líneas:</p>
+<pre class=" language-txt"><code class=" language-txt"># Virtual hosts
+Include conf/extra/httpd-vhosts.conf</code></pre>
+<p>Eso significa que la declaración de <code>Virtual hosts</code> la podemos realizar en <code>conf/extra/httpd-vhosts.conf</code> (dentro de la carpeta de apache donde ya estamos ubicados).</p>
+<p>Este archivo por defecto va a contener algo como lo siguiente (en el caso de WampServer):</p>
+<pre class=" language-txt"><code class=" language-txt">&lt;VirtualHost *:8080&gt;
+    ServerName localhost
+    DocumentRoot c:/wamp/www
+    &lt;Directory  "c:/wamp/www/"&gt;
+        Options +Indexes +Includes +FollowSymLinks +MultiViews
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</code></pre>
+<p>En realidad por defecto es <code>&lt;VirtualHost *:80&gt;</code> pero en mi caso he cambiado el puerto por <code>8080</code>.</p>
+<p>Entonces, tomando como guía el ejemplo anterior, hemos de añadir:</p>
+<pre class=" language-txt"><code class=" language-txt">&lt;VirtualHost *:8080&gt;
+    ServerName tawa.dev.pe
+    DocumentRoot "C:/wamp/www/tawa/public"
+    &lt;Directory  "C:/wamp/www/tawa/public/"&gt;
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;    
+&lt;/VirtualHost&gt;</code></pre>
+<p>Este VirtualHost le dice a Apache que:</p>
+<ul>
+<li>Atienda las visitas hacia <code>tawa.dev.pe</code> (bajo el puerto <code>8080</code>)</li>
+<li>Y que lo haga a través de <code>C:/wamp/www/tawa/public</code></li>
+</ul>
+<p>De tal forma que, luego de reiniciar Apache tenemos lo siguiente:</p>
+<img src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/tawa-dev-working.webp" alt="VirtualHost Apache configurado correctamente" title="VirtualHost Apache configurado correctamente" width="392">
+<h2>Múltiples direcciones, un solo proyecto</h2>
+<p>Si tenemos un mismo proyecto Laravel que atiende distintas 
+direcciones, también podemos configurar ello en un mismo VirtualHost del
+ siguiente modo:</p>
+<pre class=" language-txt"><code class=" language-txt">&lt;VirtualHost *:8080&gt;
+    ServerName localhost.com
+    ServerAlias series.localhost.com memes.localhost.com foro.localhost.com
+    DocumentRoot "C:/wamp/www/pym/public"
+&lt;/VirtualHost&gt;</code></pre>
+<p>Las direcciones especificadas en <code>ServerAlias</code> (separadas por un espacio) se van a atender por el mismo <code>DocumentRoot</code>, al igual que la dirección indicada en el <code>ServerName</code>.</p>
+<p>Si tu proyecto Laravel no tiene rutas para distintos subdominios, siempre mostrará lo mismo.</p>
+<p>En mi caso tengo un proyecto Laravel con grupos de rutas para atender
+ distintos subdominios, y es por eso que es relevante para este caso 
+definir varios alias además del <code>host name</code> principal.</p>
+<h2>¿Qué hay de php artisan serv?</h2>
+<p>Este comando es muy útil. </p>
+<ul>
+<li>
+<p>Nos permite iniciar un servidor bajo un puerto determinado, y acceder a esa ruta para ver nuestro proyecto sin <code>/public</code> en la dirección.</p>
+</li>
+<li>Funciona incluso sin tener Apache instalado porque usa un servidor propio de PHP.</li>
+</ul>
+<p>Sin embargo, si tenemos WampServer o Xampp, ¿deberíamos usar Apache verdad?</p>
+<ul>
+<li>Si configuramos los VirtualHosts ya no necesitaremos ejecutar el comando constantemente.</li>
+<li>Bastará con iniciar Apache (a través de WampServer o Xampp).</li>
+</ul>
+<p><strong>¿Por qué no se suele hacer entonces?</strong></p>
+<p>En muchas ocasiones tenemos una resistencia al cambio, o bien no comprendemos con totalidad lo que hacemos.</p>
+<ul>
+<li>En mi caso cuando, empecé a usar Laravel siempre usaba <code>localhost/mi-proyecto/public</code>.</li>
+<li>Luego empecé a usar <code>php artisan serv</code> dejando de lado a Apache.</li>
+<li>Y ya finalmente empecé a usar Apache con la configuración manual de VirtualHosts.</li>
+</ul>
+<h2>Configuración automática</h2>
+<p>Para usuarios Windows existe una herramienta llamada Laragon, que 
+crea los VirtualHosts automáticamente, a través de una interfaz gráfica.</p>
+<p>Es decir, este programa tiene un botón para crear un nuevo proyecto Laravel y asociarle de paso un VirtualHost.</p>
+<p>Ésta es, una buena alternativa también.</p>
+<p>De momento, yo continuaré haciendo la configuración manualmente, para
+ comprender mejor cómo funciona Apache, tanto en Windows como en Linux.</p>
+<h2>Despliegue a producción</h2>
+<p>Debemos tener en cuenta que al publicar nuestro proyecto en un VPS, lo más común es usar una configuración LAMP o LEMP.</p>
+<p>Estas iniciales hacen referencia a lo siguiente.</p>
+<ul>
+<li>LAMP: Linux, Apache, MySQL y PHP</li>
+<li>LEMP: Linux, Nginx, MySQL y PHP</li>
+</ul>
+<p>Puedes seguir este tutorial sobre <a href="https://programacionymas.com/blog/hacer-deploy-app-laravel-digital-ocean">cómo publicar tu aplicación haciendo uso de una configuración LAMP</a>.</p>
+<p>Y sólo para tenerlo en cuenta, en el caso de Nginx el concepto de <code>VirtualHost</code> se corresponde con el concepto de <code>Server block</code>.</p>
+<h2>Palabras finales</h2>
+<p>¿Es interesante verdad?</p>
+<p>Si tienes sugerencias sobre cómo puedo mejorar el artículo, o algo 
+que quieras destacar, recuerda que puedes dejar un comentario justo 
+debajo.</p>
+<ul>
+<li>
+<p>Recuerdo que hace varios años, una vez modifiqué el archivo hosts de 
+una PC Windows en un "Lan center" (donde se alquilan cabinas de 
+Internet). </p>
+</li>
+<li>
+<p>Lo había modificado de tal forma que cada usuario sea redirigido a 
+una página distinta de aquella que intentaba visitar, para capturar sus 
+datos.</p>
+</li>
+<li>
+<p>Lo siento, era un niño que simplemente estaba siguiendo un tutorial.</p>
+</li>
+<li>
+<p>Si no lo soñé, recuerdo que varios datos me llegaban por correo.</p>
+</li>
+<li>Al final nunca usé tales datos pero estaba maravillado de todo lo que se podía hacer.</li>
+</ul>
+<p>Me pregunto si hoy en día todo esto es aún posible, y en caso que no, ¿en qué momento solucionaron este inconveniente? :)</p>
+
+                                    <p class="mt-3 mb-0">
+                                                    <a href="https://programacionymas.com/tags/apache" class="chip primary-color-dark white-text" title="Ver artículos con hashtag #apache">
+        # apache 
+    
+    </a>                                                    <a href="https://programacionymas.com/tags/windows" class="chip primary-color-dark white-text" title="Ver artículos con hashtag #windows">
+        # windows 
+    
+    </a>                                            </p>
+                            </div>  
+        </div>
+        <div class="col-md-3">
+            <div class="sticky-article">
+                <div class="card mb-2 mt-2 mt-md-0">
+    <div class="card-body elegant-color-dark white-text text-center">
+        <img src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/mago-teal.webp" alt="Logo de Programación y más" class="m-auto rounded-circle z-depth-1" width="80">
+
+        <p class="mt-1">Comparte este post si te fue de ayuda 🙂.</p>
+        <p class="mb-0">Cualquier duda y/o sugerencia es bienvenida.</p>
+    </div>
+</div>
+                                    <div class="card flex-1 wow fadeIn" data-wow-delay="0.1s">
+    <div class="card-body elegant-color-dark text-white">
+        <p class="h4-responsive mt-0 card-title">Regístrate</p>
+        <p>Inicia sesión para acceder a nuestros cursos y llevar un control de tu progreso.</p>
+
+        <div class="text-center">
+            <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#modalLRForm">
+                <i class="fas fa-sign-in-alt mr-1"></i>
+                Ingresar
+            </button>
+        </div>
+    </div>
+</div>                            </div>
+        </div>
+    </div>
+
+    <div class="py-3 px-3 mt-2 mt-md-3 mb-2 elegant-color-dark">
+        <p class="h4-responsive my-0 white-text text-center">
+            Cursos recomendados <i class="fas fa-check ml-1"></i>
+        </p>
+        <div class="row">
+            <div class="col-12 col-md-4">
+    <div class="card mt-2">
+        <a href="https://programacionymas.com/series/curso-intensivo-de-laravel-y-android-usando-jwt-y-kotlin">
+        <img src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/laravel-android-citas.webp" class="card-img-top" data-src="https://res.cloudinary.com/pym/image/upload/c_scale,f_auto,q_auto,w_480/v1/series/laravel-android-citas" alt="Imagen para el curso Laravel y Android" width="480">
+        </a>
+        <div class="card-body text-center">
+            <h4 class="card-title mt-0 mt-md-2">
+                <a href="https://programacionymas.com/series/curso-intensivo-de-laravel-y-android-usando-jwt-y-kotlin">Laravel y Android</a>
+            </h4>
+
+            <p class="card-text">Curso intensivo. Incluye el desarrollo de una API, su consumo, y autenticación vía JWT. También vemos Kotlin desde 0.</p>
+
+            <a href="https://programacionymas.com/series/curso-intensivo-de-laravel-y-android-usando-jwt-y-kotlin" class="btn btn-primary waves-effect waves-light">Ingresar al curso</a>
+        </div>
+    </div>
+</div>            <div class="col-12 col-md-4">
+    <div class="card mt-2">
+        <a href="https://programacionymas.com/series/javascript-curso-practico-y-completo">
+        <img src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/js-practico-3juegos.jpg" class="card-img-top" data-src="https://res.cloudinary.com/pym/image/upload/c_scale,f_auto,q_auto,w_480/v1/series/js-practico-3juegos" alt="Imagen para el curso Aprende Javascript" width="480">
+        </a>
+        <div class="card-body text-center">
+            <h4 class="card-title mt-0 mt-md-2">
+                <a href="https://programacionymas.com/series/javascript-curso-practico-y-completo">Aprende Javascript</a>
+            </h4>
+
+            <p class="card-text">Domina JS con este curso práctico y completo! Fundamentos, ejemplos reales, ES6+, POO, Ajax, Webpack, NPM y más.</p>
+
+            <a href="https://programacionymas.com/series/javascript-curso-practico-y-completo" class="btn btn-primary waves-effect waves-light">Ingresar al curso</a>
+        </div>
+    </div>
+</div>            <div class="col-12 col-md-4">
+    <div class="card mt-2">
+        <a href="https://programacionymas.com/series/curso-practico-de-docker-y-microservicios-desde-cero">
+        <img src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/docker-microservicios.webp" class="card-img-top" data-src="https://res.cloudinary.com/pym/image/upload/c_scale,f_auto,q_auto,w_480/v1/series/docker-microservicios" alt="Imagen para el curso Docker y Microservicios" width="480">
+        </a>
+        <div class="card-body text-center">
+            <h4 class="card-title mt-0 mt-md-2">
+                <a href="https://programacionymas.com/series/curso-practico-de-docker-y-microservicios-desde-cero">Docker y Microservicios</a>
+            </h4>
+
+            <p class="card-text">Aprende por qué es importante y cómo funciona Docker, con este nuevo curso práctico!</p>
+
+            <a href="https://programacionymas.com/series/curso-practico-de-docker-y-microservicios-desde-cero" class="btn btn-primary waves-effect waves-light">Ingresar al curso</a>
+        </div>
+    </div>
+</div>    </div>
+    </div>
+    </div>
+</main>
+
+ 
+                        <div id="bio_ep">
+    <div class="sidebar">
+        <img data-src="https://res.cloudinary.com/pym/image/upload/f_auto,q_auto:best/v1515274102/aprende-laravel-curso.jpg" alt="Curso gratuito de Laravel">
+    </div>
+    <div class="content">
+        <h3>Antes que te vayas</h3>
+        <p>Inscríbete en nuestro curso gratuito de Laravel</p>
+        <form action="https://programacionymas.com/register" method="get">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" name="name" required="">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" name="email" required="">
+            </div>
+            <button class="btn btn-primary waves-effect waves-light">
+                Sí, me anoto <i class="fas fa-bolt ml-2"></i>
+            </button>
+        </form>
+    </div>
+</div>            
+    <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog">
+    <div class="modal-dialog cascading-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-c-tabs">
+
+                
+                <ul class="nav nav-tabs tabs-2 default-color" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                        <a id="tabLoginLink" class="nav-link" data-toggle="tab" href="#panelLogin" role="tab" aria-expanded="true">
+                            <i class="fas fa-user mr-1"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                        <a id="tabRegisterLink" class="nav-link active" data-toggle="tab" href="#panelRegister" role="tab" aria-expanded="false">
+                            <i class="fas fa-user-plus mr-1"></i> Registro
+                        </a>
+                    </li>
+                </ul>
+
+                
+                <div class="tab-content">
+
+                    
+                    <div class="tab-pane fade" id="panelLogin" role="tabpanel" aria-expanded="true">
+                        <div class="modal-body">
+    <form id="formLogin">
+        <p class="mb-2">Inicia sesión con tus datos:</p>
+        <div class="md-form form-sm">
+            <i class="fas fa-envelope prefix"></i>
+            <input type="email" name="email" class="form-control" id="modal-login-email" required="">
+            <label for="modal-login-email">E-mail</label>
+        </div>
+        <div class="md-form form-sm mb-0">
+            <i class="fas fa-lock prefix"></i>
+            <input type="password" name="password" class="form-control mb-0" id="modal-login-password" required="">
+            <label for="modal-login-password">Contraseña</label>
+            <p class="small text-right mb-0 mr-3">
+                <a href="https://programacionymas.com/forgot-password" class="blue-text">¿Olvidaste tu contraseña?</a>
+            </p>
+        </div>
+        <div class="md-form form-sm">
+            <input type="checkbox" id="modal-login-remember" name="remember">
+            <label for="modal-login-remember">Recordar sesión</label>
+        </div>
+        <div class="text-center mt-2">
+            <button class="btn btn-info waves-effect waves-light" id="btnLogin">
+                Ingresa <i class="fas fa-sign-in-alt ml-1"></i>
+            </button>
+            <p class="red-text mb-0" id="pLoginError" style="display: none">Los datos ingresados son incorrectos.</p>
+            <p class="green-text mb-0" id="pLoginSuccess" style="display: none">Bienvenido!</p>
+        </div>
+    </form>
+</div>
+                    </div>
+
+                    
+                    <div class="tab-pane fade in active show" id="panelRegister" role="tabpanel" aria-expanded="false">
+                        <div class="modal-body">
+    <form action="https://programacionymas.com/register" method="get">
+        <p class="mb-2">Regístrate con correo:</p>
+        
+        <div class="md-form form-sm">
+            <i class="fas fa-user prefix"></i>
+            <input type="text" name="name" class="form-control" id="modal-register-name" required="">
+            <label for="modal-register-name">Nombre</label>
+        </div>
+
+        <div class="md-form form-sm">
+            <i class="fas fa-envelope prefix"></i>
+            <input type="email" name="email" class="form-control" id="modal-register-email" required="">
+            <label for="modal-register-email">E-mail</label>
+        </div>
+        
+        <input type="hidden" name="redirect_to" value="https://programacionymas.com/blog/archivo-hosts-y-virtual-hosts-apache-windows">
+
+        <div class="text-center form-sm mt-2">
+            <button class="btn btn-info waves-effect waves-light">Regístrate <i class="fas fa-sign-in-alt ml-1"></i></button>
+        </div>
+    </form>
+</div>
+                    </div>
+
+                </div>
+
+                                <div class="modal-footer justify-content-center">
+                    <p class="align-middle mb-0 d-none d-sm-block">O usando tu cuenta de Google:</p>
+
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="continue_with" data-shape="rectangular" data-logo_alignment="left"><div class="S9gUrf-YoZ4jf" style="position: relative;"><div></div><div id="gsi_830366_249294-wrapper" class="L5Fo6c-sM5MNb"><iframe src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/button.htm" id="gsi_830366_249294" title="Botón Iniciar sesión con Google" style="display: block; position: relative; top: 0px; left: 0px; height: 44px; width: 221px; border: 0px none; margin: -2px -10px;" tabindex="-1"></iframe><div id="gsi_830366_249294-overlay" class="L5Fo6c-bF1uUb" tabindex="0"></div></div></div></div>
+                </div>
+                            </div>
+        </div>
+    </div>
+</div>
+<footer id="footer" class="page-footer elegant-color-dark center-on-small-only">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="column-title white-text"><strong>Series por categoría</strong></p>
+                <ul>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/bases-de-datos">
+                            Bases de datos
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/php">
+                            PHP
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/laravel">
+                            Laravel
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/java">
+                            Java
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/android">
+                            Android
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/javascript">
+                            Javascript
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/herramientas-desarrollo-software">
+                            Herramientas
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/frontend">
+                            Frontend
+                        </a>
+                    </li>
+                                    </ul>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-3">
+                <p class="column-title white-text"><strong>Categorías del blog</strong></p>
+                <ul>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/desarrollo-web">
+                                Desarrollo web
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/desarrollo-movil">
+                                Desarrollo móvil
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/productividad-y-motivacion">
+                                Productividad y motivación
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/buenas-practicas">
+                                Buenas prácticas
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/bitacora">
+                                Bitácora
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/bases-de-datos">
+                                Bases de datos
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/devops">
+                                DevOps
+                            </a>
+                        </li>
+                                    </ul>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-3 mb-1">
+                <p class="column-title white-text"><strong>Guías de inicio</strong></p>
+                <ul>
+                    <li>
+                        <a href="https://programacionymas.com/guia-de-inicio/programacion-y-mas">
+                            Guía de inicio en programación
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://programacionymas.com/guia-de-inicio/desarrollo-web">
+                            Inicio en desarrollo web
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://programacionymas.com/frontend-vs-backend">
+                            Frontend VS Backend
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-3">
+                <p class="column-title white-text"><strong>Otros enlaces</strong></p>
+                <ul>
+                    <li>
+                        <a href="https://programacionymas.com/planes">
+                            Planes de membresía
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://programacionymas.com/asesoria" title="¿Necesitas asesoría?">
+                            Clases particulares
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://desarrollo.programacionymas.com/" target="_blank" title="¿Necesitas una app web y/o móvil?">
+                            Servicio de desarrollo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://programacionymas.com/privacy-policy">
+                            Política de privacidad
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://programacionymas.com/contacto" title="Formulario de contacto" target="_blank">
+                            Reporta un error
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://programacionymas.com/memes" title="Memes">
+                            Memes
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <hr>
+
+    
+
+    <div class="text-center mb-2">
+        <a target="_blank" href="https://www.facebook.com/programacionymas" class="btn-floating btn-sm elegant-color waves-effect waves-light"><i class="fab fa-facebook left"></i></a>
+        <a target="_blank" href="https://www.youtube.com/@programacionymas" class="btn-floating btn-sm elegant-color waves-effect waves-light"><i class="fab fa-youtube left"></i></a>
+        <a target="_blank" href="https://www.tiktok.com/@programacionymas" class="btn-floating btn-sm elegant-color waves-effect waves-light"><i class="fab fa-tiktok left"></i></a>
+        <a target="_blank" href="https://www.instagram.com/programacionymas" class="btn-floating btn-sm elegant-color waves-effect waves-light"><i class="fab fa-instagram left"></i></a>
+        <a target="_blank" href="https://www.github.com/JCarlosR" class="btn-floating btn-sm elegant-color waves-effect waves-light"><i class="fab fa-github left"></i></a>
+    </div>
+
+    <div class="footer-copyright wow fadeIn">
+        <div class="container-fluid">
+            © 2017 - 2022 Programación y más. Todos los derechos reservados.
+        </div>
+    </div>
+</footer>
+<script async="" src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/js"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-26345705-3');
+    gtag('config', 'G-0S0SF4MKJE');
+</script>
+<script src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/all.js"></script>
+
+
+<script>initLogin('https://programacionymas.com/sessions');</script>
+
+            <script>
+function initDisqus() {
+    
+    var disqus_shortname = 'jcarlosr'; // required
+    var disqus_config = function () {
+        this.page.url = window.location.origin + '/blog/archivo-hosts-y-virtual-hosts-apache-windows';
+        this.page.identifier = '/blog/archivo-hosts-y-virtual-hosts-apache-windows';
+        this.page.title = 'Cómo configurar VirtualHosts con Apache en Windows (en 2 pasos)';
+    };
+    
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+}
+
+$('#init_disqus').on('click', function () {
+    initDisqus();
+    $('#init_disqus').remove();
+});
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+    <script src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/lazy-load-images.js" defer="defer"></script>
+
+            <script src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/prism.js" defer="defer"></script>
+    
+    <script>
+    function initShareThis() {
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//platform-api.sharethis.com/js/sharethis.js#property=58f91d5a2fe73a0012cb5106&product=sticky-share-buttons';
+            s.async = true;
+            (d.head || d.body).appendChild(s);
+        })();
+    }
+
+    (function () {
+        const windowScrollEvent = function() {
+            const
+                heightOfWindow = window.innerHeight,
+                contentScrolled = window.pageYOffset,
+                bodyHeight = document.body.offsetHeight;
+
+            const
+                total = bodyHeight - heightOfWindow,
+                got = contentScrolled,
+                percent = got/total * 100;
+
+            if (percent > 25) {
+                
+                initShareThis();
+                window.removeEventListener('scroll', windowScrollEvent);
+            }
+        };
+
+        window.addEventListener('scroll', windowScrollEvent);
+    })();
+</script>
+
+    <div id="g_id_onload" data-client_id="501914648900-pgvr18e8sblv7r2arb41e43h5ms7ips6.apps.googleusercontent.com" data-login_uri="https://programacionymas.com/login/google" data-cancel_on_tap_outside="false">
+    </div>
+    <script src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/client" async="" defer="defer"></script>
+
+
+            
+        <script src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/bioep.min.js"></script>
+        <script>bioEp.init({ 
+                cookieExp: 12,
+                onPopup: function () {
+                    const popupImg = document.querySelector('#bio_ep .sidebar img');
+                    
+                    if (popupImg.dataset.src) {
+                        popupImg.src = popupImg.dataset.src;
+                        popupImg.removeAttribute("data-src");
+                    }
+                }
+        });</script>
+    
+
+<div class="hiddendiv common"></div><div style="position: fixed; z-index: 9999; height: 301px;" id="credential_picker_container"><iframe src="Aprende%20a%20configurar%20tus%20VirtualHosts%20(en%202%20pasos)_files/select.htm" title="Cuadro de diálogo Iniciar sesión con Google" style="height: 301px; width: 391px; overflow: hidden;"></iframe></div></body></html>

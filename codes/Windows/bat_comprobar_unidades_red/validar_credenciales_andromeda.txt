@@ -1,0 +1,53 @@
+@echo off
+
+REM =====================
+REM Elaborado por: Pedro Ernesto Nequiz Medina
+REM ======================
+setlocal enabledelayedexpansion
+
+set "csv_file=credenciales.csv"
+
+REM Carpeta compartida para la unidad de red
+set "carpeta_compartida=\\132.248.127.8\"
+
+for /f "tokens=1,2,3 delims=," %%a in (%csv_file%) do (
+    echo ===================================
+
+    REM Verificar si la unidad Z está ocupada y desmontarla si es necesario
+    net use Z: >nul 2>&1
+    if %errorlevel% equ 0 (
+        echo La unidad Z: ya esta en uso. La desmontare.
+        net use Z: /delete >nul 2>&1
+        timeout /t 2 >nul
+    )
+
+    REM Conexión a la unidad de red
+    @REM echo "%carpeta_compartida%%%b$"
+
+    net use Z: "%carpeta_compartida%%%b$" "%%c" /user:"%%b" >nul 2>&1   
+
+    if not errorlevel 1 (
+        echo Acceso exitoso para %%a - %%b
+        echo =================== >> log.txt
+        echo Acceso exitoso para %%a - %%b >> log.txt
+    ) else (
+        echo Error de acceso para %%a - %%b
+        echo =================== >> log.txt
+        echo [Error] de acceso para %%a - %%b >> log.txt
+    )
+    
+    REM Mostrar usuario y contraseña
+    @REM echo Usuario: %%b
+    @REM echo Contrasena: %%c
+
+    REM Esperar 3 segundos antes de continuar con el siguiente registro
+    timeout /t 3 >nul
+)
+
+echo Pulsa cualquier tecla para cerrar la ventana en 5 segundos...
+timeout /t 5 >nul
+
+REM =====================
+REM Elaborado por: Pedro Ernesto Nequiz Medina
+REM ======================
+endlocal

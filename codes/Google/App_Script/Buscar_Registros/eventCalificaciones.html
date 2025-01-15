@@ -1,0 +1,104 @@
+<template id="tpl_buscador_calificaciones">
+  <div class="container mt-2">
+    <div class="row d-flex justify-content-evenly mb-3">
+      <div class="card" style="width: 40rem;">
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="input_cuenta_alumno" name="input_cuenta_alumno" placeholder="Número de cuenta" aria-label="Número de cuenta">
+            <button class="btn btn-primary" type="button" id="submitButton" onclick="fnBuscarRegistrosAlumnos()">Buscar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center mb-3">
+      <div id="divTablaAlumnos" class="table-responsive">
+        <!-- Aquí se renderizará la tabla -->
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl_tabla_alumnos">
+  <table class="table table-dark table-hover" id="tbl_datos" style="table-layout: auto;">
+    <thead>
+      <tr id="tableHead">
+        <!-- Las cabeceras se generarán dinámicamente -->
+      </tr>
+    </thead>
+    <tbody id="AlumnosTableBody">
+      <!-- Las filas se generarán dinámicamente -->
+    </tbody>
+  </table>
+</template>
+
+<!-- ======== -->
+<!-- JS -->
+<!-- ======== -->
+<script>
+function fnBuscarRegistrosAlumnos() {
+  const numeroCuenta = document.getElementById("input_cuenta_alumno").value;
+
+  if (!numeroCuenta) {
+    alert("Por favor ingrese un número de cuenta.");
+    return;
+  }
+
+  const divTablaAlumnos = document.querySelector("#divTablaAlumnos");
+
+  // Mostrar mensaje de "Cargando..."
+  const template_loader = document.querySelector("#loadingTemplate").content.cloneNode(true);
+  divTablaAlumnos.innerHTML = ''; // Limpiar cualquier contenido previo
+  divTablaAlumnos.appendChild(template_loader); // Insertar el template de carga
+
+  // Llamada al servidor
+  google.script.run
+    .withSuccessHandler((info) => {
+      divTablaAlumnos.innerHTML = '';
+
+      // Verificar que se recibieron datos
+      if (!info || !info.datos) {
+        divTablaAlumnos.innerHTML = '<div class="text-center">No se encontraron registros.</div>';
+        return;
+      }
+
+      // Clonar y renderizar la tabla desde el template
+      const tablaTemplate = document.querySelector("#tpl_tabla_alumnos");
+      const tablaClone = tablaTemplate.content.cloneNode(true);
+      divTablaAlumnos.appendChild(tablaClone);
+
+      // Generar cabeceras
+      const tableHead = document.querySelector("#tableHead");
+      const tableBody = document.querySelector("#AlumnosTableBody");
+
+      if (tableHead && tableBody) {
+        info.cabeceras.forEach((cabecera) => {
+          const th = document.createElement("th");
+          th.textContent = cabecera;
+          tableHead.appendChild(th);
+        });
+
+        // Generar fila de datos (asumiendo que info.datos es un único registro)
+        const fila = info.datos; // Esto es un único registro ahora
+
+        if (Array.isArray(fila)) {
+          const tr = document.createElement("tr");
+          fila.forEach((dato) => {
+            const td = document.createElement("td");
+            td.textContent = dato;
+            tr.appendChild(td);
+          });
+          tableBody.appendChild(tr);
+        } else {
+          console.error("El registro recibido no es un array:", fila);
+        }
+      } else {
+        console.error("No se encontraron 'tableHead' o 'AlumnosTableBody' en el DOM.");
+      }
+    })
+    .withFailureHandler((error) => {
+      console.error("Error en la llamada al servidor:", error);
+      divTablaAlumnos.innerHTML = '<div class="text-center text-danger">Error al cargar los registros.</div>';
+    })
+    .buscarAlumnoCuenta(numeroCuenta); // Llamada a la función en el servidor
+}
+</script>

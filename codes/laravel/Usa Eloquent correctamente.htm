@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html class="" lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Optimiza tus consultas Laravel ⚡ Usa Eloquent correctamente</title>
+    <meta name="description" content="Aprende a escribir consultas Eloquent de manera eficiente con ejemplos prácticos. Aprende sobre el Query Builder y las relaciones entre modelos.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta name="csrf-token" content="SHrABEOONQ9ZiGdKQndniwbPyDvxUzfsmfpRe7um">
+
+    <meta property="og:url" content="https://programacionymas.com/blog/consultas-laravel-eficientes-usando-eloquent">
+    <meta property="og:type" content="article">
+    <meta property="article:publisher" content="https://www.facebook.com/programacionymas">
+    <meta property="og:title" content="Optimiza tus consultas Laravel ⚡ Usa Eloquent correctamente">
+    <meta property="og:description" content="Aprende a escribir consultas Eloquent de manera eficiente con ejemplos prácticos. Aprende sobre el Query Builder y las relaciones entre modelos.">
+    <meta property="og:image" content="/images/posts/2017/optimizar-laravel/consultas-eloquent.jpg">
+
+    <meta name="author" content="Juan Ramos">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="twitter:site" content="@programacionym">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Optimiza tus consultas Laravel ⚡ Usa Eloquent correctamente">
+    <meta name="twitter:description" content="Aprende a escribir consultas Eloquent de manera eficiente con ejemplos prácticos. Aprende sobre el Query Builder y las relaciones entre modelos.">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://programacionymas.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://programacionymas.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://programacionymas.com/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://programacionymas.com/favicon-16x16.png">
+    <link rel="manifest" href="https://programacionymas.com/site.webmanifest">
+    <link rel="mask-icon" href="https://programacionymas.com/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#5c5b60">
+
+    <link rel="stylesheet" href="Usa%20Eloquent%20correctamente_files/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"></noscript>
+    <link href="Usa%20Eloquent%20correctamente_files/app.css" rel="stylesheet">
+
+            <link rel="stylesheet" href="Usa%20Eloquent%20correctamente_files/modal-exit.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://programacionymas.com/src/css/layout/modal-exit.css"></noscript>    
+    <script>
+    !function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+        <link rel="stylesheet" href="Usa%20Eloquent%20correctamente_files/show.css">
+    
+    <script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "Organization",
+    "name" : "Programación y más",
+    "url" : "https://programacionymas.com",
+    "sameAs" : [
+        "https://facebook.com/programacionymas",
+        "https://twitter.com/programacionym"
+    ]
+}
+</script><style type="text/css">#bio_ep_bg {display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.3; z-index: 10001;}#bio_ep {display: none; position: fixed; font-family: 'Titillium Web', sans-serif; font-size: 16px; left: 50%; top: 50%; transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); background-color: #fff; box-shadow: 0px 1px 4px 0 rgba(0,0,0,0.5); z-index: 10002;}#bio_ep_close {position: absolute; left: 100%; margin: -8px 0 0 -12px; width: 20px; height: 20px; color: #fff; font-size: 12px; font-weight: bold; text-align: center; border-radius: 50%; background-color: #5c5c5c; cursor: pointer;}</style><link id="googleidentityservice" type="text/css" media="all" rel="stylesheet" href="Usa%20Eloquent%20correctamente_files/style.css"><style id="googleidentityservice_button_styles">.qJTHM{-moz-user-select:none;color:#202124;direction:ltr;font-family:"Roboto-Regular",arial,sans-serif;font-weight:400;margin:0;overflow:hidden}.ynRLnc{left:-9999px;position:absolute;top:-9999px}.L6cTce{display:none}.bltWBb{word-break:break-all}.hSRGPd{color:#1a73e8;cursor:pointer;font-weight:500;text-decoration:none}.Bz112c-W3lGp{height:16px;width:16px}.Bz112c-E3DyYd{height:20px;width:20px}.Bz112c-r9oPif{height:24px;width:24px}.Bz112c-uaxL4e{-moz-border-radius:10px;border-radius:10px}.LgbsSe-Bz112c{display:block}.S9gUrf-YoZ4jf,.S9gUrf-YoZ4jf *{border:none;margin:0;padding:0}.fFW7wc-ibnC6b>.aZ2wEe>div{border-color:#4285f4}.P1ekSe-ZMv3u>div:nth-child(1){background-color:#1a73e8!important}.P1ekSe-ZMv3u>div:nth-child(2),.P1ekSe-ZMv3u>div:nth-child(3){background-image:linear-gradient(to right,rgba(255,255,255,.7),rgba(255,255,255,.7)),linear-gradient(to right,#1a73e8,#1a73e8)!important}.haAclf{display:inline-block}.nsm7Bb-HzV7m-LgbsSe{border-radius:4px;box-sizing:border-box;transition:background-color .218s,border-color .218s;-moz-user-select:none;background-color:#fff;background-image:none;border:1px solid #dadce0;color:#3c4043;cursor:pointer;font-family:"Google Sans",arial,sans-serif;font-size:14px;height:40px;letter-spacing:0.25px;outline:none;overflow:hidden;padding:0 12px;position:relative;text-align:center;vertical-align:middle;white-space:nowrap;width:auto}@media screen and (-ms-high-contrast:active){.nsm7Bb-HzV7m-LgbsSe{border:2px solid windowText;color:windowText}}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe{font-size:14px;height:32px;letter-spacing:0.25px;padding:0 10px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe{font-size:11px;height:20px;letter-spacing:0.3px;padding:0 8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe{padding:0;width:40px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe{width:32px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe{width:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK{border-radius:20px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.pSzOP-SxQuSe{border-radius:16px}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK.purZT-SxQuSe{border-radius:10px}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc{border:none;color:#fff}.nsm7Bb-HzV7m-LgbsSe.MFS4be-v3pZbf-Ia7Qfc{background-color:#1a73e8}.nsm7Bb-HzV7m-LgbsSe.MFS4be-JaPV2b-Ia7Qfc{background-color:#202124;color:#e8eaed}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:18px;margin-right:8px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:14px;min-width:14px;width:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{height:10px;min-width:10px;width:10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin-left:8px;margin-right:-4px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:10px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:8px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c{padding:4px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-left-radius:3px;border-bottom-left-radius:3px;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;justify-content:center;align-items:center;background-color:#fff;height:36px;margin-left:-10px;margin-right:12px;min-width:36px;width:36px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c,.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf .nsm7Bb-HzV7m-LgbsSe-Bz112c{margin:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:28px;margin-left:-8px;margin-right:10px;min-width:28px;width:28px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{height:16px;margin-left:-6px;margin-right:8px;min-width:16px;width:16px}.nsm7Bb-HzV7m-LgbsSe.Bz112c-LgbsSe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:3px;margin-left:2px;margin-right:0;padding:0}.nsm7Bb-HzV7m-LgbsSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.nsm7Bb-HzV7m-LgbsSe.pSzOP-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:14px}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:8px}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;align-items:center;flex-direction:row;justify-content:space-between;flex-wrap:nowrap;height:100%;position:relative;width:100%}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX{justify-content:center}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{flex-grow:1;font-family:"Google Sans",arial,sans-serif;font-weight:500;overflow:hidden;text-overflow:ellipsis;vertical-align:top}.nsm7Bb-HzV7m-LgbsSe.purZT-SxQuSe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-weight:300}.nsm7Bb-HzV7m-LgbsSe .oXtfBe-l4eHX .nsm7Bb-HzV7m-LgbsSe-BPrWId{flex-grow:0}.nsm7Bb-HzV7m-LgbsSe .nsm7Bb-HzV7m-LgbsSe-MJoBVe{transition:background-color .218s;bottom:0;left:0;position:absolute;right:0;top:0}.nsm7Bb-HzV7m-LgbsSe:hover,.nsm7Bb-HzV7m-LgbsSe:focus{box-shadow:none;border-color:#d2e3fc;outline:none}.nsm7Bb-HzV7m-LgbsSe:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.04)}.nsm7Bb-HzV7m-LgbsSe:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(66,133,244,.1)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:hover .nsm7Bb-HzV7m-LgbsSe-MJoBVe,.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:focus .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.24)}.nsm7Bb-HzV7m-LgbsSe.MFS4be-Ia7Qfc:active .nsm7Bb-HzV7m-LgbsSe-MJoBVe{background:rgba(255,255,255,.32)}.nsm7Bb-HzV7m-LgbsSe .n1UuX-DkfjY{border-radius:50%;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;height:20px;margin-left:-4px;margin-right:8px;min-width:20px;width:20px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId{font-family:"Roboto";font-size:12px;text-align:left}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .ssJRIf,.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .fmcmS{overflow:hidden;text-overflow:ellipsis}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;align-items:center;color:#5f6368;fill:#5f6368;font-size:11px;font-weight:400}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.MFS4be-Ia7Qfc .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff{color:#e8eaed;fill:#e8eaed}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-BPrWId .K4efff .Bz112c{height:18px;margin:-3px -3px -3px 2px;min-width:18px;width:18px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:3px;border-bottom-right-radius:3px;margin-left:12px;margin-right:-10px}.nsm7Bb-HzV7m-LgbsSe.jVeSEe.JGcpL-RbRzK .nsm7Bb-HzV7m-LgbsSe-Bz112c-haAclf{border-radius:18px}.L5Fo6c-sM5MNb{border:0;display:block;left:0;position:relative;top:0}.L5Fo6c-bF1uUb{-moz-border-radius:4px;border-radius:4px;bottom:0;cursor:pointer;left:0;position:absolute;right:0;top:0}.L5Fo6c-bF1uUb:focus{border:none;outline:none}sentinel{}</style><script src="Usa%20Eloquent%20correctamente_files/sharethis.js" async=""></script></head>
+
+<body class="" style="">
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark elegant-color">
+    <a class="p-0 mr-3" href="https://programacionymas.com/">
+        <img src="Usa%20Eloquent%20correctamente_files/pym_white_svg.webp" title="Programación y más" alt="Logo de Programación y más" height="24">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="fas fa-bars"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+       <ul class="navbar-nav mr-auto">
+           <li class="nav-item mr-0 mr-sm-1">
+               <a class="nav-link waves-effect waves-light" href="https://programacionymas.com/series">
+                   <i class="fas fa-play-circle mr-1"></i>
+                   Cursos
+               </a>
+           </li>
+           <li class="nav-item mr-0 mr-sm-1">
+               <a class="nav-link waves-effect waves-light" href="https://programacionymas.com/blog">
+                   <i class="fas fa-book mr-1"></i>
+                   Blog
+               </a>
+           </li>
+           <li class="nav-item mr-0 mr-sm-1">
+               <a class="nav-link waves-effect waves-light" href="https://programacionymas.com/planes">
+                   <i class="fas fa-rocket mr-1"></i>
+                   Planes
+               </a>
+           </li>
+           <li class="nav-item mr-0 mr-sm-1">
+               <a class="nav-link waves-effect waves-light" href="https://programacionymas.com/portafolio">
+                   <i class="fas fa-shopping-cart mr-1"></i>
+                   Tienda
+               </a>
+           </li>
+           
+       </ul>
+       <ul class="navbar-nav ml-auto">
+                          <li class="nav-item">
+                   <a class="nav-link waves-effect waves-light" data-toggle="modal" data-target="#modalLRForm">
+                       <i class="fas fa-sign-in-alt"></i>
+                       Ingresar
+                   </a>
+               </li>
+                       </ul>
+        </div>
+</nav>
+        
+    </header>
+
+<main>
+        <ol class="breadcrumb elegant-color-dark mb-0 mb-sm-3 mb-md-4">
+        <li class="breadcrumb-item"><a href="https://programacionymas.com/">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="https://programacionymas.com/blog">Blog</a></li>
+        <li class="breadcrumb-item active"><a href="https://programacionymas.com/categorias/desarrollo-web">Desarrollo web</a></li>
+    </ol>
+
+    <div class="container-fluid">
+            <div class="row">
+        <div class="col-md-9 section-blog-fw">
+            <div class="excerpt pt-3 pb-3">
+                <h1 class="h1-responsive mb-2">Cómo escribir consultas Eloquent más eficientes en Laravel</h1>
+                <p>Aprende a escribir consultas Eloquent más eficientes en Laravel con estos ejemplos prácticos.</p>
+<p>Cuando aprendemos Laravel, nos emocionamos mucho con Eloquent, el ORM que Laravel nos ofrece.</p>
+<p>Aprendemos a declarar relaciones entre los modelos de nuestra aplicación y "explotamos" Eloquent al máximo!</p>
+<p>O eso es lo que creemos.</p>
+<p>¿Usas Eloquent constantemente y tu aplicación funciona muy bien? Genial, ¿pero estás haciendo un uso adecuado del ORM?</p>
+<p>Usando Eloquent tenemos muchas formas de obtener el mismo resultado.</p>
+<p>Sin embargo, aunque las soluciones sean equivalentes en cuanto al resultado final, ¿qué hay del proceso que ocurre por detrás?</p>
+<p>A continuación vamos a analizar algunas consultas. </p>
+<p>Son consultas que todos usamos a diario, pero no siempre de la forma más adecuada.</p>
+<hr>
+<h2>Antes de iniciar: ¿Qué es un Query Builder?</h2>
+<p>Como su mismo nombre lo indica, es una clase que permite construir consultas.</p>
+<p>Es decir, en vez de escribir consultas SQL directamente, usamos 
+métodos sobre un objeto para construir nuestras consultas y luego 
+ejecutarlas.</p>
+<p>A modo de ejemplo, imagina que tienes 2 modelos, <code>developer</code> (programador) y <code>skill</code> (habilidad), que se relacionan entre sí (un programador tiene varias habilidades, domina varias tecnologías).</p>
+<p>Lo primero que debes entender es que <code>$developer-&gt;skills</code> produce un resultado diferente a <code>$developer-&gt;skills()</code>.</p>
+<p>La primera sentencia devuelve una colección de objetos <code>Skill</code>, y la segunda devuelve un objeto <code>Builder</code>.</p>
+<p>Hasta este punto, lo que sabemos es que la primera operación es más costosa que la segunda.</p>
+<p>La primera operación:</p>
+<ul>
+<li>
+<p>Hace una consulta a la base de datos para obtener todos los <code>skills</code> relacionados con el <code>developer</code> seleccionado.</p>
+</li>
+<li>Crea una colección (una instancia de la clase <code>Collection</code>) con objetos <code>Skill</code>. Esto implica crear una instancia del modelo <code>Skill</code> y asignarle todos sus datos correspondientes, para cada una de las filas.</li>
+</ul>
+<p>La segunda operación:</p>
+<ul>
+<li>Devuelve un objeto Builder, sin ejecutar consulta alguna. </li>
+</ul>
+<p>¿A qué viene todo esto?</p>
+<p>Esto es porque, a medida que sea posible, debemos escribir consultas 
+más elaboradas para que las procese la base de datos, y reducir la carga
+ de lo que ejecutamos a nivel de PHP.</p>
+<p>En términos generales, buscar en una base de datos es más rápido y 
+menos costoso que buscar en un objeto Collection (clase que usa Laravel 
+para representar una colección de instancias de un modelo).</p>
+<hr>
+<p>Es entonces que debemos plantearnos las siguientes interrogantes:</p>
+<ul>
+<li>¿Realmente necesito toda una colección?</li>
+<li>¿Puedo usar una consulta más específica? </li>
+<li>¿Necesito instancias del modelo o solo los datos?</li>
+</ul>
+<p>Si necesitamos hacer uso de <code>accessors</code>, <code>mutators</code>
+ u otras operaciones de "casteo" (como recibir los datos de tipo fecha 
+en objetos Carbon), el uso de modelos y colecciones está justificado. </p>
+<p>Pero eso no siempre es así.</p>
+<h2>Vamos con los ejemplos</h2>
+<p><strong>1. Si necesitas contar datos, cuenta registros en la base de datos en vez de objetos en una colección.</strong> </p>
+<ul>
+<li>Usar <code>$developer-&gt;skills-&gt;count()</code> implica crear una colección de objetos (con todos sus atributos), y finalmente devolver el número de objetos. </li>
+<li>Es diferente a usar <code>$developer-&gt;skills()-&gt;count()</code>,
+ que simplemente ejecuta una consulta de agregado y obtiene un número 
+entero de la base de datos con la cantidad. No consume recursos 
+innecesarios si solo necesitamos contar los registros.</li>
+<li>Sin embargo, si ya has cargado los <code>skills</code> que el <code>developer</code> tiene (momentos antes), contar a partir de la colección no es malo (porque de todas formas ya se ha construido).</li>
+</ul>
+<p>Si nuestra intención es solo contar la cantidad de registros, la 
+segunda opción es la mejor por mucho. Mientras mayor es la cantidad de 
+elementos, mayor es la diferencia en cuanto a tiempo de ejecución.</p>
+<p><strong>2. Si solo necesitas un primer elemento, evita formar toda una colección para acceder a él.</strong></p>
+<p>Similar al ejemplo anterior:</p>
+<ul>
+<li><code>$developer-&gt;skills-&gt;first()</code> primero obtiene todos los <code>skills</code> que el <code>developer</code> tiene asignados, forma una colección con estos datos y finalmente devuelve el primer objeto de la colección.</li>
+<li>Podemos solicitar el primer registro al query builder usando <code>$developer-&gt;skills()-&gt;first()</code>.
+Así, la consulta usará LIMIT para solicitar un solo registro, que será el único a ser representado en un objeto del modelo <code>Skill</code>.</li>
+</ul>
+<p><strong>3. Si vas a filtrar usando where, que sea sobre la base de datos y no sobre una colección.</strong></p>
+<p>La historia se repite:</p>
+<ul>
+<li>Si usas <code>$developer-&gt;skills-&gt;where('name', 'PHP')-&gt;get()</code>,
+ primero se creará una colección de objetos y luego se buscará iterando 
+sobre cada uno de ellos, para finalmente devolver una colección con las 
+coincidencias.</li>
+<li>En cambio, <code>$developer-&gt;skills()-&gt;where('name', 'PHP')-&gt;get()</code>
+ hará la búsqueda sobre la base de datos y la colección resultante se 
+formará una vez se han obtenido los resultados de la consulta.</li>
+</ul>
+<p><strong>4. Si vas a usar "pluck", que sea sobre un builder en vez de una colección.</strong></p>
+<p>Es muy común el uso de <code>pluck</code> en proyectos Laravel. </p>
+<p>Usamos este método cuando solo necesitamos los valores de una columna
+ determinada como un arreglo (o como un arreglo asociativo en base a 
+otra columna, como puede ser el id). </p>
+<p>En el ejemplo que estamos viendo probablemente queremos obtener el listado de <code>skills</code> en un arreglo, donde la clave sea el <code>id</code> y el valor el <code>name</code> de la habilidad.</p>
+<p>Una forma de lograrlo es usar <code>$developer-&gt;skills-&gt;pluck('name', 'id')</code>.
+Pero volvemos a lo mismo. Esta sentencia crearía una colección con todos los objetos <code>Skill</code> y a partir de la colección se usaría el método <code>pluck</code>. </p>
+<p>¡No necesitamos crear instancias de nuestro modelo ni solicitar todos los atributos! Solo queremos unos datos bien puntuales.</p>
+<p>Entonces hemos de usar <code>$developer-&gt;skills()-&gt;pluck('name', 'id')</code>. De modo que la consulta use internamente un <code>SELECT name, id</code>, y construya el arreglo asociativo a partir de datos planos, que no son representaciones de nuestro modelo.</p>
+<p>Nuestros modelos son muy útiles, pero si no necesitamos hacer uso de campos calculados dinámicamente (<code>accessors</code>)
+ u otras características propias de los modelos, es preferible usar "un 
+constructor de consultas" antes que una colección y/o modelos.</p>
+<p>Si nuestra aplicación gestiona cientos, o miles de datos, probablemente no se note mucho la diferencia. </p>
+<p>Pero siempre debemos pensar en grande. Una aplicación con cientos de 
+miles de usuarios ejecutando operaciones que consumen recursos 
+innecesariamente, una vez tras otra, podría representar un gasto 
+significativo para nosotros.</p>
+
+                                    <p class="mt-3 mb-0">
+                                                    <a href="https://programacionymas.com/tags/laravel" class="chip primary-color-dark white-text" title="Ver artículos con hashtag #laravel">
+        # laravel 
+    
+    </a>                                                    <a href="https://programacionymas.com/tags/eloquent" class="chip primary-color-dark white-text" title="Ver artículos con hashtag #eloquent">
+        # eloquent 
+    
+    </a>                                            </p>
+                            </div>  
+        </div>
+        <div class="col-md-3">
+            <div class="sticky-article">
+                <div class="card mb-2 mt-2 mt-md-0">
+    <div class="card-body elegant-color-dark white-text text-center">
+        <img src="Usa%20Eloquent%20correctamente_files/mago-teal.webp" alt="Logo de Programación y más" class="m-auto rounded-circle z-depth-1" width="80">
+
+        <p class="mt-1">Comparte este post si te fue de ayuda 🙂.</p>
+        <p class="mb-0">Cualquier duda y/o sugerencia es bienvenida.</p>
+    </div>
+</div>
+                                    <div class="card flex-1 wow fadeIn" data-wow-delay="0.1s">
+    <div class="card-body elegant-color-dark text-white">
+        <p class="h4-responsive mt-0 card-title">Regístrate</p>
+        <p>Inicia sesión para acceder a nuestros cursos y llevar un control de tu progreso.</p>
+
+        <div class="text-center">
+            <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#modalLRForm">
+                <i class="fas fa-sign-in-alt mr-1"></i>
+                Ingresar
+            </button>
+        </div>
+    </div>
+</div>                            </div>
+        </div>
+    </div>
+
+    <div class="py-3 px-3 mt-2 mt-md-3 mb-2 elegant-color-dark">
+        <p class="h4-responsive my-0 white-text text-center">
+            Cursos recomendados <i class="fas fa-check ml-1"></i>
+        </p>
+        <div class="row">
+            <div class="col-12 col-md-4">
+    <div class="card mt-2">
+        <a href="https://programacionymas.com/series/curso-laravel-5-desde-cero-desarrolla-publica-una-app-pedidos">
+        <img src="Usa%20Eloquent%20correctamente_files/laravel-5-pedidos.jpg" class="card-img-top" alt="Imagen para el curso Aprende Laravel" width="480">
+        </a>
+        <div class="card-body text-center">
+            <h4 class="card-title mt-0 mt-md-2">
+                <a href="https://programacionymas.com/series/curso-laravel-5-desde-cero-desarrolla-publica-una-app-pedidos">Aprende Laravel</a>
+            </h4>
+
+            <p class="card-text">Aprende Laravel desde cero y desarrolla aplicaciones web reales, en tiempo récord, de la mano de Laravel.</p>
+
+            <a href="https://programacionymas.com/series/curso-laravel-5-desde-cero-desarrolla-publica-una-app-pedidos" class="btn btn-primary waves-effect waves-light">Ingresar al curso</a>
+        </div>
+    </div>
+</div>            <div class="col-12 col-md-4">
+    <div class="card mt-2">
+        <a href="https://programacionymas.com/series/actualizar-laravel-hasta-ultima-version">
+        <img src="Usa%20Eloquent%20correctamente_files/laravel-upgrade.webp" class="card-img-top" alt="Imagen para el curso Laravel Upgrade" width="480">
+        </a>
+        <div class="card-body text-center">
+            <h4 class="card-title mt-0 mt-md-2">
+                <a href="https://programacionymas.com/series/actualizar-laravel-hasta-ultima-version">Laravel Upgrade</a>
+            </h4>
+
+            <p class="card-text">Actualiza tus proyectos desde cualquier versión hasta la última versión estable de Laravel.</p>
+
+            <a href="https://programacionymas.com/series/actualizar-laravel-hasta-ultima-version" class="btn btn-primary waves-effect waves-light">Ingresar al curso</a>
+        </div>
+    </div>
+</div>            <div class="col-12 col-md-4">
+    <div class="card mt-2">
+        <a href="https://programacionymas.com/series/realtime-messenger-usando-laravel-vue-bootstrap-pusher">
+        <img src="Usa%20Eloquent%20correctamente_files/laravel-vue-msn.webp" class="card-img-top" alt="Imagen para el curso Laravel y Vue" width="480">
+        </a>
+        <div class="card-body text-center">
+            <h4 class="card-title mt-0 mt-md-2">
+                <a href="https://programacionymas.com/series/realtime-messenger-usando-laravel-vue-bootstrap-pusher">Laravel y Vue</a>
+            </h4>
+
+            <p class="card-text">Desarrollemos un Messenger! Aprende sobre Channels, Queues, Vuex, JWT, Sesiones, BootstrapVue y mucho más.</p>
+
+            <a href="https://programacionymas.com/series/realtime-messenger-usando-laravel-vue-bootstrap-pusher" class="btn btn-primary waves-effect waves-light">Ingresar al curso</a>
+        </div>
+    </div>
+</div>    </div>
+    </div>
+    </div>
+</main>
+
+ 
+                        <div id="bio_ep" style="display: none;"><div id="bio_ep_close">X</div>
+    <div class="sidebar">
+        <img alt="Curso gratuito de Laravel" src="Usa%20Eloquent%20correctamente_files/aprende-laravel-curso.webp">
+    </div>
+    <div class="content">
+        <h3>Antes que te vayas</h3>
+        <p>Inscríbete en nuestro curso gratuito de Laravel</p>
+        <form action="https://programacionymas.com/register" method="get">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" name="name" required="">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" name="email" required="">
+            </div>
+            <button class="btn btn-primary waves-effect waves-light">
+                Sí, me anoto <i class="fas fa-bolt ml-2"></i>
+            </button>
+        </form>
+    </div>
+</div>            
+    <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog">
+    <div class="modal-dialog cascading-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-c-tabs">
+
+                
+                <ul class="nav nav-tabs tabs-2 default-color" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                        <a id="tabLoginLink" class="nav-link" data-toggle="tab" href="#panelLogin" role="tab" aria-expanded="true">
+                            <i class="fas fa-user mr-1"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                        <a id="tabRegisterLink" class="nav-link active" data-toggle="tab" href="#panelRegister" role="tab" aria-expanded="false">
+                            <i class="fas fa-user-plus mr-1"></i> Registro
+                        </a>
+                    </li>
+                </ul>
+
+                
+                <div class="tab-content">
+
+                    
+                    <div class="tab-pane fade" id="panelLogin" role="tabpanel" aria-expanded="true">
+                        <div class="modal-body">
+    <form id="formLogin">
+        <p class="mb-2">Inicia sesión con tus datos:</p>
+        <div class="md-form form-sm">
+            <i class="fas fa-envelope prefix"></i>
+            <input type="email" name="email" class="form-control" id="modal-login-email" required="">
+            <label for="modal-login-email">E-mail</label>
+        </div>
+        <div class="md-form form-sm mb-0">
+            <i class="fas fa-lock prefix"></i>
+            <input type="password" name="password" class="form-control mb-0" id="modal-login-password" required="">
+            <label for="modal-login-password">Contraseña</label>
+            <p class="small text-right mb-0 mr-3">
+                <a href="https://programacionymas.com/forgot-password" class="blue-text">¿Olvidaste tu contraseña?</a>
+            </p>
+        </div>
+        <div class="md-form form-sm">
+            <input type="checkbox" id="modal-login-remember" name="remember">
+            <label for="modal-login-remember">Recordar sesión</label>
+        </div>
+        <div class="text-center mt-2">
+            <button class="btn btn-info waves-effect waves-light" id="btnLogin">
+                Ingresa <i class="fas fa-sign-in-alt ml-1"></i>
+            </button>
+            <p class="red-text mb-0" id="pLoginError" style="display: none">Los datos ingresados son incorrectos.</p>
+            <p class="green-text mb-0" id="pLoginSuccess" style="display: none">Bienvenido!</p>
+        </div>
+    </form>
+</div>
+                    </div>
+
+                    
+                    <div class="tab-pane fade in active show" id="panelRegister" role="tabpanel" aria-expanded="false">
+                        <div class="modal-body">
+    <form action="https://programacionymas.com/register" method="get">
+        <p class="mb-2">Regístrate con correo:</p>
+        
+        <div class="md-form form-sm">
+            <i class="fas fa-user prefix"></i>
+            <input type="text" name="name" class="form-control" id="modal-register-name" required="">
+            <label for="modal-register-name">Nombre</label>
+        </div>
+
+        <div class="md-form form-sm">
+            <i class="fas fa-envelope prefix"></i>
+            <input type="email" name="email" class="form-control" id="modal-register-email" required="">
+            <label for="modal-register-email">E-mail</label>
+        </div>
+        
+        <input type="hidden" name="redirect_to" value="https://programacionymas.com/blog/consultas-laravel-eficientes-usando-eloquent">
+
+        <div class="text-center form-sm mt-2">
+            <button class="btn btn-info waves-effect waves-light">Regístrate <i class="fas fa-sign-in-alt ml-1"></i></button>
+        </div>
+    </form>
+</div>
+                    </div>
+
+                </div>
+
+                                <div class="modal-footer justify-content-center">
+                    <p class="align-middle mb-0 d-none d-sm-block">O usando tu cuenta de Google:</p>
+
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="continue_with" data-shape="rectangular" data-logo_alignment="left"><div class="S9gUrf-YoZ4jf" style="position: relative;"><div></div><div id="gsi_922175_265653-wrapper" class="L5Fo6c-sM5MNb"><iframe src="Usa%20Eloquent%20correctamente_files/button.htm" id="gsi_922175_265653" title="Botón Iniciar sesión con Google" style="display: block; position: relative; top: 0px; left: 0px; height: 44px; width: 221px; border: 0px none; margin: -2px -10px;" tabindex="-1"></iframe><div id="gsi_922175_265653-overlay" class="L5Fo6c-bF1uUb" tabindex="0"></div></div></div></div>
+                </div>
+                            </div>
+        </div>
+    </div>
+</div>
+<footer id="footer" class="page-footer elegant-color-dark center-on-small-only">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="column-title white-text"><strong>Series por categoría</strong></p>
+                <ul>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/bases-de-datos">
+                            Bases de datos
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/php">
+                            PHP
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/laravel">
+                            Laravel
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/java">
+                            Java
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/android">
+                            Android
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/javascript">
+                            Javascript
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/herramientas-desarrollo-software">
+                            Herramientas
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="https://programacionymas.com/series/categorias/frontend">
+                            Frontend
+                        </a>
+                    </li>
+                                    </ul>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-3">
+                <p class="column-title white-text"><strong>Categorías del blog</strong></p>
+                <ul>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/desarrollo-web">
+                                Desarrollo web
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/desarrollo-movil">
+                                Desarrollo móvil
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/productividad-y-motivacion">
+                                Productividad y motivación
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/buenas-practicas">
+                                Buenas prácticas
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/bitacora">
+                                Bitácora
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/bases-de-datos">
+                                Bases de datos
+                            </a>
+                        </li>
+                                            <li>
+                            <a href="https://programacionymas.com/categorias/devops">
+                                DevOps
+                            </a>
+                        </li>
+                                    </ul>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-3 mb-1">
+                <p class="column-title white-text"><strong>Guías de inicio</strong></p>
+                <ul>
+                    <li>
+                        <a href="https://programacionymas.com/guia-de-inicio/programacion-y-mas">
+                            Guía de inicio en programación
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://programacionymas.com/guia-de-inicio/desarrollo-web">
+                            Inicio en desarrollo web
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://programacionymas.com/frontend-vs-backend">
+                            Frontend VS Backend
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <div class="col-md-3">
+                <p class="column-title white-text"><strong>Otros enlaces</strong></p>
+                <ul>
+                    <li>
+                        <a href="https://programacionymas.com/planes">
+                            Planes de membresía
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://programacionymas.com/asesoria" title="¿Necesitas asesoría?">
+                            Clases particulares
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://desarrollo.programacionymas.com/" target="_blank" title="¿Necesitas una app web y/o móvil?">
+                            Servicio de desarrollo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://programacionymas.com/privacy-policy">
+                            Política de privacidad
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://programacionymas.com/contacto" title="Formulario de contacto" target="_blank">
+                            Reporta un error
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://programacionymas.com/memes" title="Memes">
+                            Memes
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <hr>
+
+    
+
+    <div class="text-center mb-2">
+        <a target="_blank" href="https://www.facebook.com/programacionymas" class="btn-floating btn-sm elegant-color waves-effect waves-light"><i class="fab fa-facebook left"></i></a>
+        <a target="_blank" href="https://www.youtube.com/@programacionymas" class="btn-floating btn-sm elegant-color waves-effect waves-light"><i class="fab fa-youtube left"></i></a>
+        <a target="_blank" href="https://www.tiktok.com/@programacionymas" class="btn-floating btn-sm elegant-color waves-effect waves-light"><i class="fab fa-tiktok left"></i></a>
+        <a target="_blank" href="https://www.instagram.com/programacionymas" class="btn-floating btn-sm elegant-color waves-effect waves-light"><i class="fab fa-instagram left"></i></a>
+        <a target="_blank" href="https://www.github.com/JCarlosR" class="btn-floating btn-sm elegant-color waves-effect waves-light"><i class="fab fa-github left"></i></a>
+    </div>
+
+    <div class="footer-copyright wow fadeIn">
+        <div class="container-fluid">
+            © 2017 - 2022 Programación y más. Todos los derechos reservados.
+        </div>
+    </div>
+</footer>
+<script async="" src="Usa%20Eloquent%20correctamente_files/js"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-26345705-3');
+    gtag('config', 'G-0S0SF4MKJE');
+</script>
+<script src="Usa%20Eloquent%20correctamente_files/all.js"></script>
+
+
+<script>initLogin('https://programacionymas.com/sessions');</script>
+
+            <script>
+function initDisqus() {
+    
+    var disqus_shortname = 'jcarlosr'; // required
+    var disqus_config = function () {
+        this.page.url = window.location.origin + '/blog/consultas-laravel-eficientes-usando-eloquent';
+        this.page.identifier = '/blog/consultas-laravel-eficientes-usando-eloquent';
+        this.page.title = 'Cómo escribir consultas Eloquent más eficientes en Laravel';
+    };
+    
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+}
+
+$('#init_disqus').on('click', function () {
+    initDisqus();
+    $('#init_disqus').remove();
+});
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+    <script src="Usa%20Eloquent%20correctamente_files/lazy-load-images.js" defer="defer"></script>
+
+    
+    <script>
+    function initShareThis() {
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//platform-api.sharethis.com/js/sharethis.js#property=58f91d5a2fe73a0012cb5106&product=sticky-share-buttons';
+            s.async = true;
+            (d.head || d.body).appendChild(s);
+        })();
+    }
+
+    (function () {
+        const windowScrollEvent = function() {
+            const
+                heightOfWindow = window.innerHeight,
+                contentScrolled = window.pageYOffset,
+                bodyHeight = document.body.offsetHeight;
+
+            const
+                total = bodyHeight - heightOfWindow,
+                got = contentScrolled,
+                percent = got/total * 100;
+
+            if (percent > 25) {
+                
+                initShareThis();
+                window.removeEventListener('scroll', windowScrollEvent);
+            }
+        };
+
+        window.addEventListener('scroll', windowScrollEvent);
+    })();
+</script>
+
+    <div id="g_id_onload" data-client_id="501914648900-pgvr18e8sblv7r2arb41e43h5ms7ips6.apps.googleusercontent.com" data-login_uri="https://programacionymas.com/login/google" data-cancel_on_tap_outside="false">
+    </div>
+    <script src="Usa%20Eloquent%20correctamente_files/client" async="" defer="defer"></script>
+
+
+            
+        <script src="Usa%20Eloquent%20correctamente_files/bioep.min.js"></script>
+        <script>bioEp.init({ 
+                cookieExp: 12,
+                onPopup: function () {
+                    const popupImg = document.querySelector('#bio_ep .sidebar img');
+                    
+                    if (popupImg.dataset.src) {
+                        popupImg.src = popupImg.dataset.src;
+                        popupImg.removeAttribute("data-src");
+                    }
+                }
+        });</script>
+    
+
+<div id="bio_ep_bg" style="display: none;"></div><div class="hiddendiv common"></div></body></html>

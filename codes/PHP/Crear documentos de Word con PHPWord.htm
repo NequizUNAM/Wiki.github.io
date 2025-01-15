@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+	<meta charset='UTF-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v20.10 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Crear documentos de Word con PHP y PHPWord - Parzibyte&#039;s blog</title>
+	<link rel="canonical" href="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/" />
+	<meta property="og:locale" content="es_MX" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Crear documentos de Word con PHP y PHPWord - Parzibyte&#039;s blog" />
+	<meta property="og:description" content="Anteriormente en mi blog he escrito cómo crear y leer hojas de cálculo o documentos de Excel con PHP. Hoy vamos a ver cómo crear documentos de Word (con extensión docx) en PHP, usando la Leer más&hellip;" />
+	<meta property="og:url" content="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/" />
+	<meta property="og:site_name" content="Parzibyte&#039;s blog" />
+	<meta property="article:publisher" content="https://facebook.com/parzibyte.fanpage" />
+	<meta property="article:author" content="https://facebook.com/parzibyte.fanpage" />
+	<meta property="article:published_time" content="2019-06-13T23:43:03+00:00" />
+	<meta property="article:modified_time" content="2019-06-14T01:21:37+00:00" />
+	<meta property="og:image" content="https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png" />
+	<meta property="og:image:width" content="625" />
+	<meta property="og:image:height" content="486" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="parzibyte" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@parzibyte" />
+	<meta name="twitter:site" content="@parzibyte" />
+	<meta name="twitter:label1" content="Escrito por" />
+	<meta name="twitter:data1" content="parzibyte" />
+	<meta name="twitter:label2" content="Tiempo de lectura" />
+	<meta name="twitter:data2" content="6 minutos" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/#article","isPartOf":{"@id":"https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/"},"author":{"name":"parzibyte","@id":"https://parzibyte.me/blog/#/schema/person/543968a4d7ec5d02a19f02954dbbb4f2"},"headline":"Crear documentos de Word con PHP y PHPWord","datePublished":"2019-06-13T23:43:03+00:00","dateModified":"2019-06-14T01:21:37+00:00","mainEntityOfPage":{"@id":"https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/"},"wordCount":1040,"commentCount":16,"publisher":{"@id":"https://parzibyte.me/blog/#/schema/person/543968a4d7ec5d02a19f02954dbbb4f2"},"image":{"@id":"https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/#primaryimage"},"thumbnailUrl":"https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png","keywords":["Crear word","documento de Word","docx","instalar phpword","phpoffice","phpword","phpword composer","word","Word y PHP"],"articleSection":["php","web"],"inLanguage":"es-MX","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/#respond"]}]},{"@type":"WebPage","@id":"https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/","url":"https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/","name":"Crear documentos de Word con PHP y PHPWord - Parzibyte&#039;s blog","isPartOf":{"@id":"https://parzibyte.me/blog/#website"},"primaryImageOfPage":{"@id":"https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/#primaryimage"},"image":{"@id":"https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/#primaryimage"},"thumbnailUrl":"https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png","datePublished":"2019-06-13T23:43:03+00:00","dateModified":"2019-06-14T01:21:37+00:00","breadcrumb":{"@id":"https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/#breadcrumb"},"inLanguage":"es-MX","potentialAction":[{"@type":"ReadAction","target":["https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/"]}]},{"@type":"ImageObject","inLanguage":"es-MX","@id":"https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/#primaryimage","url":"https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png","contentUrl":"https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png","width":625,"height":486,"caption":"1 - Iniciar proyecto si no existe"},{"@type":"BreadcrumbList","@id":"https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://parzibyte.me/blog/"},{"@type":"ListItem","position":2,"name":"Crear documentos de Word con PHP y PHPWord"}]},{"@type":"WebSite","@id":"https://parzibyte.me/blog/#website","url":"https://parzibyte.me/blog/","name":"Parzibyte's blog","description":"Blog de conocimiento gratuito: linux, programación, open source, bases de datos, android, frameworks, web e informática en general.","publisher":{"@id":"https://parzibyte.me/blog/#/schema/person/543968a4d7ec5d02a19f02954dbbb4f2"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://parzibyte.me/blog/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"es-MX"},{"@type":["Person","Organization"],"@id":"https://parzibyte.me/blog/#/schema/person/543968a4d7ec5d02a19f02954dbbb4f2","name":"parzibyte","image":{"@type":"ImageObject","inLanguage":"es-MX","@id":"https://parzibyte.me/blog/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=96&d=monsterid&r=g","contentUrl":"https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=96&d=monsterid&r=g","caption":"parzibyte"},"logo":{"@id":"https://parzibyte.me/blog/#/schema/person/image/"},"description":"Programador freelancer listo para trabajar contigo. Aplicaciones web, móviles y de escritorio. PHP, Java, Go, Python, JavaScript, Kotlin y más :) https://parzibyte.me/blog/software-creado-por-parzibyte/","sameAs":["https://parzibyte.me","https://facebook.com/parzibyte.fanpage","https://instagram.com/parzibyte","https://www.linkedin.com/in/parzibyte","https://twitter.com/parzibyte","https://www.youtube.com/channel/UCroP4BTWjfM0CkGB6AFUoBg"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//widgets.wp.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//0.gravatar.com' />
+<link rel='dns-prefetch' href='//1.gravatar.com' />
+<link rel='dns-prefetch' href='//2.gravatar.com' />
+<link rel="alternate" type="application/rss+xml" title="Parzibyte&#039;s blog &raquo; Feed" href="https://parzibyte.me/blog/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Parzibyte&#039;s blog &raquo; RSS de los comentarios" href="https://parzibyte.me/blog/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Parzibyte&#039;s blog &raquo; Crear documentos de Word con PHP y PHPWord RSS de los comentarios" href="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/feed/" />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/parzibyte.me\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){p.clearRect(0,0,i.width,i.height),p.fillText(e,0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(t,0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!s("\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='jetpack-videopress-video-block-view-css' href='https://parzibyte.me/blog/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-videopress/build/block-editor/blocks/video/view.css?minify=false&#038;ver=34ae973733627b74a14e' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelement-css' href='https://parzibyte.me/blog/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css' href='https://parzibyte.me/blog/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='advanced-google-recaptcha-style-css' href='https://parzibyte.me/blog/wp-content/plugins/advanced-google-recaptcha/assets/css/captcha.min.css?ver=1.0.15' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css' href='https://parzibyte.me/blog/wp-content/themes/hestia/assets/bootstrap/css/bootstrap.min.css?ver=1.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='hestia-font-sizes-css' href='https://parzibyte.me/blog/wp-content/themes/hestia/assets/css/font-sizes.min.css?ver=3.0.29' type='text/css' media='all' />
+<link rel='stylesheet' id='hestia_style-css' href='https://parzibyte.me/blog/wp-content/themes/hestia/style.min.css?ver=3.0.29' type='text/css' media='all' />
+<style id='hestia_style-inline-css' type='text/css'>
+.hestia-top-bar,.hestia-top-bar .widget.widget_shopping_cart .cart_list{background-color:#363537}.hestia-top-bar .widget .label-floating input[type=search]:-webkit-autofill{-webkit-box-shadow:inset 0 0 0 9999px #363537}.hestia-top-bar,.hestia-top-bar .widget .label-floating input[type=search],.hestia-top-bar .widget.widget_search form.form-group:before,.hestia-top-bar .widget.widget_product_search form.form-group:before,.hestia-top-bar .widget.widget_shopping_cart:before{color:#fff}.hestia-top-bar .widget .label-floating input[type=search]{-webkit-text-fill-color:#fff !important}.hestia-top-bar div.widget.widget_shopping_cart:before,.hestia-top-bar .widget.widget_product_search form.form-group:before,.hestia-top-bar .widget.widget_search form.form-group:before{background-color:#fff}.hestia-top-bar a,.hestia-top-bar .top-bar-nav li a{color:#fff}.hestia-top-bar ul li a[href*="mailto:"]:before,.hestia-top-bar ul li a[href*="tel:"]:before{background-color:#fff}.hestia-top-bar a:hover,.hestia-top-bar .top-bar-nav li a:hover{color:#eee}.hestia-top-bar ul li:hover a[href*="mailto:"]:before,.hestia-top-bar ul li:hover a[href*="tel:"]:before{background-color:#eee}
+a,.navbar .dropdown-menu li:hover>a,.navbar .dropdown-menu li:focus>a,.navbar .dropdown-menu li:active>a,.navbar .navbar-nav>li .dropdown-menu li:hover>a,body:not(.home) .navbar-default .navbar-nav>.active:not(.btn)>a,body:not(.home) .navbar-default .navbar-nav>.active:not(.btn)>a:hover,body:not(.home) .navbar-default .navbar-nav>.active:not(.btn)>a:focus,a:hover,.card-blog a.moretag:hover,.card-blog a.more-link:hover,.widget a:hover,.has-text-color.has-accent-color,p.has-text-color a{color:#209cee}.svg-text-color{fill:#209cee}.pagination span.current,.pagination span.current:focus,.pagination span.current:hover{border-color:#209cee}button,button:hover,.woocommerce .track_order button[type="submit"],.woocommerce .track_order button[type="submit"]:hover,div.wpforms-container .wpforms-form button[type=submit].wpforms-submit,div.wpforms-container .wpforms-form button[type=submit].wpforms-submit:hover,input[type="button"],input[type="button"]:hover,input[type="submit"],input[type="submit"]:hover,input#searchsubmit,.pagination span.current,.pagination span.current:focus,.pagination span.current:hover,.btn.btn-primary,.btn.btn-primary:link,.btn.btn-primary:hover,.btn.btn-primary:focus,.btn.btn-primary:active,.btn.btn-primary.active,.btn.btn-primary.active:focus,.btn.btn-primary.active:hover,.btn.btn-primary:active:hover,.btn.btn-primary:active:focus,.btn.btn-primary:active:hover,.hestia-sidebar-open.btn.btn-rose,.hestia-sidebar-close.btn.btn-rose,.hestia-sidebar-open.btn.btn-rose:hover,.hestia-sidebar-close.btn.btn-rose:hover,.hestia-sidebar-open.btn.btn-rose:focus,.hestia-sidebar-close.btn.btn-rose:focus,.label.label-primary,.hestia-work .portfolio-item:nth-child(6n+1) .label,.nav-cart .nav-cart-content .widget .buttons .button,.has-accent-background-color[class*="has-background"]{background-color:#209cee}@media(max-width:768px){.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus,.navbar .navbar-nav .dropdown .dropdown-menu li a:hover,.navbar .navbar-nav .dropdown .dropdown-menu li a:focus,.navbar button.navbar-toggle:hover,.navbar .navbar-nav li:hover>a i{color:#209cee}}body:not(.woocommerce-page) button:not([class^="fl-"]):not(.hestia-scroll-to-top):not(.navbar-toggle):not(.close),body:not(.woocommerce-page) .button:not([class^="fl-"]):not(hestia-scroll-to-top):not(.navbar-toggle):not(.add_to_cart_button):not(.product_type_grouped):not(.product_type_external),div.wpforms-container .wpforms-form button[type=submit].wpforms-submit,input[type="submit"],input[type="button"],.btn.btn-primary,.widget_product_search button[type="submit"],.hestia-sidebar-open.btn.btn-rose,.hestia-sidebar-close.btn.btn-rose,.everest-forms button[type=submit].everest-forms-submit-button{-webkit-box-shadow:0 2px 2px 0 rgba(32,156,238,0.14),0 3px 1px -2px rgba(32,156,238,0.2),0 1px 5px 0 rgba(32,156,238,0.12);box-shadow:0 2px 2px 0 rgba(32,156,238,0.14),0 3px 1px -2px rgba(32,156,238,0.2),0 1px 5px 0 rgba(32,156,238,0.12)}.card .header-primary,.card .content-primary,.everest-forms button[type=submit].everest-forms-submit-button{background:#209cee}body:not(.woocommerce-page) .button:not([class^="fl-"]):not(.hestia-scroll-to-top):not(.navbar-toggle):not(.add_to_cart_button):hover,body:not(.woocommerce-page) button:not([class^="fl-"]):not(.hestia-scroll-to-top):not(.navbar-toggle):not(.close):hover,div.wpforms-container .wpforms-form button[type=submit].wpforms-submit:hover,input[type="submit"]:hover,input[type="button"]:hover,input#searchsubmit:hover,.widget_product_search button[type="submit"]:hover,.pagination span.current,.btn.btn-primary:hover,.btn.btn-primary:focus,.btn.btn-primary:active,.btn.btn-primary.active,.btn.btn-primary:active:focus,.btn.btn-primary:active:hover,.hestia-sidebar-open.btn.btn-rose:hover,.hestia-sidebar-close.btn.btn-rose:hover,.pagination span.current:hover,.everest-forms button[type=submit].everest-forms-submit-button:hover,.everest-forms button[type=submit].everest-forms-submit-button:focus,.everest-forms button[type=submit].everest-forms-submit-button:active{-webkit-box-shadow:0 14px 26px -12px rgba(32,156,238,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(32,156,238,0.2);box-shadow:0 14px 26px -12px rgba(32,156,238,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(32,156,238,0.2);color:#fff}.form-group.is-focused .form-control{background-image:-webkit-gradient(linear,left top,left bottom,from(#209cee),to(#209cee)),-webkit-gradient(linear,left top,left bottom,from(#d2d2d2),to(#d2d2d2));background-image:-webkit-linear-gradient(linear,left top,left bottom,from(#209cee),to(#209cee)),-webkit-linear-gradient(linear,left top,left bottom,from(#d2d2d2),to(#d2d2d2));background-image:linear-gradient(linear,left top,left bottom,from(#209cee),to(#209cee)),linear-gradient(linear,left top,left bottom,from(#d2d2d2),to(#d2d2d2))}.navbar:not(.navbar-transparent) li:not(.btn):hover>a,.navbar li.on-section:not(.btn)>a,.navbar.full-screen-menu.navbar-transparent li:not(.btn):hover>a,.navbar.full-screen-menu .navbar-toggle:hover,.navbar:not(.navbar-transparent) .nav-cart:hover,.navbar:not(.navbar-transparent) .hestia-toggle-search:hover{color:#209cee}.header-filter-gradient{background:linear-gradient(45deg,rgba(32,156,238,1) 0,rgb(98,184,217) 100%)}.has-text-color.has-header-gradient-color{color:#209cee}.has-header-gradient-background-color[class*="has-background"]{background-color:#209cee}.has-text-color.has-background-color-color{color:#E5E5E5}.has-background-color-background-color[class*="has-background"]{background-color:#E5E5E5}
+.btn.btn-primary:not(.colored-button):not(.btn-left):not(.btn-right):not(.btn-just-icon):not(.menu-item),input[type="submit"]:not(.search-submit),body:not(.woocommerce-account) .woocommerce .button.woocommerce-Button,.woocommerce .product button.button,.woocommerce .product button.button.alt,.woocommerce .product #respond input#submit,.woocommerce-cart .blog-post .woocommerce .cart-collaterals .cart_totals .checkout-button,.woocommerce-checkout #payment #place_order,.woocommerce-account.woocommerce-page button.button,.woocommerce .track_order button[type="submit"],.nav-cart .nav-cart-content .widget .buttons .button,.woocommerce a.button.wc-backward,body.woocommerce .wccm-catalog-item a.button,body.woocommerce a.wccm-button.button,form.woocommerce-form-coupon button.button,div.wpforms-container .wpforms-form button[type=submit].wpforms-submit,div.woocommerce a.button.alt,div.woocommerce table.my_account_orders .button,.btn.colored-button,.btn.btn-left,.btn.btn-right,.btn:not(.colored-button):not(.btn-left):not(.btn-right):not(.btn-just-icon):not(.menu-item):not(.hestia-sidebar-open):not(.hestia-sidebar-close){padding-top:15px;padding-bottom:15px;padding-left:33px;padding-right:33px}
+.btn.btn-primary:not(.colored-button):not(.btn-left):not(.btn-right):not(.btn-just-icon):not(.menu-item),input[type="submit"]:not(.search-submit),body:not(.woocommerce-account) .woocommerce .button.woocommerce-Button,.woocommerce .product button.button,.woocommerce .product button.button.alt,.woocommerce .product #respond input#submit,.woocommerce-cart .blog-post .woocommerce .cart-collaterals .cart_totals .checkout-button,.woocommerce-checkout #payment #place_order,.woocommerce-account.woocommerce-page button.button,.woocommerce .track_order button[type="submit"],.nav-cart .nav-cart-content .widget .buttons .button,.woocommerce a.button.wc-backward,body.woocommerce .wccm-catalog-item a.button,body.woocommerce a.wccm-button.button,form.woocommerce-form-coupon button.button,div.wpforms-container .wpforms-form button[type=submit].wpforms-submit,div.woocommerce a.button.alt,div.woocommerce table.my_account_orders .button,input[type="submit"].search-submit,.hestia-view-cart-wrapper .added_to_cart.wc-forward,.woocommerce-product-search button,.woocommerce-cart .actions .button,#secondary div[id^=woocommerce_price_filter] .button,.woocommerce div[id^=woocommerce_widget_cart].widget .buttons .button,.searchform input[type=submit],.searchform button,.search-form:not(.media-toolbar-primary) input[type=submit],.search-form:not(.media-toolbar-primary) button,.woocommerce-product-search input[type=submit],.btn.colored-button,.btn.btn-left,.btn.btn-right,.btn:not(.colored-button):not(.btn-left):not(.btn-right):not(.btn-just-icon):not(.menu-item):not(.hestia-sidebar-open):not(.hestia-sidebar-close){border-radius:3px}
+@media(min-width:769px){.page-header.header-small .hestia-title,.page-header.header-small .title,h1.hestia-title.title-in-content,.main article.section .has-title-font-size{font-size:42px}}
+</style>
+<link crossorigin="anonymous" rel='stylesheet' id='hestia_fonts-css' href='https://fonts.googleapis.com/css?family=Roboto%3A300%2C400%2C500%2C700%7CRoboto+Slab%3A400%2C700&#038;subset=latin%2Clatin-ext&#038;ver=3.0.29' type='text/css' media='all' />
+<link rel='stylesheet' id='social-logos-css' href='https://parzibyte.me/blog/wp-content/plugins/jetpack/_inc/social-logos/social-logos.min.css?ver=12.2.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css' href='https://parzibyte.me/blog/wp-content/plugins/jetpack/css/jetpack.css?ver=12.2.1' type='text/css' media='all' />
+<script type='text/javascript' id='jetpack_related-posts-js-extra'>
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-content/plugins/jetpack/_inc/build/related-posts/related-posts.min.js?ver=20211209' id='jetpack_related-posts-js'></script>
+<script type='text/javascript' id='advanced-google-recaptcha-custom-js-extra'>
+/* <![CDATA[ */
+var agrRecaptcha = {"site_key":"6LcQh0UUAAAAAGxeWVi1VubbM2z1GmEZeWJXH0x0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-content/plugins/advanced-google-recaptcha/assets/js/captcha.min.js?ver=1.0.15' id='advanced-google-recaptcha-custom-js'></script>
+<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?hl=es_MX&#038;onload=agrLoad&#038;render=explicit&#038;ver=1.0.15' id='advanced-google-recaptcha-api-js'></script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-includes/js/jquery/jquery.min.js?ver=3.6.4' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.0' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="https://parzibyte.me/blog/wp-json/" /><link rel="alternate" type="application/json" href="https://parzibyte.me/blog/wp-json/wp/v2/posts/6898" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://parzibyte.me/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://parzibyte.me/blog/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.2.2" />
+<link rel='shortlink' href='https://parzibyte.me/blog/?p=6898' />
+<link rel="alternate" type="application/json+oembed" href="https://parzibyte.me/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fparzibyte.me%2Fblog%2F2019%2F06%2F13%2Fcrear-documentos-word-php-phpword%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://parzibyte.me/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fparzibyte.me%2Fblog%2F2019%2F06%2F13%2Fcrear-documentos-word-php-phpword%2F&#038;format=xml" />
+	<style>img#wpstats{display:none}</style>
+		<link rel="amphtml" href="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/amp/">			<style type="text/css">
+				/* If html does not have either class, do not show lazy loaded images. */
+				html:not( .jetpack-lazy-images-js-enabled ):not( .js ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		<link rel="icon" href="https://parzibyte.me/blog/wp-content/uploads/2018/02/cropped-profile-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="https://parzibyte.me/blog/wp-content/uploads/2018/02/cropped-profile-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://parzibyte.me/blog/wp-content/uploads/2018/02/cropped-profile-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://parzibyte.me/blog/wp-content/uploads/2018/02/cropped-profile-270x270.jpg" />
+		<style type="text/css" id="wp-custom-css">
+			#menu-k li:nth-child(2) a{
+	font-weight: 900 !important;
+	color: #F44336;
+}
+#menu-k li:nth-child(5) a{
+	font-weight: 900 !important;
+	color: #673AB7;
+}
+#menu-k li:nth-child(5) :after{
+	margin-left:2px;
+	content: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='10px' height='9px' viewBox='0 0 10 9' version='1.1'%3E%3Cg id='surface1'%3E%3Cpath style=' stroke:none;fill-rule:evenodd;fill:rgb(92.941176%25,10.588235%25,14.117647%25);fill-opacity:1;' d='M 4.949219 1.441406 C 5.597656 0.738281 6.054688 0.136719 7.058594 0.015625 C 8.933594 -0.207031 10.65625 1.78125 9.707031 3.738281 C 9.4375 4.296875 8.890625 4.957031 8.28125 5.609375 C 7.617188 6.324219 6.878906 7.023438 6.359375 7.554688 L 4.953125 9 L 3.785156 7.839844 C 2.386719 6.445312 0.105469 4.6875 0.0234375 2.507812 C -0.0273438 0.984375 1.136719 0.0078125 2.472656 0.0234375 C 3.667969 0.0429688 4.175781 0.65625 4.949219 1.441406 Z M 4.949219 1.441406 '/%3E%3C/g%3E%3C/svg%3E%0A");
+} 
+#menu-k li:nth-child(2) :after{
+	content: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='10px' height='14px' viewBox='0 0 10 14' version='1.1'%3E%3Cg id='surface1'%3E%3Cpath style=' stroke:none;fill-rule:evenodd;fill:rgb(81.568627%25,25.098039%25,10.588235%25);fill-opacity:1;' d='M 4.023438 8.390625 L 8.230469 7.679688 L 10 11.75 L 7.8125 11.726562 L 6.011719 13.164062 Z M 4.023438 8.390625 '/%3E%3Cpath style=' stroke:none;fill-rule:evenodd;fill:rgb(100%25,40%25,0%25);fill-opacity:1;' d='M 6.441406 7.9375 L 1.933594 8.058594 L 0 12.582031 L 2.1875 12.554688 L 3.988281 13.992188 Z M 6.441406 7.9375 '/%3E%3Cpath style=' stroke:none;fill-rule:evenodd;fill:rgb(96.078431%25,78.431373%25,0%25);fill-opacity:1;' d='M 5.089844 0.0078125 C 5.347656 -0.00390625 5.554688 0.0859375 5.761719 0.214844 C 6.023438 0.378906 6.316406 0.703125 6.679688 0.90625 C 7.195312 1.195312 8.144531 0.796875 8.628906 1.507812 C 8.914062 1.921875 8.925781 2.246094 8.945312 2.570312 C 8.96875 2.914062 9.03125 3.234375 9.390625 3.703125 C 9.988281 4.480469 10.113281 4.996094 9.804688 5.535156 C 9.59375 5.902344 9.15625 6.105469 9.050781 6.335938 C 8.835938 6.832031 9.074219 7.203125 8.777344 7.78125 C 8.570312 8.179688 8.253906 8.445312 7.828125 8.578125 C 7.472656 8.691406 7.113281 8.527344 6.828125 8.648438 C 6.324219 8.855469 5.953125 9.339844 5.550781 9.460938 C 5.398438 9.507812 5.242188 9.53125 5.089844 9.53125 C 4.9375 9.53125 4.78125 9.507812 4.625 9.460938 C 4.226562 9.339844 3.855469 8.855469 3.351562 8.648438 C 3.066406 8.527344 2.707031 8.691406 2.347656 8.578125 C 1.925781 8.445312 1.605469 8.179688 1.398438 7.78125 C 1.101562 7.203125 1.34375 6.832031 1.125 6.335938 C 1.023438 6.105469 0.582031 5.902344 0.375 5.535156 C 0.0664062 4.996094 0.191406 4.480469 0.785156 3.703125 C 1.148438 3.234375 1.207031 2.914062 1.230469 2.570312 C 1.253906 2.246094 1.265625 1.921875 1.550781 1.507812 C 2.035156 0.796875 2.984375 1.195312 3.496094 0.90625 C 3.863281 0.703125 4.15625 0.378906 4.417969 0.214844 C 4.625 0.0859375 4.828125 -0.00390625 5.089844 0.0078125 Z M 5.089844 0.0078125 '/%3E%3Cpath style=' stroke:none;fill-rule:evenodd;fill:rgb(100%25,86.666667%25,38.039216%25);fill-opacity:1;' d='M 5.089844 0.0078125 C 5.347656 -0.00390625 5.554688 0.0859375 5.761719 0.214844 C 6.023438 0.378906 6.316406 0.703125 6.679688 0.90625 C 7.089844 1.136719 7.773438 0.933594 8.28125 1.195312 L 2.554688 8.617188 C 2.484375 8.613281 2.417969 8.601562 2.347656 8.578125 C 1.925781 8.445312 1.605469 8.179688 1.398438 7.78125 C 1.101562 7.203125 1.34375 6.832031 1.125 6.335938 C 1.023438 6.105469 0.582031 5.902344 0.375 5.535156 C 0.0664062 4.996094 0.191406 4.480469 0.785156 3.703125 C 1.148438 3.234375 1.207031 2.914062 1.230469 2.570312 C 1.253906 2.246094 1.265625 1.921875 1.550781 1.507812 C 2.035156 0.796875 2.984375 1.195312 3.496094 0.90625 C 3.863281 0.703125 4.15625 0.378906 4.417969 0.214844 C 4.625 0.0859375 4.828125 -0.00390625 5.089844 0.0078125 Z M 5.089844 0.0078125 '/%3E%3Cpath style=' stroke:none;fill-rule:evenodd;fill:rgb(89.019608%25,49.411765%25,0%25);fill-opacity:1;' d='M 8.6875 4.84375 C 8.6875 6.804688 7.070312 8.398438 5.074219 8.398438 C 3.082031 8.398438 1.464844 6.804688 1.464844 4.84375 C 1.464844 2.878906 3.082031 1.285156 5.074219 1.285156 C 7.070312 1.285156 8.6875 2.878906 8.6875 4.84375 Z M 8.6875 4.84375 '/%3E%3Cpath style=' stroke:none;fill-rule:evenodd;fill:rgb(96.078431%25,78.431373%25,0%25);fill-opacity:1;' d='M 5.074219 2 C 6.671875 2 7.960938 3.273438 7.960938 4.84375 C 7.960938 6.414062 6.671875 7.683594 5.074219 7.683594 C 3.480469 7.683594 2.1875 6.414062 2.1875 4.84375 C 2.1875 3.273438 3.480469 2 5.074219 2 Z M 5.074219 2 '/%3E%3Cpath style=' stroke:none;fill-rule:evenodd;fill:rgb(100%25,86.666667%25,38.039216%25);fill-opacity:1;' d='M 5.074219 2 C 5.839844 2 6.535156 2.292969 7.050781 2.769531 L 3.507812 7.230469 C 3.382812 7.148438 3.257812 7.058594 3.144531 6.957031 C 2.558594 6.4375 2.1875 5.683594 2.1875 4.84375 C 2.1875 3.273438 3.480469 2 5.074219 2 Z M 5.074219 2 '/%3E%3Cpath style=' stroke:none;fill-rule:nonzero;fill:rgb(89.019608%25,49.411765%25,0%25);fill-opacity:1;' d='M 5.160156 3.179688 L 5.613281 4.226562 L 6.761719 4.328125 C 6.8125 4.332031 6.851562 4.375 6.847656 4.425781 C 6.84375 4.449219 6.832031 4.46875 6.816406 4.484375 L 5.945312 5.234375 L 6.203125 6.339844 C 6.214844 6.390625 6.183594 6.4375 6.132812 6.449219 C 6.109375 6.453125 6.082031 6.449219 6.0625 6.4375 L 5.074219 5.855469 L 4.085938 6.4375 C 4.042969 6.464844 3.984375 6.449219 3.957031 6.40625 C 3.945312 6.386719 3.941406 6.363281 3.949219 6.339844 L 4.203125 5.234375 L 3.335938 4.484375 C 3.296875 4.453125 3.292969 4.394531 3.328125 4.355469 C 3.34375 4.339844 3.367188 4.328125 3.390625 4.328125 L 4.539062 4.226562 L 4.992188 3.179688 C 5.011719 3.132812 5.066406 3.113281 5.113281 3.132812 C 5.132812 3.144531 5.152344 3.160156 5.160156 3.179688 Z M 5.160156 3.179688 '/%3E%3C/g%3E%3C/svg%3E%0A");
+	margin-left:2px;
+}
+		</style>
+		</head>
+
+<body class="post-template-default single single-post postid-6898 single-format-standard blog-post header-layout-default">
+		<div class="wrapper post-6898 post type-post status-publish format-standard has-post-thumbnail hentry category-php category-web tag-crear-word tag-documento-de-word tag-docx tag-instalar-phpword tag-phpoffice tag-phpword tag-phpword-composer tag-word tag-word-y-php default ">
+		<header class="header ">
+			<div style="display: none"></div>		<nav class="navbar navbar-default navbar-fixed-top  hestia_center navbar-not-transparent">
+						<div class="container">
+						<div class="navbar-header">
+			<div class="title-logo-wrapper">
+				<a class="navbar-brand" href="https://parzibyte.me/blog/"
+						title="Parzibyte&#039;s blog">
+					<p>Parzibyte&#039;s blog</p></a>
+			</div>
+								<div class="navbar-toggle-wrapper">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="sr-only">Cambiar modo de navegación</span>
+			</button>
+					</div>
+				</div>
+		<div id="main-navigation" class="collapse navbar-collapse"><ul id="menu-k" class="nav navbar-nav"><li id="menu-item-2991" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-2991"><a title="Inicio" href="https://parzibyte.me/blog">Inicio</a></li>
+<li id="menu-item-7033" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7033"><a title="Tareas y trabajos de programación" href="https://parzibyte.me/blog/contrataciones-ayuda/">Tareas y trabajos de programación</a></li>
+<li id="menu-item-7038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7038"><a title="Software creado por parzibyte (portafolio)" href="https://parzibyte.me/blog/software-creado-por-parzibyte/">Software creado por parzibyte (portafolio)</a></li>
+<li id="menu-item-2994" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2994"><a title="Contacto" href="https://parzibyte.me/blog/contacto/">Contacto</a></li>
+<li id="menu-item-16399" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16399"><a title="Donaciones" href="https://parzibyte.me/blog/donaciones/">Donaciones</a></li>
+<li class="hestia-search-in-menu"><div class="hestia-nav-search"><form role="search" method="get" class="search-form" action="https://parzibyte.me/blog/">
+				<label>
+					<span class="screen-reader-text">Buscar:</span>
+					<input type="search" class="search-field" placeholder="Buscar &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="Buscar" />
+			</form></div><a class="hestia-toggle-search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></a></li></ul></div>			</div>
+					</nav>
+				</header>
+<div id="primary" class=" page-header header-small" data-parallax="active" ><div class="container"><div class="row"><div class="col-md-10 col-md-offset-1 text-center"><h1 class="hestia-title entry-title">Crear documentos de Word con PHP y PHPWord</h1><h4 class="author">Publicado por <a href="https://parzibyte.me/blog/author/parzibyte/" class="vcard author"><strong class="fn">parzibyte</strong></a> en <time class="entry-date published" datetime="2019-06-13T18:43:03-05:00" content="2019-06-13">junio 13, 2019</time><time class="updated hestia-hidden" datetime="2019-06-13T20:21:37-05:00">junio 13, 2019</time></h4></div></div></div><div class="header-filter" style="background-image: url(https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png);"></div></div>
+<div class="main ">
+	<div class="blog-post blog-post-wrapper">
+		<div class="container">
+			<article id="post-6898" class="section section-text">
+	<div class="row">
+				<div class="col-md-8 single-post-container" data-layout="sidebar-right">
+
+			<div class="single-post-wrap entry-content"><p>Anteriormente en mi blog he escrito cómo <a href="https://parzibyte.me/blog/2018/11/08/crear-archivo-excel-php-phpspreadsheet/">crear</a> y <a href="https://parzibyte.me/blog/2019/02/14/leer-archivo-excel-php-phpspreadsheet/">leer</a> hojas de cálculo o <strong>documentos de Excel</strong> con PHP.</p>
+<p>Hoy vamos a ver <strong>cómo crear documentos de Word</strong> (con extensión docx) en <strong>PHP</strong>, usando la librería <strong>PHPWord</strong>.</p>
+<p>La librería de phpword permite varias cosas, y para comenzar veremos cómo:</p>
+<ul>
+<li>Instalar la librería phpword usando composer (no hay pretexto para no usarlo en la actualidad)</li>
+<li>Crear primer documento de Word, con propiedades, etiquetas, título, etcétera.</li>
+<li>Agregar texto con distintas fuentes a documento de Word</li>
+<li>Agregar títulos y alinear texto</li>
+<li>Poner hipervínculos dentro de un documento de Word</li>
+<li>Agregar saltos de línea y saltos de página</li>
+<li>Guardar el documento de Word</li>
+<li>Descargar el documento de Word</li>
+</ul>
+<p>La librería permite más cosas, pero las veremos más tarde.</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<p><span id="more-6898"></span></p>
+<h2>Instalar librería PHPWord</h2>
+<p>¿No has instalado Composer? <a href="https://parzibyte.me/blog/2017/12/24/configurar-descargar-instalar-composer-gestor-dependencias/">aquí</a> te digo cómo</p>
+<p>Si ya cuentas con un proyecto, mira <a href="https://parzibyte.me/blog/2019/02/03/adaptar-proyecto-php-composer/">aquí</a> cómo adaptarlo. En caso de que sea nuevo, <a href="https://parzibyte.me/blog/2019/02/02/primeros-pasos-composer-explicacion-funcionamiento/">inicia un proyecto</a> con <code>composer init</code>.</p>
+<div id="attachment_6899" style="width: 635px" class="wp-caption aligncenter"><a href="https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png"><img aria-describedby="caption-attachment-6899" decoding="async" src="https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png" alt width="625" height="486" class="size-full wp-image-6899 jetpack-lazy-image" data-lazy-srcset="https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png 625w, https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe-300x233.png 300w" data-lazy-sizes="(max-width: 625px) 100vw, 625px" data-lazy-src="https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png?is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" aria-describedby="caption-attachment-6899" decoding="async" src="https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png" alt="" width="625" height="486" class="size-full wp-image-6899" srcset="https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe.png 625w, https://parzibyte.me/blog/wp-content/uploads/2019/06/1-Iniciar-proyecto-si-no-existe-300x233.png 300w" sizes="(max-width: 625px) 100vw, 625px"  /></noscript></a><p id="caption-attachment-6899" class="wp-caption-text">1 &#8211; Iniciar proyecto si no existe</p></div>
+<p>Ahora instala la <a href="https://github.com/PHPOffice/PHPWord">librería</a> con:</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<p><code>composer require phpoffice/phpword</code></p>
+<div id="attachment_6900" style="width: 872px" class="wp-caption aligncenter"><a href="https://parzibyte.me/blog/wp-content/uploads/2019/06/2-Instalar-phpword-y-dependencias.png"><img aria-describedby="caption-attachment-6900" decoding="async" src="https://parzibyte.me/blog/wp-content/uploads/2019/06/2-Instalar-phpword-y-dependencias.png" alt width="862" height="338" class="size-full wp-image-6900 jetpack-lazy-image" data-lazy-srcset="https://parzibyte.me/blog/wp-content/uploads/2019/06/2-Instalar-phpword-y-dependencias.png 862w, https://parzibyte.me/blog/wp-content/uploads/2019/06/2-Instalar-phpword-y-dependencias-300x118.png 300w, https://parzibyte.me/blog/wp-content/uploads/2019/06/2-Instalar-phpword-y-dependencias-768x301.png 768w" data-lazy-sizes="(max-width: 862px) 100vw, 862px" data-lazy-src="https://parzibyte.me/blog/wp-content/uploads/2019/06/2-Instalar-phpword-y-dependencias.png?is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" aria-describedby="caption-attachment-6900" decoding="async" loading="lazy" src="https://parzibyte.me/blog/wp-content/uploads/2019/06/2-Instalar-phpword-y-dependencias.png" alt="" width="862" height="338" class="size-full wp-image-6900" srcset="https://parzibyte.me/blog/wp-content/uploads/2019/06/2-Instalar-phpword-y-dependencias.png 862w, https://parzibyte.me/blog/wp-content/uploads/2019/06/2-Instalar-phpword-y-dependencias-300x118.png 300w, https://parzibyte.me/blog/wp-content/uploads/2019/06/2-Instalar-phpword-y-dependencias-768x301.png 768w" sizes="(max-width: 862px) 100vw, 862px"  /></noscript></a><p id="caption-attachment-6900" class="wp-caption-text">2 &#8211; Instalar phpword y dependencias</p></div>
+<p>Después de eso simplemente incluye el autoload:</p>
+<p><code>require_once "vendor/autoload.php";</code></p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<p>Estamos listos para comenzar.</p>
+<h2>Hola mundo con PHPWord</h2>
+<p>Para crear un documento de Word con PHP hay que crear una nueva instancia de la clase <strong>PhpOffice\PhpWord\PhpWord</strong>.</p>
+<p><code>$documento = new \PhpOffice\PhpWord\PhpWord();</code></p>
+<p>A ese documento se le pueden modificar las propiedades, agregar secciones, texto, imágenes, títulos, etcétera.</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<p>Para modificar las propiedades del documento hay que obtener a las mismas con <code>$documento-&gt;getDocInfo()</code> y luego modificarlas con métodos como <code>setCreator</code>, <code>setLastModifiedBy</code>, etcétera.</p>
+<div class="oembed-gist"><script src="https://gist.github.com/parzibyte/7f291e9c5ddc65f26160a76322cc052d.js"></script><noscript>View the code on <a href="https://gist.github.com/parzibyte/7f291e9c5ddc65f26160a76322cc052d">Gist</a>.</noscript></div>
+<p>Cuando creamos el documento y lo abrimos (al menos con Microsoft Word), se abre en modo <strong>compatibilidad</strong>. Para evitarlo se utiliza:</p>
+<p><code>$documento-&gt;getCompatibility()-&gt;setOoxmlVersion(15);</code></p>
+<p>El <strong>idioma</strong> se establece creando una instancia de <strong>Language</strong>, la cual está en <strong>PhpOffice\PhpWord\Style\Language</strong>;</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<p><code>$documento-&gt;getSettings()-&gt;setThemeFontLang(new Language("ES-MX"));</code></p>
+<p>En este caso le he puesto el <strong>idioma español de México</strong>.</p>
+<p>Finalmente, para <strong>guardar el documento</strong>, se crea un escritor o <strong>writer</strong> y se llama al método <code>save</code>.</p>
+<p>Como vamos a guardarlo en el disco duro, indicamos la <strong>ruta del documento de salida</strong>. Recuerda que el documento no debe estar abierto por otra aplicación durante la creación, y si ya existe, se sobrescribe.</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<p>Todo esto que explico ya no lo explicaré en los demás apartados, pero tenemos que hacerlo para establecer el idioma y guardar correctamente el documento.</p>
+<h2>Descargar documento</h2>
+<p>Si queremos forzar a su descarga a través del navegador en lugar de guardarlo dentro del disco duro hay que enviar algunos encabezados (parecidos a los que se envían con <a href="https://parzibyte.me/blog/2019/02/06/forzar-descarga-archivo-php-readfile/">readfile</a>) y en la ruta de salida indicar a php output:</p>
+<div class="oembed-gist"><script src="https://gist.github.com/parzibyte/3d5ac6841226048f84f5b9f66b888469.js"></script><noscript>View the code on <a href="https://gist.github.com/parzibyte/3d5ac6841226048f84f5b9f66b888469">Gist</a>.</noscript></div>
+<p>Así tenemos dos opciones: guardarlo en el disco duro o enviarlo directamente de vuelta al usuario.</p>
+<h2>Agregar texto, hipervínculos y títulos al documento</h2>
+<p>Hasta el momento no hemos agregado contenido al documento, pero fue porque estaba explicando cómo es que funcionan las propiedades, el idioma y esas cosas.</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<p>Para agregar contenido se debe comenzar agregando una sección con:</p>
+<p><code>$seccion = $documento-&gt;addSection();</code></p>
+<p>Y a la sección se le puede agregar texto con <code>addText</code>. Esta función puede tomar varios parámetros pero aquí vemos dos (solo el primero es opcional), el texto y una fuente.</p>
+<p>La fuente está representada por un arreglo que puede ser declarado con <code>array</code> o con <code>[]</code> usando la <a href="https://parzibyte.me/blog/2018/10/11/sintaxis-corta-array-php/">sintaxis</a> corta.</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<div class="oembed-gist"><script src="https://gist.github.com/parzibyte/f419ab7ed930542c083c3dad4b7b03cd.js"></script><noscript>View the code on <a href="https://gist.github.com/parzibyte/f419ab7ed930542c083c3dad4b7b03cd">Gist</a>.</noscript></div>
+<p>También se puede agregar un hipervínculo con <code>addLink($link, $titulo, $fuente)</code>.</p>
+<p>Los títulos se agregan con <code>addTitle($titulo, $profundidad)</code> en donde la profundidad indica, si lo queremos ver así, el número de título. Por ejemplo, un subtítulo sería un título con profundidad de 2.</p>
+<p>Para agregar estilos de títulos (y así todos los títulos con esa profundidad los tendrán) se llama al método <code>addTitleStyle($profundidad, $fuente)</code></p>
+<p>El código de arriba habrá generado un documento como el que se ve <a href="https://github.com/parzibyte/ejemplos-word-php-phpword/blob/master/2-texto.pdf">aquí</a>.</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<p><strong>Nota:</strong> los colores están especificados en <strong>hexadecimal</strong>.</p>
+<h2>Texto con estilo, textrun</h2>
+<p>Para agregar texto con distintos formatos (incluso imágenes) en el mismo párrafo y para alinear al mismo, se debe crear un <strong>textRun</strong> con <code>addTextRun</code> pasando como argumento el estilo de ese párrafo.</p>
+<p>En este caso el <code>alignment</code> es en <code>Jc::BOTH</code> para que sea lo mismo que <em>justify</em> o <strong>justificado</strong>, la constante se encuentra en <strong>PhpOffice\PhpWord\SimpleType\Jc</strong> por eso se indica su uso al inicio.</p>
+<div class="oembed-gist"><script src="https://gist.github.com/parzibyte/c2f4678a868f0ad75bbf2e013a3d22a7.js"></script><noscript>View the code on <a href="https://gist.github.com/parzibyte/c2f4678a868f0ad75bbf2e013a3d22a7">Gist</a>.</noscript></div>
+<p>El valor de <code>lineHeight</code> es la separación de líneas, entre mayor sea, más separación habrá.</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<p>Cuando tenemos el <code>textRun</code> se puede agregar texto normalmente, con <code>addText</code>, pasando una fuente personalizada si se desea.</p>
+<p>Cada llamada a addText es como una concatenación, es decir, no se crea un nuevo párrafo, sino que se agrega.</p>
+<p>También se pueden agregar saltos con <code>addTextBreak</code>, y claramente se pueden agregar los <code>textRun</code> que se necesiten, no hay límite.</p>
+<p>Gracias al textRun se pueden agregar párrafos de texto en donde haya distintas fuentes y estilos.</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<p>El resultado del ejemplo se puede ver <a href="https://github.com/parzibyte/ejemplos-word-php-phpword/blob/master/2.1-textoEstilo.pdf">aquí</a>. Y si te lo preguntas, el texto es de un post de un sistema de <a href="https://parzibyte.me/blog/2019/01/10/sistema-web-para-cotizaciones-y-presupuestos-gratuito-open-source/">cotizaciones</a>.</p>
+<h2>Saltos de línea y saltos de página</h2>
+<p>Para terminar este post (habrá todavía más) veamos cómo agregar separaciones entre párrafos o entre páginas.</p>
+<p>Si queremos agregar un salto de línea lo hacemos con <code>$seccion-&gt;addTextBreak()</code> indicando el número de saltos.</p>
+<p>Para agregar un salto de página llamamos a <code>$seccion-&gt;addPageBreak()</code>, podemos hacerlo dentro de un ciclo en caso de querer saltar muchas veces.</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<div class="oembed-gist"><script src="https://gist.github.com/parzibyte/13748da80ccba26eb4ee4c6b359cdcf7.js"></script><noscript>View the code on <a href="https://gist.github.com/parzibyte/13748da80ccba26eb4ee4c6b359cdcf7">Gist</a>.</noscript></div>
+<p>El documento creado se puede ver <a href="https://github.com/parzibyte/ejemplos-word-php-phpword/blob/master/3-saltos.pdf">aquí</a>.</p>
+<h2>Conclusión</h2>
+<p>Esta es la parte 1 de 3, en el siguiente post veremos cómo crear listas, tablas y agregar imágenes ya sea locales o de internet.</p>
+<p>Por cierto, la documentación oficial está <a href="https://phpword.readthedocs.io/en/latest/index.html">aquí</a>.</p>
+<p>Actualización: ya está aquí la <a href="https://parzibyte.me/blog/2019/06/13/php-word-agregar-listas-tablas-imagenes-usando-phpword/">parte 2</a>.</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<div class="widget_text awac-wrapper"><div class="widget_text awac widget custom_html-37"><div class="textwidget custom-html-widget"><hr><p>
+	Estoy disponible para trabajar en tu proyecto o realizar tu tarea pendiente, no dudes en <a href="https://parzibyte.me/#contacto">ponerte en contacto</a> conmigo.
+	<br>
+	Si el post fue de tu agrado muestra tu apoyo compartiéndolo, suscribiéndote al blog, <a href="https://parzibyte.me/blog/sigueme/">siguiéndome</a> o <a href="https://www.paypal.me/LuisCabreraBenito">realizando una donación.
+	</a></p></div></div></div><div class="awac-wrapper"><div class="awac widget blog_subscription-6"><h4 class="widget-title">Suscribir por correo</h4>
+			<div class="wp-block-jetpack-subscriptions__container">
+			<form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-6"
+				data-blog="120391063"
+				data-post_access_level="everybody" >
+									<div id="subscribe-text"><p>Ingresa tu correo y recibirás mis últimas entradas sobre programación, open source, bases de datos y todo lo relacionado con informática</p>
+</div>
+										<p id="subscribe-email">
+						<label id="jetpack-subscribe-label"
+							class="screen-reader-text"
+							for="subscribe-field-blog_subscription-6">
+							Email						</label>
+						<input type="email" name="email" required="required"
+																					value=""
+							id="subscribe-field-blog_subscription-6"
+							placeholder="Email"
+						/>
+					</p>
+
+					<p id="subscribe-submit"
+											>
+						<input type="hidden" name="action" value="subscribe"/>
+						<input type="hidden" name="source" value="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/"/>
+						<input type="hidden" name="sub-type" value="widget"/>
+						<input type="hidden" name="redirect_fragment" value="subscribe-blog-blog_subscription-6"/>
+												<button type="submit"
+															class="wp-block-button__link"
+																					name="jetpack_subscriptions_widget"
+						>
+							Suscribir						</button>
+					</p><div class='code-block code-block-1' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3968409138"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+							</form>
+							<div class="wp-block-jetpack-subscriptions__subscount">
+					Únete a otros 7,583 suscriptores 				</div>
+						</div>
+			
+</div></div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-official sd-sharing"><h3 class="sd-title">Comparte esto:</h3><div class="sd-content"><ul><li class="share-twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-url="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/" data-text="Crear documentos de Word con PHP y PHPWord" data-via="parzibyte" >Tweet</a></li><li class="share-facebook"><div class="fb-share-button" data-href="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/" data-layout="button_count"></div></li><li class="share-pinterest"><div class="pinterest_button"><a href="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fparzibyte.me%2Fblog%2F2019%2F06%2F13%2Fcrear-documentos-word-php-phpword%2F&#038;media=https%3A%2F%2Fparzibyte.me%2Fblog%2Fwp-content%2Fuploads%2F2019%2F06%2F1-Iniciar-proyecto-si-no-existe.png&#038;description=Crear%20documentos%20de%20Word%20con%20PHP%20y%20PHPWord" data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" data-lazy-src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png?is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class=" jetpack-lazy-image"><noscript><img data-lazy-fallback="1" src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png"  /></noscript></a></div></li><li class="share-pocket"><div class="pocket_button"><a href="https://getpocket.com/save" class="pocket-btn" data-lang="en" data-save-url="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/" data-pocket-count="horizontal" >Pocket</a></div></li><li class="share-linkedin"><div class="linkedin_button"><script type="in/share" data-url="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/" data-counter="right"></script></div></li><li class="share-telegram"><a rel="nofollow noopener noreferrer" data-shared="" class="share-telegram sd-button" href="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/?share=telegram" target="_blank" title="Haz clic para compartir en Telegram" ><span>Telegram</span></a></li><li class="share-print"><a rel="nofollow noopener noreferrer" data-shared="" class="share-print sd-button" href="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/#print" target="_blank" title="Haz clic para imprimir" ><span>Imprimir</span></a></li><li class="share-jetpack-whatsapp"><a rel="nofollow noopener noreferrer" data-shared="" class="share-jetpack-whatsapp sd-button" href="https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/?share=jetpack-whatsapp" target="_blank" title="Haz clic para compartir en WhatsApp" ><span>WhatsApp</span></a></li><li class="share-end"></li></ul></div></div></div><div class='sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded' id='like-post-wrapper-120391063-6898-64b16c335c332' data-src='https://widgets.wp.com/likes/#blog_id=120391063&amp;post_id=6898&amp;origin=parzibyte.me&amp;obj_id=120391063-6898-64b16c335c332' data-name='like-post-frame-120391063-6898-64b16c335c332' data-title='Me gusta o Compartir'><h3 class="sd-title">Me gusta esto:</h3><div class='likes-widget-placeholder post-likes-widget-placeholder' style='height: 55px;'><span class='button'><span>Me gusta</span></span> <span class="loading">Cargando...</span></div><span class='sd-text-color'></span><a class='sd-link-color'></a></div>
+<div id='jp-relatedposts' class='jp-relatedposts' >
+	
+</div><!-- AI CONTENT END 2 -->
+</div>
+		<div class="section section-blog-info">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="entry-categories">Categorías:						<span class="label label-primary"><a href="https://parzibyte.me/blog/category/php/">php</a></span><span class="label label-primary"><a href="https://parzibyte.me/blog/category/web/">web</a></span>					</div>
+					<div class="entry-tags">Etiquetas: <span class="entry-tag"><a href="https://parzibyte.me/blog/tag/crear-word/" rel="tag">Crear word</a></span><span class="entry-tag"><a href="https://parzibyte.me/blog/tag/documento-de-word/" rel="tag">documento de Word</a></span><span class="entry-tag"><a href="https://parzibyte.me/blog/tag/docx/" rel="tag">docx</a></span><span class="entry-tag"><a href="https://parzibyte.me/blog/tag/instalar-phpword/" rel="tag">instalar phpword</a></span><span class="entry-tag"><a href="https://parzibyte.me/blog/tag/phpoffice/" rel="tag">phpoffice</a></span><span class="entry-tag"><a href="https://parzibyte.me/blog/tag/phpword/" rel="tag">phpword</a></span><span class="entry-tag"><a href="https://parzibyte.me/blog/tag/phpword-composer/" rel="tag">phpword composer</a></span><span class="entry-tag"><a href="https://parzibyte.me/blog/tag/word/" rel="tag">word</a></span><span class="entry-tag"><a href="https://parzibyte.me/blog/tag/word-y-php/" rel="tag">Word y PHP</a></span></div>				</div>
+				
+        <div class="col-md-6">
+            <div class="entry-social">
+                <a target="_blank" rel="tooltip"
+                   data-original-title="Compártelo en Facebook"
+                   class="btn btn-just-icon btn-round btn-facebook"
+                   href="https://www.facebook.com/sharer.php?u=https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="17"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
+                </a>
+                
+                <a target="_blank" rel="tooltip"
+                   data-original-title="Compártelo en Twitter"
+                   class="btn btn-just-icon btn-round btn-twitter"
+                   href="http://twitter.com/share?url=https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/&#038;text=Crear%20documentos%20de%20Word%20con%20PHP%20y%20PHPWord">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="17"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+                </a>
+                
+                <a rel="tooltip"
+                   data-original-title=" Compartir por correo electrónico"
+                   class="btn btn-just-icon btn-round"
+                   href="mailto:?subject=Crear%20documentos%20de%20Word%20con%20PHP%20y%20PHPWord&#038;body=https://parzibyte.me/blog/2019/06/13/crear-documentos-word-php-phpword/">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="17"><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+               </a>
+            </div>
+		</div>			</div>
+			<hr>
+					<div class="card card-profile card-plain">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="card-avatar">
+						<a href="https://parzibyte.me/blog/author/parzibyte/"
+								title="parzibyte"><img alt src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=100&#038;d=monsterid&#038;r=g" class="avatar avatar-100 photo jetpack-lazy-image" height="100" width="100" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=200&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=100&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=100&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=200&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-100 photo' height='100' width='100' loading='lazy' decoding='async' /></noscript></a>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<h4 class="card-title">parzibyte</h4>
+					<p class="description">Programador freelancer listo para trabajar contigo. Aplicaciones web, móviles y de escritorio. PHP, Java, Go, Python, JavaScript, Kotlin y más :)
+
+https://parzibyte.me/blog/software-creado-por-parzibyte/</p>
+				</div>
+			</div>
+		</div>
+		
+<div id="comments" class="section section-comments">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="media-area">
+				<h3 class="hestia-title text-center">
+					16 Comentarios				</h3>
+						<div class="comment even thread-even depth-1 parent media"				id="comment-4254">
+							<a class="pull-left" href=" ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/1ebd5c6d06a37962117488b504b74e02?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/1ebd5c6d06a37962117488b504b74e02?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/1ebd5c6d06a37962117488b504b74e02?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/1ebd5c6d06a37962117488b504b74e02?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/1ebd5c6d06a37962117488b504b74e02?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					Ever					<small>
+						&#183; octubre 11, 2021 a las 11:49 am					</small>
+				</h4>
+				<p>Como podría establecer mi reporte  en una sola hoja de Word tengo encabezados y pie de pagina, además de una tabla de datos extraída desde MySQL con php, pero me los muestra en hojas separadas, una hoja para encabezado, una hoja para mi tabla, y una mas para el pie de pagina, Saludos</p>
+				<div class="media-footer">
+					<a rel='nofollow' class='comment-reply-link' href='#comment-4254' data-commentid="4254" data-postid="6898" data-belowelement="comment-4254" data-respondelement="respond" data-replyto="Responder a Ever" aria-label='Responder a Ever'><svg class="svg-text-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="12px" height="12px"><path d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"></path></svg>
+ Responder</a>				</div>
+			</div>
+		</div>
+		<ul class="children">
+		<div class="comment byuser comment-author-parzibyte bypostauthor odd alt depth-2 media"				id="comment-4256">
+							<a class="pull-left" href="https://parzibyte.me ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					<a href="https://parzibyte.me" class="url" rel="ugc">parzibyte</a>					<small>
+						&#183; octubre 11, 2021 a las 12:14 pm					</small>
+				</h4>
+				<p>Si tiene consultas puede hacérmelas llegar en <a href="https://parzibyte.me/#contacto" rel="ugc">https://parzibyte.me/#contacto</a><br />
+Saludos!</p>
+				<div class="media-footer">
+									</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<div class="comment even thread-odd thread-alt depth-1 media"				id="comment-3073">
+							<a class="pull-left" href=" ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/141adf1f531151f349c7b3964433f625?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/141adf1f531151f349c7b3964433f625?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/141adf1f531151f349c7b3964433f625?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/141adf1f531151f349c7b3964433f625?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/141adf1f531151f349c7b3964433f625?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					Sebastián					<small>
+						&#183; octubre 22, 2020 a las 3:40 pm					</small>
+				</h4>
+				<p>Buenas. He estado trabajando con esta clase para generar documentos Word y me ha resultado muy interesante. El único problema es que no he podido solucionar un problema que tengo con el alineado de los textos y los estilos. He seguido los ejemplos al pie de la letra y si bien no tengo errores no obtengo los resultados que necesito.</p>
+<p>Por otro lado si bien puedo generar documentos de Open Office y PDFs sin problemas el maquetado y los estilos no son los mismos, incluso he perdido elementos en la conversión.</p>
+<p>Es muy frustrante porque PHP Office parecía tener todas las respuestas a mis problemas y no he podido implementarlo correctamente. </p>
+<p>¿Alguien ha tenido problemas similares?<br />
+Saludos.</p>
+				<div class="media-footer">
+					<a rel='nofollow' class='comment-reply-link' href='#comment-3073' data-commentid="3073" data-postid="6898" data-belowelement="comment-3073" data-respondelement="respond" data-replyto="Responder a Sebastián" aria-label='Responder a Sebastián'><svg class="svg-text-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="12px" height="12px"><path d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"></path></svg>
+ Responder</a>				</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+		<div class="comment odd alt thread-even depth-1 parent media"				id="comment-2833">
+							<a class="pull-left" href=" ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/50a5401e7c357cc76c0e47ff836ac75b?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/50a5401e7c357cc76c0e47ff836ac75b?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/50a5401e7c357cc76c0e47ff836ac75b?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/50a5401e7c357cc76c0e47ff836ac75b?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/50a5401e7c357cc76c0e47ff836ac75b?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					Antonio Martinez					<small>
+						&#183; agosto 21, 2020 a las 10:53 am					</small>
+				</h4>
+				<p>Hola,  PHPWord es compatible con PHP 7? porque he visto que se han presentado algunos comentarios al respecto, saludos</p>
+				<div class="media-footer">
+					<a rel='nofollow' class='comment-reply-link' href='#comment-2833' data-commentid="2833" data-postid="6898" data-belowelement="comment-2833" data-respondelement="respond" data-replyto="Responder a Antonio Martinez" aria-label='Responder a Antonio Martinez'><svg class="svg-text-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="12px" height="12px"><path d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"></path></svg>
+ Responder</a>				</div>
+			</div>
+		</div>
+		<ul class="children">
+		<div class="comment byuser comment-author-parzibyte bypostauthor even depth-2 media"				id="comment-2835">
+							<a class="pull-left" href="https://parzibyte.me ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					<a href="https://parzibyte.me" class="url" rel="ugc">parzibyte</a>					<small>
+						&#183; agosto 21, 2020 a las 12:31 pm					</small>
+				</h4>
+				<p>Hola. Me parece que lo he probado con esa versión y no he tenido problemas. Para asegurarse puede probarlo por usted mismo; estoy seguro de que funcionará correctamente<br />
+Saludos 🙂</p>
+				<div class="media-footer">
+									</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+		<div class="comment odd alt depth-2 media"				id="comment-4255">
+							<a class="pull-left" href=" ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/1ebd5c6d06a37962117488b504b74e02?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/1ebd5c6d06a37962117488b504b74e02?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/1ebd5c6d06a37962117488b504b74e02?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/1ebd5c6d06a37962117488b504b74e02?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/1ebd5c6d06a37962117488b504b74e02?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					Ever					<small>
+						&#183; octubre 11, 2021 a las 12:10 pm					</small>
+				</h4>
+				<p>Yo lo estoy trabajando con PHP7 hasta el momento no he tenido problemas</p>
+				<div class="media-footer">
+									</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<div class="comment even thread-odd thread-alt depth-1 parent media"				id="comment-2743">
+							<a class="pull-left" href=" ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/ba27b2228baaa75986bea9e8a6be42c6?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/ba27b2228baaa75986bea9e8a6be42c6?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/ba27b2228baaa75986bea9e8a6be42c6?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/ba27b2228baaa75986bea9e8a6be42c6?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/ba27b2228baaa75986bea9e8a6be42c6?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					jaume					<small>
+						&#183; julio 29, 2020 a las 7:07 am					</small>
+				</h4>
+				<p>buenas como lo puedo hacer para poner un titulo en el medio&#8230; como si fuera un text aling : center?? No me funciona&#8230;&#8230;   lo hago de esta manera i nada&#8230;..</p>
+<p>  $seccion = $documento-&gt;addSection();<br />
+                # Títulos. Solo modificando depth (el número)<br />
+                $fuenteTitulo = [<br />
+                    &#8220;name&#8221; =&gt; &#8220;Arial&#8221;,<br />
+                    &#8220;size&#8221; =&gt; 14,<br />
+                    &#8220;color&#8221; =&gt; &#8220;000000&#8221;,<br />
+                ];<br />
+                $documento-&gt;addTitleStyle(1, $fuenteTitulo);<br />
+                $seccion-&gt;addTitle(&#8220;Regidora de Benestar Social&#8221;, 1);<br />
+                $documento-&gt;addTitleStyle(2, $fuenteTitulo);<br />
+                $seccion-&gt;addTitle(&#8220;INFORME PRESTACIÓ ECONÒMICA&#8221;, 2);<br />
+                $textRun = $seccion-&gt;addTextRun([<br />
+                    &#8220;alignment&#8221; =&gt; Jc::CENTER,<br />
+                    // &#8216;textAlign&#8217; =&gt; &#8216;center&#8217;,<br />
+                    // &#8220;lineHeight&#8221; =&gt; 1, # Quedará muy pegado<br />
+                ]);</p>
+				<div class="media-footer">
+					<a rel='nofollow' class='comment-reply-link' href='#comment-2743' data-commentid="2743" data-postid="6898" data-belowelement="comment-2743" data-respondelement="respond" data-replyto="Responder a jaume" aria-label='Responder a jaume'><svg class="svg-text-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="12px" height="12px"><path d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"></path></svg>
+ Responder</a>				</div>
+			</div>
+		</div>
+		<ul class="children">
+		<div class="comment odd alt depth-2 media"				id="comment-3074">
+							<a class="pull-left" href=" ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/141adf1f531151f349c7b3964433f625?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/141adf1f531151f349c7b3964433f625?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/141adf1f531151f349c7b3964433f625?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/141adf1f531151f349c7b3964433f625?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/141adf1f531151f349c7b3964433f625?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					Sebastián					<small>
+						&#183; octubre 22, 2020 a las 3:41 pm					</small>
+				</h4>
+				<p>Me pasa exactamente lo mismo. Es muy frustrante porque todos parecen tener solucionado el problema.</p>
+				<div class="media-footer">
+									</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<div class="comment even thread-even depth-1 media"				id="comment-2541">
+							<a class="pull-left" href=" ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/2cd55ed430df72fd1e5e68a9858f5fd3?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/2cd55ed430df72fd1e5e68a9858f5fd3?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/2cd55ed430df72fd1e5e68a9858f5fd3?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/2cd55ed430df72fd1e5e68a9858f5fd3?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/2cd55ed430df72fd1e5e68a9858f5fd3?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					juanjava					<small>
+						&#183; mayo 6, 2020 a las 12:40 am					</small>
+				</h4>
+				<p>muchas gracias, ya le entendí un poco mejor a esto, porque con el manual no pude, por otro lado tendrás tutoriales sobre phpword en cuanto a encabezados y pies de pagina?, gracias</p>
+				<div class="media-footer">
+					<a rel='nofollow' class='comment-reply-link' href='#comment-2541' data-commentid="2541" data-postid="6898" data-belowelement="comment-2541" data-respondelement="respond" data-replyto="Responder a juanjava" aria-label='Responder a juanjava'><svg class="svg-text-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="12px" height="12px"><path d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"></path></svg>
+ Responder</a>				</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+		<div class="comment odd alt thread-odd thread-alt depth-1 parent media"				id="comment-1933">
+							<a class="pull-left" href=" ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					Victor Saez					<small>
+						&#183; octubre 3, 2019 a las 11:44 pm					</small>
+				</h4>
+				<p>Excelente tutorial&#8230;<br />
+yo tengo este codigo, me genera un word a partir de una plantilla&#8230;<br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-<br />
+require_once &#8220;vendor/autoload.php&#8221;;<br />
+$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor(&#8216;Template.docx&#8217;);<br />
+$templateProcessor-&gt;setValue(&#8216;date&#8217;, date(&#8220;d-m-Y&#8221;));<br />
+$templateProcessor-&gt;setValue(&#8216;name&#8217;, &#8216;John Doe&#8217;);<br />
+$templateProcessor-&gt;setValue(<br />
+[&#8216;city&#8217;, &#8216;street&#8217;],<br />
+[&#8216;Sunnydale, 54321 Wisconsin&#8217;, &#8216;123 International Lane&#8217;]);<br />
+$templateProcessor-&gt;saveAs(&#8216;MyWordFile.docx&#8217;);<br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;<br />
+me gustaria saber como hacer 2 cosas&#8230;<br />
+Que lo descargue preguntando donde debe ir y que al guardar, lo guarden con el nombre de la persona ejemplo: John Doe.docx</p>
+<p>seria posible que me ayudara en eso?</p>
+				<div class="media-footer">
+					<a rel='nofollow' class='comment-reply-link' href='#comment-1933' data-commentid="1933" data-postid="6898" data-belowelement="comment-1933" data-respondelement="respond" data-replyto="Responder a Victor Saez" aria-label='Responder a Victor Saez'><svg class="svg-text-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="12px" height="12px"><path d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"></path></svg>
+ Responder</a>				</div>
+			</div>
+		</div>
+		<ul class="children">
+		<div class="comment byuser comment-author-parzibyte bypostauthor even depth-2 media"				id="comment-1937">
+							<a class="pull-left" href="https://parzibyte.me ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					<a href="https://parzibyte.me" class="url" rel="ugc">parzibyte</a>					<small>
+						&#183; octubre 4, 2019 a las 10:01 am					</small>
+				</h4>
+				<p>Simplemente indica en el encabezado el nombre del archivo. Por ejemplo:<br />
+header(&#8216;Content-Disposition: attachment;filename=&#8221;&#8216; . $nombreDelDocumento . &#8216;&#8221;&#8216;);<br />
+Tengo un ejemplo con Excel:<br />
+<a href="https://parzibyte.me/blog/2018/11/08/crear-archivo-excel-php-phpspreadsheet/" rel="ugc">https://parzibyte.me/blog/2018/11/08/crear-archivo-excel-php-phpspreadsheet/</a><br />
+Saludos</p>
+				<div class="media-footer">
+									</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+		<div class="comment odd alt depth-2 parent media"				id="comment-1938">
+							<a class="pull-left" href=" ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					VICTOR EDUARDO					<small>
+						&#183; octubre 4, 2019 a las 12:45 pm					</small>
+				</h4>
+				<p>Si lo intente ;setValue(&#8216;date&#8217;, date(&#8220;d-m-Y&#8221;));<br />
+$templateProcessor-&gt;setValue(&#8216;name&#8217;, &#8216;John Doe&#8217;);<br />
+$templateProcessor-&gt;setValue(<br />
+[&#8216;city&#8217;, &#8216;street&#8217;],<br />
+[&#8216;Sunnydale, 54321 Wisconsin&#8217;, &#8216;123 International Lane&#8217;]);<br />
+$nombreDelDocumento = &#8220;Jhon Doe.docx&#8221;;<br />
+header(&#8216;Content-Disposition: attachment; filename=&#8221;&#8216;.$nombreDelDocumento.'&#8221;&#8216;);</p>
+<p>$templateProcessor-&gt;saveAs($nombreDelDocumento);</p>
+				<div class="media-footer">
+									</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+		<div class="comment byuser comment-author-parzibyte bypostauthor even depth-2 media"				id="comment-1939">
+							<a class="pull-left" href="https://parzibyte.me ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					<a href="https://parzibyte.me" class="url" rel="ugc">parzibyte</a>					<small>
+						&#183; octubre 4, 2019 a las 12:49 pm					</small>
+				</h4>
+				<p>Faltan más encabezados, además de que no debes invocar a saveAs. Al menos en Excel se hace con:<br />
+$writer->save(&#8216;php://output&#8217;);<br />
+Por favor, lee el post que cité: <a href="https://parzibyte.me/blog/2018/11/08/crear-archivo-excel-php-phpspreadsheet/" rel="ugc">https://parzibyte.me/blog/2018/11/08/crear-archivo-excel-php-phpspreadsheet/</a><br />
+Saludos</p>
+				<div class="media-footer">
+									</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+		<div class="comment odd alt depth-2 parent media"				id="comment-1940">
+							<a class="pull-left" href=" ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/a1b2004d69124a5fd4f94bf4dabc6e19?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					VICTOR EDUARDO					<small>
+						&#183; octubre 4, 2019 a las 4:15 pm					</small>
+				</h4>
+				<p>al final no me resulto, creo que no se puede trabajando con una plantilla&#8230; solo haciendo desde el documento.</p>
+<p>asi quedo el codigo:<br />
+setValue(&#8216;date&#8217;, date(&#8220;d-m-Y&#8221;));<br />
+$templateProcessor-&gt;setValue(&#8216;name&#8217;, &#8216;John Doe 2&#8217;);<br />
+$templateProcessor-&gt;setValue(<br />
+[&#8216;city&#8217;, &#8216;street&#8217;],<br />
+[&#8216;Sunnydale, 54321 Wisconsin&#8217;, &#8216;123 International Lane&#8217;]);<br />
+$nombreDelDocumento = &#8220;Jhon Doe.docx&#8221;;<br />
+header(&#8220;Content-Description: File Transfer&#8221;);<br />
+header(&#8216;Content-Disposition: attachment; filename=&#8221;&#8216; . $nombreDelDocumento . &#8216;&#8221;&#8216;);<br />
+header(&#8216;Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document&#8217;);<br />
+header(&#8216;Content-Transfer-Encoding: binary&#8217;);<br />
+header(&#8216;Cache-Control: must-revalidate, post-check=0, pre-check=0&#8217;);<br />
+header(&#8216;Expires: 0&#8217;);</p>
+<p>$writer = IOFactory::createWriter($documento, &#8216;docx&#8217;);<br />
+$writer-&gt;save(&#8216;php://output&#8217;);<br />
+exit;</p>
+				<div class="media-footer">
+									</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+		<div class="comment byuser comment-author-parzibyte bypostauthor even depth-2 media"				id="comment-1941">
+							<a class="pull-left" href="https://parzibyte.me ">
+					<div class="comment-author avatar vcard">
+						<img alt src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&#038;d=monsterid&#038;r=g" class="avatar avatar-64 photo jetpack-lazy-image" height="64" width="64" decoding="async" data-lazy-srcset="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=128&#038;d=monsterid&#038;r=g 2x" data-lazy-src="https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&amp;is-pending-load=1#038;d=monsterid&#038;r=g" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img data-lazy-fallback="1" alt='' src='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=64&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/57de55e711a8fb3c0dfbbf106d206ef6?s=128&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' loading='lazy' decoding='async' /></noscript>					</div>
+				</a>
+						<div class="media-body">
+				<h4 class="media-heading">
+					<a href="https://parzibyte.me" class="url" rel="ugc">parzibyte</a>					<small>
+						&#183; octubre 4, 2019 a las 4:38 pm					</small>
+				</h4>
+				<p>Intenta leyendo el documento ya sea con readfile o file_get_contents. Tal vez esto te ayude: <a href="https://github.com/PHPOffice/PHPWord/issues/749" rel="nofollow ugc">https://github.com/PHPOffice/PHPWord/issues/749</a></p>
+				<div class="media-footer">
+									</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<div class="pingback even thread-even depth-1 media"				id="comment-1477">
+						<div class="media-body">
+				<h4 class="media-heading">
+					<a href="https://parzibyte.me/blog/2019/06/13/php-word-agregar-listas-tablas-imagenes-usando-phpword/" class="url" rel="ugc">PHP y Word: agregar listas, tablas e imágenes usando PHPWord - Parzibyte&#039;s blog</a>					<small>
+						&#183; junio 13, 2019 a las 8:17 pm					</small>
+				</h4>
+				<p>[&#8230;] leer la primera parte para ver cómo instalar la librería y cómo agregar cosas [&#8230;]</p>
+				<div class="media-footer">
+					<a rel='nofollow' class='comment-reply-link' href='#comment-1477' data-commentid="1477" data-postid="6898" data-belowelement="comment-1477" data-respondelement="respond" data-replyto="Responder a PHP y Word: agregar listas, tablas e imágenes usando PHPWord - Parzibyte&#039;s blog" aria-label='Responder a PHP y Word: agregar listas, tablas e imágenes usando PHPWord - Parzibyte&#039;s blog'><svg class="svg-text-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="12px" height="12px"><path d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"></path></svg>
+ Responder</a>				</div>
+			</div>
+		</div>
+		</li><!-- #comment-## -->
+			</div>
+			<div class="media-body">
+					<div id="respond" class="comment-respond">
+		<h3 class="hestia-title text-center">Deja un comentario <small><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/2019/06/13/crear-documentos-word-php-phpword/#respond" style="display:none;">Cancelar respuesta</a></small></h3><span class="pull-left author"><div class="avatar"><img src="https://parzibyte.me/blog/wp-content/themes/hestia/assets/img/placeholder.jpg" alt="Marcador de posición del avatar" height="64" width="64"/></div></span><form autocomplete="off"  action="https://parzibyte.me/blog/wp-comments-post.php" method="post" id="commentform" class="form media-body"><p class="comment-notes"><span id="email-notes">Tu dirección de correo electrónico no será publicada.</span> <span class="required-field-message">Los campos obligatorios están marcados con <span class="required">*</span></span></p><div class="row"> <div class="col-md-4"> <div class="form-group label-floating is-empty"> <label class="control-label">Nombre <span class="required">*</span></label><input id="author" name="author" class="form-control" type="text" aria-required='true' /> <span class="hestia-input"></span> </div> </div>
+<div class="col-md-4"> <div class="form-group label-floating is-empty"> <label class="control-label">Correo electrónico <span class="required">*</span></label><input id="email" name="email" class="form-control" type="email" aria-required='true' /> <span class="hestia-input"></span> </div> </div>
+<div class="col-md-4"> <div class="form-group label-floating is-empty"> <label class="control-label">Página web</label><input id="url" name="url" class="form-control" type="url" aria-required='true' /> <span class="hestia-input"></span> </div> </div> </div>
+<div class="agr-recaptcha-wrapper"></div><div class="form-group label-floating is-empty"> <label class="control-label">¿En qué estás pensando?</label><textarea id="comment" name="comment" class="form-control" rows="6" aria-required="true"></textarea><span class="hestia-input"></span> </div><p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Recibir un email con los siguientes comentarios a esta entrada.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Recibir un email con cada nueva entrada.</label></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-primary pull-right" value="Publicar comentario" /> <input type='hidden' name='comment_post_ID' value='6898' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p></form>	</div><!-- #respond -->
+								</div>
+		</div>
+	</div>
+</div>
+		</div>
+		</div>	<div class="col-md-3 blog-sidebar-wrapper col-md-offset-1">
+		<aside id="secondary" class="blog-sidebar" role="complementary">
+						<div id="custom_html-47" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<!-- Sidebar1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="6386808517"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div>
+		<div id="recent-posts-2" class="widget widget_recent_entries">
+		<h5>Entradas recientes</h5>
+		<ul>
+											<li>
+					<a href="https://parzibyte.me/blog/2023/07/05/mapa-completo-tears-kingdom/">Mapa completo de Tears of the Kingdom</a>
+											<span class="post-date">julio 5, 2023</span>
+									</li>
+											<li>
+					<a href="https://parzibyte.me/blog/2023/06/27/pasar-parametros-funcion-svelte/">Pasar parámetros a función de Svelte</a>
+											<span class="post-date">junio 27, 2023</span>
+									</li>
+											<li>
+					<a href="https://parzibyte.me/blog/2023/06/27/impresora-termica-node-js/">Impresora térmica con Node.js</a>
+											<span class="post-date">junio 27, 2023</span>
+									</li>
+											<li>
+					<a href="https://parzibyte.me/blog/2023/06/26/imprimir-impresora-termica-php-internet/">Imprimir en impresora térmica con PHP desde internet</a>
+											<span class="post-date">junio 26, 2023</span>
+									</li>
+											<li>
+					<a href="https://parzibyte.me/blog/2023/06/26/impresora-termica-php-plugin/">Impresora térmica con PHP y plugin</a>
+											<span class="post-date">junio 26, 2023</span>
+									</li>
+					</ul>
+
+		</div><div id="custom_html-48" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<!-- Sidebar2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="2391723188"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div><div id="media_image-6" class="widget widget_media_image"><h5>Sígueme</h5><a href="https://parzibyte.me/blog/sigueme/"><img width="300" height="250" src="https://parzibyte.me/blog/wp-content/uploads/2019/12/Seguir-a-Parzibyte-300x250.jpg" class="image wp-image-10130  attachment-medium size-medium jetpack-lazy-image" alt="" decoding="async" loading="lazy" style="max-width: 100%; height: auto;" data-lazy-srcset="https://parzibyte.me/blog/wp-content/uploads/2019/12/Seguir-a-Parzibyte-300x250.jpg 300w, https://parzibyte.me/blog/wp-content/uploads/2019/12/Seguir-a-Parzibyte.jpg 336w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://parzibyte.me/blog/wp-content/uploads/2019/12/Seguir-a-Parzibyte-300x250.jpg?is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" /></a></div><div id="custom_html-49" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<!-- Sidebar3 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="3453523414"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div><div id="pages-2" class="widget widget_pages"><h5>Páginas</h5>
+			<ul>
+				<li class="page_item page-item-2712"><a href="https://parzibyte.me/blog/conoce-sublime-pos/">Conoce Sublime POS 3</a></li>
+<li class="page_item page-item-2701"><a href="https://parzibyte.me/blog/contacto/">Contacto</a></li>
+<li class="page_item page-item-8490"><a href="https://parzibyte.me/blog/desarrollo-aplicaciones-web/">Desarrollo de aplicaciones web</a></li>
+<li class="page_item page-item-8493"><a href="https://parzibyte.me/blog/desarrollo-apps-moviles/">Desarrollo de apps móviles</a></li>
+<li class="page_item page-item-8482"><a href="https://parzibyte.me/blog/desarrollo-paginas-web/">Desarrollo de páginas web</a></li>
+<li class="page_item page-item-16397"><a href="https://parzibyte.me/blog/donaciones/">Donaciones</a></li>
+<li class="page_item page-item-8485"><a href="https://parzibyte.me/blog/experiencia-testimonios/">Experiencia y testimonios</a></li>
+<li class="page_item page-item-7262"><a href="https://parzibyte.me/blog/pagos-venta-software/">Pagos y venta de software</a></li>
+<li class="page_item page-item-2703"><a href="https://parzibyte.me/blog/portafolio/">Portafolio</a></li>
+<li class="page_item page-item-8854"><a href="https://parzibyte.me/blog/resuelvo-tareas-programacion/">Resuelvo tus tareas de programación</a></li>
+<li class="page_item page-item-9695"><a href="https://parzibyte.me/blog/sigueme/">Sígueme</a></li>
+<li class="page_item page-item-2699"><a href="https://parzibyte.me/blog/sobre-el-autor/">Sobre el autor</a></li>
+<li class="page_item page-item-7034"><a href="https://parzibyte.me/blog/software-creado-por-parzibyte/">Software creado por parzibyte (portafolio)</a></li>
+<li class="page_item page-item-7029"><a href="https://parzibyte.me/blog/contrataciones-ayuda/">Tareas y trabajos de programación</a></li>
+			</ul>
+
+			</div><div id="custom_html-50" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<!-- Sidebar4 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="4882155158"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div><div id="search-3" class="widget widget_search"><h5>Buscar tutoriales y ejemplos de código</h5><form role="search" method="get" class="search-form" action="https://parzibyte.me/blog/">
+				<label>
+					<span class="screen-reader-text">Buscar:</span>
+					<input type="search" class="search-field" placeholder="Buscar &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="Buscar" />
+			</form></div><div id="custom_html-51" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<!-- Sidebar6 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="7464565394"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div><div id="media_image-3" class="widget widget_media_image"><h5>Contrátame</h5><div style="width: 310px" class="wp-caption alignnone"><a href="https://parzibyte.me/blog/contrataciones-ayuda/"><img width="300" height="250" src="https://parzibyte.me/blog/wp-content/uploads/2019/12/Contratar-a-desarrollador-Parzibyte-300x250.jpg" class="image wp-image-10131  attachment-medium size-medium jetpack-lazy-image" alt="Contratar a desarrollador Parzibyte" decoding="async" loading="lazy" style="max-width: 100%; height: auto;" data-lazy-srcset="https://parzibyte.me/blog/wp-content/uploads/2019/12/Contratar-a-desarrollador-Parzibyte-300x250.jpg 300w, https://parzibyte.me/blog/wp-content/uploads/2019/12/Contratar-a-desarrollador-Parzibyte.jpg 336w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://parzibyte.me/blog/wp-content/uploads/2019/12/Contratar-a-desarrollador-Parzibyte-300x250.jpg?is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" /></a><p class="wp-caption-text">Contratar a desarrollador Parzibyte</p></div></div><div id="custom_html-52" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<!-- Sidebar7 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="8629828471"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div><div id="tag_cloud-2" class="widget widget_tag_cloud"><h5>Etiquetas</h5><div class="tagcloud"><a href="https://parzibyte.me/blog/tag/android/" class="tag-cloud-link tag-link-1148 tag-link-position-1" style="font-size: 8.2393162393162pt;" aria-label="android (40 elementos)">android</a>
+<a href="https://parzibyte.me/blog/tag/ansi-c/" class="tag-cloud-link tag-link-8335 tag-link-position-2" style="font-size: 11.230769230769pt;" aria-label="ANSI C (71 elementos)">ANSI C</a>
+<a href="https://parzibyte.me/blog/tag/api/" class="tag-cloud-link tag-link-185 tag-link-position-3" style="font-size: 8.1196581196581pt;" aria-label="api (39 elementos)">api</a>
+<a href="https://parzibyte.me/blog/tag/archivo/" class="tag-cloud-link tag-link-553 tag-link-position-4" style="font-size: 9.3162393162393pt;" aria-label="archivo (49 elementos)">archivo</a>
+<a href="https://parzibyte.me/blog/tag/array/" class="tag-cloud-link tag-link-135 tag-link-position-5" style="font-size: 11.470085470085pt;" aria-label="array (75 elementos)">array</a>
+<a href="https://parzibyte.me/blog/tag/arreglo/" class="tag-cloud-link tag-link-136 tag-link-position-6" style="font-size: 15.059829059829pt;" aria-label="arreglo (151 elementos)">arreglo</a>
+<a href="https://parzibyte.me/blog/tag/c/" class="tag-cloud-link tag-link-168 tag-link-position-7" style="font-size: 9.5555555555556pt;" aria-label="c# (52 elementos)">c#</a>
+<a href="https://parzibyte.me/blog/tag/cadena/" class="tag-cloud-link tag-link-93 tag-link-position-8" style="font-size: 14.461538461538pt;" aria-label="cadena (133 elementos)">cadena</a>
+<a href="https://parzibyte.me/blog/tag/conversion/" class="tag-cloud-link tag-link-338 tag-link-position-9" style="font-size: 8.7179487179487pt;" aria-label="conversión (44 elementos)">conversión</a>
+<a href="https://parzibyte.me/blog/tag/cpp/" class="tag-cloud-link tag-link-94 tag-link-position-10" style="font-size: 8.3589743589744pt;" aria-label="cpp (41 elementos)">cpp</a>
+<a href="https://parzibyte.me/blog/tag/ejemplo/" class="tag-cloud-link tag-link-340 tag-link-position-11" style="font-size: 8.957264957265pt;" aria-label="ejemplo (46 elementos)">ejemplo</a>
+<a href="https://parzibyte.me/blog/tag/ejercicio/" class="tag-cloud-link tag-link-304 tag-link-position-12" style="font-size: 11.350427350427pt;" aria-label="ejercicio (73 elementos)">ejercicio</a>
+<a href="https://parzibyte.me/blog/tag/ejercicio-resuelto/" class="tag-cloud-link tag-link-11194 tag-link-position-13" style="font-size: 9.3162393162393pt;" aria-label="ejercicio resuelto (49 elementos)">ejercicio resuelto</a>
+<a href="https://parzibyte.me/blog/tag/fecha/" class="tag-cloud-link tag-link-48 tag-link-position-14" style="font-size: 8.3589743589744pt;" aria-label="fecha (41 elementos)">fecha</a>
+<a href="https://parzibyte.me/blog/tag/funcion/" class="tag-cloud-link tag-link-125 tag-link-position-15" style="font-size: 10.273504273504pt;" aria-label="función (59 elementos)">función</a>
+<a href="https://parzibyte.me/blog/tag/go/" class="tag-cloud-link tag-link-153 tag-link-position-16" style="font-size: 9.6752136752137pt;" aria-label="go (53 elementos)">go</a>
+<a href="https://parzibyte.me/blog/tag/golang/" class="tag-cloud-link tag-link-150 tag-link-position-17" style="font-size: 9.1965811965812pt;" aria-label="golang (48 elementos)">golang</a>
+<a href="https://parzibyte.me/blog/tag/html/" class="tag-cloud-link tag-link-233 tag-link-position-18" style="font-size: 9.6752136752137pt;" aria-label="html (53 elementos)">html</a>
+<a href="https://parzibyte.me/blog/tag/http/" class="tag-cloud-link tag-link-90 tag-link-position-19" style="font-size: 8.3589743589744pt;" aria-label="http (41 elementos)">http</a>
+<a href="https://parzibyte.me/blog/tag/imagen/" class="tag-cloud-link tag-link-379 tag-link-position-20" style="font-size: 9.5555555555556pt;" aria-label="imagen (52 elementos)">imagen</a>
+<a href="https://parzibyte.me/blog/tag/impresora-termica/" class="tag-cloud-link tag-link-8539 tag-link-position-21" style="font-size: 9.0769230769231pt;" aria-label="impresora térmica (47 elementos)">impresora térmica</a>
+<a href="https://parzibyte.me/blog/tag/java/" class="tag-cloud-link tag-link-179 tag-link-position-22" style="font-size: 11.82905982906pt;" aria-label="java (81 elementos)">java</a>
+<a href="https://parzibyte.me/blog/tag/javascript/" class="tag-cloud-link tag-link-141 tag-link-position-23" style="font-size: 15.777777777778pt;" aria-label="javascript (174 elementos)">javascript</a>
+<a href="https://parzibyte.me/blog/tag/js/" class="tag-cloud-link tag-link-975 tag-link-position-24" style="font-size: 13.145299145299pt;" aria-label="js (104 elementos)">js</a>
+<a href="https://parzibyte.me/blog/tag/laravel/" class="tag-cloud-link tag-link-28 tag-link-position-25" style="font-size: 9.4358974358974pt;" aria-label="laravel (50 elementos)">laravel</a>
+<a href="https://parzibyte.me/blog/tag/lenguaje-c/" class="tag-cloud-link tag-link-885 tag-link-position-26" style="font-size: 10.871794871795pt;" aria-label="Lenguaje c (66 elementos)">Lenguaje c</a>
+<a href="https://parzibyte.me/blog/tag/linux/" class="tag-cloud-link tag-link-117 tag-link-position-27" style="font-size: 8.2393162393162pt;" aria-label="linux (40 elementos)">linux</a>
+<a href="https://parzibyte.me/blog/tag/lista/" class="tag-cloud-link tag-link-438 tag-link-position-28" style="font-size: 9.9145299145299pt;" aria-label="lista (55 elementos)">lista</a>
+<a href="https://parzibyte.me/blog/tag/mysql/" class="tag-cloud-link tag-link-42 tag-link-position-29" style="font-size: 11.709401709402pt;" aria-label="mysql (79 elementos)">mysql</a>
+<a href="https://parzibyte.me/blog/tag/numero/" class="tag-cloud-link tag-link-447 tag-link-position-30" style="font-size: 10.153846153846pt;" aria-label="número (58 elementos)">número</a>
+<a href="https://parzibyte.me/blog/tag/php/" class="tag-cloud-link tag-link-10 tag-link-position-31" style="font-size: 15.418803418803pt;" aria-label="php (160 elementos)">php</a>
+<a href="https://parzibyte.me/blog/tag/plugin/" class="tag-cloud-link tag-link-7 tag-link-position-32" style="font-size: 8pt;" aria-label="plugin (38 elementos)">plugin</a>
+<a href="https://parzibyte.me/blog/tag/programacion/" class="tag-cloud-link tag-link-1019 tag-link-position-33" style="font-size: 22pt;" aria-label="programación (575 elementos)">programación</a>
+<a href="https://parzibyte.me/blog/tag/programacion-c/" class="tag-cloud-link tag-link-8333 tag-link-position-34" style="font-size: 9.0769230769231pt;" aria-label="programación c (47 elementos)">programación c</a>
+<a href="https://parzibyte.me/blog/tag/programacion-java/" class="tag-cloud-link tag-link-8395 tag-link-position-35" style="font-size: 9.7948717948718pt;" aria-label="Programación Java (54 elementos)">Programación Java</a>
+<a href="https://parzibyte.me/blog/tag/programacion-javascript/" class="tag-cloud-link tag-link-7935 tag-link-position-36" style="font-size: 9.1965811965812pt;" aria-label="programación javascript (48 elementos)">programación javascript</a>
+<a href="https://parzibyte.me/blog/tag/programacion-php/" class="tag-cloud-link tag-link-8249 tag-link-position-37" style="font-size: 9.5555555555556pt;" aria-label="programación php (51 elementos)">programación php</a>
+<a href="https://parzibyte.me/blog/tag/python/" class="tag-cloud-link tag-link-56 tag-link-position-38" style="font-size: 16.495726495726pt;" aria-label="python (197 elementos)">python</a>
+<a href="https://parzibyte.me/blog/tag/solucion/" class="tag-cloud-link tag-link-89 tag-link-position-39" style="font-size: 8.7179487179487pt;" aria-label="solución (44 elementos)">solución</a>
+<a href="https://parzibyte.me/blog/tag/sql/" class="tag-cloud-link tag-link-41 tag-link-position-40" style="font-size: 8.5982905982906pt;" aria-label="sql (43 elementos)">sql</a>
+<a href="https://parzibyte.me/blog/tag/string/" class="tag-cloud-link tag-link-99 tag-link-position-41" style="font-size: 12.188034188034pt;" aria-label="string (86 elementos)">string</a>
+<a href="https://parzibyte.me/blog/tag/tabla/" class="tag-cloud-link tag-link-503 tag-link-position-42" style="font-size: 8.3589743589744pt;" aria-label="tabla (41 elementos)">tabla</a>
+<a href="https://parzibyte.me/blog/tag/vue/" class="tag-cloud-link tag-link-1650 tag-link-position-43" style="font-size: 8.2393162393162pt;" aria-label="vue (40 elementos)">vue</a>
+<a href="https://parzibyte.me/blog/tag/web/" class="tag-cloud-link tag-link-6801 tag-link-position-44" style="font-size: 9.4358974358974pt;" aria-label="web (50 elementos)">web</a>
+<a href="https://parzibyte.me/blog/tag/windows/" class="tag-cloud-link tag-link-151 tag-link-position-45" style="font-size: 8.5982905982906pt;" aria-label="windows (43 elementos)">windows</a></div>
+</div><div id="custom_html-53" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4859317680104877"
+     crossorigin="anonymous"></script>
+<!-- Sidebar8 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4859317680104877"
+     data-ad-slot="7316746809"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div><div id="archives-2" class="widget widget_archive"><h5>Archivo del blog</h5>		<label class="screen-reader-text" for="archives-dropdown-2">Archivo del blog</label>
+		<select id="archives-dropdown-2" name="archive-dropdown">
+			
+			<option value="">Elegir mes</option>
+				<option value='https://parzibyte.me/blog/2023/07/'> julio 2023 &nbsp;(1)</option>
+	<option value='https://parzibyte.me/blog/2023/06/'> junio 2023 &nbsp;(9)</option>
+	<option value='https://parzibyte.me/blog/2023/05/'> mayo 2023 &nbsp;(2)</option>
+	<option value='https://parzibyte.me/blog/2023/04/'> abril 2023 &nbsp;(7)</option>
+	<option value='https://parzibyte.me/blog/2023/03/'> marzo 2023 &nbsp;(3)</option>
+	<option value='https://parzibyte.me/blog/2023/02/'> febrero 2023 &nbsp;(7)</option>
+	<option value='https://parzibyte.me/blog/2023/01/'> enero 2023 &nbsp;(6)</option>
+	<option value='https://parzibyte.me/blog/2022/12/'> diciembre 2022 &nbsp;(5)</option>
+	<option value='https://parzibyte.me/blog/2022/11/'> noviembre 2022 &nbsp;(23)</option>
+	<option value='https://parzibyte.me/blog/2022/10/'> octubre 2022 &nbsp;(24)</option>
+	<option value='https://parzibyte.me/blog/2022/09/'> septiembre 2022 &nbsp;(25)</option>
+	<option value='https://parzibyte.me/blog/2022/08/'> agosto 2022 &nbsp;(11)</option>
+	<option value='https://parzibyte.me/blog/2022/07/'> julio 2022 &nbsp;(14)</option>
+	<option value='https://parzibyte.me/blog/2022/06/'> junio 2022 &nbsp;(1)</option>
+	<option value='https://parzibyte.me/blog/2022/05/'> mayo 2022 &nbsp;(14)</option>
+	<option value='https://parzibyte.me/blog/2022/04/'> abril 2022 &nbsp;(21)</option>
+	<option value='https://parzibyte.me/blog/2022/03/'> marzo 2022 &nbsp;(16)</option>
+	<option value='https://parzibyte.me/blog/2022/02/'> febrero 2022 &nbsp;(24)</option>
+	<option value='https://parzibyte.me/blog/2022/01/'> enero 2022 &nbsp;(11)</option>
+	<option value='https://parzibyte.me/blog/2021/12/'> diciembre 2021 &nbsp;(27)</option>
+	<option value='https://parzibyte.me/blog/2021/11/'> noviembre 2021 &nbsp;(19)</option>
+	<option value='https://parzibyte.me/blog/2021/10/'> octubre 2021 &nbsp;(15)</option>
+	<option value='https://parzibyte.me/blog/2021/09/'> septiembre 2021 &nbsp;(16)</option>
+	<option value='https://parzibyte.me/blog/2021/08/'> agosto 2021 &nbsp;(36)</option>
+	<option value='https://parzibyte.me/blog/2021/07/'> julio 2021 &nbsp;(35)</option>
+	<option value='https://parzibyte.me/blog/2021/06/'> junio 2021 &nbsp;(36)</option>
+	<option value='https://parzibyte.me/blog/2021/05/'> mayo 2021 &nbsp;(33)</option>
+	<option value='https://parzibyte.me/blog/2021/04/'> abril 2021 &nbsp;(25)</option>
+	<option value='https://parzibyte.me/blog/2021/03/'> marzo 2021 &nbsp;(34)</option>
+	<option value='https://parzibyte.me/blog/2021/02/'> febrero 2021 &nbsp;(41)</option>
+	<option value='https://parzibyte.me/blog/2021/01/'> enero 2021 &nbsp;(50)</option>
+	<option value='https://parzibyte.me/blog/2020/12/'> diciembre 2020 &nbsp;(58)</option>
+	<option value='https://parzibyte.me/blog/2020/11/'> noviembre 2020 &nbsp;(35)</option>
+	<option value='https://parzibyte.me/blog/2020/10/'> octubre 2020 &nbsp;(25)</option>
+	<option value='https://parzibyte.me/blog/2020/09/'> septiembre 2020 &nbsp;(39)</option>
+	<option value='https://parzibyte.me/blog/2020/08/'> agosto 2020 &nbsp;(27)</option>
+	<option value='https://parzibyte.me/blog/2020/07/'> julio 2020 &nbsp;(25)</option>
+	<option value='https://parzibyte.me/blog/2020/06/'> junio 2020 &nbsp;(26)</option>
+	<option value='https://parzibyte.me/blog/2020/05/'> mayo 2020 &nbsp;(22)</option>
+	<option value='https://parzibyte.me/blog/2020/04/'> abril 2020 &nbsp;(35)</option>
+	<option value='https://parzibyte.me/blog/2020/03/'> marzo 2020 &nbsp;(45)</option>
+	<option value='https://parzibyte.me/blog/2020/02/'> febrero 2020 &nbsp;(56)</option>
+	<option value='https://parzibyte.me/blog/2020/01/'> enero 2020 &nbsp;(36)</option>
+	<option value='https://parzibyte.me/blog/2019/12/'> diciembre 2019 &nbsp;(41)</option>
+	<option value='https://parzibyte.me/blog/2019/11/'> noviembre 2019 &nbsp;(32)</option>
+	<option value='https://parzibyte.me/blog/2019/10/'> octubre 2019 &nbsp;(46)</option>
+	<option value='https://parzibyte.me/blog/2019/09/'> septiembre 2019 &nbsp;(54)</option>
+	<option value='https://parzibyte.me/blog/2019/08/'> agosto 2019 &nbsp;(62)</option>
+	<option value='https://parzibyte.me/blog/2019/07/'> julio 2019 &nbsp;(106)</option>
+	<option value='https://parzibyte.me/blog/2019/06/'> junio 2019 &nbsp;(115)</option>
+	<option value='https://parzibyte.me/blog/2019/05/'> mayo 2019 &nbsp;(80)</option>
+	<option value='https://parzibyte.me/blog/2019/04/'> abril 2019 &nbsp;(51)</option>
+	<option value='https://parzibyte.me/blog/2019/03/'> marzo 2019 &nbsp;(45)</option>
+	<option value='https://parzibyte.me/blog/2019/02/'> febrero 2019 &nbsp;(56)</option>
+	<option value='https://parzibyte.me/blog/2019/01/'> enero 2019 &nbsp;(49)</option>
+	<option value='https://parzibyte.me/blog/2018/12/'> diciembre 2018 &nbsp;(60)</option>
+	<option value='https://parzibyte.me/blog/2018/11/'> noviembre 2018 &nbsp;(59)</option>
+	<option value='https://parzibyte.me/blog/2018/10/'> octubre 2018 &nbsp;(68)</option>
+	<option value='https://parzibyte.me/blog/2018/09/'> septiembre 2018 &nbsp;(43)</option>
+	<option value='https://parzibyte.me/blog/2018/08/'> agosto 2018 &nbsp;(38)</option>
+	<option value='https://parzibyte.me/blog/2018/07/'> julio 2018 &nbsp;(11)</option>
+	<option value='https://parzibyte.me/blog/2018/06/'> junio 2018 &nbsp;(18)</option>
+	<option value='https://parzibyte.me/blog/2018/05/'> mayo 2018 &nbsp;(32)</option>
+	<option value='https://parzibyte.me/blog/2018/04/'> abril 2018 &nbsp;(29)</option>
+	<option value='https://parzibyte.me/blog/2018/03/'> marzo 2018 &nbsp;(45)</option>
+	<option value='https://parzibyte.me/blog/2018/02/'> febrero 2018 &nbsp;(21)</option>
+	<option value='https://parzibyte.me/blog/2018/01/'> enero 2018 &nbsp;(9)</option>
+	<option value='https://parzibyte.me/blog/2017/12/'> diciembre 2017 &nbsp;(18)</option>
+	<option value='https://parzibyte.me/blog/2017/11/'> noviembre 2017 &nbsp;(15)</option>
+	<option value='https://parzibyte.me/blog/2017/10/'> octubre 2017 &nbsp;(16)</option>
+	<option value='https://parzibyte.me/blog/2017/09/'> septiembre 2017 &nbsp;(5)</option>
+	<option value='https://parzibyte.me/blog/2017/07/'> julio 2017 &nbsp;(1)</option>
+	<option value='https://parzibyte.me/blog/2017/06/'> junio 2017 &nbsp;(2)</option>
+	<option value='https://parzibyte.me/blog/2017/05/'> mayo 2017 &nbsp;(3)</option>
+	<option value='https://parzibyte.me/blog/2017/04/'> abril 2017 &nbsp;(4)</option>
+
+		</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "archives-dropdown-2" );
+	function onSelectChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value !== '' ) {
+			document.location.href = this.options[ this.selectedIndex ].value;
+		}
+	}
+	dropdown.onchange = onSelectChange;
+})();
+/* ]]> */
+</script>
+			</div><div id="media_image-7" class="widget widget_media_image"><h5>Portafolio</h5><a href="https://parzibyte.me/blog/software-creado-por-parzibyte/"><img width="300" height="250" src="https://parzibyte.me/blog/wp-content/uploads/2019/12/Portafolio-de-Parzibyte-300x250.jpg" class="image wp-image-10132  attachment-medium size-medium jetpack-lazy-image" alt="" decoding="async" loading="lazy" style="max-width: 100%; height: auto;" data-lazy-srcset="https://parzibyte.me/blog/wp-content/uploads/2019/12/Portafolio-de-Parzibyte-300x250.jpg 300w, https://parzibyte.me/blog/wp-content/uploads/2019/12/Portafolio-de-Parzibyte.jpg 336w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://parzibyte.me/blog/wp-content/uploads/2019/12/Portafolio-de-Parzibyte-300x250.jpg?is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" /></a></div>					</aside><!-- .sidebar .widget-area -->
+	</div>
+			</div>
+</article>
+
+		</div>
+	</div>
+</div>
+
+			<div class="section related-posts">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h2 class="hestia-title text-center">Entradas relacionadas</h2>
+							<div class="row">
+																	<div class="col-md-4">
+										<div class="card card-blog">
+																						<div class="content">
+												<h6 class="category text-info"><a href="https://parzibyte.me/blog/category/php/" title="Ver todos las entradas en php" >php</a> </h6>
+												<h4 class="card-title">
+													<a class="blog-item-title-link" href="https://parzibyte.me/blog/2023/06/26/imprimir-impresora-termica-php-internet/" title="Imprimir en impresora térmica con PHP desde internet" rel="bookmark">
+														Imprimir en impresora térmica con PHP desde internet													</a>
+												</h4>
+												<p class="card-description">Podemos imprimir en una impresora térmica desde PHP con comandos ESC POS usando, por ejemplo, la librería de mike42. Funciona bien si todo es en servidor local (ya que la computadora es a su vez<a class="moretag" href="https://parzibyte.me/blog/2023/06/26/imprimir-impresora-termica-php-internet/"> Leer más&hellip;</a></p>
+											</div>
+										</div>
+									</div>
+																	<div class="col-md-4">
+										<div class="card card-blog">
+																							<div class="card-image">
+													<a href="https://parzibyte.me/blog/2023/06/26/impresora-termica-php-plugin/" title="Impresora térmica con PHP y plugin">
+														<img width="360" height="240" src="https://parzibyte.me/blog/wp-content/uploads/2023/06/Imprimir-ticket-en-PHP-desde-servidor-en-internet-360x240.jpg" class="attachment-hestia-blog size-hestia-blog wp-post-image jetpack-lazy-image" alt="Imprimir ticket en PHP desde servidor en internet" decoding="async" data-lazy-src="https://parzibyte.me/blog/wp-content/uploads/2023/06/Imprimir-ticket-en-PHP-desde-servidor-en-internet-360x240.jpg?is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">													</a>
+												</div>
+																						<div class="content">
+												<h6 class="category text-info"><a href="https://parzibyte.me/blog/category/php/" title="Ver todos las entradas en php" >php</a> <a href="https://parzibyte.me/blog/category/plugin-esc-pos-v3/" title="Ver todos las entradas en Plugin ESC POS v3" >Plugin ESC POS v3</a> </h6>
+												<h4 class="card-title">
+													<a class="blog-item-title-link" href="https://parzibyte.me/blog/2023/06/26/impresora-termica-php-plugin/" title="Impresora térmica con PHP y plugin" rel="bookmark">
+														Impresora térmica con PHP y plugin													</a>
+												</h4>
+												<p class="card-description">Desde hace tiempo presenté mi plugin para comunicación con impresoras térmicas que permite imprimir con comandos ESC POS desde cualquier lugar saltando las limitaciones del navegador web y de los lenguajes de programación. Hoy te<a class="moretag" href="https://parzibyte.me/blog/2023/06/26/impresora-termica-php-plugin/"> Leer más&hellip;</a></p>
+											</div>
+										</div>
+									</div>
+																	<div class="col-md-4">
+										<div class="card card-blog">
+																						<div class="content">
+												<h6 class="category text-info"><a href="https://parzibyte.me/blog/category/php/" title="Ver todos las entradas en php" >php</a> <a href="https://parzibyte.me/blog/category/plugin-esc-pos-v3/" title="Ver todos las entradas en Plugin ESC POS v3" >Plugin ESC POS v3</a> </h6>
+												<h4 class="card-title">
+													<a class="blog-item-title-link" href="https://parzibyte.me/blog/2023/06/01/error-open_basedir-imprimir-imagen-esc-pos-mike42/" title="Error open_basedir al imprimir imagen con ESC POS de Mike42" rel="bookmark">
+														Error open_basedir al imprimir imagen con ESC POS de Mike42													</a>
+												</h4>
+												<p class="card-description">Hoy vengo a relatar otro error y la solución que encontré trabajando en un proyecto. Resulta que configuré la librería escpos-php en un servidor Ubuntu con Plesk. Lo subí, instalé las dependencias, etcétera hasta que<a class="moretag" href="https://parzibyte.me/blog/2023/06/01/error-open_basedir-imprimir-imagen-esc-pos-mike42/"> Leer más&hellip;</a></p>
+											</div>
+										</div>
+									</div>
+																							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-wrapper">
+						<footer class="footer footer-black footer-big">
+						<div class="container">
+																<div class="hestia-bottom-footer-content"><ul class="footer-menu pull-left"><li class="page_item page-item-2712"><a href="https://parzibyte.me/blog/conoce-sublime-pos/">Conoce Sublime POS 3</a></li>
+<li class="page_item page-item-2701"><a href="https://parzibyte.me/blog/contacto/">Contacto</a></li>
+<li class="page_item page-item-8490"><a href="https://parzibyte.me/blog/desarrollo-aplicaciones-web/">Desarrollo de aplicaciones web</a></li>
+<li class="page_item page-item-8493"><a href="https://parzibyte.me/blog/desarrollo-apps-moviles/">Desarrollo de apps móviles</a></li>
+<li class="page_item page-item-8482"><a href="https://parzibyte.me/blog/desarrollo-paginas-web/">Desarrollo de páginas web</a></li>
+<li class="page_item page-item-16397"><a href="https://parzibyte.me/blog/donaciones/">Donaciones</a></li>
+<li class="page_item page-item-8485"><a href="https://parzibyte.me/blog/experiencia-testimonios/">Experiencia y testimonios</a></li>
+<li class="page_item page-item-7262"><a href="https://parzibyte.me/blog/pagos-venta-software/">Pagos y venta de software</a></li>
+<li class="page_item page-item-2703"><a href="https://parzibyte.me/blog/portafolio/">Portafolio</a></li>
+<li class="page_item page-item-8854"><a href="https://parzibyte.me/blog/resuelvo-tareas-programacion/">Resuelvo tus tareas de programación</a></li>
+<li class="page_item page-item-9695"><a href="https://parzibyte.me/blog/sigueme/">Sígueme</a></li>
+<li class="page_item page-item-2699"><a href="https://parzibyte.me/blog/sobre-el-autor/">Sobre el autor</a></li>
+<li class="page_item page-item-7034"><a href="https://parzibyte.me/blog/software-creado-por-parzibyte/">Software creado por parzibyte (portafolio)</a></li>
+<li class="page_item page-item-7029"><a href="https://parzibyte.me/blog/contrataciones-ayuda/">Tareas y trabajos de programación</a></li>
+</ul>
+<div class="copyright pull-right">Hestia | Desarrollado por <a href="https://themeisle.com" rel="nofollow">ThemeIsle</a></div></div>			</div>
+					</footer>
+				</div>
+	</div>
+<script defer async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<button class="hestia-scroll-to-top">
+			<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="12.5px" height="20px"><path d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z"></path></svg>
+		</button>
+		
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/parzibyte.me\/blog\/2019\/06\/13\/crear-documentos-word-php-phpword\/":6898};
+	</script>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+						<div id="fb-root"></div>
+			<script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://connect.facebook.net/es_MX/sdk.js#xfbml=1&amp;appId=249643311490&version=v2.3'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+			<script>
+			document.body.addEventListener( 'is.post-load', function() {
+				if ( 'undefined' !== typeof FB ) {
+					FB.XFBML.parse();
+				}
+			} );
+			</script>
+								<script type="text/javascript">
+				( function () {
+					// Pinterest shared resources
+					var s = document.createElement( 'script' );
+					s.type = 'text/javascript';
+					s.async = true;
+					s.setAttribute( 'data-pin-hover', true );					s.src = window.location.protocol + '//assets.pinterest.com/js/pinit.js';
+					var x = document.getElementsByTagName( 'script' )[ 0 ];
+					x.parentNode.insertBefore(s, x);
+					// if 'Pin it' button has 'counts' make container wider
+					function init() {
+						var shares = document.querySelectorAll( 'li.share-pinterest' );
+						for ( var i = 0; i < shares.length; i++ ) {
+							var share = shares[ i ];
+							var countElement = share.querySelector( 'a span' );
+							if (countElement) {
+								var countComputedStyle = window.getComputedStyle(countElement);
+								if ( countComputedStyle.display === 'block' ) {
+									var countWidth = parseInt( countComputedStyle.width, 10 );
+									share.style.marginRight = countWidth + 11 + 'px';
+								}
+							}
+						}
+					}
+
+					if ( document.readyState !== 'complete' ) {
+						document.addEventListener( 'load', init );
+					} else {
+						init();
+					}
+				} )();
+			</script>
+				<script>
+		( function () {
+			var currentScript = document.currentScript;
+
+			// Don't use Pocket's default JS as it we need to force init new Pocket share buttons loaded via JS.
+			function jetpack_sharing_pocket_init() {
+				var script = document.createElement( 'script' );
+				var prev = currentScript || document.getElementsByTagName( 'script' )[ 0 ];
+				script.setAttribute( 'async', true );
+				script.setAttribute( 'src', 'https://widgets.getpocket.com/v1/j/btn.js?v=1' );
+				prev.parentNode.insertBefore( script, prev );
+			}
+
+			if ( document.readyState === 'loading' ) {
+				document.addEventListener( 'DOMContentLoaded', jetpack_sharing_pocket_init );
+			} else {
+				jetpack_sharing_pocket_init();
+			}
+			document.body.addEventListener( 'is.post-load', jetpack_sharing_pocket_init );
+		} )();
+		</script>
+						<script type="text/javascript">
+				( function () {
+					var currentScript = document.currentScript;
+
+					// Helper function to load an external script.
+					function loadScript( url, cb ) {
+						var script = document.createElement( 'script' );
+						var prev = currentScript || document.getElementsByTagName( 'script' )[ 0 ];
+						script.setAttribute( 'async', true );
+						script.setAttribute( 'src', url );
+						prev.parentNode.insertBefore( script, prev );
+						script.addEventListener( 'load', cb );
+					}
+
+					function init() {
+						loadScript( 'https://platform.linkedin.com/in.js?async=true', function () {
+							if ( typeof IN !== 'undefined' ) {
+								IN.init();
+							}
+						} );
+					}
+
+					if ( document.readyState === 'loading' ) {
+						document.addEventListener( 'DOMContentLoaded', init );
+					} else {
+						init();
+					}
+
+					document.body.addEventListener( 'is.post-load', function() {
+						if ( typeof IN !== 'undefined' ) {
+							IN.parse();
+						}
+					} );
+				} )();
+			</script>
+			<script type='text/javascript' src='https://parzibyte.me/blog/wp-includes/js/comment-reply.min.js?ver=6.2.2' id='comment-reply-js'></script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-content/themes/hestia/assets/bootstrap/js/bootstrap.min.js?ver=1.0.2' id='jquery-bootstrap-js'></script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2' id='jquery-ui-core-js'></script>
+<script type='text/javascript' id='hestia_scripts-js-extra'>
+/* <![CDATA[ */
+var requestpost = {"ajaxurl":"https:\/\/parzibyte.me\/blog\/wp-admin\/admin-ajax.php","disable_autoslide":"","masonry":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-content/themes/hestia/assets/js/script.min.js?ver=3.0.29' id='hestia_scripts-js'></script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-lazy-images/dist/intersection-observer.js?minify=false&#038;ver=83ec8aa758f883d6da14' id='jetpack-lazy-images-polyfill-intersectionobserver-js'></script>
+<script type='text/javascript' id='jetpack-lazy-images-js-extra'>
+/* <![CDATA[ */
+var jetpackLazyImagesL10n = {"loading_warning":"Images are still loading. Please cancel your print and try again."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-lazy-images/dist/lazy-images.js?minify=false&#038;ver=2e29137590434abf5fbe' id='jetpack-lazy-images-js'></script>
+<script defer type='text/javascript' src='https://stats.wp.com/e-202328.js' id='jetpack-stats-js'></script>
+<script type='text/javascript' id='jetpack-stats-js-after'>
+_stq = window._stq || [];
+_stq.push([ "view", {v:'ext',blog:'120391063',post:'6898',tz:'-5',srv:'parzibyte.me',j:'1:12.2.1'} ]);
+_stq.push([ "clickTrackerInit", "120391063", "6898" ]);
+</script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-content/plugins/oembed-gist/js/script.min.js?ver=4.9.1' id='oembed-gist-js'></script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-content/plugins/jetpack/_inc/build/likes/queuehandler.min.js?ver=12.2.1' id='jetpack_likes_queuehandler-js'></script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-includes/js/wp-embed.min.js?ver=6.2.2' id='wp-embed-js'></script>
+<script type='text/javascript' id='sharing-js-js-extra'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://parzibyte.me/blog/wp-content/plugins/jetpack/_inc/build/sharedaddy/sharing.min.js?ver=12.2.1' id='sharing-js-js'></script>
+<script type='text/javascript' id='sharing-js-js-after'>
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-facebook' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-facebook' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+						return false;
+					}
+				} );
+			} )();
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-telegram' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-telegram' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomtelegram', 'menubar=1,resizable=1,width=450,height=450' );
+						return false;
+					}
+				} );
+			} )();
+</script>
+<script type='text/javascript'>
+(function() {
+				var expirationDate = new Date();
+				expirationDate.setTime( expirationDate.getTime() + 31536000 * 1000 );
+				document.cookie = "pll_language=es; expires=" + expirationDate.toUTCString() + "; path=/blog/; secure; SameSite=Lax";
+			}());
+</script>
+	<iframe src='https://widgets.wp.com/likes/master.html?ver=202328#ver=202328&#038;lang=es-mx' scrolling='no' id='likes-master' name='likes-master' style='display:none;'></iframe>
+	<div id='likes-other-gravatars'><div class="likes-text">A <span>%d</span> blogueros les gusta esto:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+	</body>
+</html>
+
+<!-- Dynamic page generated in 0.493 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2023-07-14 10:39:31 -->
+
+<!-- Compression = gzip -->

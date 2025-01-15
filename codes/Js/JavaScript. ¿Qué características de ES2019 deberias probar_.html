@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://www.itdo.com/blog/javascript-que-caracteristicas-de-es2019-deberias-probar/ -->
+<html lang="es" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>JavaScript. ¿Qué características de ES2019 deberias probar?</title>
+		<meta name="HandheldFriendly" content="True">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+
+<link rel="preconnect" href="https://fonts.googleapis.com/"> 
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link rel="preload" as="style" href="./JavaScript. ¿Qué características de ES2019 deberias probar__files/css2">
+<link rel="stylesheet" href="./JavaScript. ¿Qué características de ES2019 deberias probar__files/css2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<link rel="stylesheet" type="text/css" href="./JavaScript. ¿Qué características de ES2019 deberias probar__files/screen.css">
+		
+		<link rel="manifest" href="https://www.itdo.com/manifest.json">
+		<link rel="icon" type="image/png" href="https://www.itdo.com/img/ico/ITDO-icon-60px.png">
+		<link rel="icon" type="image/png" href="https://www.itdo.com/img/ico/android-icon-192x192.png" sizes="192x192">
+		<link rel="apple-touch-icon" type="image/png" href="https://www.itdo.com/img/ico/apple-icon-180x180.png" sizes="180x180">
+		
+		<style>
+:root {
+	--font-family-one: 'Inter', sans-serif;
+	--font-weight-one-light: 300;
+	--font-weight-one-bold: 700;
+
+	--font-family-two: 'Inter', sans-serif;
+	--font-weight-two-bold: 700;
+
+	--font-family-three: 'Inter', sans-serif;
+	--font-weight-three-regular: 400;
+	--font-weight-three-medium: 500;
+	--font-weight-three-bold: 700;
+
+	--letter-spacing: -.01em;
+}
+</style>
+
+		<meta name="description" content="Si hay una herramienta digital que no para de evolucionar, y de forma regular, esta es JavaScript. Este año la versión 10 de la especificación ...">
+    <link rel="icon" href="https://www.itdo.com/blog/content/images/size/w256h256/2018/10/ITDO-icon-60px-1.png" type="image/png">
+    <link rel="canonical" href="https://www.itdo.com/blog/javascript-que-caracteristicas-de-es2019-deberias-probar/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="https://www.itdo.com/blog/javascript-que-caracteristicas-de-es2019-deberias-probar/amp/">
+    
+    <meta property="og:site_name" content="Blog ITDO - Agencia de desarrollo Web, APPs y Marketing en Barcelona">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JavaScript. ¿Qué características de ES2019 deberias probar?">
+    <meta property="og:description" content="Si hay una herramienta digital que no para de evolucionar, y de forma regular, esta es JavaScript. Este año la versión 10 de la especificación del lenguaje...">
+    <meta property="og:url" content="https://www.itdo.com/blog/javascript-que-caracteristicas-de-es2019-deberias-probar/">
+    <meta property="og:image" content="https://www.itdo.com/blog/content/images/2019/12/post-javascript-que-hay-de-nuevo-1.jpg">
+    <meta property="article:published_time" content="2019-12-10T09:00:00.000Z">
+    <meta property="article:modified_time" content="2019-12-10T09:00:00.000Z">
+    <meta property="article:tag" content="JavaScript">
+    <meta property="article:tag" content="Aplicaciones Web">
+    <meta property="article:tag" content="Desarrollo Web">
+    <meta property="article:tag" content="Desarrollo Applicaciones">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/itdo.solutions">
+    <meta property="article:author" content="https://www.facebook.com/chiyanasimoes">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JavaScript. ¿Qué características de ES2019 deberias probar?">
+    <meta name="twitter:description" content="Si hay una herramienta digital que no para de evolucionar, y de forma regular, esta es JavaScript. Este año la versión 10 de la especificación del lenguaje...">
+    <meta name="twitter:url" content="https://www.itdo.com/blog/javascript-que-caracteristicas-de-es2019-deberias-probar/">
+    <meta name="twitter:image" content="https://www.itdo.com/blog/content/images/2019/12/post-javascript-que-hay-de-nuevo-1.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Chiyana Simões">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="JavaScript, Aplicaciones Web, Desarrollo Web, Desarrollo Applicaciones">
+    <meta name="twitter:site" content="@ITDO_Solutions">
+    <meta name="twitter:creator" content="@kundukundu">
+    <meta property="og:image:width" content="1424">
+    <meta property="og:image:height" content="949">
+    
+    <script async="" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/gtm.js.descarga"></script><script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Blog ITDO - Agencia de desarrollo Web, APPs y Marketing en Barcelona",
+        "url": "https://www.itdo.com/blog/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.itdo.com/blog/content/images/2022/06/ITDO.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Chiyana Simões",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://www.itdo.com/blog/content/images/2022/06/20292935_1920895341488003_6176692886044470576_n.jpeg",
+            "width": 960,
+            "height": 960
+        },
+        "url": "https://www.itdo.com/blog/author/chiyana/",
+        "sameAs": [
+            "https://www.chiyanasimoes.com",
+            "https://www.facebook.com/chiyanasimoes",
+            "https://twitter.com/kundukundu"
+        ]
+    },
+    "headline": "JavaScript. ¿Qué características de ES2019 deberias probar?",
+    "url": "https://www.itdo.com/blog/javascript-que-caracteristicas-de-es2019-deberias-probar/",
+    "datePublished": "2019-12-10T09:00:00.000Z",
+    "dateModified": "2019-12-10T09:00:00.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://www.itdo.com/blog/content/images/2019/12/post-javascript-que-hay-de-nuevo-1.jpg",
+        "width": 1424,
+        "height": 949
+    },
+    "keywords": "JavaScript, Aplicaciones Web, Desarrollo Web, Desarrollo Applicaciones",
+    "description": "Si hay una herramienta digital que no para de evolucionar, y de forma regular, esta es JavaScript. Este año la versión 10 de la especificación del lenguaje...",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.itdo.com/blog/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.2">
+    <link rel="alternate" type="application/rss+xml" title="Blog ITDO - Agencia de desarrollo Web, APPs y Marketing en Barcelona" href="https://www.itdo.com/blog/rss/">
+    <script defer="" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/portal.min.js.descarga" data-ghost="https://www.itdo.com/blog/" data-key="62ac6cc16b096e4320b3e7bd9f" data-api="https://www.itdo.com/blog/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer="" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/cards.min.js.descarga"></script>
+    <link rel="stylesheet" type="text/css" href="./JavaScript. ¿Qué características de ES2019 deberias probar__files/cards.min.css">
+    <style>
+.comments-section {
+    max-width: var(--max-width-post-wrap);
+}
+.google-auto-placed {
+    background: #cdcdcd;
+    padding: 10px;
+    margin: 10px;
+}
+.google-auto-placed:before {
+    content: "Ads";
+    font-weight: 900;
+    color: black!important;
+}
+.partial-dark-mode .is-logo img,
+.auto-dark-mode .is-logo img,
+.dark-mode .is-logo img {
+  content: url("https://www.itdo.com/blog/content/media/ITDO-white.png");
+}
+.itdo-accent {
+    color: black!important;
+    background-color: #FFA937!important;
+}
+.partial-dark-mode .subscribe-alert .alert-success ,
+.auto-dark-mode .subscribe-alert .alert-success ,
+.dark-mode .subscribe-alert .alert-success  {
+    color:black!important;
+}
+.partial-dark-mode .alert-error ,
+.auto-dark-mode .alert-error ,
+.dark-mode .alert-error  {
+    color:black!important;
+}
+.subscribe-alert .alert-success {
+    background-color: rgb(93, 255, 93);
+     padding-left: 20px!important;
+    padding-right: 20px!important;
+}
+.alert-error {
+    background-color: rgb(255, 134, 134);
+    color: white;
+    padding-left: 20px!important;
+    padding-right: 20px!important;
+}
+.partial-dark-mode:root,
+.auto-dark-mode:root,
+.dark-mode:root {
+    --ghost-accent-color: #1095D7;
+}   
+.gh-portal-powered { 
+    display: none!important; 
+}
+.gh-portal-triggerbtn-iframe {
+    right: 100px!important;
+    bottom: 5px!important;
+}
+input#copy-link {
+    margin-top: 10px;
+}
+#nr-webreader {
+    display: none;
+}
+.post-template #nr-webreader {
+    display: block!important;
+}
+.hero-title a {
+    color: var(--ghost-accent-color);
+    font-weight: 600;
+}
+.membership-card .membership-button:nth-child(3) {
+    background: #FFA937!important;
+    color: black!important;
+}
+.footer-nav, .footer-nav-column {
+    flex-grow: 300;
+}
+.footer-nav .footer-nav-column:last-child {
+    flex-grow: 300;
+    width: 250px;
+}
+.footer-nav-column {
+    width: 180px;
+}
+.darkmode button {
+    background: none;
+    border: 0;
+}
+.hero-nonusers {
+    font-weight: var(--font-weight-one-light);
+    line-height: 1.2;
+    max-width: 1500px;
+    margin-top: 0;
+    letter-spacing: var(--letter-spacing, normal);
+    font-size: 6rem;
+    margin-top: -4.5vh!important;
+    margin-bottom: 4.5vh;
+}
+@media (max-width: 1024px) {
+    .header-checkbox:checked ~ nav {
+        width: 210px!important;
+    }
+    .header-nav li.darkmode svg {
+        fill: white!important;
+    }
+    .partial-dark-mode .header-nav li.darkmode svg,
+    .auto-dark-mode .header-nav li.darkmode svg,
+    .dark-mode .header-nav li.darkmode svg {
+        fill: black!important;
+    }
+    .hero-nonusers {
+        font-size: 3rem!important;
+        margin-top: 0px!important;
+    }
+}
+@media (max-width: 1280px) {
+    .global-tags a{
+        margin-bottom: 7px;
+    }
+    .header-nav .signup {
+     	display:none!important;   
+    }
+    .gh-portal-triggerbtn-iframe {
+        right: 60px!important;
+        bottom: -18px!important;
+    }
+}
+.darkmode .icon-dark {
+    margin-top:8px;
+	width: 20px;
+	height: 20px;
+}
+
+</style>
+
+<script>
+if ("serviceWorker" in navigator) {
+	  window.addEventListener("load", function() {
+	    navigator.serviceWorker
+	      .register("/serviceWorker.js")
+	      .then(res => console.log("service worker registered"))
+	      .catch(err => console.log("service worker not registered", err))
+	  })
+}
+</script>
+   <!-- Start cookieyes banner -->
+    <script id="cookieyes" type="text/javascript" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/script.js.descarga"></script><script src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/banner.js.descarga" async="" id="cookieyes-banner"></script>
+    <!-- End cookieyes banner --> 
+<!-- Cookiboot
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" rel='preconnect' data-cbid="afdc6a02-b372-4fab-8a38-b99f8e648097" type="text/javascript" async></script>-->
+<script>
+  var ghosthunter_key = 'd8e2187f794a61e6db4a0b61f6';
+  var ghost_root_url = "/blog/ghost/api/v2";
+</script> 
+
+<!-- Google Ads -->
+<script async="" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/f.txt" crossorigin="anonymous" type="text/plain" data-cookieconsent="marketing"></script>
+
+<!-- Google Tag Manager-->
+<script data-cookieconsent="statistics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P3GW9PX');</script> <style>:root {--ghost-accent-color: #134D91;}</style>
+	<style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */</style><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */</style><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+xK4jmZTgh1KBVry/UZKUE3h6Dr9HPPioFS4KNCzify+KEoOii7z/goKS2zgbAOwhpZ1GZllpdz7XviivJM9gcAAACFeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiQXR0cmlidXRpb25SZXBvcnRpbmdDcm9zc0FwcFdlYiIsImV4cGlyeSI6MTcwNzI2Mzk5OSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script attributionsrc="" type="javascript/blocked" async="" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/f(1).txt"></script><style id="lightense-images-css">
+:root {
+  --lightense-z-index: 999999;
+  --lightense-backdrop: var(--bg-color-80, rgba(255, 255, 255, .98));
+  --lightense-duration: 300ms;
+  --lightense-timing-func: cubic-bezier(.2, 0, .1, 1);
+}
+
+.lightense-backdrop {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: calc(var(--lightense-z-index) - 1);
+  padding: 0;
+  margin: 0;
+  transition: opacity var(--lightense-duration) ease;
+  cursor: zoom-out;
+  opacity: 0;
+  background-color: var(--lightense-backdrop);
+  visibility: hidden;
+}
+
+@supports (-webkit-backdrop-filter: blur(30px)) {
+  .lightense-backdrop {
+    background-color: var(--lightense-backdrop);
+    -webkit-backdrop-filter: blur(30px);
+  }
+}
+
+@supports (backdrop-filter: blur(30px)) {
+  .lightense-backdrop {
+    background-color: var(--lightense-backdrop);
+    backdrop-filter: blur(30px);
+  }
+}
+
+.lightense-wrap {
+  position: relative;
+  transition: transform var(--lightense-duration) var(--lightense-timing-func);
+  z-index: var(--lightense-z-index);
+  pointer-events: none;
+}
+
+.lightense-target {
+  cursor: zoom-in;
+  transition: transform var(--lightense-duration) var(--lightense-timing-func);
+  pointer-events: auto;
+}
+
+.lightense-open {
+  cursor: zoom-out;
+}
+
+.lightense-transitioning {
+  pointer-events: none;
+}</style><style id="cky-style">.cky-overlay{background: #000000; opacity: 0.4; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 99999999;}.cky-hide{display: none;}.cky-btn-revisit-wrapper{display: flex; align-items: center; justify-content: center; background: #0056a7; width: 45px; height: 45px; border-radius: 50%; position: fixed; z-index: 999999; cursor: pointer;}.cky-revisit-bottom-left{bottom: 15px; left: 15px;}.cky-revisit-bottom-right{bottom: 15px; right: 15px;}.cky-btn-revisit-wrapper .cky-btn-revisit{display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; position: relative; margin: 0; padding: 0;}.cky-btn-revisit-wrapper .cky-btn-revisit img{max-width: fit-content; margin: 0; height: 30px; width: 30px;}.cky-revisit-bottom-left:hover::before{content: attr(data-tooltip); position: absolute; background: #4e4b66; color: #ffffff; left: calc(100% + 7px); font-size: 12px; line-height: 16px; width: max-content; padding: 4px 8px; border-radius: 4px;}.cky-revisit-bottom-left:hover::after{position: absolute; content: ""; border: 5px solid transparent; left: calc(100% + 2px); border-left-width: 0; border-right-color: #4e4b66;}.cky-revisit-bottom-right:hover::before{content: attr(data-tooltip); position: absolute; background: #4e4b66; color: #ffffff; right: calc(100% + 7px); font-size: 12px; line-height: 16px; width: max-content; padding: 4px 8px; border-radius: 4px;}.cky-revisit-bottom-right:hover::after{position: absolute; content: ""; border: 5px solid transparent; right: calc(100% + 2px); border-right-width: 0; border-left-color: #4e4b66;}.cky-revisit-hide{display: none;}.cky-consent-container{position: fixed; width: 100%; box-sizing: border-box; z-index: 9999999;}.cky-consent-container .cky-consent-bar{background: #ffffff; border: 1px solid; padding: 16.5px 24px; box-shadow: 0 -1px 10px 0 #acabab4d;}.cky-banner-bottom{bottom: 0; left: 0;}.cky-banner-top{top: 0; left: 0;}.cky-custom-brand-logo-wrapper .cky-custom-brand-logo{width: 100px; height: auto; margin: 0 0 12px 0;}.cky-notice .cky-title{color: #212121; font-weight: 700; font-size: 18px; line-height: 24px; margin: 0 0 12px 0;}.cky-notice-group{display: flex; justify-content: space-between; align-items: center; font-size: 14px; line-height: 24px; font-weight: 400;}.cky-notice-des *,.cky-preference-content-wrapper *,.cky-accordion-header-des *,.cky-gpc-wrapper .cky-gpc-desc *{font-size: 14px;}.cky-notice-des{color: #212121; font-size: 14px; line-height: 24px; font-weight: 400;}.cky-notice-des img{min-height: 25px; min-width: 25px;}.cky-consent-bar .cky-notice-des p,.cky-gpc-wrapper .cky-gpc-desc p,.cky-preference-body-wrapper .cky-preference-content-wrapper p,.cky-accordion-header-wrapper .cky-accordion-header-des p,.cky-cookie-des-table li div:last-child p{color: inherit; margin-top: 0;}.cky-notice-des P:last-child,.cky-preference-content-wrapper p:last-child,.cky-cookie-des-table li div:last-child p:last-child,.cky-gpc-wrapper .cky-gpc-desc p:last-child{margin-bottom: 0;}.cky-notice-des a.cky-policy,.cky-notice-des button.cky-policy{font-size: 14px; color: #1863dc; white-space: nowrap; cursor: pointer; background: transparent; border: 1px solid; text-decoration: underline;}.cky-notice-des button.cky-policy{padding: 0;}.cky-notice-des a.cky-policy:focus-visible,.cky-notice-des button.cky-policy:focus-visible,.cky-preference-content-wrapper .cky-show-desc-btn:focus-visible,.cky-accordion-header .cky-accordion-btn:focus-visible,.cky-preference-header .cky-btn-close:focus-visible,.cky-switch input[type="checkbox"]:focus-visible,.cky-footer-wrapper a:focus-visible,.cky-btn:focus-visible{outline: 2px solid #1863dc; outline-offset: 2px;}.cky-btn:focus:not(:focus-visible),.cky-accordion-header .cky-accordion-btn:focus:not(:focus-visible),.cky-preference-content-wrapper .cky-show-desc-btn:focus:not(:focus-visible),.cky-btn-revisit-wrapper .cky-btn-revisit:focus:not(:focus-visible),.cky-preference-header .cky-btn-close:focus:not(:focus-visible),.cky-consent-bar .cky-banner-btn-close:focus:not(:focus-visible){outline: 0;}button.cky-show-desc-btn:not(:hover):not(:active){color: #1863dc; background: transparent;}button.cky-accordion-btn:not(:hover):not(:active),button.cky-banner-btn-close:not(:hover):not(:active),button.cky-btn-close:not(:hover):not(:active),button.cky-btn-revisit:not(:hover):not(:active){background: transparent;}.cky-consent-bar button:hover,.cky-modal.cky-modal-open button:hover,.cky-consent-bar button:focus,.cky-modal.cky-modal-open button:focus{text-decoration: none;}.cky-notice-btn-wrapper{display: flex; justify-content: center; align-items: center; margin-left: 15px;}.cky-notice-btn-wrapper .cky-btn{text-shadow: none; box-shadow: none;}.cky-btn{font-size: 14px; font-family: inherit; line-height: 24px; padding: 8px 27px; font-weight: 500; margin: 0 8px 0 0; border-radius: 2px; white-space: nowrap; cursor: pointer; text-align: center; text-transform: none; min-height: 0;}.cky-btn:hover{opacity: 0.8;}.cky-btn-customize{color: #1863dc; background: transparent; border: 2px solid #1863dc;}.cky-btn-reject{color: #1863dc; background: transparent; border: 2px solid #1863dc;}.cky-btn-accept{background: #1863dc; color: #ffffff; border: 2px solid #1863dc;}.cky-btn:last-child{margin-right: 0;}@media (max-width: 768px){.cky-notice-group{display: block;}.cky-notice-btn-wrapper{margin-left: 0;}.cky-notice-btn-wrapper .cky-btn{flex: auto; max-width: 100%; margin-top: 10px; white-space: unset;}}@media (max-width: 576px){.cky-notice-btn-wrapper{flex-direction: column;}.cky-custom-brand-logo-wrapper, .cky-notice .cky-title, .cky-notice-des, .cky-notice-btn-wrapper{padding: 0 28px;}.cky-consent-container .cky-consent-bar{padding: 16.5px 0;}.cky-notice-des{max-height: 40vh; overflow-y: scroll;}.cky-notice-btn-wrapper .cky-btn{width: 100%; padding: 8px; margin-right: 0;}.cky-notice-btn-wrapper .cky-btn-accept{order: 1;}.cky-notice-btn-wrapper .cky-btn-reject{order: 3;}.cky-notice-btn-wrapper .cky-btn-customize{order: 2;}}@media (max-width: 425px){.cky-custom-brand-logo-wrapper, .cky-notice .cky-title, .cky-notice-des, .cky-notice-btn-wrapper{padding: 0 24px;}.cky-notice-btn-wrapper{flex-direction: column;}.cky-btn{width: 100%; margin: 10px 0 0 0;}.cky-notice-btn-wrapper .cky-btn-customize{order: 2;}.cky-notice-btn-wrapper .cky-btn-reject{order: 3;}.cky-notice-btn-wrapper .cky-btn-accept{order: 1; margin-top: 16px;}}@media (max-width: 352px){.cky-notice .cky-title{font-size: 16px;}.cky-notice-des *{font-size: 12px;}.cky-notice-des, .cky-btn{font-size: 12px;}}.cky-modal.cky-modal-open{display: flex; visibility: visible; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%); top: 50%; left: 50%; transition: all 1s ease;}.cky-modal{box-shadow: 0 32px 68px rgba(0, 0, 0, 0.3); margin: 0 auto; position: fixed; max-width: 100%; background: #ffffff; top: 50%; box-sizing: border-box; border-radius: 6px; z-index: 999999999; color: #212121; -webkit-transform: translate(-50%, 100%); -moz-transform: translate(-50%, 100%); -ms-transform: translate(-50%, 100%); -o-transform: translate(-50%, 100%); transform: translate(-50%, 100%); visibility: hidden; transition: all 0s ease;}.cky-preference-center{max-height: 79vh; overflow: hidden; width: 845px; overflow: hidden; flex: 1 1 0; display: flex; flex-direction: column; border-radius: 6px;}.cky-preference-header{display: flex; align-items: center; justify-content: space-between; padding: 22px 24px; border-bottom: 1px solid;}.cky-preference-header .cky-preference-title{font-size: 18px; font-weight: 700; line-height: 24px;}.cky-preference-header .cky-btn-close{margin: 0; cursor: pointer; vertical-align: middle; padding: 0; background: none; border: none; width: auto; height: auto; min-height: 0; line-height: 0; text-shadow: none; box-shadow: none;}.cky-preference-header .cky-btn-close img{margin: 0; height: 10px; width: 10px;}.cky-preference-body-wrapper{padding: 0 24px; flex: 1; overflow: auto; box-sizing: border-box;}.cky-preference-content-wrapper,.cky-gpc-wrapper .cky-gpc-desc{font-size: 14px; line-height: 24px; font-weight: 400; padding: 12px 0;}.cky-preference-content-wrapper{border-bottom: 1px solid;}.cky-preference-content-wrapper img{min-height: 25px; min-width: 25px;}.cky-preference-content-wrapper .cky-show-desc-btn{font-size: 14px; font-family: inherit; color: #1863dc; text-decoration: none; line-height: 24px; padding: 0; margin: 0; white-space: nowrap; cursor: pointer; background: transparent; border-color: transparent; text-transform: none; min-height: 0; text-shadow: none; box-shadow: none;}.cky-accordion-wrapper{margin-bottom: 10px;}.cky-accordion{border-bottom: 1px solid;}.cky-accordion:last-child{border-bottom: none;}.cky-accordion .cky-accordion-item{display: flex; margin-top: 10px;}.cky-accordion .cky-accordion-body{display: none;}.cky-accordion.cky-accordion-active .cky-accordion-body{display: block; padding: 0 22px; margin-bottom: 16px;}.cky-accordion-header-wrapper{cursor: pointer; width: 100%;}.cky-accordion-item .cky-accordion-header{display: flex; justify-content: space-between; align-items: center;}.cky-accordion-header .cky-accordion-btn{font-size: 16px; font-family: inherit; color: #212121; line-height: 24px; background: none; border: none; font-weight: 700; padding: 0; margin: 0; cursor: pointer; text-transform: none; min-height: 0; text-shadow: none; box-shadow: none;}.cky-accordion-header .cky-always-active{color: #008000; font-weight: 600; line-height: 24px; font-size: 14px;}.cky-accordion-header-des{font-size: 14px; line-height: 24px; margin: 10px 0 16px 0;}.cky-accordion-chevron{margin-right: 22px; position: relative; cursor: pointer;}.cky-accordion-chevron-hide{display: none;}.cky-accordion .cky-accordion-chevron i::before{content: ""; position: absolute; border-right: 1.4px solid; border-bottom: 1.4px solid; border-color: inherit; height: 6px; width: 6px; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -ms-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(-45deg); transition: all 0.2s ease-in-out; top: 8px;}.cky-accordion.cky-accordion-active .cky-accordion-chevron i::before{-webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg);}.cky-audit-table{background: #f4f4f4; border-radius: 6px;}.cky-audit-table .cky-empty-cookies-text{color: inherit; font-size: 12px; line-height: 24px; margin: 0; padding: 10px;}.cky-audit-table .cky-cookie-des-table{font-size: 12px; line-height: 24px; font-weight: normal; padding: 15px 10px; border-bottom: 1px solid; border-bottom-color: inherit; margin: 0;}.cky-audit-table .cky-cookie-des-table:last-child{border-bottom: none;}.cky-audit-table .cky-cookie-des-table li{list-style-type: none; display: flex; padding: 3px 0;}.cky-audit-table .cky-cookie-des-table li:first-child{padding-top: 0;}.cky-cookie-des-table li div:first-child{width: 100px; font-weight: 600; word-break: break-word; word-wrap: break-word;}.cky-cookie-des-table li div:last-child{flex: 1; word-break: break-word; word-wrap: break-word; margin-left: 8px;}.cky-footer-shadow{display: block; width: 100%; height: 40px; background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%); position: absolute; bottom: calc(100% - 1px);}.cky-footer-wrapper{position: relative;}.cky-prefrence-btn-wrapper{display: flex; flex-wrap: wrap; align-items: center; justify-content: center; padding: 22px 24px; border-top: 1px solid;}.cky-prefrence-btn-wrapper .cky-btn{flex: auto; max-width: 100%; text-shadow: none; box-shadow: none;}.cky-btn-preferences{color: #1863dc; background: transparent; border: 2px solid #1863dc;}.cky-preference-header,.cky-preference-body-wrapper,.cky-preference-content-wrapper,.cky-accordion-wrapper,.cky-accordion,.cky-accordion-wrapper,.cky-footer-wrapper,.cky-prefrence-btn-wrapper{border-color: inherit;}@media (max-width: 845px){.cky-modal{max-width: calc(100% - 16px);}}@media (max-width: 576px){.cky-modal{max-width: 100%;}.cky-preference-center{max-height: 100vh;}.cky-prefrence-btn-wrapper{flex-direction: column;}.cky-accordion.cky-accordion-active .cky-accordion-body{padding-right: 0;}.cky-prefrence-btn-wrapper .cky-btn{width: 100%; margin: 10px 0 0 0;}.cky-prefrence-btn-wrapper .cky-btn-reject{order: 3;}.cky-prefrence-btn-wrapper .cky-btn-accept{order: 1; margin-top: 0;}.cky-prefrence-btn-wrapper .cky-btn-preferences{order: 2;}}@media (max-width: 425px){.cky-accordion-chevron{margin-right: 15px;}.cky-notice-btn-wrapper{margin-top: 0;}.cky-accordion.cky-accordion-active .cky-accordion-body{padding: 0 15px;}}@media (max-width: 352px){.cky-preference-header .cky-preference-title{font-size: 16px;}.cky-preference-header{padding: 16px 24px;}.cky-preference-content-wrapper *, .cky-accordion-header-des *{font-size: 12px;}.cky-preference-content-wrapper, .cky-preference-content-wrapper .cky-show-more, .cky-accordion-header .cky-always-active, .cky-accordion-header-des, .cky-preference-content-wrapper .cky-show-desc-btn, .cky-notice-des a.cky-policy{font-size: 12px;}.cky-accordion-header .cky-accordion-btn{font-size: 14px;}}.cky-switch{display: flex;}.cky-switch input[type="checkbox"]{position: relative; width: 44px; height: 24px; margin: 0; background: #d0d5d2; -webkit-appearance: none; border-radius: 50px; cursor: pointer; outline: 0; border: none; top: 0;}.cky-switch input[type="checkbox"]:checked{background: #1863dc;}.cky-switch input[type="checkbox"]:before{position: absolute; content: ""; height: 20px; width: 20px; left: 2px; bottom: 2px; border-radius: 50%; background-color: white; -webkit-transition: 0.4s; transition: 0.4s; margin: 0;}.cky-switch input[type="checkbox"]:after{display: none;}.cky-switch input[type="checkbox"]:checked:before{-webkit-transform: translateX(20px); -ms-transform: translateX(20px); transform: translateX(20px);}@media (max-width: 425px){.cky-switch input[type="checkbox"]{width: 38px; height: 21px;}.cky-switch input[type="checkbox"]:before{height: 17px; width: 17px;}.cky-switch input[type="checkbox"]:checked:before{-webkit-transform: translateX(17px); -ms-transform: translateX(17px); transform: translateX(17px);}}.cky-consent-bar .cky-banner-btn-close{position: absolute; right: 9px; top: 5px; background: none; border: none; cursor: pointer; padding: 0; margin: 0; min-height: 0; line-height: 0; height: auto; width: auto; text-shadow: none; box-shadow: none;}.cky-consent-bar .cky-banner-btn-close img{height: 9px; width: 9px; margin: 0;}.cky-notice-btn-wrapper .cky-btn-do-not-sell{font-size: 14px; line-height: 24px; padding: 6px 0; margin: 0; font-weight: 500; background: none; border-radius: 2px; border: none; white-space: nowrap; cursor: pointer; text-align: left; color: #1863dc; background: transparent; border-color: transparent; box-shadow: none; text-shadow: none;}.cky-consent-bar .cky-banner-btn-close:focus-visible,.cky-notice-btn-wrapper .cky-btn-do-not-sell:focus-visible,.cky-opt-out-btn-wrapper .cky-btn:focus-visible,.cky-opt-out-checkbox-wrapper input[type="checkbox"].cky-opt-out-checkbox:focus-visible{outline: 2px solid #1863dc; outline-offset: 2px;}@media (max-width: 768px){.cky-notice-btn-wrapper{margin-left: 0; margin-top: 10px; justify-content: left;}.cky-notice-btn-wrapper .cky-btn-do-not-sell{padding: 0;}}@media (max-width: 352px){.cky-notice-btn-wrapper .cky-btn-do-not-sell, .cky-notice-des a.cky-policy{font-size: 12px;}}.cky-opt-out-wrapper{padding: 12px 0;}.cky-opt-out-wrapper .cky-opt-out-checkbox-wrapper{display: flex; align-items: center;}.cky-opt-out-checkbox-wrapper .cky-opt-out-checkbox-label{font-size: 16px; font-weight: 700; line-height: 24px; margin: 0 0 0 12px; cursor: pointer;}.cky-opt-out-checkbox-wrapper input[type="checkbox"].cky-opt-out-checkbox{background-color: #ffffff; border: 1px solid #000000; width: 20px; height: 18.5px; margin: 0; -webkit-appearance: none; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 2px; cursor: pointer;}.cky-opt-out-checkbox-wrapper input[type="checkbox"].cky-opt-out-checkbox:checked{background-color: #1863dc; border: none;}.cky-opt-out-checkbox-wrapper input[type="checkbox"].cky-opt-out-checkbox:checked::after{left: 6px; bottom: 4px; width: 7px; height: 13px; border: solid #ffffff; border-width: 0 3px 3px 0; border-radius: 2px; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); content: ""; position: absolute; box-sizing: border-box;}.cky-opt-out-checkbox-wrapper.cky-disabled .cky-opt-out-checkbox-label,.cky-opt-out-checkbox-wrapper.cky-disabled input[type="checkbox"].cky-opt-out-checkbox{cursor: no-drop;}.cky-gpc-wrapper{margin: 0 0 0 32px;}.cky-footer-wrapper .cky-opt-out-btn-wrapper{display: flex; flex-wrap: wrap; align-items: center; justify-content: center; padding: 22px 24px;}.cky-opt-out-btn-wrapper .cky-btn{flex: auto; max-width: 100%; text-shadow: none; box-shadow: none;}.cky-opt-out-btn-wrapper .cky-btn-cancel{border: 1px solid #dedfe0; background: transparent; color: #858585;}.cky-opt-out-btn-wrapper .cky-btn-confirm{background: #1863dc; color: #ffffff; border: 1px solid #1863dc;}@media (max-width: 352px){.cky-opt-out-checkbox-wrapper .cky-opt-out-checkbox-label{font-size: 14px;}.cky-gpc-wrapper .cky-gpc-desc, .cky-gpc-wrapper .cky-gpc-desc *{font-size: 12px;}.cky-opt-out-checkbox-wrapper input[type="checkbox"].cky-opt-out-checkbox{width: 16px; height: 16px;}.cky-opt-out-checkbox-wrapper input[type="checkbox"].cky-opt-out-checkbox:checked::after{left: 5px; bottom: 4px; width: 3px; height: 9px;}.cky-gpc-wrapper{margin: 0 0 0 28px;}}.video-placeholder-youtube{background-size: 100% 100%; background-position: center; background-repeat: no-repeat; background-color: #b2b0b059; position: relative; display: flex; align-items: center; justify-content: center; max-width: 100%;}.video-placeholder-text-youtube{text-align: center; align-items: center; padding: 10px 16px; background-color: #000000cc; color: #ffffff; border: 1px solid; border-radius: 2px; cursor: pointer;}.video-placeholder-normal{background-image: url("https://cdn-cookieyes.com/assets/images/cky-placeholder.svg"); background-size: 80px; background-position: center; background-repeat: no-repeat; background-color: #b2b0b059; position: relative; display: flex; align-items: flex-end; justify-content: center; max-width: 100%;}.video-placeholder-text-normal{align-items: center; padding: 10px 16px; text-align: center; border: 1px solid; border-radius: 2px; cursor: pointer;}.cky-rtl{direction: rtl; text-align: right;}.cky-rtl .cky-banner-btn-close{left: 9px; right: auto;}.cky-rtl .cky-notice-btn-wrapper .cky-btn:last-child{margin-right: 8px;}.cky-rtl .cky-notice-btn-wrapper .cky-btn:first-child{margin-right: 0;}.cky-rtl .cky-notice-btn-wrapper{margin-left: 0; margin-right: 15px;}.cky-rtl .cky-prefrence-btn-wrapper .cky-btn{margin-right: 8px;}.cky-rtl .cky-prefrence-btn-wrapper .cky-btn:first-child{margin-right: 0;}.cky-rtl .cky-accordion .cky-accordion-chevron i::before{border: none; border-left: 1.4px solid; border-top: 1.4px solid; left: 12px;}.cky-rtl .cky-accordion.cky-accordion-active .cky-accordion-chevron i::before{-webkit-transform: rotate(-135deg); -moz-transform: rotate(-135deg); -ms-transform: rotate(-135deg); -o-transform: rotate(-135deg); transform: rotate(-135deg);}@media (max-width: 768px){.cky-rtl .cky-notice-btn-wrapper{margin-right: 0;}}@media (max-width: 576px){.cky-rtl .cky-notice-btn-wrapper .cky-btn:last-child{margin-right: 0;}.cky-rtl .cky-prefrence-btn-wrapper .cky-btn{margin-right: 0;}.cky-rtl .cky-accordion.cky-accordion-active .cky-accordion-body{padding: 0 22px 0 0;}}@media (max-width: 425px){.cky-rtl .cky-accordion.cky-accordion-active .cky-accordion-body{padding: 0 15px 0 0;}}.cky-rtl .cky-opt-out-btn-wrapper .cky-btn{margin-right: 12px;}.cky-rtl .cky-opt-out-btn-wrapper .cky-btn:first-child{margin-right: 0;}.cky-rtl .cky-opt-out-checkbox-wrapper .cky-opt-out-checkbox-label{margin: 0 12px 0 0;} </style><script async="" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/embed.js.descarga" data-timestamp="1691194101016"></script></head>
+	<body class="post-template tag-javascript tag-aplicaciones-web tag-desarrollo-web tag-desarrollo-applicaciones global-accent-color-buttons"><div class="cky-overlay cky-hide"></div><div class="cky-consent-container cky-banner-bottom"> <div class="cky-consent-bar" data-cky-tag="notice" style="border-color: #f4f4f4; background-color: #FFFFFF;">  <div class="cky-notice"> <p class="cky-title" data-cky-tag="title" style="color: #212121;">Valoramos tu privacidad</p><div class="cky-notice-group"> <div class="cky-notice-des" data-cky-tag="description" style="color: #212121;"> <p>Usamos cookies para mejorar su experiencia de navegación, mostrarle anuncios o contenidos personalizados y analizar nuestro tráfico. Al hacer clic en “Aceptar todo” usted da su consentimiento a nuestro uso de las cookies.</p> </div><div class="cky-notice-btn-wrapper" data-cky-tag="notice-buttons"> <button class="cky-btn cky-btn-customize" aria-label="Personalizar" data-cky-tag="settings-button" style="color: #1863dc; border-color: #1863dc; background-color: transparent;">Personalizar</button> <button class="cky-btn cky-btn-reject" aria-label="Rechazar todo" data-cky-tag="reject-button" style="color: #1863dc; border-color: #1863dc; background-color: transparent;">Rechazar todo</button> <button class="cky-btn cky-btn-accept" aria-label="Aceptar todo" data-cky-tag="accept-button" style="color: #FFFFFF; border-color: #1863dc; background-color: #1863dc;">Aceptar todo</button>  </div></div></div></div></div><div class="cky-modal"> <div class="cky-preference-center" data-cky-tag="detail" style="color: #212121; border-color: #F4F4F4; background-color: #FFFFFF;"> <div class="cky-preference-header"> <span class="cky-preference-title" data-cky-tag="detail-title" style="color: #212121;">Personalizar las preferencias de consentimiento</span> <button class="cky-btn-close" aria-label="Cerca" data-cky-tag="detail-close"> <img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/close.svg" alt="Close"> </button> </div><div class="cky-preference-body-wrapper"> <div class="cky-preference-content-wrapper" data-cky-tag="detail-description" style="color: #212121;"><p>Usamos cookies para ayudarle a navegar de manera eficiente y realizar ciertas funciones. Encontrará información detallada sobre cada una de las cookies bajo cada categoría de consentimiento a continuación.</p><p>Las cookies categorizadas como “Necesarias” se guardan en su navegador, ya que son esenciales para permitir las funcionalidades básicas del sitio web....&nbsp;<button class="cky-show-desc-btn" data-cky-tag="show-desc-button" aria-label="Mostrar más">Mostrar más</button></p></div><div class="cky-accordion-wrapper" data-cky-tag="detail-categories"> <div class="cky-accordion" id="ckyDetailCategorynecessary"><div class="cky-accordion-item"><div class="cky-accordion-chevron"><i class="cky-chevron-right"></i></div><div class="cky-accordion-header-wrapper"><div class="cky-accordion-header"><button class="cky-accordion-btn" aria-label="Necesaria" data-cky-tag="detail-category-title" style="color: #212121;">Necesaria</button><span class="cky-always-active">Siempre activas</span></div><div class="cky-accordion-header-des" data-cky-tag="detail-category-description" style="color: #212121;"><p>Las cookies necesarias son cruciales para las funciones básicas del sitio web y el sitio web no funcionará de la forma prevista sin ellas.</p><p>Estas cookies no almacenan ningún dato de identificación personal.</p></div></div></div><div class="cky-accordion-body"><div class="cky-audit-table" data-cky-tag="audit-table" style="color: #212121; border-color: #ebebeb; background-color: #f4f4f4;"><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>cookieyes-consent</div></li><li><div>Duración</div><div>1 año</div></li><li><div>Descripción</div><div>CookieYes sets this cookie to remember users' consent preferences so that their preferences are respected on their subsequent visits to this site. It does not collect or store any personal information of the site visitors.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>csrftoken</div></li><li><div>Duración</div><div>sesión</div></li><li><div>Descripción</div><div>This cookie is associated with Django web development platform for python. Used to help protect the website against Cross-Site Request Forgery attacks</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>__cfruid</div></li><li><div>Duración</div><div>sesión</div></li><li><div>Descripción</div><div>Cloudflare sets this cookie to identify trusted web traffic.</div></li></ul></div></div></div><div class="cky-accordion" id="ckyDetailCategoryfunctional"><div class="cky-accordion-item"><div class="cky-accordion-chevron"><i class="cky-chevron-right"></i></div><div class="cky-accordion-header-wrapper"><div class="cky-accordion-header"><button class="cky-accordion-btn" aria-label="Funcional" data-cky-tag="detail-category-title" style="color: #212121;">Funcional</button><div class="cky-switch" data-cky-tag="detail-category-toggle"><input type="checkbox" id="ckySwitchfunctional" aria-label="Permitir Funcional" style="background-color: rgb(208, 213, 210);"></div></div><div class="cky-accordion-header-des" data-cky-tag="detail-category-description" style="color: #212121;"><p>Las cookies funcionales ayudan a realizar ciertas funcionalidades, como compartir el contenido del sitio web en plataformas de redes sociales, recopilar comentarios y otras características de terceros.</p></div></div></div><div class="cky-accordion-body"><div class="cky-audit-table" data-cky-tag="audit-table" style="color: #212121; border-color: #ebebeb; background-color: #f4f4f4;"><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>ugid</div></li><li><div>Duración</div><div>1 año</div></li><li><div>Descripción</div><div>This cookie is set by the provider Unsplash. This cookie is used for enabling the video content on the website.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>__cf_bm</div></li><li><div>Duración</div><div>30 minutos</div></li><li><div>Descripción</div><div>This cookie, set by Cloudflare, is used to support Cloudflare Bot Management. </div></li></ul></div></div></div><div class="cky-accordion" id="ckyDetailCategoryanalytics"><div class="cky-accordion-item"><div class="cky-accordion-chevron"><i class="cky-chevron-right"></i></div><div class="cky-accordion-header-wrapper"><div class="cky-accordion-header"><button class="cky-accordion-btn" aria-label="Analítica" data-cky-tag="detail-category-title" style="color: #212121;">Analítica</button><div class="cky-switch" data-cky-tag="detail-category-toggle"><input type="checkbox" id="ckySwitchanalytics" aria-label="Permitir Analítica" style="background-color: rgb(208, 213, 210);"></div></div><div class="cky-accordion-header-des" data-cky-tag="detail-category-description" style="color: #212121;"><p>Las cookies analíticas se utilizan para comprender cómo interactúan los visitantes con el sitio web. Estas cookies ayudan a proporcionar información sobre métricas el número de visitantes, el porcentaje de rebote, la fuente de tráfico, etc.</p></div></div></div><div class="cky-accordion-body"><div class="cky-audit-table" data-cky-tag="audit-table" style="color: #212121; border-color: #ebebeb; background-color: #f4f4f4;"><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_ga</div></li><li><div>Duración</div><div>2 años</div></li><li><div>Descripción</div><div>The _ga cookie, installed by Google Analytics, calculates visitor, session and campaign data and also keeps track of site usage for the site's analytics report. The cookie stores information anonymously and assigns a randomly generated number to recognize unique visitors.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_gid</div></li><li><div>Duración</div><div>1 día</div></li><li><div>Descripción</div><div>Installed by Google Analytics, _gid cookie stores information on how visitors use a website, while also creating an analytics report of the website's performance. Some of the data that are collected include the number of visitors, their source, and the pages they visit anonymously.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_gat_UA-127274771-1</div></li><li><div>Duración</div><div>1 minuto</div></li><li><div>Descripción</div><div>A variation of the _gat cookie set by Google Analytics and Google Tag Manager to allow website owners to track visitor behaviour and measure site performance. The pattern element in the name contains the unique identity number of the account or website it relates to.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_gcl_au</div></li><li><div>Duración</div><div>3 meses</div></li><li><div>Descripción</div><div>Provided by Google Tag Manager to experiment advertisement efficiency of websites using their services.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_hjFirstSeen</div></li><li><div>Duración</div><div>30 minutos</div></li><li><div>Descripción</div><div>Hotjar sets this cookie to identify a new user’s first session. It stores a true/false value, indicating whether it was the first time Hotjar saw this user.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_hjIncludedInSessionSample</div></li><li><div>Duración</div><div>2 minutos</div></li><li><div>Descripción</div><div>Hotjar sets this cookie to know whether a user is included in the data sampling defined by the site's daily session limit.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_hjIncludedInPageviewSample</div></li><li><div>Duración</div><div>2 minutos</div></li><li><div>Descripción</div><div>Hotjar sets this cookie to know whether a user is included in the data sampling defined by the site's pageview limit.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_hjAbsoluteSessionInProgress</div></li><li><div>Duración</div><div>30 minutos</div></li><li><div>Descripción</div><div>Hotjar sets this cookie to detect the first pageview session of a user. This is a True/False flag set by the cookie.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>CONSENT</div></li><li><div>Duración</div><div>2 años</div></li><li><div>Descripción</div><div>YouTube sets this cookie via embedded youtube-videos and registers anonymous statistical data.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_ga_J4NNBX9FS7</div></li><li><div>Duración</div><div>2 años</div></li><li><div>Descripción</div><div>This cookie is installed by Google Analytics.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_gh_sess</div></li><li><div>Duración</div><div>sesión</div></li><li><div>Descripción</div><div>GitHub sets this cookie for temporary application and framework state between pages like what step the user is on in a multiple step form.</div></li></ul></div></div></div><div class="cky-accordion" id="ckyDetailCategoryperformance"><div class="cky-accordion-item"><div class="cky-accordion-chevron"><i class="cky-chevron-right"></i></div><div class="cky-accordion-header-wrapper"><div class="cky-accordion-header"><button class="cky-accordion-btn" aria-label="Rendimiento" data-cky-tag="detail-category-title" style="color: #212121;">Rendimiento</button><div class="cky-switch" data-cky-tag="detail-category-toggle"><input type="checkbox" id="ckySwitchperformance" aria-label="Permitir Rendimiento" style="background-color: rgb(208, 213, 210);"></div></div><div class="cky-accordion-header-des" data-cky-tag="detail-category-description" style="color: #212121;"><p>Las cookies de rendimiento se utilizan para comprender y analizar los índices de rendimiento clave del sitio web, lo que ayuda a proporcionar una mejor experiencia de usuario para los visitantes.</p></div></div></div><div class="cky-accordion-body"><div class="cky-audit-table" data-cky-tag="audit-table" style="color: #212121; border-color: #ebebeb; background-color: #f4f4f4;"><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_gat</div></li><li><div>Duración</div><div>1 minuto</div></li><li><div>Descripción</div><div>This cookie is installed by Google Universal Analytics to restrain request rate and thus limit the collection of data on high traffic sites.</div></li></ul></div></div></div><div class="cky-accordion" id="ckyDetailCategoryadvertisement"><div class="cky-accordion-item"><div class="cky-accordion-chevron"><i class="cky-chevron-right"></i></div><div class="cky-accordion-header-wrapper"><div class="cky-accordion-header"><button class="cky-accordion-btn" aria-label="Anuncio" data-cky-tag="detail-category-title" style="color: #212121;">Anuncio</button><div class="cky-switch" data-cky-tag="detail-category-toggle"><input type="checkbox" id="ckySwitchadvertisement" aria-label="Permitir Anuncio" style="background-color: rgb(208, 213, 210);"></div></div><div class="cky-accordion-header-des" data-cky-tag="detail-category-description" style="color: #212121;"><p>Las cookies publicitarias se utilizan para entregar a los visitantes anuncios personalizados basados ​​en las páginas que visitaron antes y analizar la efectividad de la campaña publicitaria.</p></div></div></div><div class="cky-accordion-body"><div class="cky-audit-table" data-cky-tag="audit-table" style="color: #212121; border-color: #ebebeb; background-color: #f4f4f4;"><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>test_cookie</div></li><li><div>Duración</div><div>15 minutos</div></li><li><div>Descripción</div><div>The test_cookie is set by doubleclick.net and is used to determine if the user's browser supports cookies.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>personalization_id</div></li><li><div>Duración</div><div>2 años</div></li><li><div>Descripción</div><div>Twitter sets this cookie to integrate and share features for social media and also store information about how the user uses the website, for tracking and targeting.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_fbp</div></li><li><div>Duración</div><div>3 meses</div></li><li><div>Descripción</div><div>This cookie is set by Facebook to display advertisements when either on Facebook or on a digital platform powered by Facebook advertising, after visiting the website.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>YSC</div></li><li><div>Duración</div><div>sesión</div></li><li><div>Descripción</div><div>YSC cookie is set by Youtube and is used to track the views of embedded videos on Youtube pages.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>VISITOR_INFO1_LIVE</div></li><li><div>Duración</div><div>5 meses 27 días</div></li><li><div>Descripción</div><div>A cookie set by YouTube to measure bandwidth that determines whether the user gets the new or old player interface.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>yt-remote-device-id</div></li><li><div>Duración</div><div>Nunca</div></li><li><div>Descripción</div><div>YouTube sets this cookie to store the video preferences of the user using embedded YouTube video.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>yt-remote-connected-devices</div></li><li><div>Duración</div><div>Nunca</div></li><li><div>Descripción</div><div>YouTube sets this cookie to store the video preferences of the user using embedded YouTube video.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>yt.innertube::requests</div></li><li><div>Duración</div><div>Nunca</div></li><li><div>Descripción</div><div>This cookie, set by YouTube, registers a unique ID to store data on what videos from YouTube the user has seen.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>yt.innertube::nextId</div></li><li><div>Duración</div><div>Nunca</div></li><li><div>Descripción</div><div>This cookie, set by YouTube, registers a unique ID to store data on what videos from YouTube the user has seen.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>IDE</div></li><li><div>Duración</div><div>1 año 24 días</div></li><li><div>Descripción</div><div>Google DoubleClick IDE cookies are used to store information about how the user uses the website to present them with relevant ads and according to the user profile.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>NID</div></li><li><div>Duración</div><div>6 meses</div></li><li><div>Descripción</div><div>NID cookie, set by Google, is used for advertising purposes; to limit the number of times the user sees an ad, to mute unwanted ads, and to measure the effectiveness of ads.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>fr</div></li><li><div>Duración</div><div>3 meses</div></li><li><div>Descripción</div><div>Facebook sets this cookie to show relevant advertisements to users by tracking user behaviour across the web, on sites that have Facebook pixel or Facebook social plugin.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>__Host-GAPS</div></li><li><div>Duración</div><div>2 años</div></li><li><div>Descripción</div><div>This cookie allows the website to identify a user and provide enhanced functionality and personalisation.</div></li></ul></div></div></div><div class="cky-accordion" id="ckyDetailCategoryother"><div class="cky-accordion-item"><div class="cky-accordion-chevron"><i class="cky-chevron-right"></i></div><div class="cky-accordion-header-wrapper"><div class="cky-accordion-header"><button class="cky-accordion-btn" aria-label="otros" data-cky-tag="detail-category-title" style="color: #212121;">otros</button><div class="cky-switch" data-cky-tag="detail-category-toggle"><input type="checkbox" id="ckySwitchother" aria-label="Permitir otros" style="background-color: rgb(208, 213, 210);"></div></div><div class="cky-accordion-header-des" data-cky-tag="detail-category-description" style="color: #212121;"><p>Otras cookies no categorizadas son las que se están analizando y aún no se han clasificado en una categoría.</p></div></div></div><div class="cky-accordion-body"><div class="cky-audit-table" data-cky-tag="audit-table" style="color: #212121; border-color: #ebebeb; background-color: #f4f4f4;"><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_hjSessionUser_1057075</div></li><li><div>Duración</div><div>1 año</div></li><li><div>Descripción</div><div>No description</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_hjSession_1057075</div></li><li><div>Duración</div><div>30 minutos</div></li><li><div>Descripción</div><div>No description</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>muc_ads</div></li><li><div>Duración</div><div>2 años</div></li><li><div>Descripción</div><div>No description</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_jsfiddle_session</div></li><li><div>Duración</div><div>sesión</div></li><li><div>Descripción</div><div>No description available.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>_octo</div></li><li><div>Duración</div><div>1 año</div></li><li><div>Descripción</div><div>No description available.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>logged_in</div></li><li><div>Duración</div><div>1 año</div></li><li><div>Descripción</div><div>No description available.</div></li></ul><ul class="cky-cookie-des-table"><li><div>Cookie</div><div>cp_session</div></li><li><div>Duración</div><div>1 mes</div></li><li><div>Descripción</div><div>No description available.</div></li></ul></div></div></div> </div></div><div class="cky-footer-wrapper"> <span class="cky-footer-shadow" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);"></span> <div class="cky-prefrence-btn-wrapper" data-cky-tag="detail-buttons"> <button class="cky-btn cky-btn-reject" aria-label="Rechazar todo" data-cky-tag="detail-reject-button" style="color: #1863dc; border-color: #1863dc; background-color: transparent;"> Rechazar todo </button> <button class="cky-btn cky-btn-preferences" aria-label="Guardar mis preferencias" data-cky-tag="detail-save-button" style="color: #1863dc; border-color: #1863dc; background-color: transparent;"> Guardar mis preferencias </button> <button class="cky-btn cky-btn-accept" aria-label="Aceptar todo" data-cky-tag="detail-accept-button" style="color: #ffffff; border-color: #1863dc; background-color: #1863dc;"> Aceptar todo </button> </div><div style="padding: 8px 24px; font-size: 12px; font-weight: 400; line-height: 20px; text-align: right; border-radius: 0 0 6px 6px; direction: ltr; display: flex; justify-content: flex-end; align-items: center; color: #293C5B; background-color: #EDEDED;" data-cky-tag="detail-powered-by"> Powered by <a target="_blank" rel="noopener" href="https://www.cookieyes.com/product/cookie-consent" style="margin-left: 5px; line-height: 0"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/poweredbtcky.svg" alt="Cookieyes logo" style="width: 78px; height: 13px; margin: 0"></a> </div></div></div></div>
+		<div class="global-wrap">
+			<div class="global-content">
+				<header class="header-section">
+	<div class="header-wrap global-padding">
+		<div class="header-logo"><a href="https://www.itdo.com/blog" class="is-logo"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/ITDO.png" alt="Blog ITDO - Agencia de desarrollo Web, APPs y Marketing en Barcelona home"></a>
+</div>
+		<div class="header-nav is-button-accent-color">
+			<span class="header-search search-open is-mobile"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16.822 18.813 4.798 4.799c.262.248.61.388.972.388.772-.001 1.407-.637 1.407-1.409 0-.361-.139-.709-.387-.971l-4.799-4.797c3.132-4.108 2.822-10.005-.928-13.756l-.007-.007-.278-.278a.6985.6985 0 0 0-.13-.107C13.36-1.017 7.021-.888 3.066 3.067c-4.088 4.089-4.088 10.729 0 14.816 3.752 3.752 9.65 4.063 13.756.93Zm-.965-13.719c2.95 2.953 2.95 7.81 0 10.763-2.953 2.949-7.809 2.949-10.762 0-2.951-2.953-2.951-7.81 0-10.763 2.953-2.95 7.809-2.95 10.762 0Z"></path></svg></span>
+			<input id="toggle" class="header-checkbox" type="checkbox">
+			<label class="header-toggle" for="toggle">
+				<span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</span>
+			</label>
+		<nav>
+<ul>
+	<li><a href="https://www.itdo.com/desarrollo-web-avanzado-a-medida" title="Servicios &quot;Concierge&quot;">Servicios "Concierge"</a></li>
+	<li><a href="https://www.itdo.com/blog/" title="Blog">Blog</a></li>
+	<li><a href="https://www.itdo.com/contacto" title="Contacto">Contacto</a></li>
+	<li class="darkmode">
+	<button title="Dark / Light Mode" type="button"><svg class="icon-dark" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="color-scheme-system"><path d="M12 4a1 1 0 0 1-1-1V1a1 1 0 0 1 2 0v2a1 1 0 0 1-1 1zM4.933 6.348a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-1.42-1.42a.999.999 0 1 0-1.414 1.414l1.42 1.42zM1 13h2a1 1 0 1 0 0-2H1a1 1 0 0 0 0 2zm19.486-8.072 3.221-3.221A.999.999 0 1 0 22.293.293l-3.221 3.221-1.42 1.42-2.19 2.19A5.955 5.955 0 0 0 12 6c-3.309 0-6 2.691-6 6 0 1.258.406 2.453 1.124 3.462l-2.105 2.105c-.026.021-.058.03-.083.055s-.033.056-.055.082l-1.368 1.368-.001.002-3.219 3.219a.999.999 0 1 0 1.414 1.414l3.987-3.987a10.03 10.03 0 0 0 6.332 2.262c5.103-.001 9.473-3.902 9.951-9.081a1 1 0 0 0-1.591-.896 5.96 5.96 0 0 1-7.037.06l5.717-5.716 1.42-1.421zm-.945 9.78c-1.21 3.337-4.564 5.587-8.257 5.238a8.019 8.019 0 0 1-4.165-1.651l4.802-4.802c.05.038.093.082.144.12a7.955 7.955 0 0 0 7.476 1.095zm-10.979-.684A3.968 3.968 0 0 1 8 12c0-2.206 1.794-4 4-4a3.98 3.98 0 0 1 2.025.561l-5.463 5.463z"></path></svg></button>
+</li>	<li class="header-search search-open is-desktop global-button"><span><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16.822 18.813 4.798 4.799c.262.248.61.388.972.388.772-.001 1.407-.637 1.407-1.409 0-.361-.139-.709-.387-.971l-4.799-4.797c3.132-4.108 2.822-10.005-.928-13.756l-.007-.007-.278-.278a.6985.6985 0 0 0-.13-.107C13.36-1.017 7.021-.888 3.066 3.067c-4.088 4.089-4.088 10.729 0 14.816 3.752 3.752 9.65 4.063 13.756.93Zm-.965-13.719c2.95 2.953 2.95 7.81 0 10.763-2.953 2.949-7.809 2.949-10.762 0-2.951-2.953-2.951-7.81 0-10.763 2.953-2.95 7.809-2.95 10.762 0Z"></path></svg>Buscar</span></li>
+	<li class="signup"><a href="https://www.itdo.com/blog/signup/" class="global-button">Únete a la Comunidad ITDO</a></li>
+	<li class="account"><a href="https://www.itdo.com/pedir-presupuesto/proyecto" class="global-button itdo-accent">Pedir presupuesto</a></li></ul>
+</nav>
+	</div>
+</div>
+</header>				<main class="global-main">
+					<progress class="post-progress" value="0.18748418297321312"></progress>
+<article class="post-section">
+	<div class="post-header">
+	<div class="post-header-wrap global-padding">
+		<div class="post-header-container">
+			<div class="post-header-content">
+				<div>
+					<div class="post-tags global-tags"><a href="https://www.itdo.com/blog/tag/javascript/">JavaScript</a><a href="https://www.itdo.com/blog/tag/aplicaciones-web/">Aplicaciones Web</a><a href="https://www.itdo.com/blog/tag/desarrollo-web/">Desarrollo Web</a><a href="https://www.itdo.com/blog/tag/desarrollo-applicaciones/">Desarrollo Applicaciones</a></div>
+					<h1 class="post-title global-title">JavaScript. ¿Qué características de ES2019 deberías probar?</h1>
+					<p class="post-excerpt global-excerpt">Si hay una herramienta digital que no para de evolucionar, y de forma regular, esta es JavaScript. Este año la versión 10 de la especificación del lenguaje...</p>
+				</div>
+				<div class="post-meta">
+					<div class="post-authors global-authors">
+						<div>
+							<div class="post-item-author global-item-author is-image global-image">
+								<a href="https://www.itdo.com/blog/author/chiyana/" class="global-link" title="Chiyana Simões"></a>
+								<img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/20292935_1920895341488003_6176692886044470576_n.jpeg" loading="lazy" alt="Chiyana Simões">							</div>
+						</div>
+					</div>
+					<div class="post-meta-content">
+						<a href="https://www.itdo.com/blog/author/chiyana/">Chiyana Simões</a>
+						<time datetime="2019-12-10">10 de diciembre de 2019 — 4 minutos de lectura</time>
+					</div>
+				</div>
+			</div>
+			<div class="post-header-image">
+				<figure>
+					<div class="global-image global-image-orientation global-radius is-square">
+						<img srcset="/blog/content/images/size/w300/2019/12/post-javascript-que-hay-de-nuevo-1.jpg 300w, 
+			 /blog/content/images/size/w600/2019/12/post-javascript-que-hay-de-nuevo-1.jpg 600w,
+			 /blog/content/images/size/w1200/2019/12/post-javascript-que-hay-de-nuevo-1.jpg 1200w" sizes="(max-width:480px) 300px, (max-width:768px) 600px, 1200px" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/post-javascript-que-hay-de-nuevo-1.jpg" alt="JavaScript. ¿Qué características de ES2019 deberías probar?">
+					</div>
+				</figure>
+			</div>
+		</div>
+	</div>
+</div>	<div class="post-content global-padding">
+		<p>Si hay una herramienta digital que no para de evolucionar, y de forma regular, esta es <a href="https://www.javascript.com/">JavaScript</a>. Este año, la versión 10 de la especificación del lenguaje <a href="https://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a> ha sido lanzada con el objetivo de mejorar la experiencia de los desarrolladores, y obviamente del usuario final con los productos desarrollados con este lenguaje de programación.</p><p>Como en la red todo funciona muy rápido, y todo (o casi todo) vuela a la “<em>velocidad de un twee</em>t”, hoy creo que vale la pena echar un vistazo a las nuevas características y entender cómo puedes usarlas en tus productos digitales o aplicaciones.</p><h2 id="-qu-es-ecmascript-y-qu-es-es2019">¿Qué es ECMAScript, y qué es ES2019?</h2><p>ECMAScript (ES para abreviar) es una especificación de lenguaje de <em>script</em> estandarizada por <a href="https://www.ecma-international.org/">ECMA International</a> en <a href="https://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a> e <a href="https://www.iso.org/standard/55755.html">ISO/IEC 16262</a>. ES fue creada para estandarizar el lenguaje JavaScript, a fin de fomentar múltiples implementaciones estándar independientes de los proveedores (<em>vendors) </em>de navegadores<em>. ECMAScript </em>evoluciona cada año con nuevas características recibidas previamente como propuestas. En este artículo te comparto algunas de las nuevas características de 2019: ES2019.</p><h2 id="nuevas-caracter-sticas-de-ecmascript-javascript-es2019">Nuevas características de ECMAScript (Javascript) - ES2019</h2><h3 id="array-flat-">Array.flat()</h3><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat">Array.flat()</a> es un método que retorna un nueva matriz (<em>array</em>) con cualquier submatriz aplanada. Técnicamente, el método <em>flat() </em>crea una nueva matriz con todos los elementos de una submatriz concatenados recursivamente a una profundidad específica. </p><p><em>flat()</em> puede recibir un argumento de profundidad. El argumento es, por tanto opcional, y si llamas a <em>Array.flat() </em>sin ningún argumento sólo se <em>aplanará</em> un nivel de profundidad. El objetivo de <em>Array.flat()</em> es, por tanto el de aplanar listas anidadas a una profundidad especificada por un parámetro entero en la llamada a la función.</p><h4 id="ejemplo">Ejemplo</h4><figure class="kg-card kg-image-card kg-card-hascaption"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/array_flat_javascript_itdo.png" class="kg-image lightense-target" alt="" loading="lazy"><figcaption>Ejemplo de Array.flat()</figcaption></figure><h3 id="string-trimstart-y-string-trimend-">String.trimStart() y String.trimEnd()</h3><p>Si ya conoces <em>string.trim()</em>, supongo que ya has adivinado para qué sirven estas dos nuevas características. <em>string.trim() </em>sirve para eliminar el espacio en blanco del inicio y el final de una cadena de caracteres (<em>string</em>).</p><p>Con <em>trimStart() </em>y <em>trimEnd() </em>puedes decidir si quieres eliminar el espacio inicial o final de la cadena de caracteres, respectivamente.</p><h4 id="ejemplo-1">Ejemplo</h4><figure class="kg-card kg-image-card kg-card-hascaption"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/trimEnd_trimStart_itdo.png" class="kg-image lightense-target" alt="" loading="lazy"><figcaption>Ejemplo de trimStart() y trimEnd()</figcaption></figure><h3 id="catch-binding-opcional">Catch Binding opcional</h3><p>El <a href="https://github.com/tc39/proposal-optional-catch-binding">“<em>catch binding opcional</em></a>” permite que los desarrolladores usen la declaración <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/try...catch"><em>try/catch</em></a> sin el parámetro de error dentro del bloque <em>catch.</em> La utilidad es obvia: puedes pensar que tiene sentido en situaciones en las que quieres ignorar el error, porque ya sabes cual será, por ejemplo.</p><h4 id="ejemplos">Ejemplos</h4><p>Antes de ES2019, “<em>catch binding</em>” era obligatorio en el bloque “<em>try...catc</em>h”, lo usaras o no.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/try_catch_required_binding.png" class="kg-image lightense-target" alt="" loading="lazy"><figcaption>Catch Binding antes de ser opcional</figcaption></figure><p>Ahora puedes utilizar <em>try/catch</em> de la siguiente forma en ES2019</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/try_catch_optional_binding.png" class="kg-image lightense-target" alt="" loading="lazy"><figcaption>Catch Binding opcional</figcaption></figure><h3 id="object-fromentries-">Object.fromEntries()</h3><p>El objetivo de <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol#Description"><em>Object.fromEntries()</em></a> es el de convertir una lista de pares <em>clave-valor</em> en un objeto. Ojo que <em>formEntries()</em> solamente acepta <a href="https://javascript.info/iterable"><em>iterables</em></a><em>.</em></p><h4 id="ejemplo-2">Ejemplo</h4><figure class="kg-card kg-image-card kg-card-hascaption"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/object_from_entries_itdo.png" class="kg-image lightense-target" alt="" loading="lazy"><figcaption>Object.fromEntries()</figcaption></figure><h3 id="symbol-description">Symbol.description</h3><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol#Description"><em>Symbol</em></a> es un tipo de datos primitivo de JavaScript, juntamente con <em>string, number, boolean, null </em>y <em>undefined. </em>Los Symbols<em> </em>fueron introducidos en ES6 y pueden ser usados como un identificador para propiedades de objetos. </p><p>La propiedad <em>description </em>es solo de lectura y se puede usar para obtener la descripción de un objeto Symbol.</p><h4 id="ejemplo-3">Ejemplo</h4><figure class="kg-card kg-image-card kg-card-hascaption"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/symbol_description_itdo.png" class="kg-image lightense-target" alt="" loading="lazy"><figcaption>Symbol.description</figcaption></figure><h3 id="subsume-json-a-k-a-json-ecmascript-">Subsume JSON (a.k.a. JSON ⊂ ECMAScript)</h3><p>ECMAScript ahora es superconjunto de JSON. <strong>¿Qué significa esto? </strong>Bueno, resulta que anteriormente las cadenas de caracteres de ECMAScript no podian contener el <em>separador de linea</em> <em>(</em><a href="https://www.fileformat.info/info/unicode/char/2028/index.htm"><em>U+2028</em></a><em>)</em>, ni el <em>separador de párrafo</em> <em>(</em><a href="http://fileformat.info/info/unicode/char/2029/index.htm"><em>U+2029</em></a><em>)</em>. </p><p>El hecho de que se gestionasen como <em>terminadores de linea </em>generaba<a href="https://es.wikipedia.org/wiki/Error_de_sintaxis"> errores de sintaxis</a>. Sin embargo, la cadenas de caracteres de JSON sí que podían contener <em>U+2028</em> y <em>U+2029</em> sin generar errores. </p><p>En ES2019 tus desarrolladores ya no tendrán esta restricción, y pasarán a contar con la misma &nbsp;regla para cadenas de caracteres para ECMAScript y <a href="https://www.json.org/">JSON</a>. </p><h4 id="ejemplo-4">Ejemplo</h4><figure class="kg-card kg-image-card kg-card-hascaption"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/strings_separator_line_paragraph_itdo.png" class="kg-image lightense-target" alt="" loading="lazy"><figcaption>Subsume JSON (a.k.a. JSON ⊂ ECMAScript)</figcaption></figure><h2 id="cambios-en-function-tostring-">Cambios en <em>Function.toString()</em></h2><p>Los objetos de función siempre tienen el método <em>toString() </em>para obtener la representación de cadena de una función. En ES2019, la función <em>toString() </em>ahora conserva los comentarios y los espacios en blanco para obtener la representación de cadena de caracteres <strong>exacta</strong> de la función tal como la definimos.</p><h4 id="ejemplo-5">Ejemplo</h4><figure class="kg-card kg-image-card kg-card-hascaption"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/function_toString_itdo.png" class="kg-image lightense-target" alt="" loading="lazy"><figcaption>Cambios en Function.toString()</figcaption></figure><h2 id="estabilidad-de-array-sort-">Estabilidad de <em>Array.Sort()</em></h2><p>ES2019 garantiza una clasificación estable de un listado. Anteriormente, la especificación permitía algoritmos de clasificación inestables como <a href="https://en.wikipedia.org/wiki/Quicksort">QuickSort</a>. Ahora si tienes una matriz de objetos y las clasificas sobre una clave determinada, los elementos mantienen su posición relativa a los otros elementos con la misma clave. :)</p><h4 id="ejemplo-6">Ejemplo</h4><figure class="kg-card kg-image-card kg-card-hascaption"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/array_sort_stability_itdo.png" class="kg-image lightense-target" alt="" loading="lazy"><figcaption>Estabilidad de Array.Sort()</figcaption></figure><h2 id="conclusi-n">Conclusión</h2><p>Esto es todo, de momento. Las propuestas de ECMAScripts siguen creciendo y si tienes más interés, las puedes ir siguiendo por <a href="https://github.com/tc39/proposals">aquí</a>. Estas nuevas propuestas y sobretodo las nuevas implementaciones mejorarán seguramente la experiencia de tus desarrolladores y de sus códigos, reduciendo la <a href="https://es.wikipedia.org/wiki/Verbosidad">verbosidad</a> y mejorando la legibilidad.<br></p><p><strong>¿Qué te parecen las características nuevas de JavaScript?</strong><br></p><p>Foto: <a href="https://pixabay.com/users/markusspiske-670330/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1734495">Markus Spiske</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1734495">Pixabay</a> <br></p><p><em>Fuentes</em>:</p><ul><li><a href="https://css-tricks.com/all-the-new-es2019-tips-and-tricks/">All the New ES2019 Tips and Tricks</a></li><li><a href="https://medium.com/better-programming/new-features-in-es2019-72f4aa1f03f7">What’s New in JavaScript — ES2019</a></li><li><a href="https://flaviocopes.com/javascript-symbols/">JavaScript Symbols</a></li><li><a href="https://www.ecma-international.org/ecma-262/10.0/index.html">ECMAScript® 2019 Language Specification</a></li></ul>
+		<div class="post-share-section">
+	<small>Compartir es construir</small>
+	<div class="post-share-wrap">		
+		<a href="https://wa.me/?text=JavaScript.%20%C2%BFQu%C3%A9%20caracter%C3%ADsticas%20de%20ES2019%20deber%C3%ADas%20probar%3F%C2%A0https://www.itdo.com/blog/javascript-que-caracteristicas-de-es2019-deberias-probar/" data-action="share/whatsapp/share" target="_blank" rel="noopener" aria-label="Share on Whatsapp"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345m-5.446 7.443h-.016c-1.77 0-3.524-.48-5.055-1.38l-.36-.214-3.75.975 1.005-3.645-.239-.375c-.99-1.576-1.516-3.391-1.516-5.26 0-5.445 4.455-9.885 9.942-9.885 2.654 0 5.145 1.035 7.021 2.91 1.875 1.859 2.909 4.35 2.909 6.99-.004 5.444-4.46 9.885-9.935 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411"></path></svg></a>
+		<a href="https://twitter.com/intent/tweet?text=JavaScript.%20%C2%BFQu%C3%A9%20caracter%C3%ADsticas%20de%20ES2019%20deber%C3%ADas%20probar%3F&amp;url=https://www.itdo.com/blog/javascript-que-caracteristicas-de-es2019-deberias-probar/" target="_blank" rel="noopener" aria-label="Share on Twitter"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"></path></svg></a>
+		<a href="https://www.facebook.com/sharer/sharer.php?u=https://www.itdo.com/blog/javascript-que-caracteristicas-de-es2019-deberias-probar/" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"></path></svg></a>
+		<a href="https://www.linkedin.com/shareArticle?mini=true&amp;title=JavaScript.%20%C2%BFQu%C3%A9%20caracter%C3%ADsticas%20de%20ES2019%20deber%C3%ADas%20probar%3F&amp;url=https://www.itdo.com/blog/javascript-que-caracteristicas-de-es2019-deberias-probar/" target="_blank" rel="noopener" aria-label="Share on Linkedin"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
+		<a href="javascript:" class="post-share-link" id="copy" data-clipboard-target="#copy-link" aria-label="Copy link"><svg role="img" viewBox="0 0 33 24" xmlns="http://www.w3.org/2000/svg"><path d="M27.3999996,13.4004128 L21.7999996,13.4004128 L21.7999996,19 L18.9999996,19 L18.9999996,13.4004128 L13.3999996,13.4004128 L13.3999996,10.6006192 L18.9999996,10.6006192 L18.9999996,5 L21.7999996,5 L21.7999996,10.6006192 L27.3999996,10.6006192 L27.3999996,13.4004128 Z M12,20.87 C7.101,20.87 3.13,16.898 3.13,12 C3.13,7.102 7.101,3.13 12,3.13 C12.091,3.13 12.181,3.139 12.272,3.142 C9.866,5.336 8.347,8.487 8.347,12 C8.347,15.512 9.866,18.662 12.271,20.857 C12.18,20.859 12.091,20.87 12,20.87 Z M20.347,0 C18.882,0 17.484,0.276 16.186,0.756 C14.882,0.271 13.473,0 12,0 C5.372,0 0,5.373 0,12 C0,18.628 5.372,24 12,24 C13.471,24 14.878,23.726 16.181,23.242 C17.481,23.724 18.88,24 20.347,24 C26.975,24 32.347,18.628 32.347,12 C32.347,5.373 26.975,0 20.347,0 Z"></path></svg></a>
+		<small class="share-link-info global-alert">¡El enlace ha sido copiado!</small>
+	</div>
+	<input type="text" value="https://www.itdo.com/blog/javascript-que-caracteristicas-de-es2019-deberias-probar/" id="copy-link" aria-label="Copy link input">
+</div>	</div>
+</article>
+<aside class="navigation-section global-padding">
+	<div class="navigation-wrap">
+		<a href="https://www.itdo.com/blog/reduce-la-memoria-y-aumenta-el-rendimiento-web-con-php-7-4/" title="Ver artículos" class="navigation-next">
+			<div class="navigation-image global-image global-radius">
+				<img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/ITDO-PHP_7.4.jpg" loading="lazy" alt="{{title}}">			</div>
+			<div class="navigation-content">
+				<small>Artículo más reciente</small>
+				<br>
+				<h3>Reduce la memoria y aumenta el rendimiento web con PHP 7.4</h3>
+			</div>
+		</a>
+		<a href="https://www.itdo.com/blog/cloud-vs-on-premise-en-tu-proceso-de-transformacion-digital/" title="Más artículos" class="navigation-prev">
+			<div class="navigation-content ">
+				<small>Artículo anterior</small>
+				<br>
+				<h3>Cloud vs On-Premise en tu proceso de transformación digital</h3>
+			</div>
+			<div class="navigation-image global-image global-radius">
+				<img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/ITDO-Cloud-vs-On-premise_estrategia_digital.jpg" loading="lazy" alt="{{title}}">			</div>
+		</a>
+	</div>
+</aside><div class="comments-section global-padding">
+	<div class="comments-wrap">
+	<div class="comments-content">
+		<div id="disqus_thread" class="disqus-lazy"><iframe id="dsq-app2798" name="dsq-app2798" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" sandbox="allow-forms allow-popups allow-same-origin allow-scripts" width="100%" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 0px !important;" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/saved_resource.html"></iframe><iframe id="dsq-app2795" name="dsq-app2795" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/saved_resource(1).html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 377px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe><iframe id="dsq-app2800" name="dsq-app2800" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" sandbox="allow-forms allow-popups allow-same-origin allow-scripts" width="100%" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 0px !important;" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/saved_resource(2).html"></iframe></div>
+	</div>
+</div>
+</div>
+		<div class="special-section global-padding">
+	<div class="special-subtitle global-subtitle">
+		<small class="global-subtitle-title">Quizás <span>también te interese</span></small>
+	</div>
+	<div class="special-wrap">
+		<article class="item is-special is-image">
+	<div class="item-image global-image global-image-orientation global-radius">
+		
+		<a href="https://www.itdo.com/blog/cual-es-el-mejor-framework-de-javascript-en-2022/" class="global-link" aria-label="¿Cuál es el mejor framework de JavaScript en 2022?" title="¿Cuál es el mejor framework de JavaScript en 2022?"></a>
+		<img srcset="/blog/content/images/size/w300/2022/08/itdo-mejor-framework-javascript-2022.jpg 300w, 
+			 /blog/content/images/size/w600/2022/08/itdo-mejor-framework-javascript-2022.jpg 600w" sizes="(max-width:480px) 300px, 600px" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/itdo-mejor-framework-javascript-2022.jpg" loading="lazy" alt="¿Cuál es el mejor framework de JavaScript en 2022?">
+		<div class="item-authors global-authors">
+			<div>
+				<div class="item-author global-item-author is-image global-image">
+					<a href="https://www.itdo.com/blog/author/chiyana/" class="global-link" title="Chiyana Simões"></a>
+					<img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/20292935_1920895341488003_6176692886044470576_n.jpeg" loading="lazy" alt="Chiyana Simões">				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item-content">
+		<h2 class="item-title"><a href="https://www.itdo.com/blog/cual-es-el-mejor-framework-de-javascript-en-2022/" title="¿Cuál es el mejor framework de JavaScript en 2022?">¿Cuál es el mejor framework de JavaScript en 2022?</a></h2>
+	</div>
+</article>		<article class="item is-special is-image">
+	<div class="item-image global-image global-image-orientation global-radius">
+		
+		<a href="https://www.itdo.com/blog/javascript-que-es-deno/" class="global-link" aria-label="JavaScript: ¿Qué es Deno?" title="JavaScript: ¿Qué es Deno?"></a>
+		<img srcset="/blog/content/images/size/w300/2022/08/itdo-javascript-que-es-deno.jpg 300w, 
+			 /blog/content/images/size/w600/2022/08/itdo-javascript-que-es-deno.jpg 600w" sizes="(max-width:480px) 300px, 600px" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/itdo-javascript-que-es-deno.jpg" loading="lazy" alt="JavaScript: ¿Qué es Deno?">
+		<div class="item-authors global-authors">
+			<div>
+				<div class="item-author global-item-author is-image global-image">
+					<a href="https://www.itdo.com/blog/author/chiyana/" class="global-link" title="Chiyana Simões"></a>
+					<img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/20292935_1920895341488003_6176692886044470576_n.jpeg" loading="lazy" alt="Chiyana Simões">				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item-content">
+		<h2 class="item-title"><a href="https://www.itdo.com/blog/javascript-que-es-deno/" title="JavaScript: ¿Qué es Deno?">JavaScript: ¿Qué es Deno?</a></h2>
+	</div>
+</article>		<article class="item is-special is-image">
+	<div class="item-image global-image global-image-orientation global-radius">
+		
+		<a href="https://www.itdo.com/blog/javascript-que-es-bun/" class="global-link" aria-label="JavaScript: ¿Qué es Bun?" title="JavaScript: ¿Qué es Bun?"></a>
+		<img srcset="/blog/content/images/size/w300/2022/08/itdo-javascript-que-es-bun.jpg 300w, 
+			 /blog/content/images/size/w600/2022/08/itdo-javascript-que-es-bun.jpg 600w" sizes="(max-width:480px) 300px, 600px" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/itdo-javascript-que-es-bun.jpg" loading="lazy" alt="JavaScript: ¿Qué es Bun?">
+		<div class="item-authors global-authors">
+			<div>
+				<div class="item-author global-item-author is-image global-image">
+					<a href="https://www.itdo.com/blog/author/chiyana/" class="global-link" title="Chiyana Simões"></a>
+					<img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/20292935_1920895341488003_6176692886044470576_n.jpeg" loading="lazy" alt="Chiyana Simões">				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item-content">
+		<h2 class="item-title"><a href="https://www.itdo.com/blog/javascript-que-es-bun/" title="JavaScript: ¿Qué es Bun?">JavaScript: ¿Qué es Bun?</a></h2>
+	</div>
+</article>		<article class="item is-special is-image">
+	<div class="item-image global-image global-image-orientation global-radius">
+		
+		<a href="https://www.itdo.com/blog/3-bibliotecas-de-javascript-para-realidad-aumentada/" class="global-link" aria-label="3 bibliotecas de JavaScript para Realidad Aumentada" title="3 bibliotecas de JavaScript para Realidad Aumentada"></a>
+		<img srcset="/blog/content/images/size/w300/2022/02/itdo-javascript-realidad-aumentada.jpg 300w, 
+			 /blog/content/images/size/w600/2022/02/itdo-javascript-realidad-aumentada.jpg 600w" sizes="(max-width:480px) 300px, 600px" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/itdo-javascript-realidad-aumentada.jpg" loading="lazy" alt="3 bibliotecas de JavaScript para Realidad Aumentada">
+		<div class="item-authors global-authors">
+			<div>
+				<div class="item-author global-item-author is-image global-image">
+					<a href="https://www.itdo.com/blog/author/chiyana/" class="global-link" title="Chiyana Simões"></a>
+					<img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/20292935_1920895341488003_6176692886044470576_n.jpeg" loading="lazy" alt="Chiyana Simões">				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item-content">
+		<h2 class="item-title"><a href="https://www.itdo.com/blog/3-bibliotecas-de-javascript-para-realidad-aumentada/" title="3 bibliotecas de JavaScript para Realidad Aumentada">3 bibliotecas de JavaScript para Realidad Aumentada</a></h2>
+	</div>
+</article>		<article class="item is-special is-image">
+	<div class="item-image global-image global-image-orientation global-radius">
+		
+		<a href="https://www.itdo.com/blog/resumen-de-2021-12-articulos-sobre-herramientas-digitales/" class="global-link" aria-label="Resumen de 2021: 12 artículos sobre herramientas digitales" title="Resumen de 2021: 12 artículos sobre herramientas digitales"></a>
+		<img srcset="/blog/content/images/size/w300/2021/12/itdo-resumen-2021-12-articulos-herramientas-digitales.jpg 300w, 
+			 /blog/content/images/size/w600/2021/12/itdo-resumen-2021-12-articulos-herramientas-digitales.jpg 600w" sizes="(max-width:480px) 300px, 600px" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/itdo-resumen-2021-12-articulos-herramientas-digitales.jpg" loading="lazy" alt="Resumen de 2021: 12 artículos sobre herramientas digitales">
+		<div class="item-authors global-authors">
+			<div>
+				<div class="item-author global-item-author is-image global-image">
+					<a href="https://www.itdo.com/blog/author/chiyana/" class="global-link" title="Chiyana Simões"></a>
+					<img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/20292935_1920895341488003_6176692886044470576_n.jpeg" loading="lazy" alt="Chiyana Simões">				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item-content">
+		<h2 class="item-title"><a href="https://www.itdo.com/blog/resumen-de-2021-12-articulos-sobre-herramientas-digitales/" title="Resumen de 2021: 12 artículos sobre herramientas digitales">Resumen de 2021: 12 artículos sobre herramientas digitales</a></h2>
+	</div>
+</article>		<article class="item is-special is-image">
+	<div class="item-image global-image global-image-orientation global-radius">
+		
+		<a href="https://www.itdo.com/blog/como-descargar-javascript/" class="global-link" aria-label="¿Cómo descargar JavaScript?" title="¿Cómo descargar JavaScript?"></a>
+		<img srcset="/blog/content/images/size/w300/2021/12/itod-como-descargar-javascript.jpg 300w, 
+			 /blog/content/images/size/w600/2021/12/itod-como-descargar-javascript.jpg 600w" sizes="(max-width:480px) 300px, 600px" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/itod-como-descargar-javascript.jpg" loading="lazy" alt="¿Cómo descargar JavaScript?">
+		<div class="item-authors global-authors">
+			<div>
+				<div class="item-author global-item-author is-image global-image">
+					<a href="https://www.itdo.com/blog/author/chiyana/" class="global-link" title="Chiyana Simões"></a>
+					<img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/20292935_1920895341488003_6176692886044470576_n.jpeg" loading="lazy" alt="Chiyana Simões">				</div>
+			</div>
+		</div>
+	</div>
+	<div class="item-content">
+		<h2 class="item-title"><a href="https://www.itdo.com/blog/como-descargar-javascript/" title="¿Cómo descargar JavaScript?">¿Cómo descargar JavaScript?</a></h2>
+	</div>
+</article>	</div>
+</div>
+				</main>
+				<footer class="footer-section global-footer">
+	<div class="footer-wrap global-padding">
+		<div class="footer-subscribe">
+<h3 class="global-title">Suscríbete y <span>accede a contenido Premium</span>.</h3>
+	<div class="subscribe-section">
+		<div class="subscribe-wrap">
+			<form data-members-form="subscribe" class="subscribe-form">
+				<input data-members-email="" type="email" placeholder="Tu email" aria-label="Tu email" required="">
+				<button class="global-button" type="submit">Suscríbete</button>
+			</form>
+			<div class="subscribe-alert">
+				<small class="alert-loading global-alert">Enviando tu solicitud...</small>
+				<small class="alert-success global-alert">Estas a un paso de miembro de la Comunidad ITDO 😎. Por favor revisa tu bandeja de entrada para confirmar tu suscripción.</small>
+				<small class="alert-error global-alert">Ups 😨, parece que no se ha podido enviar tu solicitud. Por favor prueba más tarde.</small>
+			</div>
+		</div>
+	</div>
+</div>
+		<div class="footer-container">
+			<div class="footer-content">
+				<div class="footer-logo">
+					<a href="https://www.itdo.com/blog" class="is-logo"><img src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/ITDO.png" alt="Blog ITDO - Agencia de desarrollo Web, APPs y Marketing en Barcelona home"></a>
+				</div>
+				<p class="footer-description">Blog de ITDO - Agencia digital de desarrollo Web, APPs, Transformación y Marketing Digital en Barcelona.</p>
+				<div class="footer-nav">
+					<div class="footer-nav-column is-contact">
+						<ul>
+							<li><b>Email:</b> <a href="mailto:aloha@itdo.com" title="Email ITDO">aloha@itdo.com</a></li>
+							<li><b>Teléfono:</b> <a href="tel:+34931004545" title="Teléfono ITDO">93 100 45 45</a></li>
+							<li class="darkmode">
+	<button title="Dark / Light Mode" type="button"><svg class="icon-dark" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="color-scheme-system"><path d="M12 4a1 1 0 0 1-1-1V1a1 1 0 0 1 2 0v2a1 1 0 0 1-1 1zM4.933 6.348a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-1.42-1.42a.999.999 0 1 0-1.414 1.414l1.42 1.42zM1 13h2a1 1 0 1 0 0-2H1a1 1 0 0 0 0 2zm19.486-8.072 3.221-3.221A.999.999 0 1 0 22.293.293l-3.221 3.221-1.42 1.42-2.19 2.19A5.955 5.955 0 0 0 12 6c-3.309 0-6 2.691-6 6 0 1.258.406 2.453 1.124 3.462l-2.105 2.105c-.026.021-.058.03-.083.055s-.033.056-.055.082l-1.368 1.368-.001.002-3.219 3.219a.999.999 0 1 0 1.414 1.414l3.987-3.987a10.03 10.03 0 0 0 6.332 2.262c5.103-.001 9.473-3.902 9.951-9.081a1 1 0 0 0-1.591-.896 5.96 5.96 0 0 1-7.037.06l5.717-5.716 1.42-1.421zm-.945 9.78c-1.21 3.337-4.564 5.587-8.257 5.238a8.019 8.019 0 0 1-4.165-1.651l4.802-4.802c.05.038.093.082.144.12a7.955 7.955 0 0 0 7.476 1.095zm-10.979-.684A3.968 3.968 0 0 1 8 12c0-2.206 1.794-4 4-4a3.98 3.98 0 0 1 2.025.561l-5.463 5.463z"></path></svg></button>
+</li>						</ul>
+					</div>
+					
+				</div>
+				
+			</div>
+			<div class="footer-nav">
+				<div class="footer-nav-column is-social">
+					<small>Social</small>
+					<ul>
+						
+
+<li><a href="https://twitter.com/ITDO_Solutions" target="_blank"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"></path></svg>Twitter</a></li>
+
+<li><a href="https://www.instagram.com/ITDO_Solutions/" target="_blank"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"></path></svg>Instagram</a></li> 
+
+<li><a href="https://medium.com/@itdo_solutions" target="_blank"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.846 6.36c.03-.295-.083-.586-.303-.784l-2.24-2.7v-.403H7.26l5.378 11.795 4.728-11.795H24v.403l-1.917 1.837c-.165.126-.247.333-.213.538v13.5c-.034.204.048.41.213.537l1.87 1.837v.403h-9.41v-.403l1.937-1.882c.19-.19.19-.246.19-.538V7.794l-5.39 13.688h-.727L4.278 7.794v9.174c-.052.386.076.774.347 1.053l2.52 3.06v.402H0v-.403l2.52-3.06c.27-.278.39-.67.326-1.052V6.36z"></path></svg>Medium</a></li>
+
+<li><a href="https://www.facebook.com/itdo.solutions" target="_blank"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"></path></svg>Facebook</a></li>
+
+<li><a href="http://www.linkedin.com/company/itdo" target="_blank"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>Linkedin</a></li>
+
+<li><a href="https://www.pinterest.es/itdo_solutions/" target="_blank"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"></path></svg>Pinterest</a></li> 
+
+<li><a href="https://feedly.com/i/subscription/feed/http://www.itdo.com/blog/rss/" target="_blank"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"></path></svg>RSS</a></li>
+
+
+
+
+
+
+
+
+
+
+
+					</ul>
+				</div>
+				
+
+
+
+
+<div class="footer-nav-column">
+	<small>Comunidad ITDO</small>
+	<ul>
+		<li><a href="https://www.itdo.com/blog/membership/" title="Hazte miembro">Hazte miembro</a></li>
+		<li><a href="https://www.itdo.com/blog/signup/" title="Subscríbete">Subscríbete</a></li>
+		<li><a href="https://www.itdo.com/blog/signin/" title="Iniciar sesión">Iniciar sesión</a></li>
+		<li><a href="https://www.itdo.com/blog/account/" title="Cuenta">Cuenta</a></li>
+		<li><a href="https://www.itdo.com/blog/enviar-post/" title="Envía tu artículo">Envía tu artículo</a></li>
+	</ul>
+</div>
+
+<div class="footer-nav-column">
+	<small>Sobre ITDO</small>
+	<ul>
+		<li><a href="https://www.itdo.com/desarrollo-web-avanzado-a-medida" title="Servicios &quot;Concierge&quot;">Servicios "Concierge"</a></li>
+		<li><a href="https://www.itdo.com/#por-que-itdo-en-el-desarrollo-pagina-web" title="¿Por qué ITDO?">¿Por qué ITDO?</a></li>
+		<li><a href="https://www.itdo.com/#precios-desarrollo-web" title="Precios Desarrollo Web">Precios Desarrollo Web</a></li>
+		<li><a href="https://www.itdo.com/blog/" title="Blog">Blog</a></li>
+		<li><a href="https://www.itdo.com/contacto" title="Contacto">Contacto</a></li>
+	</ul>
+</div>
+
+<div class="footer-nav-column">
+	<small>Servicios ITDO</small>
+	<ul>
+		<li><a href="https://www.itdo.com/" title="Desarrollo de páginas web">Desarrollo de páginas web</a></li>
+		<li><a href="https://www.itdo.com/desarrollo-web-avanzado-a-medida" title="Desarrollo Web a medida">Desarrollo Web a medida</a></li>
+		<li><a href="https://www.itdo.com/desarrollo-app" title="Desarrollo APP">Desarrollo APP</a></li>
+		<li><a href="https://www.itdo.com/pedir-presupuesto/automatizacion-erp-crm" title="Automatización: ERP y/o CRM">Automatización: ERP y/o CRM</a></li>
+		<li><a href="https://www.itdo.com/pedir-presupuesto/auditoria-posicionamiento-SEO" title="Consultoría y SEO">Consultoría y SEO</a></li>
+	</ul>
+</div>
+
+			</div>
+			<div class="footer-copyright">
+				© <a href="https://www.itdo.com/blog">Blog ITDO - Agencia de desarrollo Web, APPs y Marketing en Barcelona</a>, 2023.
+				<a href="https://www.itdo.com/blog/politica-de-privacidad/" target="_blank" rel="noopener noreferrer">Política de privacidad</a>  | <a href="https://www.itdo.com/blog/aviso-legal/" target="_blank" rel="noopener noreferrer">Aviso legal</a>  | <a href="javascript:Cookiebot.renew();" id="ChangeCookies" class="cky-banner-element">Configurar cookies</a>  | <a target="_blank" href="https://www.itdo.com/blog/politica-de-cookies/" rel="noopener noreferrer">Política de cookies</a> | <a href="https://www.itdo.com/blog/politica-de-privacidad-redes-sociales/" target="_blank" rel="noopener noreferrer">Política de redes sociales</a> | <a href="https://www.itdo.com/blog/politica-de-newsletter/" target="_blank" rel="noopener noreferrer">Política de Newsletter</a>
+			</div>
+		</div>
+	</div>
+</footer>			</div>
+		</div>
+		<div id="notifications" class="global-notification">
+	<div class="subscribe">¡Bienvenido a la Comunidad ITDO! Tienes una cuenta activa con acceso a ilimitado a las publicaciones y recibirás en tu correo electrónico las novedades sobre Desarrollo Web, APPs y Marketing.</div>
+	<div class="signin">Sesión iniciada correctamente. Tienes una cuenta activa con acceso a ilimitado a las publicaciones y recibirás en tu correo electrónico las novedades sobre Desarrollo Web, APPs y Marketing.</div>
+	<div class="signup">¡Bienvenido a la Comunidad ITDO! Te has registrado correctamente.</div>
+	<div class="update-email">¡Perfecto! Tu correo electrónico está actualizado.</div>
+	<div class="expired">El enlace ha caducado por seguridad, puedes volver a suscribirte o ponerte en contacto aloha@itdo.com</div>
+	<div class="checkout-success">Success! Check your email for magic link to sign-in.</div>
+</div>
+		<div class="search-section">
+	<div class="search-wrap">
+		<div class="search-content">
+			<form class="search-form" onsubmit="return false">
+				<input class="search-input" type="text" placeholder="Buscar">
+				<div class="search-meta">
+					<span class="search-info">Introduce al menos 3 caracteres</span>
+					<span class="search-counter is-hide">
+						<span class="search-counter-results">0</span>
+						Resultados para tu búsqueda
+					</span>
+				</div>
+				<span class="search-close"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.997 10.846L1.369.219 1.363.214A.814.814 0 00.818.005.821.821 0 000 .822c0 .201.074.395.208.545l.006.006L10.842 12 .214 22.626l-.006.006a.822.822 0 00-.208.546c0 .447.37.817.818.817a.814.814 0 00.551-.215l10.628-10.627 10.628 10.628.005.005a.816.816 0 001.368-.603.816.816 0 00-.213-.552l-.006-.005L13.151 12l10.63-10.627c.003 0 .004-.003.006-.005A.82.82 0 0024 .817a.817.817 0 00-1.37-.602l-.004.004-10.63 10.627z"></path></svg></span>
+			</form>
+			<div class="search-results global-image"></div>
+		</div>
+	</div>
+	<div class="search-overlay"></div>
+</div>
+		<script src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/global.js.descarga"></script>
+		<script src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/post.js.descarga"></script>
+		<script>
+!function(){"use strict";const p=new URLSearchParams(window.location.search),isAction=p.has("action"),isStripe=p.has("stripe"),success=p.get("success"),action=p.get("action"),stripe=p.get("stripe"),n=document.getElementById("notifications"),a="is-subscribe",b="is-signin",c="is-signup",f="is-update-email",d="is-expired",e="is-checkout-success";p&&(isAction&&(action=="subscribe"&&success=="true"&&n.classList.add(a),action=="signup-paid"&&success=="true"&&n.classList.add(a),action=="signin"&&success=="true"&&n.classList.add(b),action=="signup"&&success=="true"&&n.classList.add(c),action=="updateEmail"&&success=="true"&&n.classList.add(f),success=="false"&&n.classList.add(d)),isStripe&&stripe=="success"&&n.classList.add(e),(isAction||isStripe)&&setTimeout(function(){window.history.replaceState(null,null,window.location.pathname),n.classList.remove(a,b,c,d,e)},5000))}();
+</script>
+
+<script>
+const options = {
+	api:'https://www.itdo.com/blog/ghost/api/content/posts/?key='+"65f99eb216a45ac75b182035b4"+'&limit=all&fields=url,title,feature_image,published_at,custom_excerpt,visibility,html',
+	threshold: 0.1,
+	ignoreLocation: true,
+	keys: ['title','custom_excerpt','html'],
+	images: true,
+	limit: 14
+}
+</script>
+
+		<script src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/b07j8op1unhxoam3jqt3c0d1cnduo5zg.js.descarga" async="" data-cookieconsent="marketing"></script>
+<!-- Start of Async Drift Code 
+<script type="text/javascript" data-cookieconsent="marketing">
+	"use strict";
+	!function() {
+	  var t = window.driftt = window.drift = window.driftt || [];
+	  if (!t.init) {
+	    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+	    t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+	    t.factory = function(e) {
+	      return function() {
+	        var n = Array.prototype.slice.call(arguments);
+	        return n.unshift(e), t.push(n), t;
+	      };
+	    }, t.methods.forEach(function(e) {
+	      t[e] = t.factory(e);
+	    }), t.load = function(t) {
+	      var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+	      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+	      var i = document.getElementsByTagName("script")[0];
+	      i.parentNode.insertBefore(o, i);
+	    };
+	  }
+	}();
+	drift.SNIPPET_VERSION = '0.3.1';
+	drift.load('6ep3xexh677e');
+	drift.config({
+       locale: 'es-ES',
+        messages: {
+         welcomeMessage: '¿No encuentras lo que buscas? ¿Qué necesitas?',
+          awayMessage: "Actualmente no estamos en línea, pero puedes dejar tu mensaje, nos pondremos en contacto lo antes posible.",
+          emailCaptureMessage: "¡Hola! Estamos encantados de poder ayudarte. Déjanos tu email para poder contactarte en caso de perder la conexión.",
+          thankYouMessage: "¡Gracias por enviar tu correo!"
+        },
+        enableWelcomeMessage: false,
+        enableCampaigns: false,
+        enableChatTargeting: false,
+        backgroundColor: '#ffa936',
+        foregroundColor: '#FFFFFF',
+        activeColor: '#0176FF',
+        textColor: '#FFFFFF',
+        autoAssignee: {
+          name: 'Sergio Vergara',
+          title: 'CEO / IT Analys',
+          email: 'sergio@itdo.com',
+          avatarUrl: 'https://www.gravatar.com/avatar/4b2060fca55bc0248b6b9e8617c3d20e',
+        },
+        cookieDomain: '.itdo.com',
+    });
+
+	  (function() {
+	    var DRIFT_CHAT_SELECTOR = '.drift-open-chat'
+	    /* http://youmightnotneedjquery.com/#ready */
+	    function ready(fn) {
+	      if (document.readyState != 'loading') {
+	        fn();
+	      } else if (document.addEventListener) {
+	        document.addEventListener('DOMContentLoaded', fn);
+	      } else {
+	        document.attachEvent('onreadystatechange', function() {
+	          if (document.readyState != 'loading')
+	            fn();
+	        });
+	      }
+	    }
+	    /* http://youmightnotneedjquery.com/#each */
+	    function forEachElement(selector, fn) {
+	      var elements = document.querySelectorAll(selector);
+	      for (var i = 0; i < elements.length; i++)
+	        fn(elements[i], i);
+	    }
+	    function openSidebar(driftApi, event) {
+	      event.preventDefault();
+	      driftApi.sidebar.open();
+	      return false;
+	    }
+	    ready(function() {
+	      drift.on('ready', function(api) {
+            //var load = setTimeout(function() { api.showWelcomeMessage(); }, 8000);
+	        var handleClick = openSidebar.bind(this, api)
+	        forEachElement(DRIFT_CHAT_SELECTOR, function(el) {
+	          el.addEventListener('click', handleClick);
+	        });
+	      });
+	    });
+	  })();
+</script> -->
+
+	
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script type="text/plain" data-cookieconsent="statistics">
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-127274771-1');
+</script> 
+<!-- Global site tag (gtag.js) - Google Analytics-->
+
+<script type="text/plain" data-cookieconsent="statistics">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-J4NNBX9FS7');
+</script>  
+
+<!-- Twitter universal website tag code  -->
+<script rel="preconnect" type="text/javascript" data-cookieconsent="statistics">
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+twq('init','o15vn');
+twq('track','PageView');
+</script>
+
+<!-- Facebook Pixel Code -->
+<script rel="preconnect" type="text/javascript" data-cookieconsent="marketing">
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '516291955528948');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=516291955528948&ev=PageView&noscript=1"
+/></noscript>
+
+
+<!-- Hero text login users -->
+<script data-cookieconsent="preferences">
+ 	var headernav = document.getElementsByClassName('header-nav');
+    if (headernav.length > 0) {
+        var nonuser = headernav[0].getElementsByClassName('signup');
+        if (nonuser.length == 0) {
+            var herononuser = document.getElementsByClassName('hero-nonusers');
+            if(herononuser.length > 0) {
+                herononuser[0].style.display = "none";
+            }
+        }
+    }
+</script>
+
+<!-- Dark Mode switch -->
+<script data-cookieconsent="preferences">
+	function setCookie(cname, cvalue, exdays) {
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      let expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    function getCookie(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+    function setDark(){
+        document.documentElement.classList.add('dark-mode');
+    }
+    function setLight(){
+        document.documentElement.classList.remove('auto-dark-mode');
+        document.documentElement.classList.remove('dark-mode');
+    }
+    function setAutoDark(){
+        document.documentElement.classList.remove('auto-dark-mode');
+    }
+    function setMode(){
+        var isautodark = document.getElementsByClassName('auto-dark-mode');
+        var isdark = document.getElementsByClassName('dark-mode');
+		if (isautodark.length > 0) {
+			setLight();
+            setCookie("itdo-dark-mode",false,90);
+		}
+        else if (isdark.length > 0) {
+			setLight();
+            setCookie("itdo-dark-mode",false,90);
+		}
+		else {
+			setDark();
+            setCookie("itdo-dark-mode",true,90);
+		}
+    }
+    var icondarknav = document.querySelector(".header-nav .icon-dark");
+    if (icondarknav) {
+		icondarknav.onclick = function() { setMode() }
+    }
+    var icondarkfooter = document.querySelector(".footer-section .icon-dark");
+    if (icondarkfooter) {
+		icondarkfooter.onclick = function() { setMode() }
+    }
+
+    if (typeof getCookie("itdo-dark-mode") !== 'undefined') {
+      if(getCookie("itdo-dark-mode") === "true") {
+          setDark();
+      }
+      else if(getCookie("itdo-dark-mode") === "false") {
+          setLight();
+      }
+      else {
+          setAutoDark();
+      }
+    }
+</script>
+<script>
+var observer = new MutationObserver(function(mutations) {
+mutations.forEach(function(mutation) {
+if (mutation.type == "childList") {
+var elem = document.getElementById('ChangeCookies');
+if(elem) {
+elem.classList.add('cky-banner-element');
+}
+}
+})
+})
+
+
+
+  var ckyBody = document.getElementsByTagName("body")[0];
+observer.observe(ckyBody, {
+childList: true,
+subtree: true,
+})
+</script>
+	
+<div id="ghost-portal-root"></div><div class="lightense-backdrop"></div><iframe style="display: none;" src="./JavaScript. ¿Qué características de ES2019 deberias probar__files/saved_resource(3).html"></iframe></body></html>

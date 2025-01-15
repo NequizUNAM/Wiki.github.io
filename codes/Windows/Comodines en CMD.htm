@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es-ES"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="Comodines%20en%20CMD_files/styles.css">
+	<script async="" src="Comodines%20en%20CMD_files/adsbygoogle.js"></script>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-3534314924115986",
+			enable_page_level_ads: true
+		});
+	</script>	<title>Comodines en CMD | Tutorial de CMD | Abrirllave.com</title>
+	<meta name="description" content="Uso de los comodines asterisco e interrogación para especificar grupos de archivos y directorios en CMD.">
+	<meta name="keywords" content="comodines, cmd">
+   <meta property="og:title" content="Comodines en CMD">
+   <meta property="og:description" content="Uso de los comodines asterisco e interrogación para especificar grupos de archivos y directorios en CMD.">
+   <meta property="og:url" content="https://www.abrirllave.com/cmd/comodines.php">
+   	<meta property="og:image" content="https://www.abrirllave.com/images/logo-abrirllave.jpg">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="es_ES">
+	<meta property="og:site_name" content="Abrirllave.com">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@abrirllave">
+	<meta name="twitter:creator" content="@abrirllave">
+	<meta name="twitter:image" content="https://www.abrirllave.com/images/logo-abrirllave.jpg"></head>
+<body>
+<!--//AVISO DE COOKIES-->
+<div id="banner-cookie-notice" style="display: none;"></div>
+<script>
+var accionusuario = 0;
+window.onclick = click;
+function click()
+{
+if (accionusuario != 1){
+	accionusuario = 1;
+	cerraraviso();
+}
+}
+function getcookie(c_name){
+var c_value = document.cookie;
+var c_start = c_value.indexOf(" " + c_name + "=");
+if (c_start == -1){
+	c_start = c_value.indexOf(c_name + "=");
+}
+if (c_start == -1){
+	c_value = null;
+} else{
+	c_start = c_value.indexOf("=", c_start) + 1;
+	var c_end = c_value.indexOf(";", c_start);
+	if (c_end == -1){
+		c_end = c_value.length;
+	} c_value = unescape(c_value.substring(c_start,c_end));
+} return c_value;
+}
+function checkcookie(){
+var aceptacookies=getcookie("aceptacookies");
+if(aceptacookies!="true"){
+var aviso = '<p>Al usar este sitio web aceptas el uso que hace de cookies para prestar servicios, personalizar anuncios y analizar el tráfico web. <a href="http://www.abrirllave.com/privacidad.php#uso_cookies">Más información</a>. <a href="javascript:cerraraviso();">[ACEPTAR]</a></p>';
+document.getElementById('banner-cookie-notice').innerHTML = aviso;
+}
+}
+function cerraraviso(){
+var exdate=new Date();
+exdate.setDate(exdate.getDate() + 365);
+var c_value=escape("true") + ";expires="+exdate.toUTCString() + ";path=/";
+document.cookie="aceptacookies" + "=" + c_value;
+document.getElementById('banner-cookie-notice').style.display = 'none';
+}
+checkcookie();
+</script>
+<!--//FIN AVISO DE COOKIES-->
+<header>
+	<a href="https://www.abrirllave.com/" title="{ Acceso a la página de inicio de Abrirllave.com">
+		<img src="Comodines%20en%20CMD_files/abrirllave-260-390.gif" alt="Tutoriales de informática - Abrirllave.com" width="40" height="60">
+	</a>
+	<a href="https://www.abrirllave.com/"><h4>Abrirllave.com</h4></a>
+	<nav>
+		<h4>Tutoriales de informática</h4>
+		<ul>
+			<li><a href="https://www.abrirllave.com/c/">C</a></li>
+			<li><a href="https://www.abrirllave.com/cmd/">CMD</a></li>
+			<li><a href="https://www.abrirllave.com/dtd/">DTD</a></li>
+			<li><a href="https://www.abrirllave.com/html/">HTML</a></li>
+			<li><a href="https://www.abrirllave.com/java/">Java</a></li>
+			<li><a href="https://www.abrirllave.com/xml/">XML</a></li>
+			<li><a href="https://www.abrirllave.com/xsd/">XSD</a></li>
+			<li><a href="https://www.abrirllave.com/tutoriales.php"><span class="codenl">{+}</span></a></li>
+		</ul>
+	</nav>
+		<aside>
+<script async="" src="Comodines%20en%20CMD_files/adsbygoogle.js"></script>
+<!-- abr header aside -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3534314924115986" data-ad-slot="1873113487" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+	</aside></header><nav>
+	<h3>Tutorial de CMD</h3>
+	<ul>
+		<li><a href="https://www.abrirllave.com/cmd/guion-del-tutorial.php">Guion del tutorial</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/que-es-cmd.php">Qué es CMD</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/primeros-pasos-en-cmd.php">Primeros pasos en CMD</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/operaciones-basicas-sobre-archivos-y-directorios.php">Operaciones básicas sobre archivos y directorios</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/ver-el-contenido-de-un-directorio.php">Ver el contenido de un directorio (<span class="codenl">DIR</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/crear-directorios.php">Crear directorios (<span class="codenl">MD</span> o <span class="codenl">MKDIR</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/cambiar-de-directorio.php">Cambiar de directorio (<span class="codenl">CD</span> o <span class="codenl">CHDIR</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/cambiar-de-unidad.php">Cambiar de unidad</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/crear-archivos.php">Crear archivos (<span class="codenl">COPY</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/ver-el-contenido-de-un-archivo.php">Ver el contenido de un archivo (<span class="codenl">TYPE</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/ver-el-arbol-de-directorios.php">Ver el árbol de directorios (<span class="codenl">TREE</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/copiar-archivos.php">Copiar archivos (<span class="codenl">COPY</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/copiar-directorios.php">Copiar directorios (<span class="codenl">XCOPY</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/cambiar-el-nombre-de-archivos-y-directorios.php">Cambiar el nombre de archivos y directorios (<span class="codenl">REN</span> o <span class="codenl">RENAME</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/mover-archivos-y-directorios.php">Mover archivos y directorios (<span class="codenl">MOVE</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/eliminar-archivos.php">Eliminar archivos (<span class="codenl">DEL</span> o <span class="codenl">ERASE</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/eliminar-directorios.php">Eliminar directorios (<span class="codenl">RD</span> o <span class="codenl">RMDIR</span>)</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/rutas-relativas-y-absolutas.php">Rutas relativas y absolutas</a></li>
+		<li><a href="https://www.abrirllave.com/cmd/comodines.php">Comodines</a></li>
+	</ul>
+	<h3>Material extra</h3>
+	<ul>
+		<li><a href="https://www.abrirllave.com/cmd/comandos.php">Comandos CMD</a></li>
+	</ul>
+</nav><main>
+	<ul>
+      <li><a href="https://www.abrirllave.com/">Inicio</a> »</li>
+      <li><a href="https://www.abrirllave.com/cmd/">Tutorial de CMD</a> » Comodines</li>
+	</ul>
+	<article>
+		<h1>Comodines en CMD</h1>
+			<aside>
+			<div class="addthis_sharing_toolbox"></div>
+	</aside>            <p>En CMD existen dos comodines que permiten especificar grupos de:</p>
+            <ul>
+                  <li>archivos</li>
+                  <li>directorios</li>
+                  <li>archivos y directorios</li>
+            </ul>
+            <p>cuyos nombres tengan uno o más caracteres en común.</p>
+            <h2>Caracteres comodín en CMD</h2>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Comodín</th>
+                     <th>Descripción</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td><span class="codigo">*</span> (asterisco)</td>
+                     <td>Representa a cero, uno o más caracteres.</td>
+                  </tr>
+                  <tr>
+                     <td><span class="codigo">?</span> (interrogación)</td>
+                     <td>Representa a un carácter.</td>
+                  </tr>
+               </tbody>
+            </table>
+            <h2>Ejemplos de uso del comodín asterisco (<span class="codh2">*</span>)</h2>
+            <p><strong>EJEMPLO</strong> Dada la siguiente estructura de archivos y directorios:</p>
+            <img src="Comodines%20en%20CMD_files/estructura-archivos-y-directorios-ejemplo-uso-comodin-as_002.gif" alt="Ventana del Símbolo del sistema en Windows donde se muestra una estructura de archivos y directorios para practicar con el comodín asterisco al hacer un DIR - Ejemplo del tutorial de CMD de {Abrirllave.com" width="444" height="223">
+            <p>Si utilizando el comando <span class="codigo">DIR</span> se quieren mostrar todos los archivos y directorios cuyos nombres comienzan por la letra <strong>a</strong>, se puede escribir:</p>
+            <code><pre><span class="codres">DIR a*</span></pre></code>
+            <p>En el <em>Símbolo del sistema</em> se verá:</p>
+            <img src="Comodines%20en%20CMD_files/ejemplo-uso-comodin-asterisco-con-dir.gif" alt="Ventana del Símbolo del sistema en Windows donde se muestra cómo utilizar el comodín asterico con DIR - Ejemplo del tutorial de CMD de {Abrirllave.com" width="444" height="235">
+            <p><strong>EJEMPLO</strong> Dada la siguiente estructura de archivos y directorios:</p>
+            <img src="Comodines%20en%20CMD_files/estructura-archivos-y-directorios-ejemplo-uso-comodin-asteri.gif" alt="Ventana del Símbolo del sistema en Windows donde se muestra una estructura de archivos y directorios para practicar con el comodín asterisco usando el comando MOVE - Ejemplo del tutorial de CMD de {Abrirllave.com" width="444" height="235">
+            <p>Para mover todos los archivos que tengan extensión (<strong>.exe</strong>) al directorio <strong>programas</strong>, se puede teclear:</p>
+            <code><pre><span class="codres">MOVE *.exe programas</span></pre></code>
+            <p>En la consola de <em>Windows</em> se verá algo parecido a:</p>
+            <img src="Comodines%20en%20CMD_files/ejemplo-uso-comodin-asterisco-con-move.gif" alt="Ventana del Símbolo del sistema en Windows donde se muestra cómo utilizar el comodín asterico con MOVE - Ejemplo del tutorial de CMD de {Abrirllave.com" width="444" height="319">
+            <p>Con <span class="codigo">TREE /F</span> se ha comprobado que los archivos con extensión (<strong>.exe</strong>) se han movido correctamente.</p>
+            <h2>Ejemplos de uso del comodín interrogación (<span class="codh2">?</span>)</h2>
+            <p><strong>EJEMPLO</strong> Dada la siguiente estructura de archivos y directorios:</p>
+            <img src="Comodines%20en%20CMD_files/estructura-archivos-y-directorios-ejemplo-uso-comodin-interr.gif" alt="Ventana del Símbolo del sistema en Windows donde se muestra una estructura de archivos y directorios para practicar con el comodín interrogación al hacer un DIR - Ejemplo del tutorial de CMD de {Abrirllave.com" width="444" height="235">
+            <p>Al teclear:</p>
+            <code><pre><span class="codres">DIR archivo?.txt</span></pre></code>
+            <p>En la consola se visualizarán tres archivos (<strong>archivo1.txt</strong>, <strong>archivo2.txt</strong> y <strong>archivo3.txt</strong>):</p>
+            <img src="Comodines%20en%20CMD_files/ejemplo-uso-comodin-interrogacion-con-dir.gif" alt="Ventana del Símbolo del sistema en Windows donde se muestra cómo utilizar el comodín interrogación con DIR - Ejemplo del tutorial de CMD de {Abrirllave.com" width="444" height="211">
+            <p><strong>EJEMPLO</strong> Dada la siguiente estructura de archivos y directorios:</p>
+            <img src="Comodines%20en%20CMD_files/estructura-archivos-y-directorios-ejemplo-uso-varios-comodin.gif" alt="Ventana del Símbolo del sistema en Windows donde se muestra una estructura de archivos y directorios para practicar con varios comodines interrogación al hacer un DIR - Ejemplo del tutorial de CMD de {Abrirllave.com" width="444" height="283">
+            <p>Al teclear:</p>
+            <code><pre><span class="codres">DIR a??a.txt</span></pre></code>
+            <p>En el <em>Símbolo del sistema</em> se mostrarán tres archivos (<strong>a12a.txt</strong>, <strong>a2aa.txt</strong> y <strong>aaaa.txt</strong>):</p>
+            <img src="Comodines%20en%20CMD_files/ejemplo-uso-varios-comodines-interrogacion-con-dir.gif" alt="Ventana del Símbolo del sistema en Windows donde se muestra cómo utilizar varios comodines interrogación con DIR - Ejemplo del tutorial de CMD de {Abrirllave.com" width="444" height="211">
+	</article>
+	<ul>
+		<li><a href="https://www.abrirllave.com/cmd/rutas-relativas-y-absolutas.php">Anterior</a> «»</li>
+		<li><a href="https://www.abrirllave.com/cmd/">Siguiente</a></li>
+	</ul>
+	     <aside>
+<script async="" src="Comodines%20en%20CMD_files/adsbygoogle.js"></script>
+<!-- abr 336x280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-3534314924115986" data-ad-slot="8081617086"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+     </aside></main>
+﻿<aside>
+<script async="" src="Comodines%20en%20CMD_files/adsbygoogle.js"></script>
+<!-- abr 160x600 -->
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-3534314924115986" data-ad-slot="8221217887"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</aside><footer>
+	<ul>
+		<li><a href="https://www.abrirllave.com/">Inicio</a></li>
+		<li><a href="https://www.abrirllave.com/guia-de-estudios-de-informatica/">Guía de estudios</a></li>
+		<li><a href="https://www.abrirllave.com/tutoriales.php">Tutoriales</a></li>
+		<li><a href="https://www.abrirllave.com/diccionario-de-informatica/">Diccionario</a></li>
+		<li><a href="https://www.abrirllave.com/recursos.php">Recursos</a></li>
+		<li><a href="https://www.abrirllave.com/secciones/">Secciones</a></li>
+		<li><a href="https://www.abrirllave.com/ayudar.php">Ayudar</a></li>
+		<li><a href="https://www.abrirllave.com/contactar.php">Contactar</a></li>
+		<li><a href="https://www.abrirllave.com/condiciones.php">Condiciones</a></li>
+		<li><a href="https://www.abrirllave.com/privacidad.php">Privacidad</a></li>
+		<li><a href="https://www.abrirllave.com/licencia-cc.php">Licencia CC</a></li>
+		<li><a href="https://www.abrirllave.com/acerca-de.php">Acerca de</a></li>
+		<li><a href="https://www.abrirllave.com/mapa-web.php">Mapa Web</a></li>
+	</ul>
+	<p>© Abrirllave.com</p>
+</footer>
+<script type="text/javascript" src="Comodines%20en%20CMD_files/addthis_widget.js"></script><script async="" src="Comodines%20en%20CMD_files/js_002"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-50459178-1');
+</script>
+<script async="" src="Comodines%20en%20CMD_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JLWR47DLPQ');
+</script>
+</body></html>
